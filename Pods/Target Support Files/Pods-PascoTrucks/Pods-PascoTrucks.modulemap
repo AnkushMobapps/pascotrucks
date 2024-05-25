@@ -1,0 +1,6 @@
+framework module Pods_PascoTrucks {
+  umbrella header "Pods-PascoTrucks-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pods_PascoTrucksTests {
+  umbrella header "Pods-PascoTrucksTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

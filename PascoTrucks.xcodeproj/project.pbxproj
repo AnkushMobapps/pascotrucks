@@ -1,0 +1,1507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		26A0AF4D2C00B14900896396 /* AddtionalServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A0AF4C2C00B14900896396 /* AddtionalServiceVC.swift */; };
+		26A0AF502C00B18B00896396 /* AddtionalServiceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A0AF4E2C00B18B00896396 /* AddtionalServiceTVC.swift */; };
+		26A0AF512C00B18B00896396 /* AddtionalServiceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26A0AF4F2C00B18B00896396 /* AddtionalServiceTVC.xib */; };
+		26DF90FB2C00501900A915E4 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF90FA2C00501900A915E4 /* MapVC.swift */; };
+		26DF90FF2C00952D00A915E4 /* VicheleTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF90FE2C00952D00A915E4 /* VicheleTypeVC.swift */; };
+		26DF91032C00955900A915E4 /* VicheleTypeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF91012C00955900A915E4 /* VicheleTypeTVC.swift */; };
+		26DF91042C00955900A915E4 /* VicheleTypeTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26DF91022C00955900A915E4 /* VicheleTypeTVC.xib */; };
+		3F34C1BEC5E7783275C4E143 /* Pods_PascoTrucks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0BD9C72D56D545AD8136CA /* Pods_PascoTrucks.framework */; };
+		4117F2262BCE38A90064304A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4117F2252BCE38A90064304A /* AppDelegate.swift */; };
+		4117F2282BCE38A90064304A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4117F2272BCE38A90064304A /* SceneDelegate.swift */; };
+		4117F22D2BCE38A90064304A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4117F22B2BCE38A90064304A /* Main.storyboard */; };
+		4117F2302BCE38A90064304A /* PascoTrucks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4117F22E2BCE38A90064304A /* PascoTrucks.xcdatamodeld */; };
+		4117F2322BCE38AB0064304A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4117F2312BCE38AB0064304A /* Assets.xcassets */; };
+		4117F2352BCE38AB0064304A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4117F2332BCE38AB0064304A /* LaunchScreen.storyboard */; };
+		4117F2402BCE38AC0064304A /* PascoTrucksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4117F23F2BCE38AC0064304A /* PascoTrucksTests.swift */; };
+		4117F24B2BCE38AC0064304A /* PascoTrucksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4117F24A2BCE38AC0064304A /* PascoTrucksUITests.swift */; };
+		4117F2622BCE39F80064304A /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4117F2612BCE39F80064304A /* WelcomeVC.swift */; };
+		4117F2672BCE421E0064304A /* Designable (1).swift in Sources */ = {isa = PBXBuildFile; fileRef = 4117F2662BCE421D0064304A /* Designable (1).swift */; };
+		4117F28B2BCE74F30064304A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4117F28A2BCE74F30064304A /* LoginVC.swift */; };
+		412302102BD62560000ED3C1 /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4123020F2BD62560000ED3C1 /* TitleBar.swift */; };
+		412302152BD6258E000ED3C1 /* TitleBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 412302142BD6258E000ED3C1 /* TitleBar.xib */; };
+		4123021D2BD67BB8000ED3C1 /* DiliverdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4123021C2BD67BB8000ED3C1 /* DiliverdVC.swift */; };
+		41300C132BCF84BF00A9C2AA /* VerifyAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41300C122BCF84BF00A9C2AA /* VerifyAccountVC.swift */; };
+		4150D5982BCF92B600CCDE6C /* VehicleDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150D5972BCF92B600CCDE6C /* VehicleDetailsVC.swift */; };
+		4150D5A12BCFC96300CCDE6C /* DriverHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150D5A02BCFC96300CCDE6C /* DriverHomeVC.swift */; };
+		4150D5A92BCFD64E00CCDE6C /* ImgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150D5A82BCFD64E00CCDE6C /* ImgCell.swift */; };
+		4150D5B32BCFEEC200CCDE6C /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150D5B22BCFEEC200CCDE6C /* MyTableViewCell.swift */; };
+		4150F9F12BDA5122009E20AF /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150F9F02BDA5122009E20AF /* LanguageCell.swift */; };
+		4150FA022BDA89FA009E20AF /* DropDownListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150FA012BDA89FA009E20AF /* DropDownListCell.swift */; };
+		4150FA072BDA8A87009E20AF /* DropDownListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4150FA062BDA8A87009E20AF /* DropDownListVC.swift */; };
+		41677FCA2BD8ECAB0035EDAF /* TitleBar2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41677FC92BD8ECAB0035EDAF /* TitleBar2.xib */; };
+		41677FD22BD8ECC50035EDAF /* TitleBar2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41677FD12BD8ECC50035EDAF /* TitleBar2.swift */; };
+		41677FEB2BD915F90035EDAF /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41677FEA2BD915F90035EDAF /* NotificationCell.swift */; };
+		41677FFC2BD920850035EDAF /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41677FFB2BD920850035EDAF /* HistoryVC.swift */; };
+		416780042BD9222A0035EDAF /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416780032BD9222A0035EDAF /* HistoryCell.swift */; };
+		41C8972A2BCEABCA00525166 /* SignupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C897292BCEABCA00525166 /* SignupVC.swift */; };
+		41D650712BD7D9AF006F911A /* CurrentLocationOfOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D650702BD7D9AF006F911A /* CurrentLocationOfOrderVC.swift */; };
+		41E606A12BD2584B0053E6EF /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E606A02BD2584B0053E6EF /* SplashVC.swift */; };
+		41E606A72BD266680053E6EF /* MyTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E606A62BD266680053E6EF /* MyTabBar.swift */; };
+		41E606B62BD26B760053E6EF /* OrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E606B52BD26B760053E6EF /* OrderVC.swift */; };
+		41E606C12BD26C1C0053E6EF /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E606C02BD26C1C0053E6EF /* ProfileVC.swift */; };
+		41E606C92BD26C330053E6EF /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E606C82BD26C330053E6EF /* NotificationVC.swift */; };
+		41E606CE2BD26C4A0053E6EF /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E606CD2BD26C4A0053E6EF /* MoreVC.swift */; };
+		5152727A71194E749B038688 /* Pods_PascoTrucksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACB14F9F1000613CCAA4706 /* Pods_PascoTrucksTests.framework */; };
+		700718282BE0D2B10038F480 /* CountryCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700718272BE0D2B10038F480 /* CountryCodeCell.swift */; };
+		7008F70D2BF5C2AA00B0B809 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7008F70C2BF5C2AA00B0B809 /* OrderCell.swift */; };
+		7008F70F2BF5D49B00B0B809 /* AcceptBidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7008F70E2BF5D49A00B0B809 /* AcceptBidCell.swift */; };
+		7008F7112BF5DC0E00B0B809 /* AllBidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7008F7102BF5DC0E00B0B809 /* AllBidCell.swift */; };
+		7008F7132BF5E6D300B0B809 /* ClientOrderDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7008F7122BF5E6D300B0B809 /* ClientOrderDetailsVC.swift */; };
+		700FC31F2BF725F40032FF2A /* DriverHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC31E2BF725F40032FF2A /* DriverHomeModel.swift */; };
+		700FC3212BF7260C0032FF2A /* DriverHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC3202BF7260C0032FF2A /* DriverHomeViewModel.swift */; };
+		7015AEEB2BECFCF0001BF1B4 /* VehicleDataAndUpdateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7015AEEA2BECFCF0001BF1B4 /* VehicleDataAndUpdateVC.swift */; };
+		701629F52BF2104B00D0E4DE /* MianTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701629F42BF2104B00D0E4DE /* MianTableCell.swift */; };
+		701629F72BF21EB500D0E4DE /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701629F62BF21EB500D0E4DE /* CollectionCell.swift */; };
+		701629F92BF22FC800D0E4DE /* PaymentMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701629F82BF22FC800D0E4DE /* PaymentMethodVC.swift */; };
+		70203ECF2BE209DF00AF81E9 /* CountryCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70203ECE2BE209DF00AF81E9 /* CountryCodeVC.swift */; };
+		70203ED12BE216BE00AF81E9 /* VehicleDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70203ED02BE216BE00AF81E9 /* VehicleDetailsVM.swift */; };
+		70203ED32BE2179700AF81E9 /* VehicleDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70203ED22BE2179700AF81E9 /* VehicleDetailsModel.swift */; };
+		70203ED52BE23DB200AF81E9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70203ED42BE23DB200AF81E9 /* DataManager.swift */; };
+		702914C72BE6423D00C33E69 /* ProfileDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702914C62BE6423D00C33E69 /* ProfileDataModel.swift */; };
+		702914CA2BE6534100C33E69 /* CompleteRegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702914C92BE6534100C33E69 /* CompleteRegistrationVC.swift */; };
+		702914CC2BE6536E00C33E69 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702914CB2BE6536E00C33E69 /* RegisterModel.swift */; };
+		702914CE2BE6538300C33E69 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702914CD2BE6538300C33E69 /* RegisterViewModel.swift */; };
+		702EC2C22C01C68B00502422 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 702EC2C12C01C68B00502422 /* GoogleService-Info.plist */; };
+		702EC2CA2C01CA8600502422 /* PinaddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702EC2C92C01CA8600502422 /* PinaddressVC.swift */; };
+		70317BF72BF4770900CC41F7 /* ConfirmOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70317BF62BF4770900CC41F7 /* ConfirmOrderVC.swift */; };
+		70317BF92BF4C73100CC41F7 /* GridCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70317BF82BF4C73000CC41F7 /* GridCollectionCell.swift */; };
+		703413382BF1D34C0079E66B /* ClientTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703413372BF1D34C0079E66B /* ClientTabBarViewController.swift */; };
+		703413422BF1D6C50079E66B /* ClientHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703413412BF1D6C50079E66B /* ClientHomeVC.swift */; };
+		703413442BF1D6D70079E66B /* ClientOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703413432BF1D6D70079E66B /* ClientOrderVC.swift */; };
+		703413462BF1D6F10079E66B /* ClientMoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703413452BF1D6F10079E66B /* ClientMoreVC.swift */; };
+		703413482BF1D7060079E66B /* ClientHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703413472BF1D7060079E66B /* ClientHistoryVC.swift */; };
+		7034134A2BF1D71A0079E66B /* ClientProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703413492BF1D71A0079E66B /* ClientProfileVC.swift */; };
+		7034134C2BF1DB020079E66B /* ClientTitleBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7034134B2BF1DB020079E66B /* ClientTitleBar.xib */; };
+		7034134E2BF1DB4A0079E66B /* ClientTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7034134D2BF1DB4A0079E66B /* ClientTitleBar.swift */; };
+		703413522BF1EED50079E66B /* TopImgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703413512BF1EED50079E66B /* TopImgCell.swift */; };
+		7044860F2BE8ED6500CC9403 /* UpdareProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044860E2BE8ED6500CC9403 /* UpdareProfileModel.swift */; };
+		704486112BE8F15C00CC9403 /* UpdateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704486102BE8F15C00CC9403 /* UpdateProfileViewModel.swift */; };
+		70500F502BDFA36200BC4BB5 /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70500F4D2BDFA36200BC4BB5 /* CommonMethods.swift */; };
+		70500F512BDFA36200BC4BB5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70500F4E2BDFA36200BC4BB5 /* Constant.swift */; };
+		70500F542BDFB5B100BC4BB5 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70500F532BDFB5B100BC4BB5 /* LoginModel.swift */; };
+		70500F562BDFB5BC00BC4BB5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70500F552BDFB5BC00BC4BB5 /* LoginViewModel.swift */; };
+		70500F582BDFC3E600BC4BB5 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70500F572BDFC3E600BC4BB5 /* SignUpModel.swift */; };
+		70500F5A2BDFC40800BC4BB5 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70500F592BDFC40800BC4BB5 /* SignUpViewModel.swift */; };
+		7058992C2BEE05D300D05D12 /* LoginVerifyNoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7058992B2BEE05D300D05D12 /* LoginVerifyNoVC.swift */; };
+		705AE8C92BE4B3B600EAA58D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705AE8C82BE4B3B600EAA58D /* ProfileViewModel.swift */; };
+		70A713DD2C01CD9A00DCDE54 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A713DC2C01CD9A00DCDE54 /* AuthManager.swift */; };
+		70A713DF2C01CDA900DCDE54 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A713DE2C01CDA900DCDE54 /* LocationManager.swift */; };
+		70DF0CD72BF867D200662899 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DF0CD62BF867D200662899 /* NotificationModel.swift */; };
+		70DF0CD92BF867E500662899 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DF0CD82BF867E500662899 /* NotificationViewModel.swift */; };
+		70FD486A2BFB097B00CF0B31 /* MyOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FD48692BFB097B00CF0B31 /* MyOrderVC.swift */; };
+		70FF588C2BF624CB0046BA18 /* ClientHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FF588B2BF624CB0046BA18 /* ClientHomeModel.swift */; };
+		70FF588E2BF627870046BA18 /* ClientHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FF588D2BF627870046BA18 /* ClientHomeViewModel.swift */; };
+		DC307560531FD3F9ED5C3306 /* Pods_PascoTrucks_PascoTrucksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B10F9E8D617442C71FC2E7 /* Pods_PascoTrucks_PascoTrucksUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4117F23C2BCE38AC0064304A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4117F21A2BCE38A90064304A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4117F2212BCE38A90064304A;
+			remoteInfo = PascoTrucks;
+		};
+		4117F2472BCE38AC0064304A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4117F21A2BCE38A90064304A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4117F2212BCE38A90064304A;
+			remoteInfo = PascoTrucks;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		26A0AF4C2C00B14900896396 /* AddtionalServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddtionalServiceVC.swift; sourceTree = "<group>"; };
+		26A0AF4E2C00B18B00896396 /* AddtionalServiceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddtionalServiceTVC.swift; sourceTree = "<group>"; };
+		26A0AF4F2C00B18B00896396 /* AddtionalServiceTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddtionalServiceTVC.xib; sourceTree = "<group>"; };
+		26DF90FA2C00501900A915E4 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		26DF90FE2C00952D00A915E4 /* VicheleTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VicheleTypeVC.swift; sourceTree = "<group>"; };
+		26DF91012C00955900A915E4 /* VicheleTypeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VicheleTypeTVC.swift; sourceTree = "<group>"; };
+		26DF91022C00955900A915E4 /* VicheleTypeTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VicheleTypeTVC.xib; sourceTree = "<group>"; };
+		2D9FBE6E3793A236F95B6B05 /* Pods-PascoTrucksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PascoTrucksTests.debug.xcconfig"; path = "Target Support Files/Pods-PascoTrucksTests/Pods-PascoTrucksTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4117F2222BCE38A90064304A /* PascoTrucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PascoTrucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4117F2252BCE38A90064304A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4117F2272BCE38A90064304A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4117F22C2BCE38A90064304A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4117F22F2BCE38A90064304A /* PascoTrucks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PascoTrucks.xcdatamodel; sourceTree = "<group>"; };
+		4117F2312BCE38AB0064304A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4117F2342BCE38AB0064304A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4117F2362BCE38AB0064304A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4117F23B2BCE38AC0064304A /* PascoTrucksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PascoTrucksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4117F23F2BCE38AC0064304A /* PascoTrucksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PascoTrucksTests.swift; sourceTree = "<group>"; };
+		4117F2412BCE38AC0064304A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4117F2462BCE38AC0064304A /* PascoTrucksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PascoTrucksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4117F24A2BCE38AC0064304A /* PascoTrucksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PascoTrucksUITests.swift; sourceTree = "<group>"; };
+		4117F24C2BCE38AC0064304A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4117F2612BCE39F80064304A /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		4117F2662BCE421D0064304A /* Designable (1).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Designable (1).swift"; sourceTree = "<group>"; };
+		4117F26C2BCE490C0064304A /* DMSans-Bold-BF64376d32191f2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold-BF64376d32191f2.ttf"; sourceTree = "<group>"; };
+		4117F2702BCE49940064304A /* DMSans-MediumItalic-BF64376d3245dbd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-MediumItalic-BF64376d3245dbd.ttf"; sourceTree = "<group>"; };
+		4117F2712BCE49940064304A /* DMSans-Medium-BF64376d329a539.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium-BF64376d329a539.ttf"; sourceTree = "<group>"; };
+		4117F2722BCE49940064304A /* DMSans-Regular-BF64376d323f095.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular-BF64376d323f095.ttf"; sourceTree = "<group>"; };
+		4117F2732BCE49940064304A /* DMSans-Italic-BF64376d3243377.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Italic-BF64376d3243377.ttf"; sourceTree = "<group>"; };
+		4117F2742BCE49950064304A /* DMSans-BoldItalic-BF64376d319cf8d.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-BoldItalic-BF64376d319cf8d.ttf"; sourceTree = "<group>"; };
+		4117F28A2BCE74F30064304A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		4123020F2BD62560000ED3C1 /* TitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBar.swift; sourceTree = "<group>"; };
+		412302142BD6258E000ED3C1 /* TitleBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleBar.xib; sourceTree = "<group>"; };
+		4123021C2BD67BB8000ED3C1 /* DiliverdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiliverdVC.swift; sourceTree = "<group>"; };
+		41300C122BCF84BF00A9C2AA /* VerifyAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAccountVC.swift; sourceTree = "<group>"; };
+		4150D5972BCF92B600CCDE6C /* VehicleDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailsVC.swift; sourceTree = "<group>"; };
+		4150D5A02BCFC96300CCDE6C /* DriverHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverHomeVC.swift; sourceTree = "<group>"; };
+		4150D5A82BCFD64E00CCDE6C /* ImgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgCell.swift; sourceTree = "<group>"; };
+		4150D5B22BCFEEC200CCDE6C /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		4150F9F02BDA5122009E20AF /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
+		4150FA012BDA89FA009E20AF /* DropDownListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownListCell.swift; sourceTree = "<group>"; };
+		4150FA062BDA8A87009E20AF /* DropDownListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownListVC.swift; sourceTree = "<group>"; };
+		41677FC92BD8ECAB0035EDAF /* TitleBar2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleBar2.xib; sourceTree = "<group>"; };
+		41677FD12BD8ECC50035EDAF /* TitleBar2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBar2.swift; sourceTree = "<group>"; };
+		41677FEA2BD915F90035EDAF /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		41677FFB2BD920850035EDAF /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
+		416780032BD9222A0035EDAF /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		41C897292BCEABCA00525166 /* SignupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVC.swift; sourceTree = "<group>"; };
+		41D650702BD7D9AF006F911A /* CurrentLocationOfOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationOfOrderVC.swift; sourceTree = "<group>"; };
+		41E606A02BD2584B0053E6EF /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		41E606A62BD266680053E6EF /* MyTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBar.swift; sourceTree = "<group>"; };
+		41E606B52BD26B760053E6EF /* OrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderVC.swift; sourceTree = "<group>"; };
+		41E606C02BD26C1C0053E6EF /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		41E606C82BD26C330053E6EF /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
+		41E606CD2BD26C4A0053E6EF /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		448BE923EEBC81A7EA9EA1E7 /* Pods-PascoTrucks-PascoTrucksUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PascoTrucks-PascoTrucksUITests.release.xcconfig"; path = "Target Support Files/Pods-PascoTrucks-PascoTrucksUITests/Pods-PascoTrucks-PascoTrucksUITests.release.xcconfig"; sourceTree = "<group>"; };
+		45B10F9E8D617442C71FC2E7 /* Pods_PascoTrucks_PascoTrucksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PascoTrucks_PascoTrucksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		534C313C615486FA12C08C8E /* Pods-PascoTrucksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PascoTrucksTests.release.xcconfig"; path = "Target Support Files/Pods-PascoTrucksTests/Pods-PascoTrucksTests.release.xcconfig"; sourceTree = "<group>"; };
+		5E10F4350BD722562EB63DC1 /* Pods-PascoTrucks-PascoTrucksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PascoTrucks-PascoTrucksUITests.debug.xcconfig"; path = "Target Support Files/Pods-PascoTrucks-PascoTrucksUITests/Pods-PascoTrucks-PascoTrucksUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		700718272BE0D2B10038F480 /* CountryCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeCell.swift; sourceTree = "<group>"; };
+		7008F70C2BF5C2AA00B0B809 /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
+		7008F70E2BF5D49A00B0B809 /* AcceptBidCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptBidCell.swift; sourceTree = "<group>"; };
+		7008F7102BF5DC0E00B0B809 /* AllBidCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBidCell.swift; sourceTree = "<group>"; };
+		7008F7122BF5E6D300B0B809 /* ClientOrderDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientOrderDetailsVC.swift; sourceTree = "<group>"; };
+		700FC31E2BF725F40032FF2A /* DriverHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverHomeModel.swift; sourceTree = "<group>"; };
+		700FC3202BF7260C0032FF2A /* DriverHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverHomeViewModel.swift; sourceTree = "<group>"; };
+		7015AEEA2BECFCF0001BF1B4 /* VehicleDataAndUpdateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDataAndUpdateVC.swift; sourceTree = "<group>"; };
+		701629F42BF2104B00D0E4DE /* MianTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MianTableCell.swift; sourceTree = "<group>"; };
+		701629F62BF21EB500D0E4DE /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		701629F82BF22FC800D0E4DE /* PaymentMethodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodVC.swift; sourceTree = "<group>"; };
+		70203ECE2BE209DF00AF81E9 /* CountryCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeVC.swift; sourceTree = "<group>"; };
+		70203ED02BE216BE00AF81E9 /* VehicleDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailsVM.swift; sourceTree = "<group>"; };
+		70203ED22BE2179700AF81E9 /* VehicleDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailsModel.swift; sourceTree = "<group>"; };
+		70203ED42BE23DB200AF81E9 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		702914C62BE6423D00C33E69 /* ProfileDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataModel.swift; sourceTree = "<group>"; };
+		702914C92BE6534100C33E69 /* CompleteRegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRegistrationVC.swift; sourceTree = "<group>"; };
+		702914CB2BE6536E00C33E69 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		702914CD2BE6538300C33E69 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		702EC2C12C01C68B00502422 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		702EC2C92C01CA8600502422 /* PinaddressVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinaddressVC.swift; sourceTree = "<group>"; };
+		70317BF62BF4770900CC41F7 /* ConfirmOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrderVC.swift; sourceTree = "<group>"; };
+		70317BF82BF4C73000CC41F7 /* GridCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionCell.swift; sourceTree = "<group>"; };
+		703413372BF1D34C0079E66B /* ClientTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTabBarViewController.swift; sourceTree = "<group>"; };
+		703413412BF1D6C50079E66B /* ClientHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHomeVC.swift; sourceTree = "<group>"; };
+		703413432BF1D6D70079E66B /* ClientOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientOrderVC.swift; sourceTree = "<group>"; };
+		703413452BF1D6F10079E66B /* ClientMoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMoreVC.swift; sourceTree = "<group>"; };
+		703413472BF1D7060079E66B /* ClientHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHistoryVC.swift; sourceTree = "<group>"; };
+		703413492BF1D71A0079E66B /* ClientProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientProfileVC.swift; sourceTree = "<group>"; };
+		7034134B2BF1DB020079E66B /* ClientTitleBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClientTitleBar.xib; sourceTree = "<group>"; };
+		7034134D2BF1DB4A0079E66B /* ClientTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTitleBar.swift; sourceTree = "<group>"; };
+		703413512BF1EED50079E66B /* TopImgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopImgCell.swift; sourceTree = "<group>"; };
+		7044860E2BE8ED6500CC9403 /* UpdareProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdareProfileModel.swift; sourceTree = "<group>"; };
+		704486102BE8F15C00CC9403 /* UpdateProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewModel.swift; sourceTree = "<group>"; };
+		70500F4D2BDFA36200BC4BB5 /* CommonMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
+		70500F4E2BDFA36200BC4BB5 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		70500F532BDFB5B100BC4BB5 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		70500F552BDFB5BC00BC4BB5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		70500F572BDFC3E600BC4BB5 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		70500F592BDFC40800BC4BB5 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		7058992B2BEE05D300D05D12 /* LoginVerifyNoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerifyNoVC.swift; sourceTree = "<group>"; };
+		705AE8C82BE4B3B600EAA58D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		70A713DC2C01CD9A00DCDE54 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		70A713DE2C01CDA900DCDE54 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		70DF0CD62BF867D200662899 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		70DF0CD82BF867E500662899 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		70FD48692BFB097B00CF0B31 /* MyOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderVC.swift; sourceTree = "<group>"; };
+		70FF588B2BF624CB0046BA18 /* ClientHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHomeModel.swift; sourceTree = "<group>"; };
+		70FF588D2BF627870046BA18 /* ClientHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHomeViewModel.swift; sourceTree = "<group>"; };
+		CE5CAA439FA1970DEB35E85D /* Pods-PascoTrucks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PascoTrucks.release.xcconfig"; path = "Target Support Files/Pods-PascoTrucks/Pods-PascoTrucks.release.xcconfig"; sourceTree = "<group>"; };
+		DACB14F9F1000613CCAA4706 /* Pods_PascoTrucksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PascoTrucksTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9D829AEA9BFD1965F5D259F /* Pods-PascoTrucks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PascoTrucks.debug.xcconfig"; path = "Target Support Files/Pods-PascoTrucks/Pods-PascoTrucks.debug.xcconfig"; sourceTree = "<group>"; };
+		EC0BD9C72D56D545AD8136CA /* Pods_PascoTrucks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PascoTrucks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4117F21F2BCE38A90064304A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F34C1BEC5E7783275C4E143 /* Pods_PascoTrucks.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4117F2382BCE38AC0064304A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5152727A71194E749B038688 /* Pods_PascoTrucksTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4117F2432BCE38AC0064304A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC307560531FD3F9ED5C3306 /* Pods_PascoTrucks_PascoTrucksUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2620C08F2BFF493E00E00177 /* PinAddress */ = {
+			isa = PBXGroup;
+			children = (
+				702EC2C92C01CA8600502422 /* PinaddressVC.swift */,
+				26DF90FA2C00501900A915E4 /* MapVC.swift */,
+			);
+			path = PinAddress;
+			sourceTree = "<group>";
+		};
+		269AE8952BFF1E1E005E1601 /* Client Home */ = {
+			isa = PBXGroup;
+			children = (
+				703413412BF1D6C50079E66B /* ClientHomeVC.swift */,
+				70317BF82BF4C73000CC41F7 /* GridCollectionCell.swift */,
+			);
+			path = "Client Home";
+			sourceTree = "<group>";
+		};
+		26A0AF482C00B0E600896396 /* AddtionalService */ = {
+			isa = PBXGroup;
+			children = (
+				26A0AF4B2C00B12500896396 /* AddtionalServiceTVC */,
+				26A0AF4C2C00B14900896396 /* AddtionalServiceVC.swift */,
+			);
+			path = AddtionalService;
+			sourceTree = "<group>";
+		};
+		26A0AF4B2C00B12500896396 /* AddtionalServiceTVC */ = {
+			isa = PBXGroup;
+			children = (
+				26A0AF4E2C00B18B00896396 /* AddtionalServiceTVC.swift */,
+				26A0AF4F2C00B18B00896396 /* AddtionalServiceTVC.xib */,
+			);
+			path = AddtionalServiceTVC;
+			sourceTree = "<group>";
+		};
+		26DF90FC2C0068FA00A915E4 /* PaymentMethod */ = {
+			isa = PBXGroup;
+			children = (
+				26A0AF482C00B0E600896396 /* AddtionalService */,
+				26DF90FD2C0094F600A915E4 /* VicheleType */,
+				701629F82BF22FC800D0E4DE /* PaymentMethodVC.swift */,
+			);
+			path = PaymentMethod;
+			sourceTree = "<group>";
+		};
+		26DF90FD2C0094F600A915E4 /* VicheleType */ = {
+			isa = PBXGroup;
+			children = (
+				26DF91002C00953400A915E4 /* VichleTypeTVC */,
+				26DF90FE2C00952D00A915E4 /* VicheleTypeVC.swift */,
+			);
+			path = VicheleType;
+			sourceTree = "<group>";
+		};
+		26DF91002C00953400A915E4 /* VichleTypeTVC */ = {
+			isa = PBXGroup;
+			children = (
+				26DF91012C00955900A915E4 /* VicheleTypeTVC.swift */,
+				26DF91022C00955900A915E4 /* VicheleTypeTVC.xib */,
+			);
+			path = VichleTypeTVC;
+			sourceTree = "<group>";
+		};
+		4117F2192BCE38A90064304A = {
+			isa = PBXGroup;
+			children = (
+				4117F2242BCE38A90064304A /* PascoTrucks */,
+				4117F23E2BCE38AC0064304A /* PascoTrucksTests */,
+				4117F2492BCE38AC0064304A /* PascoTrucksUITests */,
+				4117F2232BCE38A90064304A /* Products */,
+				A3836CC436881742DBF36C1C /* Pods */,
+				EFF683A64ECE9CF6B3B70DFD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4117F2232BCE38A90064304A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4117F2222BCE38A90064304A /* PascoTrucks.app */,
+				4117F23B2BCE38AC0064304A /* PascoTrucksTests.xctest */,
+				4117F2462BCE38AC0064304A /* PascoTrucksUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4117F2242BCE38A90064304A /* PascoTrucks */ = {
+			isa = PBXGroup;
+			children = (
+				4117F2802BCE54D00064304A /* Application */,
+				4117F27D2BCE54680064304A /* CommonController */,
+				4117F27C2BCE545A0064304A /* Resources */,
+				4117F27B2BCE54400064304A /* StoryBoard */,
+				4117F25C2BCE38DF0064304A /* Client */,
+				4117F25B2BCE38C30064304A /* Driver */,
+				4117F2362BCE38AB0064304A /* Info.plist */,
+				702EC2C12C01C68B00502422 /* GoogleService-Info.plist */,
+				4117F22E2BCE38A90064304A /* PascoTrucks.xcdatamodeld */,
+			);
+			path = PascoTrucks;
+			sourceTree = "<group>";
+		};
+		4117F23E2BCE38AC0064304A /* PascoTrucksTests */ = {
+			isa = PBXGroup;
+			children = (
+				4117F23F2BCE38AC0064304A /* PascoTrucksTests.swift */,
+				4117F2412BCE38AC0064304A /* Info.plist */,
+			);
+			path = PascoTrucksTests;
+			sourceTree = "<group>";
+		};
+		4117F2492BCE38AC0064304A /* PascoTrucksUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4117F24A2BCE38AC0064304A /* PascoTrucksUITests.swift */,
+				4117F24C2BCE38AC0064304A /* Info.plist */,
+			);
+			path = PascoTrucksUITests;
+			sourceTree = "<group>";
+		};
+		4117F25B2BCE38C30064304A /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				702914C82BE6530800C33E69 /* Registration */,
+				7013E5972BE3B11E003E7E9F /* Verification */,
+				70500F5B2BDFC93A00BC4BB5 /* VehicleDetails */,
+				4123020E2BD62526000ED3C1 /* TopBar */,
+				41E606A52BD2663E0053E6EF /* TabBar */,
+				4117F2602BCE39A20064304A /* Welcome */,
+				4117F25E2BCE38FE0064304A /* SignUp */,
+				4117F25D2BCE38F30064304A /* Login */,
+				41E606A02BD2584B0053E6EF /* SplashVC.swift */,
+			);
+			path = Driver;
+			sourceTree = "<group>";
+		};
+		4117F25C2BCE38DF0064304A /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				26DF90FC2C0068FA00A915E4 /* PaymentMethod */,
+				2620C08F2BFF493E00E00177 /* PinAddress */,
+				269AE8952BFF1E1E005E1601 /* Client Home */,
+				7034133E2BF1D6630079E66B /* ClientProfile */,
+				7034133C2BF1D6470079E66B /* ClientMorePage */,
+				7034133B2BF1D63A0079E66B /* ClientOrderPage */,
+				7034133A2BF1D6270079E66B /* ClientHomePage */,
+				7034133D2BF1D6560079E66B /* ClientHistory */,
+				70F2C9022BF35AF70074BBAF /* ClientViewModel */,
+				70F2C9012BF35AE90074BBAF /* ClientModel */,
+				703413392BF1D60E0079E66B /* ClientTabBar */,
+				70500F3E2BDF76ED00BC4BB5 /* Demo */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		4117F25D2BCE38F30064304A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4117F28A2BCE74F30064304A /* LoginVC.swift */,
+				70500F532BDFB5B100BC4BB5 /* LoginModel.swift */,
+				70500F552BDFB5BC00BC4BB5 /* LoginViewModel.swift */,
+				7058992B2BEE05D300D05D12 /* LoginVerifyNoVC.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		4117F25E2BCE38FE0064304A /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				70500F592BDFC40800BC4BB5 /* SignUpViewModel.swift */,
+				70500F572BDFC3E600BC4BB5 /* SignUpModel.swift */,
+				41C897292BCEABCA00525166 /* SignupVC.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		4117F2602BCE39A20064304A /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				4117F2612BCE39F80064304A /* WelcomeVC.swift */,
+				4150F9F02BDA5122009E20AF /* LanguageCell.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		4117F26B2BCE48D60064304A /* Font File */ = {
+			isa = PBXGroup;
+			children = (
+				4117F26C2BCE490C0064304A /* DMSans-Bold-BF64376d32191f2.ttf */,
+				4117F2742BCE49950064304A /* DMSans-BoldItalic-BF64376d319cf8d.ttf */,
+				4117F2732BCE49940064304A /* DMSans-Italic-BF64376d3243377.ttf */,
+				4117F2712BCE49940064304A /* DMSans-Medium-BF64376d329a539.ttf */,
+				4117F2702BCE49940064304A /* DMSans-MediumItalic-BF64376d3245dbd.ttf */,
+				4117F2722BCE49940064304A /* DMSans-Regular-BF64376d323f095.ttf */,
+			);
+			path = "Font File";
+			sourceTree = "<group>";
+		};
+		4117F27B2BCE54400064304A /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				4117F2332BCE38AB0064304A /* LaunchScreen.storyboard */,
+				4117F22B2BCE38A90064304A /* Main.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		4117F27C2BCE545A0064304A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4117F26B2BCE48D60064304A /* Font File */,
+				4117F2312BCE38AB0064304A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4117F27D2BCE54680064304A /* CommonController */ = {
+			isa = PBXGroup;
+			children = (
+				4117F27E2BCE54780064304A /* New Group */,
+			);
+			path = CommonController;
+			sourceTree = "<group>";
+		};
+		4117F27E2BCE54780064304A /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				4150FA062BDA8A87009E20AF /* DropDownListVC.swift */,
+				4150FA012BDA89FA009E20AF /* DropDownListCell.swift */,
+				700718272BE0D2B10038F480 /* CountryCodeCell.swift */,
+				70203ECE2BE209DF00AF81E9 /* CountryCodeVC.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		4117F27F2BCE547A0064304A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				70A713DE2C01CDA900DCDE54 /* LocationManager.swift */,
+				70500F5E2BDFCB2100BC4BB5 /* AuthApi */,
+				4117F2662BCE421D0064304A /* Designable (1).swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		4117F2802BCE54D00064304A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				4117F27F2BCE547A0064304A /* Helper */,
+				4117F2252BCE38A90064304A /* AppDelegate.swift */,
+				4117F2272BCE38A90064304A /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		4123020E2BD62526000ED3C1 /* TopBar */ = {
+			isa = PBXGroup;
+			children = (
+				4123020F2BD62560000ED3C1 /* TitleBar.swift */,
+				412302142BD6258E000ED3C1 /* TitleBar.xib */,
+			);
+			path = TopBar;
+			sourceTree = "<group>";
+		};
+		4150D59F2BCFC93300CCDE6C /* DriverHome */ = {
+			isa = PBXGroup;
+			children = (
+				70FD486B2BFB163100CF0B31 /* MakeAnOrder */,
+				4150D5A02BCFC96300CCDE6C /* DriverHomeVC.swift */,
+				4150D5A82BCFD64E00CCDE6C /* ImgCell.swift */,
+				4150D5B22BCFEEC200CCDE6C /* MyTableViewCell.swift */,
+				700FC31E2BF725F40032FF2A /* DriverHomeModel.swift */,
+				700FC3202BF7260C0032FF2A /* DriverHomeViewModel.swift */,
+			);
+			path = DriverHome;
+			sourceTree = "<group>";
+		};
+		41677FBC2BD8EABC0035EDAF /* History */ = {
+			isa = PBXGroup;
+			children = (
+				41677FFB2BD920850035EDAF /* HistoryVC.swift */,
+				416780032BD9222A0035EDAF /* HistoryCell.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		41677FC82BD8EC910035EDAF /* TopBar2 */ = {
+			isa = PBXGroup;
+			children = (
+				41677FC92BD8ECAB0035EDAF /* TitleBar2.xib */,
+				41677FD12BD8ECC50035EDAF /* TitleBar2.swift */,
+			);
+			path = TopBar2;
+			sourceTree = "<group>";
+		};
+		41E606A52BD2663E0053E6EF /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				41E606A62BD266680053E6EF /* MyTabBar.swift */,
+				41677FC82BD8EC910035EDAF /* TopBar2 */,
+				41E606BE2BD26BF50053E6EF /* Notification */,
+				4150D59F2BCFC93300CCDE6C /* DriverHome */,
+				41E606BF2BD26C010053E6EF /* Profile */,
+				41E606BD2BD26BEE0053E6EF /* More */,
+				41E606B42BD26B500053E6EF /* Order */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		41E606B42BD26B500053E6EF /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				70FD48692BFB097B00CF0B31 /* MyOrderVC.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		41E606BD2BD26BEE0053E6EF /* More */ = {
+			isa = PBXGroup;
+			children = (
+				41E606CD2BD26C4A0053E6EF /* MoreVC.swift */,
+				41677FBC2BD8EABC0035EDAF /* History */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		41E606BE2BD26BF50053E6EF /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				41E606C82BD26C330053E6EF /* NotificationVC.swift */,
+				41677FEA2BD915F90035EDAF /* NotificationCell.swift */,
+				70DF0CD62BF867D200662899 /* NotificationModel.swift */,
+				70DF0CD82BF867E500662899 /* NotificationViewModel.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		41E606BF2BD26C010053E6EF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				41E606C02BD26C1C0053E6EF /* ProfileVC.swift */,
+				705AE8C82BE4B3B600EAA58D /* ProfileViewModel.swift */,
+				702914C62BE6423D00C33E69 /* ProfileDataModel.swift */,
+				7044860E2BE8ED6500CC9403 /* UpdareProfileModel.swift */,
+				704486102BE8F15C00CC9403 /* UpdateProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		7013E5972BE3B11E003E7E9F /* Verification */ = {
+			isa = PBXGroup;
+			children = (
+				41300C122BCF84BF00A9C2AA /* VerifyAccountVC.swift */,
+			);
+			path = Verification;
+			sourceTree = "<group>";
+		};
+		7015AEE82BECFC23001BF1B4 /* VehicleDetailsForm */ = {
+			isa = PBXGroup;
+			children = (
+				4150D5972BCF92B600CCDE6C /* VehicleDetailsVC.swift */,
+			);
+			path = VehicleDetailsForm;
+			sourceTree = "<group>";
+		};
+		7015AEE92BECFC88001BF1B4 /* VehicleDetailsAndUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				7015AEEA2BECFCF0001BF1B4 /* VehicleDataAndUpdateVC.swift */,
+			);
+			path = VehicleDetailsAndUpdate;
+			sourceTree = "<group>";
+		};
+		702914C82BE6530800C33E69 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				702914C92BE6534100C33E69 /* CompleteRegistrationVC.swift */,
+				702914CB2BE6536E00C33E69 /* RegisterModel.swift */,
+				702914CD2BE6538300C33E69 /* RegisterViewModel.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		703413392BF1D60E0079E66B /* ClientTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				703413372BF1D34C0079E66B /* ClientTabBarViewController.swift */,
+				7034134B2BF1DB020079E66B /* ClientTitleBar.xib */,
+				7034134D2BF1DB4A0079E66B /* ClientTitleBar.swift */,
+			);
+			path = ClientTabBar;
+			sourceTree = "<group>";
+		};
+		7034133A2BF1D6270079E66B /* ClientHomePage */ = {
+			isa = PBXGroup;
+			children = (
+				70317BF62BF4770900CC41F7 /* ConfirmOrderVC.swift */,
+				703413512BF1EED50079E66B /* TopImgCell.swift */,
+				701629F42BF2104B00D0E4DE /* MianTableCell.swift */,
+				701629F62BF21EB500D0E4DE /* CollectionCell.swift */,
+			);
+			path = ClientHomePage;
+			sourceTree = "<group>";
+		};
+		7034133B2BF1D63A0079E66B /* ClientOrderPage */ = {
+			isa = PBXGroup;
+			children = (
+				703413432BF1D6D70079E66B /* ClientOrderVC.swift */,
+				7008F70C2BF5C2AA00B0B809 /* OrderCell.swift */,
+				7008F70E2BF5D49A00B0B809 /* AcceptBidCell.swift */,
+				7008F7102BF5DC0E00B0B809 /* AllBidCell.swift */,
+				7008F7122BF5E6D300B0B809 /* ClientOrderDetailsVC.swift */,
+			);
+			path = ClientOrderPage;
+			sourceTree = "<group>";
+		};
+		7034133C2BF1D6470079E66B /* ClientMorePage */ = {
+			isa = PBXGroup;
+			children = (
+				703413452BF1D6F10079E66B /* ClientMoreVC.swift */,
+			);
+			path = ClientMorePage;
+			sourceTree = "<group>";
+		};
+		7034133D2BF1D6560079E66B /* ClientHistory */ = {
+			isa = PBXGroup;
+			children = (
+				703413472BF1D7060079E66B /* ClientHistoryVC.swift */,
+			);
+			path = ClientHistory;
+			sourceTree = "<group>";
+		};
+		7034133E2BF1D6630079E66B /* ClientProfile */ = {
+			isa = PBXGroup;
+			children = (
+				703413492BF1D71A0079E66B /* ClientProfileVC.swift */,
+			);
+			path = ClientProfile;
+			sourceTree = "<group>";
+		};
+		70500F3E2BDF76ED00BC4BB5 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		70500F5B2BDFC93A00BC4BB5 /* VehicleDetails */ = {
+			isa = PBXGroup;
+			children = (
+				70203ED22BE2179700AF81E9 /* VehicleDetailsModel.swift */,
+				70203ED02BE216BE00AF81E9 /* VehicleDetailsVM.swift */,
+				7015AEE92BECFC88001BF1B4 /* VehicleDetailsAndUpdate */,
+				7015AEE82BECFC23001BF1B4 /* VehicleDetailsForm */,
+			);
+			path = VehicleDetails;
+			sourceTree = "<group>";
+		};
+		70500F5E2BDFCB2100BC4BB5 /* AuthApi */ = {
+			isa = PBXGroup;
+			children = (
+				70A713DC2C01CD9A00DCDE54 /* AuthManager.swift */,
+				70203ED42BE23DB200AF81E9 /* DataManager.swift */,
+				70500F4D2BDFA36200BC4BB5 /* CommonMethods.swift */,
+				70500F4E2BDFA36200BC4BB5 /* Constant.swift */,
+			);
+			path = AuthApi;
+			sourceTree = "<group>";
+		};
+		70F2C9012BF35AE90074BBAF /* ClientModel */ = {
+			isa = PBXGroup;
+			children = (
+				70FF588B2BF624CB0046BA18 /* ClientHomeModel.swift */,
+			);
+			path = ClientModel;
+			sourceTree = "<group>";
+		};
+		70F2C9022BF35AF70074BBAF /* ClientViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				70FF588D2BF627870046BA18 /* ClientHomeViewModel.swift */,
+			);
+			path = ClientViewModel;
+			sourceTree = "<group>";
+		};
+		70FD486B2BFB163100CF0B31 /* MakeAnOrder */ = {
+			isa = PBXGroup;
+			children = (
+				41E606B52BD26B760053E6EF /* OrderVC.swift */,
+				4123021C2BD67BB8000ED3C1 /* DiliverdVC.swift */,
+				41D650702BD7D9AF006F911A /* CurrentLocationOfOrderVC.swift */,
+			);
+			path = MakeAnOrder;
+			sourceTree = "<group>";
+		};
+		A3836CC436881742DBF36C1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E9D829AEA9BFD1965F5D259F /* Pods-PascoTrucks.debug.xcconfig */,
+				CE5CAA439FA1970DEB35E85D /* Pods-PascoTrucks.release.xcconfig */,
+				5E10F4350BD722562EB63DC1 /* Pods-PascoTrucks-PascoTrucksUITests.debug.xcconfig */,
+				448BE923EEBC81A7EA9EA1E7 /* Pods-PascoTrucks-PascoTrucksUITests.release.xcconfig */,
+				2D9FBE6E3793A236F95B6B05 /* Pods-PascoTrucksTests.debug.xcconfig */,
+				534C313C615486FA12C08C8E /* Pods-PascoTrucksTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EFF683A64ECE9CF6B3B70DFD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC0BD9C72D56D545AD8136CA /* Pods_PascoTrucks.framework */,
+				45B10F9E8D617442C71FC2E7 /* Pods_PascoTrucks_PascoTrucksUITests.framework */,
+				DACB14F9F1000613CCAA4706 /* Pods_PascoTrucksTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4117F2212BCE38A90064304A /* PascoTrucks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4117F24F2BCE38AC0064304A /* Build configuration list for PBXNativeTarget "PascoTrucks" */;
+			buildPhases = (
+				449882AD7EA87CCB4319C1ED /* [CP] Check Pods Manifest.lock */,
+				4117F21E2BCE38A90064304A /* Sources */,
+				4117F21F2BCE38A90064304A /* Frameworks */,
+				4117F2202BCE38A90064304A /* Resources */,
+				C99CB6910DEFA658D01BB70C /* [CP] Embed Pods Frameworks */,
+				989429BED2DE10FA2B4C066A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PascoTrucks;
+			productName = PascoTrucks;
+			productReference = 4117F2222BCE38A90064304A /* PascoTrucks.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4117F23A2BCE38AC0064304A /* PascoTrucksTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4117F2522BCE38AC0064304A /* Build configuration list for PBXNativeTarget "PascoTrucksTests" */;
+			buildPhases = (
+				DE57A7906EDFAA5297A61A7C /* [CP] Check Pods Manifest.lock */,
+				4117F2372BCE38AC0064304A /* Sources */,
+				4117F2382BCE38AC0064304A /* Frameworks */,
+				4117F2392BCE38AC0064304A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4117F23D2BCE38AC0064304A /* PBXTargetDependency */,
+			);
+			name = PascoTrucksTests;
+			productName = PascoTrucksTests;
+			productReference = 4117F23B2BCE38AC0064304A /* PascoTrucksTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4117F2452BCE38AC0064304A /* PascoTrucksUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4117F2552BCE38AC0064304A /* Build configuration list for PBXNativeTarget "PascoTrucksUITests" */;
+			buildPhases = (
+				86EA3C5259A1DC00FAD27BBE /* [CP] Check Pods Manifest.lock */,
+				4117F2422BCE38AC0064304A /* Sources */,
+				4117F2432BCE38AC0064304A /* Frameworks */,
+				4117F2442BCE38AC0064304A /* Resources */,
+				4C1D59D2E472D94707967DA6 /* [CP] Embed Pods Frameworks */,
+				6CC56622EC7278F23779147D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4117F2482BCE38AC0064304A /* PBXTargetDependency */,
+			);
+			name = PascoTrucksUITests;
+			productName = PascoTrucksUITests;
+			productReference = 4117F2462BCE38AC0064304A /* PascoTrucksUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4117F21A2BCE38A90064304A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					4117F2212BCE38A90064304A = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					4117F23A2BCE38AC0064304A = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 4117F2212BCE38A90064304A;
+					};
+					4117F2452BCE38AC0064304A = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 4117F2212BCE38A90064304A;
+					};
+				};
+			};
+			buildConfigurationList = 4117F21D2BCE38A90064304A /* Build configuration list for PBXProject "PascoTrucks" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4117F2192BCE38A90064304A;
+			productRefGroup = 4117F2232BCE38A90064304A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4117F2212BCE38A90064304A /* PascoTrucks */,
+				4117F23A2BCE38AC0064304A /* PascoTrucksTests */,
+				4117F2452BCE38AC0064304A /* PascoTrucksUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4117F2202BCE38A90064304A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				412302152BD6258E000ED3C1 /* TitleBar.xib in Resources */,
+				41677FCA2BD8ECAB0035EDAF /* TitleBar2.xib in Resources */,
+				26A0AF512C00B18B00896396 /* AddtionalServiceTVC.xib in Resources */,
+				26DF91042C00955900A915E4 /* VicheleTypeTVC.xib in Resources */,
+				4117F2352BCE38AB0064304A /* LaunchScreen.storyboard in Resources */,
+				7034134C2BF1DB020079E66B /* ClientTitleBar.xib in Resources */,
+				4117F2322BCE38AB0064304A /* Assets.xcassets in Resources */,
+				702EC2C22C01C68B00502422 /* GoogleService-Info.plist in Resources */,
+				4117F22D2BCE38A90064304A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4117F2392BCE38AC0064304A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4117F2442BCE38AC0064304A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		449882AD7EA87CCB4319C1ED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PascoTrucks-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C1D59D2E472D94707967DA6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PascoTrucks-PascoTrucksUITests/Pods-PascoTrucks-PascoTrucksUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PascoTrucks-PascoTrucksUITests/Pods-PascoTrucks-PascoTrucksUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PascoTrucks-PascoTrucksUITests/Pods-PascoTrucks-PascoTrucksUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CC56622EC7278F23779147D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PascoTrucks-PascoTrucksUITests/Pods-PascoTrucks-PascoTrucksUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PascoTrucks-PascoTrucksUITests/Pods-PascoTrucks-PascoTrucksUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PascoTrucks-PascoTrucksUITests/Pods-PascoTrucks-PascoTrucksUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86EA3C5259A1DC00FAD27BBE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PascoTrucks-PascoTrucksUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		989429BED2DE10FA2B4C066A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PascoTrucks/Pods-PascoTrucks-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PascoTrucks/Pods-PascoTrucks-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PascoTrucks/Pods-PascoTrucks-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C99CB6910DEFA658D01BB70C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PascoTrucks/Pods-PascoTrucks-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PascoTrucks/Pods-PascoTrucks-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PascoTrucks/Pods-PascoTrucks-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE57A7906EDFAA5297A61A7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PascoTrucksTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4117F21E2BCE38A90064304A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4150FA022BDA89FA009E20AF /* DropDownListCell.swift in Sources */,
+				7034134E2BF1DB4A0079E66B /* ClientTitleBar.swift in Sources */,
+				702914CA2BE6534100C33E69 /* CompleteRegistrationVC.swift in Sources */,
+				702EC2CA2C01CA8600502422 /* PinaddressVC.swift in Sources */,
+				4117F2672BCE421E0064304A /* Designable (1).swift in Sources */,
+				70500F5A2BDFC40800BC4BB5 /* SignUpViewModel.swift in Sources */,
+				7058992C2BEE05D300D05D12 /* LoginVerifyNoVC.swift in Sources */,
+				412302102BD62560000ED3C1 /* TitleBar.swift in Sources */,
+				41677FEB2BD915F90035EDAF /* NotificationCell.swift in Sources */,
+				4150D5982BCF92B600CCDE6C /* VehicleDetailsVC.swift in Sources */,
+				7008F7132BF5E6D300B0B809 /* ClientOrderDetailsVC.swift in Sources */,
+				70203ECF2BE209DF00AF81E9 /* CountryCodeVC.swift in Sources */,
+				41C8972A2BCEABCA00525166 /* SignupVC.swift in Sources */,
+				703413382BF1D34C0079E66B /* ClientTabBarViewController.swift in Sources */,
+				7015AEEB2BECFCF0001BF1B4 /* VehicleDataAndUpdateVC.swift in Sources */,
+				41677FD22BD8ECC50035EDAF /* TitleBar2.swift in Sources */,
+				4117F2622BCE39F80064304A /* WelcomeVC.swift in Sources */,
+				41E606C12BD26C1C0053E6EF /* ProfileVC.swift in Sources */,
+				41E606C92BD26C330053E6EF /* NotificationVC.swift in Sources */,
+				700718282BE0D2B10038F480 /* CountryCodeCell.swift in Sources */,
+				70500F512BDFA36200BC4BB5 /* Constant.swift in Sources */,
+				7008F7112BF5DC0E00B0B809 /* AllBidCell.swift in Sources */,
+				41E606B62BD26B760053E6EF /* OrderVC.swift in Sources */,
+				7034134A2BF1D71A0079E66B /* ClientProfileVC.swift in Sources */,
+				7044860F2BE8ED6500CC9403 /* UpdareProfileModel.swift in Sources */,
+				703413482BF1D7060079E66B /* ClientHistoryVC.swift in Sources */,
+				702914CE2BE6538300C33E69 /* RegisterViewModel.swift in Sources */,
+				4117F28B2BCE74F30064304A /* LoginVC.swift in Sources */,
+				4150D5A92BCFD64E00CCDE6C /* ImgCell.swift in Sources */,
+				70DF0CD72BF867D200662899 /* NotificationModel.swift in Sources */,
+				70FF588E2BF627870046BA18 /* ClientHomeViewModel.swift in Sources */,
+				4150D5B32BCFEEC200CCDE6C /* MyTableViewCell.swift in Sources */,
+				26DF90FF2C00952D00A915E4 /* VicheleTypeVC.swift in Sources */,
+				703413422BF1D6C50079E66B /* ClientHomeVC.swift in Sources */,
+				70203ED12BE216BE00AF81E9 /* VehicleDetailsVM.swift in Sources */,
+				70DF0CD92BF867E500662899 /* NotificationViewModel.swift in Sources */,
+				70500F582BDFC3E600BC4BB5 /* SignUpModel.swift in Sources */,
+				4117F2262BCE38A90064304A /* AppDelegate.swift in Sources */,
+				70203ED32BE2179700AF81E9 /* VehicleDetailsModel.swift in Sources */,
+				705AE8C92BE4B3B600EAA58D /* ProfileViewModel.swift in Sources */,
+				26DF90FB2C00501900A915E4 /* MapVC.swift in Sources */,
+				70500F502BDFA36200BC4BB5 /* CommonMethods.swift in Sources */,
+				70317BF72BF4770900CC41F7 /* ConfirmOrderVC.swift in Sources */,
+				41E606A72BD266680053E6EF /* MyTabBar.swift in Sources */,
+				703413462BF1D6F10079E66B /* ClientMoreVC.swift in Sources */,
+				26DF91032C00955900A915E4 /* VicheleTypeTVC.swift in Sources */,
+				26A0AF502C00B18B00896396 /* AddtionalServiceTVC.swift in Sources */,
+				4117F2302BCE38A90064304A /* PascoTrucks.xcdatamodeld in Sources */,
+				26A0AF4D2C00B14900896396 /* AddtionalServiceVC.swift in Sources */,
+				702914CC2BE6536E00C33E69 /* RegisterModel.swift in Sources */,
+				701629F52BF2104B00D0E4DE /* MianTableCell.swift in Sources */,
+				701629F72BF21EB500D0E4DE /* CollectionCell.swift in Sources */,
+				70A713DF2C01CDA900DCDE54 /* LocationManager.swift in Sources */,
+				416780042BD9222A0035EDAF /* HistoryCell.swift in Sources */,
+				703413442BF1D6D70079E66B /* ClientOrderVC.swift in Sources */,
+				704486112BE8F15C00CC9403 /* UpdateProfileViewModel.swift in Sources */,
+				70317BF92BF4C73100CC41F7 /* GridCollectionCell.swift in Sources */,
+				70FF588C2BF624CB0046BA18 /* ClientHomeModel.swift in Sources */,
+				41D650712BD7D9AF006F911A /* CurrentLocationOfOrderVC.swift in Sources */,
+				700FC31F2BF725F40032FF2A /* DriverHomeModel.swift in Sources */,
+				4150F9F12BDA5122009E20AF /* LanguageCell.swift in Sources */,
+				703413522BF1EED50079E66B /* TopImgCell.swift in Sources */,
+				41E606CE2BD26C4A0053E6EF /* MoreVC.swift in Sources */,
+				701629F92BF22FC800D0E4DE /* PaymentMethodVC.swift in Sources */,
+				4150D5A12BCFC96300CCDE6C /* DriverHomeVC.swift in Sources */,
+				4117F2282BCE38A90064304A /* SceneDelegate.swift in Sources */,
+				41300C132BCF84BF00A9C2AA /* VerifyAccountVC.swift in Sources */,
+				702914C72BE6423D00C33E69 /* ProfileDataModel.swift in Sources */,
+				700FC3212BF7260C0032FF2A /* DriverHomeViewModel.swift in Sources */,
+				41677FFC2BD920850035EDAF /* HistoryVC.swift in Sources */,
+				70500F542BDFB5B100BC4BB5 /* LoginModel.swift in Sources */,
+				4150FA072BDA8A87009E20AF /* DropDownListVC.swift in Sources */,
+				41E606A12BD2584B0053E6EF /* SplashVC.swift in Sources */,
+				70A713DD2C01CD9A00DCDE54 /* AuthManager.swift in Sources */,
+				7008F70D2BF5C2AA00B0B809 /* OrderCell.swift in Sources */,
+				70500F562BDFB5BC00BC4BB5 /* LoginViewModel.swift in Sources */,
+				70203ED52BE23DB200AF81E9 /* DataManager.swift in Sources */,
+				70FD486A2BFB097B00CF0B31 /* MyOrderVC.swift in Sources */,
+				7008F70F2BF5D49B00B0B809 /* AcceptBidCell.swift in Sources */,
+				4123021D2BD67BB8000ED3C1 /* DiliverdVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4117F2372BCE38AC0064304A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4117F2402BCE38AC0064304A /* PascoTrucksTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4117F2422BCE38AC0064304A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4117F24B2BCE38AC0064304A /* PascoTrucksUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4117F23D2BCE38AC0064304A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4117F2212BCE38A90064304A /* PascoTrucks */;
+			targetProxy = 4117F23C2BCE38AC0064304A /* PBXContainerItemProxy */;
+		};
+		4117F2482BCE38AC0064304A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4117F2212BCE38A90064304A /* PascoTrucks */;
+			targetProxy = 4117F2472BCE38AC0064304A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4117F22B2BCE38A90064304A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4117F22C2BCE38A90064304A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4117F2332BCE38AB0064304A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4117F2342BCE38AB0064304A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4117F24D2BCE38AC0064304A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4117F24E2BCE38AC0064304A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4117F2502BCE38AC0064304A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9D829AEA9BFD1965F5D259F /* Pods-PascoTrucks.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F65D9CD6HQ;
+				INFOPLIST_FILE = PascoTrucks/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobapps.com;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		4117F2512BCE38AC0064304A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE5CAA439FA1970DEB35E85D /* Pods-PascoTrucks.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F65D9CD6HQ;
+				INFOPLIST_FILE = PascoTrucks/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobapps.com;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		4117F2532BCE38AC0064304A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D9FBE6E3793A236F95B6B05 /* Pods-PascoTrucksTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F65D9CD6HQ;
+				INFOPLIST_FILE = PascoTrucksTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobapps.com;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PascoTrucks.app/PascoTrucks";
+			};
+			name = Debug;
+		};
+		4117F2542BCE38AC0064304A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 534C313C615486FA12C08C8E /* Pods-PascoTrucksTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 45DD77NZ2W;
+				INFOPLIST_FILE = PascoTrucksTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Demo.com.PascoTrucksTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PascoTrucks.app/PascoTrucks";
+			};
+			name = Release;
+		};
+		4117F2562BCE38AC0064304A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E10F4350BD722562EB63DC1 /* Pods-PascoTrucks-PascoTrucksUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F65D9CD6HQ;
+				INFOPLIST_FILE = PascoTrucksUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobapps.com;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PascoTrucks;
+			};
+			name = Debug;
+		};
+		4117F2572BCE38AC0064304A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 448BE923EEBC81A7EA9EA1E7 /* Pods-PascoTrucks-PascoTrucksUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F65D9CD6HQ;
+				INFOPLIST_FILE = PascoTrucksUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mobapps.com;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PascoTrucks;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4117F21D2BCE38A90064304A /* Build configuration list for PBXProject "PascoTrucks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4117F24D2BCE38AC0064304A /* Debug */,
+				4117F24E2BCE38AC0064304A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4117F24F2BCE38AC0064304A /* Build configuration list for PBXNativeTarget "PascoTrucks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4117F2502BCE38AC0064304A /* Debug */,
+				4117F2512BCE38AC0064304A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4117F2522BCE38AC0064304A /* Build configuration list for PBXNativeTarget "PascoTrucksTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4117F2532BCE38AC0064304A /* Debug */,
+				4117F2542BCE38AC0064304A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4117F2552BCE38AC0064304A /* Build configuration list for PBXNativeTarget "PascoTrucksUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4117F2562BCE38AC0064304A /* Debug */,
+				4117F2572BCE38AC0064304A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4117F22E2BCE38A90064304A /* PascoTrucks.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4117F22F2BCE38A90064304A /* PascoTrucks.xcdatamodel */,
+			);
+			currentVersion = 4117F22F2BCE38A90064304A /* PascoTrucks.xcdatamodel */;
+			path = PascoTrucks.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4117F21A2BCE38A90064304A /* Project object */;
+}

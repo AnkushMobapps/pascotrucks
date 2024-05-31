@@ -13,10 +13,11 @@ enum selectScreenType {
     case Register
   }
 
-class SignupVC: UIViewController{
+class SignupVC: UIViewController, UITextFieldDelegate{
 
     // var signUpModel:SignUpModel?
-    @IBOutlet weak var countryCodeTxt: UILabel!
+   
+    @IBOutlet weak var countryCodeTxt: UITextField!
     @IBOutlet weak var phoneNoTxt: UITextField!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -25,15 +26,32 @@ class SignupVC: UIViewController{
     var selectedSegment:String?
     var chekRegNumModel:ChekRegisterNUmberModel?
     var deviceNumber:String?
+   // var countryCode:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        countryCodeTxt.delegate = self
         segmentedControl.selectedSegmentIndex = 0
         selectedProfile = UIImage(imageLiteralResourceName: "maskgroup")
         selectedSegment = "user"
         deviceID()
+       
     }
+    //MARK: - country code + signwith code
     
+    // UITextFieldDelegate method
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // Get the current text, and the proposed new text
+        let currentText = countryCodeTxt.text ?? ""
+        let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
+        
+        // Check if this is the first character being added
+        if currentText.isEmpty && !string.isEmpty {
+            countryCodeTxt.text = "+" + string
+            return false // Return false because we've manually changed the text
+        }
+        return true // Allow the text change
+    }
     
     // MARK: - Device ID
     
@@ -55,63 +73,55 @@ class SignupVC: UIViewController{
     }
     
     
-    @IBAction func countryCodeBtnclk(_ sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CountryCodeVC") as! CountryCodeVC
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .crossDissolve
-        vc.CountryCodeDelegate = self
-        self.present(vc, animated: true, completion: nil)
-    }
+
     
     @IBAction func nextBtnClick(_ sender: UIButton) {
-        chekNumberApi()
+     //chekNumberApi()
    }
     
     @IBAction func goToLoginBtn(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
 
+}
 
-    // MARK: - Chek Number Api
+/*
+//  TextDemoVC.swift
+//  CustomAlert
+//
+//  Created by Nitin Chauhan on 27/05/24.
+//
+
+import UIKit
+
+class TextDemoVC: UIViewController, UITextFieldDelegate {
+
+    @IBOutlet weak var textField: UITextField!
     
-    func chekNumberApi(){
-        let param = ["phone_number":phoneNoTxt.text ?? "","user_type":selectedSegment ?? ""]
-        print(param)
-        SignUpViewModel.chekRegNumberApi(viewController: self, parameters: param as NSDictionary){(response) in
-            print("success")
-            self.chekRegNumModel = response
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-            
-            let value = self.chekRegNumModel?.exists
-            if value == 1{
-                CommonMethods.showAlertMessage(title: Constant.TITLE, message: self.chekRegNumModel?.msg ?? Constant.BLANK, view: self)
-            }
-            else {
-            let phoneNo = "+91\(self.phoneNoTxt.text ?? "")"
-                AuthManager.shared.startAuth(phoneNumber: phoneNo) { (success) in
-                    
-                    if success {
-                        let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
-                        vc.selectedType = .Register
-                        vc.phoneNumber = self.phoneNoTxt.text
-                        vc.deviceID = self.deviceNumber
-                        vc.userType = self.selectedSegment
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }
-                    else {
-                        CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Something Wrong", view: self)
-                    }
-                }
-            }
-            
+        // Set the delegate of the text field
+        textField.delegate = self
+    }
+    
+    // UITextFieldDelegate method
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // Get the current text, and the proposed new text
+        let currentText = textField.text ?? ""
+        let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
+        
+        // Check if this is the first character being added
+        if currentText.isEmpty && !string.isEmpty {
+            textField.text = "+" + string
+            return false // Return false because we've manually changed the text
         }
+        
+        return true // Allow the text change
     }
 }
 
-// MARK: - SelectCountryCode
 
-extension SignupVC:SelectCountryCode{
-    func selectCCnCode(countryId: String){
-        countryCodeTxt.text = countryId
-    }
-}
+14:34
+
+*/

@@ -12,24 +12,21 @@ import FirebaseAuth
 import Firebase
 import GoogleMaps
 import GooglePlaces
-
-
+import CoreLocation
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var window: UIWindow?
+    var locationManager: LocationManager?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         // Override point for customization after application launch.
         GMSServices.provideAPIKey("AIzaSyD-Wz_yZwM347nHPf01WO1X4RO43sgwGF8")
-                GMSPlacesClient.provideAPIKey("AIzaSyA3KVnFOiaKNlhi4hJB8N2pB8tyoe_rRxQ")
+        GMSPlacesClient.provideAPIKey("AIzaSyA3KVnFOiaKNlhi4hJB8N2pB8tyoe_rRxQ")
+        
+        locationManager = LocationManager()
         return true
     }
-
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        // Override point for customization after application launch.
-//        return true
-//    }
 
     // MARK: UISceneSession Lifecycle
 

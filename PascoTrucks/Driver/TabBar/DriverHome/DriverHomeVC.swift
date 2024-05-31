@@ -18,18 +18,18 @@ class DriverHomeVC : UIViewController {
     var driverImgArray = [#imageLiteral(resourceName: "maskgroup"),#imageLiteral(resourceName: "maskgroup"),#imageLiteral(resourceName: "maskgroup"),#imageLiteral(resourceName: "maskgroup"),#imageLiteral(resourceName: "maskgroup"),#imageLiteral(resourceName: "maskgroup"),#imageLiteral(resourceName: "maskgroup")]
     var driverNameArray = ["Hamza Tariq","Hamza Tariq","Hamza Tariq","Hamza Tariq","Hamza Tariq","Hamza Tariq","Hamza Tariq"]
     var ratingImgArray = [#imageLiteral(resourceName: "starfill"),#imageLiteral(resourceName: "starfill"),#imageLiteral(resourceName: "starfill"),#imageLiteral(resourceName: "starfill"),#imageLiteral(resourceName: "starfill"),#imageLiteral(resourceName: "starfill"),#imageLiteral(resourceName: "starfill")]
-    
+    var deviceId:String?
     var getVehicleDataModel:vehicleApprove?
-   
     var getOrdReqModel:BookingRecordListModel?
     var driverCountNotiModel:CountNotificationModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        getOrdReqFromClient()
-//        getProfileDataApi()
-//        driverCountNotiApiCall()
-        
+
+        self.topBarView.notificationButton = {
+            let vc = self.storyboard?.instantiateViewController(identifier: "NotificationVC") as! NotificationVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         
     }
     
@@ -115,6 +115,7 @@ extension UISwitch {
 
 extension DriverHomeVC {
     
+// Get profile Details ========
     func getProfileDataApi(){
         let param = [String:Any]()
         ProfileViewModel.getProfileDetails(viewController: self, parameters: param as NSDictionary){responseObject in
@@ -124,12 +125,12 @@ extension DriverHomeVC {
             let img = responseObject.data?.image ?? ""
             if let url = URL(string: image_Url + img) {
                 self.topBarView.driverImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
-     
+                self.topBarView.address.text = responseObject.data?.current_city
             }
         }
     }
     
-    
+// Driver Count Notification ========
     func driverCountNotiApiCall(){
         let param = [String:Any]()
         NotificationViewModel.countNotificationApi(viewController: self, parameters: param as NSDictionary ){(response) in
@@ -139,8 +140,7 @@ extension DriverHomeVC {
         }
     }
     
-    
-    //check approval status Api
+// Check Driver Approval Status  ========
     func checkapprovalStatusApiCall(){
         let param = [String:Any]()
         print(param)
@@ -148,9 +148,9 @@ extension DriverHomeVC {
             print("success")
             self.getVehicleDataModel = responseObject
             print(responseObject)
-            let approval = self.getVehicleDataModel?.data?.approval_status
-            //  let approval_key = UserDefaults.standard.value(forKey: "approve")
-            if approval == "approve" {
+           let approval = self.getVehicleDataModel?.data?.approval_status
+            print(approval ?? "")
+           if approval == "approve" {
                 self.myTableView.isHidden = false
                 self.getOrdReqFromClient()
                 self.getProfileDataApi()
@@ -159,16 +159,10 @@ extension DriverHomeVC {
             else
             {
                 self.myTableView.isHidden = true
-                CommonMethods.showAlertMessage(title: Constant.TITLE, message:"Not approved yet", view: self)
+                CommonMethods.showAlertMessage(title: Constant.TITLE, message: responseObject.msg ?? Constant.BLANK, view: self)
             }
         }
     }
-    
-    
-    
-    
-    
-    
 }
   
 

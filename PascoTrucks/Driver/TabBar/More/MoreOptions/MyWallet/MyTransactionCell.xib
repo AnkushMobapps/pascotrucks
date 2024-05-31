@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="DMSans-Regular-BF64376d323f095.ttf">
+            <string>DMSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="MyTransactionCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="transactionCell" rowHeight="86" id="KGk-i7-Jjw" customClass="MyTransactionCell" customModule="PascoTrucks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0Q-DD-1mH">
+                        <rect key="frame" x="20" y="10" width="280" height="75"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaI-pR-Gvk">
+                                <rect key="frame" x="40" y="24.333333333333336" width="200" height="26.333333333333336"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="ugK-nA-tBs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DMSans-Regular" family="DM Sans" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GaI-pR-Gvk" firstAttribute="centerY" secondItem="Z0Q-DD-1mH" secondAttribute="centerY" id="PHq-jx-zZc"/>
+                            <constraint firstAttribute="height" constant="75" id="PKj-vP-EAd"/>
+                            <constraint firstItem="GaI-pR-Gvk" firstAttribute="centerX" secondItem="Z0Q-DD-1mH" secondAttribute="centerX" id="siJ-ru-JW8"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Z0Q-DD-1mH" secondAttribute="bottom" constant="5" id="L2S-Q1-wWN"/>
+                    <constraint firstAttribute="trailing" secondItem="Z0Q-DD-1mH" secondAttribute="trailing" constant="20" id="OT0-XB-LCh"/>
+                    <constraint firstItem="Z0Q-DD-1mH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="aFQ-fT-Kn9"/>
+                    <constraint firstItem="Z0Q-DD-1mH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="msQ-aV-J3L"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblName" destination="GaI-pR-Gvk" id="HtS-Qh-FT3"/>
+                <outlet property="mainView" destination="Z0Q-DD-1mH" id="ZHJ-31-xtX"/>
+            </connections>
+            <point key="canvasLocation" x="129.7709923664122" y="3.5211267605633805"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -210,10 +210,6 @@ struct vehicleApprove:Codable{
         self.data = try container.decodeIfPresent(GetVehicleDataModel.self, forKey: .data)
     }
 }
-
-
-
-
 struct GetVehicleDataModel:Codable{
     var status:String?
     var msg:String?
@@ -227,6 +223,7 @@ struct GetVehicleDataModel:Codable{
     var driving_license:String?
     var approval_status:String?
     var comment:String?
+    var vehicleid:String?
     
     
     
@@ -243,6 +240,7 @@ struct GetVehicleDataModel:Codable{
         case  driving_license = "driving_license"
         case  approval_status = "approval_status"
         case  comment = "comment"
+        case vehicleid = "vehicleid"
     }
     
     init(from decoder: Decoder) throws {
@@ -258,6 +256,7 @@ struct GetVehicleDataModel:Codable{
         self.document = try container.decodeIfPresent(String.self, forKey: .document)
         self.driving_license = try container.decodeIfPresent(String.self, forKey: .driving_license)
         self.approval_status = try container.decodeIfPresent(String.self, forKey: .approval_status)
+        self.vehicleid = try container.decodeIfPresent(String.self, forKey: .vehicleid)
         self.comment = try container.decodeIfPresent(String.self, forKey: .comment)
     }
     

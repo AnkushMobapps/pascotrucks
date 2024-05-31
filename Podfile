@@ -7,7 +7,6 @@ target 'PascoTrucks' do
 
   # Pods for PascoTrucks
 
-
   pod 'IQKeyboardManager'
   pod 'Alamofire'
   pod 'Firebase/Core'
@@ -19,6 +18,8 @@ target 'PascoTrucks' do
   pod 'KeychainAccess'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'PhoneNumberKit'
+
 
 
   target 'PascoTrucksTests' do

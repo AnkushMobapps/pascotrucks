@@ -9,6 +9,72 @@ import Foundation
 import UIKit
 
 class VehicleDetailsVM{
+    /*
+     var vehicleImg:UIImage?
+     var vehicleDoc:UIImage?
+     var vehicleRC:UIImage?
+     @IBOutlet weak var transporterTxt: UITextField!
+     @IBOutlet weak var vehicleTxt: UITextField!
+     */
+
+    // MARK: - VehicleDetailsVC  textfileds validation
+    class func Validation(viewController:VehicleDetailsVC, completion:@escaping()->Void){
+        if viewController.vehicleImg == nil{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.VehicleImg, view: viewController)
+        }
+        else if viewController.vehicleDoc == nil{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select driving license image", view: viewController)
+        }
+        else if viewController.vehicleRC == nil{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select RC image", view: viewController)
+        }
+        else if viewController.vehicleNoTxt.text == Constant.BLANK{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill the vehicle no", view: viewController)
+        }
+        else if viewController.transporterTxt.text == Constant.BLANK{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select shipment type", view: viewController)
+        }
+        else if viewController.vehicleTxt.text == Constant.BLANK{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select vehicle type", view: viewController)
+        }
+       else{
+            completion()
+        }
+    }
+    // MARK: - VehicleDataAndUpdateVC  textfileds validation
+    
+    /*
+     @IBOutlet weak var transporterTxt: UITextField!
+     @IBOutlet weak var vehicleTxt: UITextField!
+     @IBOutlet weak var vehicleNum: UITextField!
+     var vehicleImg:UIImage?
+     var vehicleLicenseImage:UIImage?
+     var vehicleRC:UIImage?
+
+     */
+    class func UpdateVehicleValidation(viewController:VehicleDataAndUpdateVC, completion:@escaping()->Void){
+        if viewController.vehicleImg == nil{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select vehicle image", view: viewController)
+        }
+        else if viewController.vehicleLicenseImage == nil {
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select driving license image", view: viewController)
+        }
+        else if viewController.vehicleRC == nil {
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select RC image", view: viewController)
+        }
+        else if viewController.vehicleNum.text == Constant.BLANK {
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill the vehicle no", view: viewController)
+        }
+        else if viewController.transporterTxt.text == Constant.BLANK{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select shipment type", view: viewController)
+        }
+        else if viewController.vehicleTxt.text == Constant.BLANK{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select vehicle type", view: viewController)
+        }
+       else {
+            completion()
+        }
+    }
     
     class func TransporterListApi(viewcontroller:UIViewController,parameters: NSDictionary, completion: @escaping(TransporterModel?)->Void) {
         
@@ -149,6 +215,9 @@ class VehicleDetailsVM{
             }
         }
     }  
+    
+    
+    
     // update vehicle details viewModel api
     class func updateVehicleDataApi(viewController:UIViewController, parameter:NSDictionary,image1:Data,image2:Data,image3:Data,imageName1:String,imageName2:String,imageName3:String, completion:@escaping(UpdareVehicleDataModel)->Void){
         DataManager.alamofireUpload3ImagePutApi(urlmethod: "http://69.49.235.253:8090/api/updateapprovalstatus/", parameter: parameter as!  [String:AnyObject], userImage1: image1, userImage2: image2, userImage3: image3, imageName1: imageName1, imageName2: imageName2, imageName3: imageName3, fileType: "image/jpeg", viewcontroller: viewController){

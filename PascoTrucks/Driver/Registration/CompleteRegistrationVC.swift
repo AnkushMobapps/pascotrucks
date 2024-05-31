@@ -9,91 +9,231 @@ import UIKit
 import SDWebImage
 import CoreLocation
 
-class CompleteRegistrationVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate,CLLocationManagerDelegate {
+class CompleteRegistrationVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate,CLLocationManagerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var userImg: UIImageView!
     @IBOutlet weak var nameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var phoneNoTxt: UITextField!
     @IBOutlet weak var cityTxt: UITextField!
-    @IBOutlet weak var countryCode: UILabel!
-    
-    var registerModel:RegisterModel?
+    @IBOutlet weak var countryCode: UITextField!
+    var device_Id:String?
+    var userType:String?
+    var fullAddress:String?
+    var lang:String?
+    var lat:String?
+    var currentCity:String?
+    let geocoder = CLGeocoder()
+    var chekRegNumModel:ChekRegisterNUmberModel?
+    var countryCodee:String?
+    var cityID:Int?
     // var userid:String?
     var index:Int?
     var selectedImg:UIImage?
-    var locationManager: LocationManager?
-    var phonenumber:String?
-    var deviceId:String?
-    var userType:String?
-    var countryName:String?
+    var currentLat:String?
+    var currentLong:String?
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        phoneNoTxt.text = phonenumber
+        deviceID()        
+        countryCode.delegate = self
+        countryCode.text = UserDefaults.standard.value(forKey: "countryCode") as? String
+        //by defualt city and county on textfield
+        print("city Name = ", UserDefaults.standard.string(forKey: "cityName") as Any)
+        currentCity = UserDefaults.standard.string(forKey: "cityName")
+        cityTxt.text = currentCity
+        print(cityTxt.text ?? "")
+        fullAddress = "sector 59,280301"
+        print(fullAddress)
         
-        cityTxt.text = UserDefaults.standard.string(forKey:"city_Name")
-        print(cityTxt.text)
-        countryName = UserDefaults.standard.string(forKey:"country_Name")
+    }
+    
+// MARK: - UITextFieldDelegate method(by default + in country code field)
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+       guard textField == countryCode else { return true }
         
-        locationManager = LocationManager()
-                  getLatitudeAndLongitude()
+        let currentText = textField.text ?? ""
+        let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
         
-      }
+        if currentText.isEmpty && !string.isEmpty {
+            countryCode.text = "+" + string
+            return false
+        }
+        return true
+    }
     
     
-    // Example method to access latitude and longitude
-      func getLatitudeAndLongitude() {
-          if let latitude = locationManager?.locationManager?.location?.coordinate.latitude,
-             let longitude = locationManager?.locationManager?.location?.coordinate.longitude {
-              print("Latitude: \(latitude), Longitude: \(longitude)")
-              
-          }
-          else
-          {
-              print("Unable to get location.")
-          }
-      }
+// MARK: - Finding longitude and latitude using current city
+    func getCoordinates(for city: String, completion: @escaping (CLLocation?, Error?) -> Void) {
+        geocoder.geocodeAddressString(city) { (placemarks, error) in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+            
+            guard let placemarks = placemarks, let location = placemarks.first?.location else {
+                completion(nil, NSError(domain: "GeocodingError", code: 0, userInfo: [NSLocalizedDescriptionKey: "No location found"]))
+                return
+            }
+            completion(location, nil)
+        }
+    }
     
     
-    @IBAction func selectCountryCodeBtnClk(_ sender: UIButton)
-    {
+    // MARK: - Device ID
     
+    func deviceID(){
+        let deviceId = UIDevice.current.identifierForVendor?.uuidString
+        device_Id = deviceId
+        print(deviceId)
+    }
+    
+    
+    @IBAction func selectCityClk(_ sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewController(identifier: "DropDownListVC") as! DropDownListVC
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        vc.listType = "City"
+        vc.selectrowdelegate = self
+        self.present(vc, animated: true, completion: nil)
+        
     }
     
     @IBAction func submitRegBtnClk(_ sender: Any) {
         selectedImg = UIImage(imageLiteralResourceName: "maskgroup")
-        submitDriverRegApiMetnod()
-    }
+        RegisterViewModel.Validation(viewController: self){
+            self.chekNumberApi()
+        }
+      }
     
-   @IBAction func backBtnClk(_ sender: UIButton) {
+    @IBAction func backBtnClk(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-   
+    
 }
+
 
 // MARK: - ************    API   ***************
 
 extension CompleteRegistrationVC {
-    //driverRegistrationApi
-    func submitDriverRegApiMetnod(){
-         let param = [ "user_type": userType ?? "","phone_number":phonenumber ?? "","full_name":nameTxt.text ?? "" ,"email": emailTxt.text ?? "","current_location":"East", "phone_verify":"mahi", "current_city":cityTxt.text ?? "", "current_latitude":"345.0", "current_longitude":"678.0"]
+    // MARK: - Chek Number Api for Both User And driver
+    
+    func chekNumberApi(){
+        let param = ["phone_number":phoneNoTxt.text ?? "","user_type":userType ?? ""]
         print(param)
-        
-         RegisterViewModel.submitRegApi(viewController: self, parameters: param as NSDictionary) { (response) in
-             print(response!)
-             print("Success")
-             self.registerModel = response
-             print(self.registerModel?.data?.current_city ?? "")
-             let tokkken = self.registerModel?.token?.access
-             UserDefaults.standard.setValue(tokkken, forKey: "token")
-             
-             let vc = self.storyboard?.instantiateViewController(withIdentifier: "VehicleDetailsVC") as! VehicleDetailsVC
-             vc.cityName = self.cityTxt.text
-             vc.countryName = self.countryName
-             self.navigationController?.pushViewController(vc, animated: true)
+        RegisterViewModel.chekRegNumberApi(viewController: self, parameters: param as NSDictionary){(response) in
+            print("success")
+            self.chekRegNumModel = response
+            
+            let value = self.chekRegNumModel?.exists
+            if value == 1{
+                CommonMethods.showAlertMessage(title: Constant.TITLE, message: self.chekRegNumModel?.msg ?? Constant.BLANK, view: self)
+            }
+            else {
+                //let phoneNo = self.countryCode!+"\(self.phoneNoTxt.text ?? "")"
+//                AuthManager.shared.startAuth(phoneNumber: phoneNo) { (success) in
+//
+//                    if success {
+//                        let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
+//                        vc.selectedType = .Register
+//                        vc.phoneNumber = phoneNo
+//                        vc.deviceID = self.deviceNumber
+//                        vc.userType = self.selectedSegment
+//                        self.navigationController?.pushViewController(vc, animated: true)
+//                    }
+//                    else {
+//                        CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Something Wrong", view: self)
+//                    }
+//                }
+                //without firebase
+                
+                let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
+                vc.selectedType = .Register
+                vc.phoneNumber = self.phoneNoTxt.text ?? ""
+                vc.deviceID = self.device_Id
+                vc.userType = self.userType
+                vc.name = self.nameTxt.text ?? ""
+                vc.email = self.emailTxt.text ?? ""
+                vc.city = self.cityTxt.text ?? ""
+                print(self.cityTxt.text ?? "")
+                vc.currentLocation = self.fullAddress
+                vc.currentLatitude = self.currentLat
+                print(self.currentLat)
+                vc.currentLangitude = self.currentLong
+                self.navigationController?.pushViewController(vc, animated: true)
+                print(self.currentLong)
+            }
+            
         }
     }
 }
 
+extension CompleteRegistrationVC:selectList{
+    func selcetrow(rowid: String, typeID: Int?) {
+        cityTxt.text = rowid
+      
+        // Example city name
+        let cityName = cityTxt.text ?? ""
+        
+    // Get coordinates for the selected city (long and lat using current city)
+        getCoordinates(for: cityName) { (location, error) in
+            if let error = error {
+                print("Error getting coordinates: \(error)")
+            } else if let location = location {
+                var currentLat = location.coordinate.latitude
+                self.currentLat = String(currentLat)
+                var currentLong = location.coordinate.longitude
+                self.currentLong = String(currentLong)
+                print("Latitude: \(currentLat), Longitude: \(currentLong)")
+            }
+        }
 
+        self.cityID = typeID ?? 0
+    }
+}
+
+
+/*
+ import UIKit
+ import CoreLocation
+
+ class ViewController: UIViewController {
+
+     let geocoder = CLGeocoder()
+     
+     override func viewDidLoad() {
+         super.viewDidLoad()
+         
+         // Example city name
+         let cityName = "San Francisco"
+         
+         // Get coordinates for the selected city
+         getCoordinates(for: cityName) { (location, error) in
+             if let error = error {
+                 print("Error getting coordinates: \(error)")
+             } else if let location = location {
+                 print("Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)")
+             }
+         }
+     }
+     
+     func getCoordinates(for city: String, completion: @escaping (CLLocation?, Error?) -> Void) {
+         geocoder.geocodeAddressString(city) { (placemarks, error) in
+             if let error = error {
+                 completion(nil, error)
+                 return
+             }
+             
+             guard let placemarks = placemarks, let location = placemarks.first?.location else {
+                 completion(nil, NSError(domain: "GeocodingError", code: 0, userInfo: [NSLocalizedDescriptionKey: "No location found"]))
+                 return
+             }
+             
+             completion(location, nil)
+         }
+     }
+ }
+
+ */

@@ -13,6 +13,20 @@ class ConfirmOrderVC: UIViewController {
     @IBOutlet weak var dotLine1: UIView!
     @IBOutlet weak var dotLine2: UIView!
     @IBOutlet weak var dotLine3: UIView!
+   
+    @IBOutlet weak var datePickerView: UIView!
+   @IBOutlet weak var timePickerView: UIView!
+  @IBOutlet weak var timePicker: UIDatePicker!
+    @IBOutlet weak var dateTF: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var timeTF: UITextField!
+    
+    var date:String?
+    var time:String?
+    var changeTime:String = ""
+    var changeDate:String = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dotLine1.drawDottedLine(start: CGPoint(x: dotLine1.bounds.minX, y: dotLine1.bounds.minY), end: CGPoint(x: dotLine1.bounds.maxX, y: dotLine1.bounds.minY), view: dotLine1)
@@ -27,9 +41,77 @@ class ConfirmOrderVC: UIViewController {
         mainView.layer.shadowRadius = 2
         mainView.layer.shadowOpacity = 0.3
         mainView.layer.masksToBounds = false
+        datePickerView.isHidden = true
+        timePickerView.isHidden = true
         
-      
+        datePicker.minimumDate = Date()
+        datePicker.date = Date()
+        timePicker.addTarget(self, action: #selector(timeChanged), for: .valueChanged)
+        datePicker.addTarget(self, action: #selector(dateeChanged), for: .valueChanged)
     }
+    
+    // MARK: - Time Picker
+       
+        @objc func timeChanged(_ datePicker: UIDatePicker) {
+            let selectedDate = timePicker.date
+            let timeFormatter = DateFormatter()
+            timeFormatter.dateFormat = "h:mm a"
+            let timeString = timeFormatter.string(from: selectedDate)
+            self.changeTime = timeString
+            print("Selected Time: \(timeString)")
+            self.timeTF.text = self.changeTime
+            
+        }
+       
+       
+       
+       
+       //MARK: - Get current date and time
+       
+       func CurrentDateAndTimeGet(){
+           
+           let currentDateAndTime = Date()
+           
+           // Extract date components
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = "yyyy-MM-dd"
+           let currentDate = dateFormatter.string(from: currentDateAndTime)
+           print("Current Date: \(currentDate)")
+           self.changeDate = currentDate
+           self.dateTF.text = self.changeDate
+       }
+   
+        
+       
+       // MARK: - Date Picker
+       
+        @objc func dateeChanged(_ datePicker: UIDatePicker) {
+            let selectedDate = datePicker.date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let dateString = dateFormatter.string(from: selectedDate)
+            self.changeDate = dateString
+            self.dateTF.text =   self.changeDate
+            print(changeDate)
+            print("Selected Date: \(dateString)")
+        }
+    @IBAction func cancelBtnTapped(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func proceedBtnTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func startDateBtnTapped(_ sender: UIButton) {
+        self.datePickerView.isHidden = false
+    }
+    @IBAction func timeBtnTapped(_ sender: UIButton) {
+        self.timePickerView.isHidden = false
+    }
+    
+    
+    
+    
     
     
     @IBAction func gestureBtnClk(_ sender: Any)
@@ -40,7 +122,32 @@ class ConfirmOrderVC: UIViewController {
 //    @IBAction func tapGuestureBtnClick(_ sender: UITapGestureRecognizer) {
 //        self.dismiss(animated: true)
 //    }
+    @IBAction func timeOkBtnTapped(_ sender: UIButton) {
+        timePickerView.isHidden = true
+    }
+    @IBAction func timeCutBtnTapped(_ sender: UIButton) {
+        timePickerView.isHidden = true
+    }
+    @IBAction func dateCutBtnTapped(_ sender: UIButton) {
+        datePickerView.isHidden  = true
+    }
+    @IBAction func dateOkBtnTapped(_ sender: UIButton) {
+        if self.changeDate == ""{
+            CurrentDateAndTimeGet()
+        }
+        datePickerView.isHidden  = true
+    }
+    
+    
+    
+    
 }
+
+
+
+
+
+
 //dotted line
 extension UIView{
     func drawDottedLine(start p0: CGPoint, end p1: CGPoint, view: UIView) {

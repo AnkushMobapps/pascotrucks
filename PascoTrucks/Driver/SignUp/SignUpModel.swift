@@ -64,24 +64,24 @@ import Foundation
 //    "msg": "Phone Number Not Registered"
 //}
 
-struct ChekRegisterNUmberModel:Codable{
-    var status:String?
-    var msg:String?
-    var exists:Int
-    
-    enum CodingKeys:String,CodingKey{
-        case status = "status"
-        case msg = "msg"
-        case exists = "exists"
-    }
-    
-    init(from decoder: any Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.status = try container.decodeIfPresent(String.self, forKey: .status)
-        self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
-        self.exists = try container.decode(Int.self, forKey: .exists)
-    }
-}
+//struct ChekRegisterNUmberModel:Codable{
+//    var status:String?
+//    var msg:String?
+//    var exists:Int
+//    
+//    enum CodingKeys:String,CodingKey{
+//        case status = "status"
+//        case msg = "msg"
+//        case exists = "exists"
+//    }
+//    
+//    init(from decoder: any Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.status = try container.decodeIfPresent(String.self, forKey: .status)
+//        self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
+//        self.exists = try container.decode(Int.self, forKey: .exists)
+//    }
+//}
 
 //// for client register model
 struct CRegisterModel:Codable{

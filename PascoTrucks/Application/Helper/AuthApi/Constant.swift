@@ -12,7 +12,7 @@ var image_Url = "http://69.49.235.253:8090"
 //for driver
 var driver_register_Url = base_Url+"user-registration/"
 var driver_chek_login = base_Url+"check-login/"
-
+var driver_update_deviceId_Url = base_Url+"update-phoneverify/"
 var driver_login_Url = base_Url+"user-login/"
 var driver_complete_registration_Url = base_Url+"user-registration/"
 var getDriverProfileData_Url = base_Url+"user-update-profile/"
@@ -66,6 +66,15 @@ struct Constant {
     static let confirmPassword = "Please enter confirm password"
     static let TimeSlot = "Please Fill  Timeslots"
     static let TITLE = "Pasco"
+    static let VehicleImg = "please select vehicle image"
+    
+    
+    
+    
+    
+    
+    
+    
     static let availableSeat = "You have selected Date  is not available, please select another date. "
     static let BLANK = ""
     static let SPACE = " "

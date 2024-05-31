@@ -108,6 +108,9 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
        datePicker.addTarget(self, action: #selector(dateeChanged), for: .valueChanged)
        
     }
+    @IBAction func backBtnTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     
     // MARK: - Time Picker

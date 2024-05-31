@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="DMSans-Medium-BF64376d329a539.ttf">
+            <string>DMSans-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="MywalletHistoryCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="walletHistoryCell" rowHeight="90" id="KGk-i7-Jjw" customClass="MywalletHistoryCell" customModule="PascoTrucks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zum-qV-G12">
+                        <rect key="frame" x="20" y="10" width="280" height="75"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgf-22-Q0h">
+                                <rect key="frame" x="40" y="24.333333333333336" width="200" height="26.333333333333336"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="uA9-WG-Iwt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DMSans-Medium" family="DM Sans" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="75" id="Que-ki-KQ0"/>
+                            <constraint firstItem="Fgf-22-Q0h" firstAttribute="centerX" secondItem="zum-qV-G12" secondAttribute="centerX" id="aNQ-kS-ggp"/>
+                            <constraint firstItem="Fgf-22-Q0h" firstAttribute="centerY" secondItem="zum-qV-G12" secondAttribute="centerY" id="yF7-F6-OBk"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="zum-qV-G12" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="6Aw-va-atL"/>
+                    <constraint firstAttribute="trailing" secondItem="zum-qV-G12" secondAttribute="trailing" constant="20" id="YBg-Zd-MQT"/>
+                    <constraint firstItem="zum-qV-G12" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="r8c-Mj-9gJ"/>
+                    <constraint firstAttribute="bottom" secondItem="zum-qV-G12" secondAttribute="bottom" constant="5" id="vuu-Xx-iEN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblName" destination="Fgf-22-Q0h" id="lvd-aM-dgP"/>
+                <outlet property="mainView" destination="zum-qV-G12" id="QEU-uA-COF"/>
+            </connections>
+            <point key="canvasLocation" x="-44.274809160305338" y="4.9295774647887329"/>
+        </tableViewCell>
+    </objects>
+</document>

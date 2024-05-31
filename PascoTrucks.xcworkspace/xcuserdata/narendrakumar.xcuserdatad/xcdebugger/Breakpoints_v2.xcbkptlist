@@ -3,4 +3,165 @@
    uuid = "7141DF91-E09E-40B7-96BD-619100218E36"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "47DE9466-346A-4161-9090-381300F50406"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/VehicleDetails/VehicleDetailsAndUpdate/VehicleDataAndUpdateVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "getVehicleDataApiCall()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "47DE9466-346A-4161-9090-381300F50406 - e92194beac63f4e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PascoTrucks.vehicleApprove) -&gt; () in PascoTrucks.VehicleDataAndUpdateVC.getVehicleDataApiCall() -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/VehicleDetails/VehicleDetailsAndUpdate/VehicleDataAndUpdateVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "196"
+                  endingLineNumber = "196"
+                  offsetFromSymbolStart = "916">
+               </Location>
+               <Location
+                  uuid = "47DE9466-346A-4161-9090-381300F50406 - c67a1c33138cc356"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PascoTrucks.VehicleDataAndUpdateVC.getVehicleDataApiCall() -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/VehicleDetails/VehicleDetailsAndUpdate/VehicleDataAndUpdateVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "196"
+                  endingLineNumber = "196"
+                  offsetFromSymbolStart = "316">
+               </Location>
+               <Location
+                  uuid = "47DE9466-346A-4161-9090-381300F50406 - e92194beac63f4e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PascoTrucks.vehicleApprove) -&gt; () in PascoTrucks.VehicleDataAndUpdateVC.getVehicleDataApiCall() -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/VehicleDetails/VehicleDetailsAndUpdate/VehicleDataAndUpdateVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "196"
+                  endingLineNumber = "196"
+                  offsetFromSymbolStart = "896">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "83DA574A-FD13-49D8-BE90-E1D15DC0660C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/VehicleDetails/VehicleDetailsAndUpdate/VehicleDataAndUpdateVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "getVehicleDataApiCall()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "83DA574A-FD13-49D8-BE90-E1D15DC0660C - e92194beac63f78b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PascoTrucks.vehicleApprove) -&gt; () in PascoTrucks.VehicleDataAndUpdateVC.getVehicleDataApiCall() -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/VehicleDetails/VehicleDetailsAndUpdate/VehicleDataAndUpdateVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "2412">
+               </Location>
+               <Location
+                  uuid = "83DA574A-FD13-49D8-BE90-E1D15DC0660C - e92194beac63f78b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PascoTrucks.vehicleApprove) -&gt; () in PascoTrucks.VehicleDataAndUpdateVC.getVehicleDataApiCall() -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/VehicleDetails/VehicleDetailsAndUpdate/VehicleDataAndUpdateVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "2172">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8AC28893-FF85-46A4-832C-3DBADB52DF52"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/VehicleDetails/VehicleDetailsAndUpdate/VehicleDataAndUpdateVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "getVehicleDataApiCall()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8AC28893-FF85-46A4-832C-3DBADB52DF52 - e92194beac63f7cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PascoTrucks.vehicleApprove) -&gt; () in PascoTrucks.VehicleDataAndUpdateVC.getVehicleDataApiCall() -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/VehicleDetails/VehicleDetailsAndUpdate/VehicleDataAndUpdateVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "205"
+                  endingLineNumber = "205"
+                  offsetFromSymbolStart = "2880">
+               </Location>
+               <Location
+                  uuid = "8AC28893-FF85-46A4-832C-3DBADB52DF52 - e92194beac63f7ea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (PascoTrucks.vehicleApprove) -&gt; () in PascoTrucks.VehicleDataAndUpdateVC.getVehicleDataApiCall() -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/VehicleDetails/VehicleDetailsAndUpdate/VehicleDataAndUpdateVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "2492">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

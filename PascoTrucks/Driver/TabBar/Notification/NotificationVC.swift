@@ -14,6 +14,8 @@ class NotificationVC: UIViewController {
     @IBOutlet weak var noNotificationImg: UIImageView!
     
     
+    var vehicleapproved:vehicleApprove?
+    var approvalKey:String?
     var showNotificationModel:ShowNotificationModel?
     var deletePertiNotiModel:DeletePerticularNotifiModel?
     var boxImgArray = [#imageLiteral(resourceName: "ticksquare"),#imageLiteral(resourceName: "ticksquare"),#imageLiteral(resourceName: "ticksquare"),#imageLiteral(resourceName: "ticksquare"),#imageLiteral(resourceName: "ticksquare"),#imageLiteral(resourceName: "ticksquare")]
@@ -25,15 +27,18 @@ class NotificationVC: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        showNotificationApiCall()
+        checkapprovalStatusApiCall()
+        
     }
     
     @IBAction func clearAllNotiBtnClk(_ sender: UIButton) {
         clearAllNotifiApiCall()
     }
+   
+    @IBAction func backBtnAction(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
-
-
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 
@@ -62,8 +67,11 @@ extension NotificationVC: UITableViewDelegate, UITableViewDataSource{
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    // show Notification list
     
+    
+    // MARK: - All Api Methods
+    
+    // Show Notification ========
     func showNotificationApiCall(){
         let param = [String:Any]()
         NotificationViewModel.showNotificationApi(viewController: self, parameters: param as NSDictionary){(response) in
@@ -87,8 +95,30 @@ extension NotificationVC: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-    // delet Perti NotifiApiCall list
+    // Check Approval status api ========
+    func checkapprovalStatusApiCall(){
+        let param = [String:Any]()
+        print(param)
+        VehicleDetailsVM.getVehicleDataApi(viewController: self, parameters:param as NSDictionary){(responseObject) in
+            print("success")
+            self.vehicleapproved = responseObject
+            print(responseObject)
+            self.approvalKey = self.vehicleapproved?.data?.approval_status
+            if self.approvalKey == "approve" {
+                self.showNotificationApiCall()
+                self.clearAllNotificationBtn.isHidden = false
+                
+                
+            }
+            else
+            {
+                CommonMethods.showAlertMessage(title: Constant.TITLE, message: responseObject.msg ?? Constant.BLANK, view: self)
+                self.clearAllNotificationBtn.isHidden = true
+            }
+        }
+    }
     
+    // Delete perticular notification ========
     func deletPertiNotifiApiCall(){
         let Param = ["id":NotificationId]
         NotificationViewModel.deletePerticularNotifiApi(viewController: self, parameters: Param as NSDictionary){(response) in
@@ -98,8 +128,7 @@ extension NotificationVC: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-    //clear All notification api
-    
+    // Clear All notification ========
     func clearAllNotifiApiCall(){
         let param = [String:Any]()
         NotificationViewModel.clearAllNotifiApi(viewController: self, parameter: param as NSDictionary){

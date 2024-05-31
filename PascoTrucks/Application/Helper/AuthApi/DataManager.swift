@@ -44,7 +44,7 @@ class DataManager: NSObject {
          
     }
     
-    //for driver registration,check registrtaion number and ChekLOgin And Login
+    //for driver registration,check registrtaion number and ChekLOgin And Login, update device number
     class func alamofireNewPostRequest(url:String,viewcontroller : UIViewController!, parameters:[String:AnyObject]?, completionHandler: @escaping completion) {
         print(parameters as Any)
         

@@ -19,30 +19,27 @@ class VehicleDataAndUpdateVC: UIViewController, UIImagePickerControllerDelegate 
     @IBOutlet weak var vehicleImage: UIImageView!
     @IBOutlet weak var vehicleLicenseImg: UIImageView!
     @IBOutlet weak var vehicleRcImg: UIImageView!
-    
-//    //vehicle lists Btns
-//    @IBOutlet weak var vehicleImgBtn: UIButton!
-//    @IBOutlet weak var vehicleDocBtn: UIButton!
-//    @IBOutlet weak var vehicleRCBtn: UIButton!
-    
+
     //textfields
     @IBOutlet weak var transporterTxt: UITextField!
     @IBOutlet weak var vehicleTxt: UITextField!
     @IBOutlet weak var vehicleNum: UITextField!
     
-    var transportID:Int?
-    var vehicleID:Int?
-    var selVehicleId: String?
-    var selecttypestr:String?
-    var selectedProfile:UIImage?
-    var uploadDocType:String?
-    
     var vehicleImg:UIImage?
     var vehicleLicenseImage:UIImage?
     var vehicleRC:UIImage?
+    var VehicleObjectID:Int?
+    var transportID:Int?
+    var selectVehicleId:String?
+    var selVehicleId: String?
     
+    var selecttypestr:String?
+    var selectedProfile:UIImage?
+    var uploadDocType:String?
+
     var getVehicleDataModel:vehicleApprove?
     var updateVehicleDataModel:UpdareVehicleDataModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         vehicleImgView.addDotBorder2(color: #colorLiteral(red: 0.3411764706, green: 0.3411764706, blue: 0.3411764706, alpha: 1), thickness: 2.0)
@@ -55,34 +52,30 @@ class VehicleDataAndUpdateVC: UIViewController, UIImagePickerControllerDelegate 
         vehicleRcView.layer.cornerRadius = 20
         
         getVehicleDataApiCall()
-       
     }
     
+    @IBAction func transporterListBtn(_ sender: UIButton) {
+        
+        self.selecttypestr = "Transporter"
+        let pc = self.storyboard?.instantiateViewController(withIdentifier: "DropDownListVC") as! DropDownListVC
+        pc.modalPresentationStyle = .overFullScreen
+        pc.modalTransitionStyle = .crossDissolve
+        pc.listType = self.selecttypestr
+        pc.selectrowdelegate = self
+        self.present(pc, animated: true, completion: nil)
+        
+    }
     
-    
-//    @IBAction func transporterListBtn(_ sender: UIButton) {
-//        
-//        self.selecttypestr = "Transporter"
-//        let pc = self.storyboard?.instantiateViewController(withIdentifier: "DropDownListVC") as! DropDownListVC
-//        pc.modalPresentationStyle = .overFullScreen
-//        pc.modalTransitionStyle = .crossDissolve
-//        pc.listType = self.selecttypestr
-//        pc.selectrowdelegate = self
-//        // transporterTxt.text = selcetrow(rowid: String)
-//        self.present(pc, animated: true, completion: nil)
-//        
-//    }
-    
-//    @IBAction func vehicleTypeBtn(_ sender: UIButton) {
-//        self.selecttypestr = "VehicleType"
-//        let pc = self.storyboard?.instantiateViewController(withIdentifier: "DropDownListVC") as! DropDownListVC
-//        pc.modalPresentationStyle = .overFullScreen
-//        pc.modalTransitionStyle = .crossDissolve
-//        pc.listType = self.selecttypestr
-//        pc.typeSelected_ID = transportID
-//        pc.selectrowdelegate = self
-//        self.present(pc, animated: true, completion: nil)
-//    }
+    @IBAction func vehicleTypeBtn(_ sender: UIButton) {
+        self.selecttypestr = "VehicleType"
+        let pc = self.storyboard?.instantiateViewController(withIdentifier: "DropDownListVC") as! DropDownListVC
+        pc.modalPresentationStyle = .overFullScreen
+        pc.modalTransitionStyle = .crossDissolve
+        pc.listType = self.selecttypestr
+        pc.typeSelected_ID = transportID
+        pc.selectrowdelegate = self
+        self.present(pc, animated: true, completion: nil)
+    }
     
     
     @IBAction func selVehicleImgclk(_ sender: Any) {
@@ -173,6 +166,7 @@ extension UIView {
     }
 }
 
+// MARK: - dropdown list ptotocol
 extension VehicleDataAndUpdateVC: selectList {
     func selcetrow(rowid: String, typeID: Int?) {
         if self.selecttypestr == "Transporter" {
@@ -181,7 +175,7 @@ extension VehicleDataAndUpdateVC: selectList {
         }
         else if self.selecttypestr == "VehicleType"{
             self.vehicleTxt.text = rowid
-            self.vehicleID = typeID
+            self.VehicleObjectID = typeID
         }
         else{
             self.transporterTxt.text = rowid
@@ -189,6 +183,9 @@ extension VehicleDataAndUpdateVC: selectList {
         }
     }
 }
+
+
+// MARK: -  *********    API   **************
 
 extension VehicleDataAndUpdateVC{
     
@@ -203,6 +200,8 @@ extension VehicleDataAndUpdateVC{
             
             self.transporterTxt.text = self.getVehicleDataModel?.data?.shipmentname
             self.vehicleTxt.text = self.getVehicleDataModel?.data?.vehiclename
+            self.selectVehicleId =  self.getVehicleDataModel?.data?.vehicleid
+            print(self.selectVehicleId)
             self.vehicleNum.text = self.getVehicleDataModel?.data?.vehiclenumber
             
             let img1 = self.getVehicleDataModel?.data?.vehicle_photo ?? ""
@@ -221,35 +220,30 @@ extension VehicleDataAndUpdateVC{
                 self.vehicleRcImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
             }
         }
+        
+        self.vehicleImg = self.vehicleImage.image
+        self.vehicleLicenseImage = self.vehicleLicenseImg.image
+        self.vehicleRC = self.vehicleRcImg.image
     }
+    
     
     func vehicleDataUpdateApiCall(){
-        let param = ["vehiclenumber":vehicleNum.text ?? ""]
-        print(param)
-        let imgData1 = self.vehicleImg?.jpegData(compressionQuality: 0.4)
-        let imgData2 = self.vehicleLicenseImage?.jpegData(compressionQuality: 0.4)
-        let imgDat3 = self.vehicleRC?.jpegData(compressionQuality: 0.4)
-        VehicleDetailsVM.updateVehicleDataApi(viewController: self, parameter: param as NSDictionary, image1: imgData1!, image2: imgData2!, image3: imgDat3!, imageName1: "vehicle_photo", imageName2: "driving_license", imageName3: "document"){(response) in
-            print("success")
-            self.updateVehicleDataModel = response
-            
-            
+        
+        VehicleDetailsVM.UpdateVehicleValidation(viewController: self){
+            let param = ["vehiclenumber":self.vehicleNum.text ?? "","cargo":self.selectVehicleId ?? ""] as [String : Any]
+            print(param)
+
+            let imgData1 = self.vehicleImg?.jpegData(compressionQuality: 0.4)
+            let imgData2 = self.vehicleLicenseImage?.jpegData(compressionQuality: 0.4)
+            let imgDat3 = self.vehicleRC?.jpegData(compressionQuality: 0.4)
+            VehicleDetailsVM.updateVehicleDataApi(viewController: self, parameter: param as NSDictionary, image1: imgData1!, image2: imgData2!, image3: imgDat3!, imageName1: "vehicle_photo", imageName2: "driving_license", imageName3: "document"){(response) in
+                print("success")
+                self.updateVehicleDataModel = response
+                CommonMethods.showAlertMessage(title: Constant.TITLE, message: response.msg ?? Constant.BLANK, view: self)
+            }
         }
     }
-    
-    
 }
 
-// Update profile ========
-//func updateProfileDataApi(){
-//    let param = ["full_name":nameTxt.text ?? "","email":emailTxt.text ?? "","phone_number":phoneNoTxt.text ?? "","current_city":cityTxt.text ?? ""]
-//    print(param)
-//    self.selectedProfile = self.userImg.image
-//    let imgData = self.selectedProfile?.jpegData(compressionQuality: 0.4)
-//    UpdateProfileViewModel.updateProfileData(viewController: self, parameter: param as NSDictionary, image:imgData!,imageName: "image") {(responseObject) in
-//        print("success")
-//        self.updateProfilrModel = responseObject
-//    }
-//}
 
 

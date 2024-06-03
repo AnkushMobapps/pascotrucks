@@ -15,22 +15,31 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
     @IBOutlet weak var userImg: UIImageView!
     @IBOutlet weak var nameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
+    
     @IBOutlet weak var phoneNoTxt: UITextField!
     @IBOutlet weak var cityTxt: UITextField!
- 
+    @IBOutlet weak var countryCode: UITextField!
     var updateProfilrModel:UpdareProfileModel?
     var profileDataModel: ProfileDataModel?
+    var vehicleapproved:vehicleApprove?
+    var approvalKey:String?
     var userid:String?
     var userType:String?
     var selectedProfile:UIImage?
-    
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("country_Name = ",UserDefaults.standard.string(forKey: "country_name"))
+        print("city_Name = ",UserDefaults.standard.string(forKey: "city_name"))
+        
         viewOverImage.layer.borderWidth = 2
         viewOverImage.layer.borderColor = UIColor.white.cgColor
         getProfileDataApi()
-        
+  }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkapprovalStatusApiCall()
     }
     
     @IBAction func chooseprofileBtnClick(_ sender: Any) {
@@ -73,15 +82,15 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
  
     
     @IBAction func updateBtnClk(_ sender: UIButton) {
-        updateProfileDataApi()
+        if self.approvalKey == "approve" {
+            updateProfileDataApi()
+        }
+        else
+        {
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Not Approved yet !", view: self)
+        }
     }
 
-    @IBAction func vehicleBtnClk(_ sender: UIButton) {
-        
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "VehicleDataAndUpdateVC") as! VehicleDataAndUpdateVC
-        self.navigationController?.pushViewController(vc, animated: true)
-        
-    }
 }
 
 // MARK: - ************    API   ***************
@@ -89,7 +98,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
 extension ProfileVC {
     
     // Get profile Details ========
-    
     func getProfileDataApi(){
         let param = [String:Any]()
         ProfileViewModel.getProfileDetails(viewController: self, parameters: param as NSDictionary){responseObject in
@@ -97,28 +105,43 @@ extension ProfileVC {
             self.profileDataModel = responseObject
             print(responseObject)
             self.nameTxt.text = self.profileDataModel?.data?.full_name
-             self.emailTxt.text = self.profileDataModel?.data?.email
+            self.emailTxt.text = self.profileDataModel?.data?.email
             self.phoneNoTxt.text = self.profileDataModel?.data?.phone_number
             self.cityTxt.text = self.profileDataModel?.data?.current_city
             let img = self.profileDataModel?.data?.image ?? ""
             if let url = URL(string: image_Url + img) {
                 self.userImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
-     
+                
             }
         }
     }
     
-// Update profile ========
-   func updateProfileDataApi(){
-        let param = ["full_name":nameTxt.text ?? "","email":emailTxt.text ?? "","phone_number":phoneNoTxt.text ?? "","current_city":cityTxt.text ?? ""]
+    // check approval status ========
+    func checkapprovalStatusApiCall(){
+        let param = [String:Any]()
         print(param)
-        self.selectedProfile = self.userImg.image
-        let imgData = self.selectedProfile?.jpegData(compressionQuality: 0.4)
-        UpdateProfileViewModel.updateProfileData(viewController: self, parameter: param as NSDictionary, image:imgData!,imageName: "image") {(responseObject) in
+        VehicleDetailsVM.getVehicleDataApi(viewController: self, parameters:param as NSDictionary){(responseObject) in
             print("success")
-            self.updateProfilrModel = responseObject
-  
+            self.vehicleapproved = responseObject
+            print(responseObject)
+            self.approvalKey = self.vehicleapproved?.data?.approval_status
+            
+        }
+    }
+    
+    
+    // Update profile ========
+    func updateProfileDataApi(){
+        UpdateProfileViewModel.Validation(viewController: self){
+            let param = ["full_name":self.nameTxt.text ?? "","email":self.emailTxt.text ?? "","phone_number":self.phoneNoTxt.text ?? "","current_city":self.cityTxt.text ?? ""]
+            print(param)
+            self.selectedProfile = self.userImg.image
+            let imgData = self.selectedProfile?.jpegData(compressionQuality: 0.4)
+            UpdateProfileViewModel.updateProfileData(viewController: self, parameter: param as NSDictionary, image:imgData!,imageName: "image") {(responseObject) in
+                print("success")
+                self.updateProfilrModel = responseObject
+                CommonMethods.showAlertMessage(title: Constant.TITLE, message: responseObject.msg ?? Constant.BLANK, view: self)
+            }
         }
     }
 }
-

@@ -126,6 +126,12 @@ PODS:
     - nanopb/encode (= 2.30910.0)
   - nanopb/decode (2.30910.0)
   - nanopb/encode (2.30910.0)
+  - PhoneNumberKit (3.7.10):
+    - PhoneNumberKit/PhoneNumberKitCore (= 3.7.10)
+    - PhoneNumberKit/UIKit (= 3.7.10)
+  - PhoneNumberKit/PhoneNumberKitCore (3.7.10)
+  - PhoneNumberKit/UIKit (3.7.10):
+    - PhoneNumberKit/PhoneNumberKitCore
   - PromisesObjC (2.4.0)
   - RecaptchaInterop (100.0.0)
   - SDWebImage (5.19.1):
@@ -143,6 +149,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - KeychainAccess
   - KRProgressHUD
+  - PhoneNumberKit
   - SDWebImage
   - SwiftyJSON
 
@@ -168,6 +175,7 @@ SPEC REPOS:
     - KRActivityIndicatorView
     - KRProgressHUD
     - nanopb
+    - PhoneNumberKit
     - PromisesObjC
     - RecaptchaInterop
     - SDWebImage
@@ -194,11 +202,12 @@ SPEC CHECKSUMS:
   KRActivityIndicatorView: c5c503bf56e54834382dd926b64ff47287ca0006
   KRProgressHUD: d0fb4e72428d312eb6966e84c543ea58fb1efbc7
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
+  PhoneNumberKit: 3d9a20cfe8ee68f35c2a3ae9474093133f72a8a1
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
   SDWebImage: 40b0b4053e36c660a764958bff99eed16610acbb
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 9cd38874030d7e778c27b59b8a477aad8daaa7aa
+PODFILE CHECKSUM: 2d223bea6efeff3bacc732b28bd0a6fc91acfb43
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.14.2

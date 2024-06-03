@@ -44,13 +44,15 @@ class VehicleDetailsVC: UIViewController, UIImagePickerControllerDelegate & UINa
     var vehicleDoc:UIImage?
     var vehicleRC:UIImage?
     var approvalModel:ApprovalModel?
-    
-    var cityName:String?
-    var countryName:String?
+
     var userID:Int?
+    var deviceId:String?
+    var currentCountry:String?
+    var currentCity:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         vehicleImgView.addDotBorder(color: #colorLiteral(red: 0.3411764706, green: 0.3411764706, blue: 0.3411764706, alpha: 1), thickness: 2.0)
         vehicleImgView.layer.cornerRadius = 20
         
@@ -59,11 +61,11 @@ class VehicleDetailsVC: UIViewController, UIImagePickerControllerDelegate & UINa
         
         vehicleRcView.addDotBorder(color: #colorLiteral(red: 0.3411764706, green: 0.3411764706, blue: 0.3411764706, alpha: 1), thickness: 2.0)
         vehicleRcView.layer.cornerRadius = 20
+        print(currentCity ?? "")
+        cityTxt.text = currentCity
+        countryTxt.text = UserDefaults.standard.string(forKey: "countryName")
         
-        cityTxt.text = cityName
-        countryTxt.text = countryName
     }
-    
     
     // MARK: -  Navigation
     
@@ -140,6 +142,7 @@ class VehicleDetailsVC: UIViewController, UIImagePickerControllerDelegate & UINa
         }
         self.dismiss(animated: true, completion: nil)
     }
+    
     func imgPopUp(){
         let alert = UIAlertController(title: "Select Image", message: "Select image from ?", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (UIAlertAction) in
@@ -194,8 +197,7 @@ extension VehicleDetailsVC: selectList {
             self.transporterTxt.text = rowid
             self.transportID = typeID
         }
-
-        
+   
     }
 }
 
@@ -203,26 +205,30 @@ extension VehicleDetailsVC: selectList {
 
 extension VehicleDetailsVC {
     
-  func newApproval(){
-      let param = [ "cargo": vehicleID ?? 0 ,"vehiclenumber":vehicleNoTxt.text ?? ""] as [String : Any]
-        print(param)
-      
-        let imgData1 = self.vehicleImg?.jpegData(compressionQuality: 0.4)
-        let imgData2 = self.vehicleDoc?.jpegData(compressionQuality: 0.4)
-        let imgData3 = self.vehicleRC?.jpegData(compressionQuality: 0.4)
-      
-        VehicleDetailsVM.ApprovalApi(viewController: self, parameters: param as NSDictionary, Image: imgData1!, frontImage: imgData2!, backImage: imgData3!, ImgName: "vehicle_photo", frontImageName: "document", backImageName: "driving_license"){
-            (response) in
-             print("success")
-             self.approvalModel = response
-             print(response)
+    func newApproval(){
+        VehicleDetailsVM.Validation(viewController: self){
+            let param = [ "cargo": self.vehicleID ?? 0 ,"vehiclenumber":self.vehicleNoTxt.text ?? ""] as [String : Any]
+            print(param)
             
-            CommonMethods.showAlertMessageWithHandler(title: Constant.TITLE, message: response.msg ?? Constant.BLANK, view: self) {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-                self.navigationController?.pushViewController(vc, animated: true)
+            let imgData1 = self.vehicleImg?.jpegData(compressionQuality: 0.4)
+            let imgData2 = self.vehicleDoc?.jpegData(compressionQuality: 0.4)
+            let imgData3 = self.vehicleRC?.jpegData(compressionQuality: 0.4)
+            
+            VehicleDetailsVM.ApprovalApi(viewController: self, parameters: param as NSDictionary, Image: imgData1!, frontImage: imgData2!, backImage: imgData3!, ImgName: "vehicle_photo", frontImageName: "document", backImageName: "driving_license"){
+                (response) in
+                print("success")
+                self.approvalModel = response
+                print(response)
+                
+                CommonMethods.showAlertMessageWithHandler(title: Constant.TITLE, message: response.msg ?? Constant.BLANK, view: self) {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBar") as! MyTabBar
+                    //vc.deviceId = self.deviceId
+                    // print(self.deviceId ?? "")
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
         }
-     }
+    }
 }
 
 

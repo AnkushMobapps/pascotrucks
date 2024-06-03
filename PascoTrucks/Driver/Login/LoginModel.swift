@@ -11,7 +11,7 @@ struct CheckLoginModel:Codable{
 
     var status:String?
     var msg:String?
-    var login:Int
+    var login:Int?
     
     enum CodingKeys:String,CodingKey{
        case status = "status"
@@ -23,7 +23,7 @@ struct CheckLoginModel:Codable{
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.status = try container.decodeIfPresent(String.self, forKey: .status)
         self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
-        self.login = try container.decode(Int.self, forKey: .login)
+        self.login = try container.decodeIfPresent(Int.self, forKey: .login)
     }
 }
 
@@ -85,6 +85,26 @@ struct TokennDict : Codable{
 }
 
 
+//driver other device login model
+struct DriverUpdateDeviceLoginModel:Codable{
+
+   var status:String?
+   var msg:String?
+  
+   
+   enum CodingKeys:String,CodingKey{
+      case status = "status"
+       case msg = "msg"
+    }
+   
+   init(from decoder: Decoder) throws {
+       let container = try decoder.container(keyedBy: CodingKeys.self)
+       self.status = try container.decodeIfPresent(String.self, forKey: .status)
+       self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
+      
+   }
+}
+
 
 //client checkLogin model
 struct CheckClientLoginModel:Codable{
@@ -131,7 +151,7 @@ struct ClientLoginModel:Codable{
     
 }
  //client other device login model
-struct UpdateDeviceLoginModel:Codable{
+struct ClientUpdateDeviceLoginModel:Codable{
 
     var status:String?
     var msg:String?

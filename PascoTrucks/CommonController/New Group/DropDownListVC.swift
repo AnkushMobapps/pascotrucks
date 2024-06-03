@@ -19,7 +19,7 @@ class DropDownListVC: UIViewController {
    // var transporterArray = ["Hindi","English","Arabic","Persian","French"]
     //var vehicleArray = ["Truck","Jeep","Tractor","Cab","Cycle"]
    // var countryArray = ["India","USA","UAE","France","Itly"]
-    //var cityArray = ["Delhi","Noida","LosAngles"]
+     var cityArray = ["Delhi","Noida","LosAngles"]
     
     var listType:String!
    // var viaLoginStr:String!
@@ -63,7 +63,7 @@ extension DropDownListVC:UITableViewDelegate,UITableViewDataSource{
                 return self.vehicleListModel?.data?.count ?? 0
             }
           else {
-              return languageArray.count
+              return cityArray.count
             }
 
     }
@@ -82,7 +82,7 @@ extension DropDownListVC:UITableViewDelegate,UITableViewDataSource{
                 cell.data.text = self.vehicleListModel?.data?[indexPath.row].vehiclename ?? ""
             }
           else{
-            cell.data.text = languageArray[indexPath.row]
+            cell.data.text = cityArray[indexPath.row]
             }
 
             return cell
@@ -94,7 +94,7 @@ extension DropDownListVC:UITableViewDelegate,UITableViewDataSource{
          if listType == "Language" {
                 let selectString = languageArray[indexPath.row]
                 print(selectString)
-             self.selectrowdelegate?.selcetrow(rowid: selectString, typeID: 0)
+              self.selectrowdelegate?.selcetrow(rowid: selectString, typeID: 0)
                 self.dismiss(animated: true)
             }
             else if listType == "Transporter"{
@@ -111,7 +111,12 @@ extension DropDownListVC:UITableViewDelegate,UITableViewDataSource{
                 self.selectrowdelegate?.selcetrow(rowid: selectString, typeID: vehicleId)
                 self.dismiss(animated: true)
             }
-            
+           else if listType == "City" {
+               let selectString = cityArray[indexPath.row]
+               print(selectString)
+               self.selectrowdelegate?.selcetrow(rowid: selectString, typeID: 0)
+               self.dismiss(animated: true)
+           }
 
  }
    

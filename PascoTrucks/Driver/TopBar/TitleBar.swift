@@ -18,12 +18,16 @@ class TitleBar: UIView {
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var switchCondition: UISwitch!
     @IBOutlet weak var countOfNotification: UILabel!
-    
+    @IBOutlet weak var notificationBtn: UIButton!
+    var notificationButton:(()->())!
     override init(frame: CGRect ){
         super.init(frame: frame)
         commitinit()
     }
     
+    @IBAction func notificationBtnClk(_ sender: UIButton) {
+        notificationButton()
+    }
     required init?(coder aDecoder: NSCoder) {
         //fatalError("init(coder:) has not been implemented")
         super.init(coder: aDecoder)

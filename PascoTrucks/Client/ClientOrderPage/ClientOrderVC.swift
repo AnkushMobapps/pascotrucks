@@ -75,6 +75,13 @@ extension ClientOrderVC:UITableViewDelegate,UITableViewDataSource{
             let cell = acceptBidTBView.dequeueReusableCell(withIdentifier: "acceptBidCell", for: indexPath) as! AcceptBidCell
             cell.selectionStyle = .none
             cell.backgroundColor = .none
+            
+            // Cell Btn Action
+            
+            cell.nextButton = {
+                let vc = self.storyboard?.instantiateViewController(identifier: "TrackLocationVC") as! TrackLocationVC
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
             return cell
         }
     }

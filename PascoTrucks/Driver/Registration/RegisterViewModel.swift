@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 class RegisterViewModel{
     let shareInstance = RegisterViewModel()
+ 
     
     // MARK: - VerifyAccountVC OTP textfileds validation
     class func Validation(viewController:VerifyAccountVC, completion:@escaping()->Void){
@@ -49,6 +50,9 @@ class RegisterViewModel{
         }
         else if viewController.emailTxt.text == Constant.BLANK{
             CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill the email", view: viewController)
+        }
+        else if viewController.emailTxt.text?.isValidEmail() == false{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill the correct email", view: viewController)
         }
         else if viewController.cityTxt.text == Constant.BLANK{
             CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select a city", view: viewController)

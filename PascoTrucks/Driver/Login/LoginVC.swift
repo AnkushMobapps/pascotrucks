@@ -8,11 +8,9 @@
 import UIKit
 import CoreLocation
 
-class LoginVC: UIViewController, UITextFieldDelegate{
-    
-    var locationManager: LocationManager?
+class LoginVC: UIViewController, UITextFieldDelegate,CLLocationManagerDelegate{
+   var locationManager = CLLocationManager()
     var selecttypestr:String?
-    
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var countryCodeTxt: UITextField!
     @IBOutlet weak var phoneTF: UITextField!
@@ -31,14 +29,16 @@ class LoginVC: UIViewController, UITextFieldDelegate{
     var verfiedId:String?
     var driverID:Int?
     
-    override func viewDidLoad() {
+   override func viewDidLoad() {
         super.viewDidLoad()
         
         //        loginBtn.GradientColor(colorOne: #colorLiteral(red: 0.8352941176, green: 0.6549019608, blue: 0.3764705882, alpha: 1), colorTwo: #colorLiteral(red: 0.6117647059, green: 0.4705882353, blue: 0.231372549, alpha: 1))
-        
-        locationManager = LocationManager()
-        // getLatitudeAndLongitude()
-        
+       
+         locationManager.delegate = self
+         locationManager.requestWhenInUseAuthorization()
+         requestCurrentLocation()
+         
+  
         countryCodeTxt.delegate = self
         segmentedControl.selectedSegmentIndex = 0
         selectedSegment = "user"
@@ -47,6 +47,53 @@ class LoginVC: UIViewController, UITextFieldDelegate{
       countryCodeTxt.text = UserDefaults.standard.value(forKey: "countryCode") as? String
         print( countryCodeTxt.text ?? "countryCode")
      }
+    
+    
+    
+    //MARK: - location find out
+
+  private func requestCurrentLocation() {
+      locationManager.requestLocation()
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+      guard let location = locations.last else { return }
+      let lat = location.coordinate.latitude
+      let long = location.coordinate.longitude
+      print("Latitude: \(lat), Longitude: \(long)")
+      
+      UserDefaults.standard.setValue(lat, forKey: "lat")
+      UserDefaults.standard.setValue(long, forKey: "long")
+      
+      // Reverse geocode to get the full address, city, country name, and country code
+      let geocoder = CLGeocoder()
+      geocoder.reverseGeocodeLocation(location) { [weak self] (placemarks, error) in
+          guard let self = self else { return }
+          
+          if let error = error {
+              print("Error in reverse geocoding: \(error.localizedDescription)")
+              return
+          }
+          
+          if let placemark = placemarks?.first {
+              let city = placemark.locality ?? "Unknown city"
+              let country = placemark.country ?? "Unknown country"
+              let isoCountryCode = placemark.isoCountryCode ?? "Unknown country code"
+              UserDefaults.standard.setValue(city, forKey: "driverCity")
+              UserDefaults.standard.setValue(country, forKey: "driverCountry")
+         }
+      }
+      
+      // Stop updating location after getting the current location
+      locationManager.stopUpdatingLocation()
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+      print("Failed to find user's location: \(error.localizedDescription)")
+  }
+
+    
+    
     
     // MARK: - Example method to select segments
     
@@ -172,7 +219,7 @@ extension LoginVC {
     func driverloginApiMetnod(){
         let param = [ "phone_number":phoneTF.text ?? "", "user_type" : selectedSegment ?? ""] as [String : Any]
         print(param)
-        LoginViewModel.LoginApi(viewcontroller: self, parameters: param as NSDictionary){
+       LoginViewModel.LoginApi(viewcontroller: self, parameters: param as NSDictionary){
             (responseObject) in
             print("Success")
             self.driverloginModel = responseObject
@@ -188,6 +235,7 @@ extension LoginVC {
             // approved from admin or not
             if approvalKey == 0 {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBar") as! MyTabBar
+              
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             else if approvalKey == 1 {

@@ -32,19 +32,19 @@ struct TransporterModel: Codable{
 
 struct TransporterModel_data:Codable{
    
-    var id:Int?
+    var shipmentid:Int?
     var shipmentname:String?
     var shipmentdescription:String?
     
     enum CodingKeys:String,CodingKey{
-        case id = "id"
+        case shipmentid = "shipmentid"
         case shipmentname = "shipmentname"
         case shipmentdescription = "shipmentdescription"
   }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decodeIfPresent(Int.self, forKey: .id)
+        self.shipmentid = try container.decodeIfPresent(Int.self, forKey: .shipmentid)
         self.shipmentname = try container.decodeIfPresent(String.self, forKey: .shipmentname)
         self.shipmentdescription = try container.decodeIfPresent(String.self, forKey: .shipmentdescription)
         
@@ -177,17 +177,48 @@ struct CityListModel_data:Codable{
 struct ApprovalModel:Codable{
     var status:String?
     var msg:String?
+    var data:ApprovalModel_Data?
     
     enum CodingKeys:String,CodingKey{
         case status = "status"
         case msg = "msg"
+        case data = "data"
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.status = try container.decodeIfPresent(String.self, forKey: .status)
         self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
+        self.data = try container.decodeIfPresent(ApprovalModel_Data.self, forKey: .data)
         
+    }
+}
+
+struct ApprovalModel_Data:Codable{
+    var user:String?
+    var cargo:String?
+    var vehicle_photo:String?
+    var document:String?
+    var driving_license:String?
+    var vehiclenumber:String?
+    
+enum CodingKeys:String,CodingKey{
+        case user = "user"
+        case cargo = "cargo"
+        case vehicle_photo = "vehicle_photo"
+        case document = "document"
+        case driving_license = "driving_license"
+        case vehiclenumber = "vehiclenumber"
+    }
+
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.user = try container.decodeIfPresent(String.self, forKey: .user)
+        self.cargo = try container.decodeIfPresent(String.self, forKey: .cargo)
+        self.vehicle_photo = try container.decodeIfPresent(String.self, forKey: .vehicle_photo)
+        self.document = try container.decodeIfPresent(String.self, forKey: .document)
+        self.driving_license = try container.decodeIfPresent(String.self, forKey: .driving_license)
+        self.vehiclenumber = try container.decodeIfPresent(String.self, forKey: .vehiclenumber)
     }
 }
 

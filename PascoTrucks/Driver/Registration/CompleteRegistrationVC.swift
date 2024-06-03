@@ -11,7 +11,7 @@ import CoreLocation
 
 class CompleteRegistrationVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate,CLLocationManagerDelegate, UITextFieldDelegate {
     
-    @IBOutlet weak var userImg: UIImageView!
+   
     @IBOutlet weak var nameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var phoneNoTxt: UITextField!

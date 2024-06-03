@@ -99,7 +99,7 @@ extension DropDownListVC:UITableViewDelegate,UITableViewDataSource{
             }
             else if listType == "Transporter"{
                 let selectString = self.transporterListModel?.data?[indexPath.row].shipmentname ?? ""
-                let selectID = self.transporterListModel?.data?[indexPath.row].id ?? 0
+                let selectID = self.transporterListModel?.data?[indexPath.row].shipmentid ?? 0
                 print(selectID ?? 0)
                 self.selectrowdelegate?.selcetrow(rowid: selectString, typeID: selectID)
                 self.dismiss(animated: true)
@@ -121,8 +121,9 @@ extension DropDownListVC:UITableViewDelegate,UITableViewDataSource{
  }
    
 }
+
 extension DropDownListVC {
-    
+   // transporter list api
     func transporterApiMetnod(){
        var param = [String: Any]()
         param = [:]
@@ -139,6 +140,7 @@ extension DropDownListVC {
         }
     }
     
+    // vehicle list api
     func vehicleListApiMetnod(){
         let param = [ "shipment_type": typeSelected_ID ?? 0]
         print(param)

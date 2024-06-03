@@ -159,7 +159,7 @@ class VerifyAccountVC: UIViewController {
         }
     }
 }
-    
+
     
 extension VerifyAccountVC{
     
@@ -177,7 +177,8 @@ extension VerifyAccountVC{
                 print(self.driverRegisterModel?.data?.current_city ?? "")
                 let tokkken = self.driverRegisterModel?.token?.access
                 UserDefaults.standard.setValue(tokkken, forKey: "token")
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "VehicleDetailsVC") as! VehicleDetailsVC
+                UserDefaults.standard.removeObject(forKey: "driverCity")
+               let vc = self.storyboard?.instantiateViewController(withIdentifier: "VehicleDetailsVC") as! VehicleDetailsVC
                 vc.deviceId = self.deviceID
                 vc.currentCity = self.city
                 self.navigationController?.pushViewController(vc, animated: true)
@@ -219,6 +220,7 @@ extension VerifyAccountVC{
      
      
  }
+ 
  
  
  

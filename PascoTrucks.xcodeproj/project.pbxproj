@@ -94,6 +94,10 @@
 		70500F5A2BDFC40800BC4BB5 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70500F592BDFC40800BC4BB5 /* SignUpViewModel.swift */; };
 		7058992C2BEE05D300D05D12 /* LoginVerifyNoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7058992B2BEE05D300D05D12 /* LoginVerifyNoVC.swift */; };
 		705AE8C92BE4B3B600EAA58D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705AE8C82BE4B3B600EAA58D /* ProfileViewModel.swift */; };
+		707AF3B32C0DDCF000508880 /* BidingStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707AF3B12C0DDCF000508880 /* BidingStatusCell.swift */; };
+		707AF3B42C0DDCF000508880 /* BidingStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 707AF3B22C0DDCF000508880 /* BidingStatusCell.xib */; };
+		707AF3B72C0DDD4000508880 /* CurrentOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707AF3B52C0DDD4000508880 /* CurrentOrderCell.swift */; };
+		707AF3B82C0DDD4000508880 /* CurrentOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 707AF3B62C0DDD4000508880 /* CurrentOrderCell.xib */; };
 		70A713DD2C01CD9A00DCDE54 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A713DC2C01CD9A00DCDE54 /* AuthManager.swift */; };
 		70A7C3672C08A04400730249 /* ClientHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7C3662C08A04400730249 /* ClientHistoryVC.swift */; };
 		70A7C36A2C08A20F00730249 /* ClientOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7C3692C08A20F00730249 /* ClientOrderVC.swift */; };
@@ -238,6 +242,10 @@
 		70500F592BDFC40800BC4BB5 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		7058992B2BEE05D300D05D12 /* LoginVerifyNoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerifyNoVC.swift; sourceTree = "<group>"; };
 		705AE8C82BE4B3B600EAA58D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		707AF3B12C0DDCF000508880 /* BidingStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidingStatusCell.swift; sourceTree = "<group>"; };
+		707AF3B22C0DDCF000508880 /* BidingStatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BidingStatusCell.xib; sourceTree = "<group>"; };
+		707AF3B52C0DDD4000508880 /* CurrentOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentOrderCell.swift; sourceTree = "<group>"; };
+		707AF3B62C0DDD4000508880 /* CurrentOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentOrderCell.xib; sourceTree = "<group>"; };
 		70A713DC2C01CD9A00DCDE54 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		70A7C3662C08A04400730249 /* ClientHistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientHistoryVC.swift; sourceTree = "<group>"; };
 		70A7C3692C08A20F00730249 /* ClientOrderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientOrderVC.swift; sourceTree = "<group>"; };
@@ -613,6 +621,10 @@
 			isa = PBXGroup;
 			children = (
 				70FD48692BFB097B00CF0B31 /* MyOrderVC.swift */,
+				707AF3B12C0DDCF000508880 /* BidingStatusCell.swift */,
+				707AF3B22C0DDCF000508880 /* BidingStatusCell.xib */,
+				707AF3B52C0DDD4000508880 /* CurrentOrderCell.swift */,
+				707AF3B62C0DDD4000508880 /* CurrentOrderCell.xib */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -1027,6 +1039,7 @@
 				412302152BD6258E000ED3C1 /* TitleBar.xib in Resources */,
 				41677FCA2BD8ECAB0035EDAF /* TitleBar2.xib in Resources */,
 				26A0AF512C00B18B00896396 /* AddtionalServiceTVC.xib in Resources */,
+				707AF3B82C0DDD4000508880 /* CurrentOrderCell.xib in Resources */,
 				702EC2D92C01EE3D00502422 /* MywalletHistoryCell.xib in Resources */,
 				26DF91042C00955900A915E4 /* VicheleTypeTVC.xib in Resources */,
 				4117F2352BCE38AB0064304A /* LaunchScreen.storyboard in Resources */,
@@ -1034,6 +1047,7 @@
 				7034134C2BF1DB020079E66B /* ClientTitleBar.xib in Resources */,
 				4117F2322BCE38AB0064304A /* Assets.xcassets in Resources */,
 				702EC2C22C01C68B00502422 /* GoogleService-Info.plist in Resources */,
+				707AF3B42C0DDCF000508880 /* BidingStatusCell.xib in Resources */,
 				4117F22D2BCE38A90064304A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1268,10 +1282,12 @@
 				703413522BF1EED50079E66B /* TopImgCell.swift in Sources */,
 				41E606CE2BD26C4A0053E6EF /* MoreVC.swift in Sources */,
 				701629F92BF22FC800D0E4DE /* PaymentMethodVC.swift in Sources */,
+				707AF3B72C0DDD4000508880 /* CurrentOrderCell.swift in Sources */,
 				4150D5A12BCFC96300CCDE6C /* DriverHomeVC.swift in Sources */,
 				70A7C37A2C08A6D900730249 /* CompletedTVC.swift in Sources */,
 				4117F2282BCE38A90064304A /* SceneDelegate.swift in Sources */,
 				41300C132BCF84BF00A9C2AA /* VerifyAccountVC.swift in Sources */,
+				707AF3B32C0DDCF000508880 /* BidingStatusCell.swift in Sources */,
 				702914C72BE6423D00C33E69 /* ProfileDataModel.swift in Sources */,
 				700FC3212BF7260C0032FF2A /* DriverHomeViewModel.swift in Sources */,
 				41677FFC2BD920850035EDAF /* HistoryVC.swift in Sources */,

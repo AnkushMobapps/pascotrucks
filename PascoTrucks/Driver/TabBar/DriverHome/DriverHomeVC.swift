@@ -115,7 +115,7 @@ extension UISwitch {
 
 extension DriverHomeVC {
     
-// Get profile Details ========
+// Get profile Details ======== for driver name
     func getProfileDataApi(){
         let param = [String:Any]()
         ProfileViewModel.getProfileDetails(viewController: self, parameters: param as NSDictionary){responseObject in
@@ -125,7 +125,18 @@ extension DriverHomeVC {
             let img = responseObject.data?.image ?? ""
             if let url = URL(string: image_Url + img) {
                 self.topBarView.driverImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
-                self.topBarView.address.text = responseObject.data?.current_city
+                
+                if  UserDefaults.standard.string(forKey: "driverCity") != nil {
+                    print("through login")
+                    self.topBarView.address.text =  UserDefaults.standard.string(forKey: "driverCity")
+                }
+                else
+                {
+                    print("through registration")
+                    self.topBarView.address.text = responseObject.data?.current_city
+                }
+                
+                
             }
         }
     }
@@ -152,10 +163,11 @@ extension DriverHomeVC {
             print(approval ?? "")
            if approval == "approve" {
                 self.myTableView.isHidden = false
-                self.getOrdReqFromClient()
                 self.getProfileDataApi()
+                self.getOrdReqFromClient()
                 self.driverCountNotiApiCall()
-            }
+          
+           }
             else
             {
                 self.myTableView.isHidden = true

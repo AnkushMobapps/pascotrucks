@@ -30,7 +30,7 @@ class VehicleDataAndUpdateVC: UIViewController, UIImagePickerControllerDelegate 
     var vehicleRC:UIImage?
     var VehicleObjectID:Int?
     var transportID:Int?
-    var selectVehicleId:String?
+    var selectVehicleId:Int?
     var selVehicleId: String?
     
     var selecttypestr:String?
@@ -199,8 +199,9 @@ extension VehicleDataAndUpdateVC{
             self.getVehicleDataModel = response
             
             self.transporterTxt.text = self.getVehicleDataModel?.data?.shipmentname
+            self.transportID =  self.getVehicleDataModel?.data?.shipmentid
             self.vehicleTxt.text = self.getVehicleDataModel?.data?.vehiclename
-            self.selectVehicleId =  self.getVehicleDataModel?.data?.vehicleid
+            self.selectVehicleId =  self.getVehicleDataModel?.data?.cargo
             print(self.selectVehicleId)
             self.vehicleNum.text = self.getVehicleDataModel?.data?.vehiclenumber
             

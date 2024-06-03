@@ -6408,7 +6408,7 @@ placeholderLabel.textColor</string>
                                                                 <rect key="frame" x="65" y="0.0" width="309" height="50"/>
                                                                 <color key="textColor" red="0.3411764706" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" name="DMSans-Regular" family="DM Sans" pointSize="16"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color">
                                                                         <string key="keyPath">placeholderLabel.textColor

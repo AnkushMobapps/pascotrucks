@@ -29,7 +29,8 @@ class VehicleDataAndUpdateVC: UIViewController, UIImagePickerControllerDelegate 
     var vehicleLicenseImage:UIImage?
     var vehicleRC:UIImage?
     var VehicleObjectID:Int?
-    var transportID:Int?
+    var selectedShipmentID:Int?
+//    var transportID:Int?
     var selectVehicleId:Int?
     var selVehicleId: String?
     
@@ -72,7 +73,8 @@ class VehicleDataAndUpdateVC: UIViewController, UIImagePickerControllerDelegate 
         pc.modalPresentationStyle = .overFullScreen
         pc.modalTransitionStyle = .crossDissolve
         pc.listType = self.selecttypestr
-        pc.typeSelected_ID = transportID
+        pc.typeSelected_ID = selectedShipmentID
+        print(self.selectedShipmentID)
         pc.selectrowdelegate = self
         self.present(pc, animated: true, completion: nil)
     }
@@ -171,7 +173,7 @@ extension VehicleDataAndUpdateVC: selectList {
     func selcetrow(rowid: String, typeID: Int?) {
         if self.selecttypestr == "Transporter" {
             self.transporterTxt.text = rowid
-            self.transportID = typeID
+            self.selectedShipmentID = typeID
         }
         else if self.selecttypestr == "VehicleType"{
             self.vehicleTxt.text = rowid
@@ -179,7 +181,7 @@ extension VehicleDataAndUpdateVC: selectList {
         }
         else{
             self.transporterTxt.text = rowid
-            self.transportID = typeID
+            self.selectedShipmentID = typeID
         }
     }
 }
@@ -199,7 +201,8 @@ extension VehicleDataAndUpdateVC{
             self.getVehicleDataModel = response
             
             self.transporterTxt.text = self.getVehicleDataModel?.data?.shipmentname
-            self.transportID =  self.getVehicleDataModel?.data?.shipmentid
+            self.selectedShipmentID =  self.getVehicleDataModel?.data?.shipmentid
+            print(self.selectedShipmentID)
             self.vehicleTxt.text = self.getVehicleDataModel?.data?.vehiclename
             self.selectVehicleId =  self.getVehicleDataModel?.data?.cargo
             print(self.selectVehicleId)

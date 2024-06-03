@@ -7,7 +7,7 @@
 
 import UIKit
 class VehicleDetailsVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    
+    var registrationSuccess:String?
     @IBOutlet weak var vehicleImgView: UIView!
     @IBOutlet weak var drivingDocView: UIView!
     @IBOutlet weak var vehicleRcView: UIView!
@@ -31,7 +31,7 @@ class VehicleDetailsVC: UIViewController, UIImagePickerControllerDelegate & UINa
     @IBOutlet weak var vehicleNoTxt: UITextField!
     
     var selectedProfile:UIImage?
-    var transportID:Int?
+    var selShipmentID:Int?
     var vehicleID:Int?
     var selVehicleId: String?
     var countryId:Int?
@@ -89,7 +89,7 @@ class VehicleDetailsVC: UIViewController, UIImagePickerControllerDelegate & UINa
         pc.modalPresentationStyle = .overFullScreen
         pc.modalTransitionStyle = .crossDissolve
         pc.listType = self.selecttypestr
-        pc.typeSelected_ID = transportID
+        pc.typeSelected_ID = selShipmentID
         pc.selectrowdelegate = self
         self.present(pc, animated: true, completion: nil)
     }
@@ -187,7 +187,7 @@ extension VehicleDetailsVC: selectList {
     func selcetrow(rowid: String, typeID: Int?) {
         if self.selecttypestr == "Transporter" {
             self.transporterTxt.text = rowid
-            self.transportID = typeID
+            self.selShipmentID = typeID
         }
         else if self.selecttypestr == "VehicleType"{
             self.vehicleTxt.text = rowid
@@ -195,7 +195,7 @@ extension VehicleDetailsVC: selectList {
         }
         else{
             self.transporterTxt.text = rowid
-            self.transportID = typeID
+            self.selShipmentID = typeID
         }
    
     }

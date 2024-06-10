@@ -16,27 +16,33 @@ class DropDownListVC: UIViewController {
     @IBOutlet weak var myListTable: UITableView!
     
     var languageArray = ["Hindi","English","Arabic","Persian","French"]
-   // var transporterArray = ["Hindi","English","Arabic","Persian","French"]
-    //var vehicleArray = ["Truck","Jeep","Tractor","Cab","Cycle"]
-   // var countryArray = ["India","USA","UAE","France","Itly"]
+    // var countryArray = ["India","USA","UAE","France","Itly"]
      var cityArray = ["Delhi","Noida","LosAngles"]
     
     var listType:String!
-   // var viaLoginStr:String!
+ 
     var transporterListModel: TransporterModel?
     var vehicleListModel:VehicleModel?
-    var countryListModel:CountryListModel?
-    var cityListModel:CityListModel?
+   // var countryListModel:CountryListModel?
+   // var cityListModel:CityListModel?
+    var selectCityModel:SelectCityModel?
     var typeSelected_ID:Int?
+    
+    var countryCode:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //UserDefaults.standard.set(dialingPhoneCode, forKey: "countryCode")
+        print(countryCode)
         
         if listType == "Transporter" {
             transporterApiMetnod()
          }
         else if listType == "VehicleType"{
            vehicleListApiMetnod()
+        } 
+        else if listType == "City"{
+            selectCityApiMetnod()
         }
 
         else
@@ -63,7 +69,7 @@ extension DropDownListVC:UITableViewDelegate,UITableViewDataSource{
                 return self.vehicleListModel?.data?.count ?? 0
             }
           else {
-              return cityArray.count
+              return self.selectCityModel?.data?.count ?? 0
             }
 
     }
@@ -82,7 +88,7 @@ extension DropDownListVC:UITableViewDelegate,UITableViewDataSource{
                 cell.data.text = self.vehicleListModel?.data?[indexPath.row].vehiclename ?? ""
             }
           else{
-            cell.data.text = cityArray[indexPath.row]
+              cell.data.text = self.selectCityModel?.data?[indexPath.row].cityname
             }
 
             return cell
@@ -112,7 +118,7 @@ extension DropDownListVC:UITableViewDelegate,UITableViewDataSource{
                 self.dismiss(animated: true)
             }
            else if listType == "City" {
-               let selectString = cityArray[indexPath.row]
+               let selectString = self.selectCityModel?.data?[indexPath.row].cityname ?? ""
                print(selectString)
                self.selectrowdelegate?.selcetrow(rowid: selectString, typeID: 0)
                self.dismiss(animated: true)
@@ -149,6 +155,7 @@ extension DropDownListVC {
             print("Success")
             self.vehicleListModel = responseObject
             self.myListTable.reloadData()
+            
         }
     }
     
@@ -168,22 +175,19 @@ extension DropDownListVC {
 //        }
 //    }
     
-//    func cityListApiMetnod(){
-//        // "country":
-//      // var param = [String: Any]()
-//       let param = ["country": typeSelected_ID ?? 0]
-//        
-//        VehicleDetailsVM.CityListApi(viewcontroller: self, parameters: param as NSDictionary){
-//            (responseObject) in
-//            
-//            self.cityListModel = responseObject
-//            
-//            self.myListTable.reloadData()
-//            
-//            print("success")
-//            
-//        }
-//    }
+    func selectCityApiMetnod(){
+        // "country":
+       let param = ["countrycode": countryCode]
+        print(param)
+        RegisterViewModel.selectCityApi(viewController: self, parameters: param as NSDictionary){
+            response in
+            print(response!)
+            self.selectCityModel = response
+            self.myListTable.reloadData()
+            
+        }
+     
+    }
 }
     
 

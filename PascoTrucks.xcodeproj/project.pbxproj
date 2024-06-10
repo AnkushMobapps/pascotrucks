@@ -84,6 +84,8 @@
 		7034134E2BF1DB4A0079E66B /* ClientTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7034134D2BF1DB4A0079E66B /* ClientTitleBar.swift */; };
 		703413522BF1EED50079E66B /* TopImgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703413512BF1EED50079E66B /* TopImgCell.swift */; };
 		703FCBB92C0985AE00C2861D /* AddNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FCBB82C0985AE00C2861D /* AddNotesVC.swift */; };
+		7044639D2C10657400B76954 /* GetOrderFromClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044639B2C10657400B76954 /* GetOrderFromClientCell.swift */; };
+		7044639E2C10657400B76954 /* GetOrderFromClientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7044639C2C10657400B76954 /* GetOrderFromClientCell.xib */; };
 		7044860F2BE8ED6500CC9403 /* UpdareProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044860E2BE8ED6500CC9403 /* UpdareProfileModel.swift */; };
 		704486112BE8F15C00CC9403 /* UpdateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704486102BE8F15C00CC9403 /* UpdateProfileViewModel.swift */; };
 		70500F502BDFA36200BC4BB5 /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70500F4D2BDFA36200BC4BB5 /* CommonMethods.swift */; };
@@ -112,9 +114,15 @@
 		70A7C3852C08AAC800730249 /* Terms&Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7C3842C08AAC800730249 /* Terms&Conditions.swift */; };
 		70A7C3882C08AB0300730249 /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7C3872C08AB0300730249 /* ContactUsVC.swift */; };
 		70A7C3902C08AC7A00730249 /* TrackLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7C38F2C08AC7A00730249 /* TrackLocationVC.swift */; };
+		70DBE49A2C1173C500A1C09E /* DriverNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DBE4992C1173C500A1C09E /* DriverNotesVC.swift */; };
+		70DBE49C2C1173D800A1C09E /* DriverSupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DBE49B2C1173D800A1C09E /* DriverSupportVC.swift */; };
+		70DBE4A02C1173FA00A1C09E /* DriverEmergencyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DBE49F2C1173FA00A1C09E /* DriverEmergencyVC.swift */; };
+		70DBE4A22C117CDC00A1C09E /* DriverupdateLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DBE4A12C117CDC00A1C09E /* DriverupdateLocationVC.swift */; };
+		70DBE4A42C11BB7800A1C09E /* DatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DBE4A32C11BB7800A1C09E /* DatePickerVC.swift */; };
 		70DF0CD72BF867D200662899 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DF0CD62BF867D200662899 /* NotificationModel.swift */; };
 		70DF0CD92BF867E500662899 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DF0CD82BF867E500662899 /* NotificationViewModel.swift */; };
 		70DF36952C05A64600C9CE59 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DF36942C05A64600C9CE59 /* LocationManager.swift */; };
+		70DF98C82C0ED56D00AF563F /* DriverBidingDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DF98C72C0ED56D00AF563F /* DriverBidingDetailsVC.swift */; };
 		70F0CAD62C0482F3008A16DC /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F0CAD52C0482F3008A16DC /* UITextField+Ext.swift */; };
 		70FD486A2BFB097B00CF0B31 /* MyOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FD48692BFB097B00CF0B31 /* MyOrderVC.swift */; };
 		70FF588C2BF624CB0046BA18 /* ClientHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FF588B2BF624CB0046BA18 /* ClientHomeModel.swift */; };
@@ -232,6 +240,8 @@
 		7034134D2BF1DB4A0079E66B /* ClientTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTitleBar.swift; sourceTree = "<group>"; };
 		703413512BF1EED50079E66B /* TopImgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopImgCell.swift; sourceTree = "<group>"; };
 		703FCBB82C0985AE00C2861D /* AddNotesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotesVC.swift; sourceTree = "<group>"; };
+		7044639B2C10657400B76954 /* GetOrderFromClientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrderFromClientCell.swift; sourceTree = "<group>"; };
+		7044639C2C10657400B76954 /* GetOrderFromClientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetOrderFromClientCell.xib; sourceTree = "<group>"; };
 		7044860E2BE8ED6500CC9403 /* UpdareProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdareProfileModel.swift; sourceTree = "<group>"; };
 		704486102BE8F15C00CC9403 /* UpdateProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewModel.swift; sourceTree = "<group>"; };
 		70500F4D2BDFA36200BC4BB5 /* CommonMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
@@ -260,9 +270,15 @@
 		70A7C3842C08AAC800730249 /* Terms&Conditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terms&Conditions.swift"; sourceTree = "<group>"; };
 		70A7C3872C08AB0300730249 /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
 		70A7C38F2C08AC7A00730249 /* TrackLocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackLocationVC.swift; sourceTree = "<group>"; };
+		70DBE4992C1173C500A1C09E /* DriverNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverNotesVC.swift; sourceTree = "<group>"; };
+		70DBE49B2C1173D800A1C09E /* DriverSupportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSupportVC.swift; sourceTree = "<group>"; };
+		70DBE49F2C1173FA00A1C09E /* DriverEmergencyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverEmergencyVC.swift; sourceTree = "<group>"; };
+		70DBE4A12C117CDC00A1C09E /* DriverupdateLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverupdateLocationVC.swift; sourceTree = "<group>"; };
+		70DBE4A32C11BB7800A1C09E /* DatePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerVC.swift; sourceTree = "<group>"; };
 		70DF0CD62BF867D200662899 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		70DF0CD82BF867E500662899 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		70DF36942C05A64600C9CE59 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		70DF98C72C0ED56D00AF563F /* DriverBidingDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverBidingDetailsVC.swift; sourceTree = "<group>"; };
 		70F0CAD52C0482F3008A16DC /* UITextField+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 		70FD48692BFB097B00CF0B31 /* MyOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderVC.swift; sourceTree = "<group>"; };
 		70FF588B2BF624CB0046BA18 /* ClientHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHomeModel.swift; sourceTree = "<group>"; };
@@ -527,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				4117F27E2BCE54780064304A /* New Group */,
+				70DBE4A32C11BB7800A1C09E /* DatePickerVC.swift */,
 			);
 			path = CommonController;
 			sourceTree = "<group>";
@@ -575,6 +592,7 @@
 		4150D59F2BCFC93300CCDE6C /* DriverHome */ = {
 			isa = PBXGroup;
 			children = (
+				70DBE4982C11739900A1C09E /* HorigontalStackOptions */,
 				70FD486B2BFB163100CF0B31 /* MakeAnOrder */,
 				4150D5A02BCFC96300CCDE6C /* DriverHomeVC.swift */,
 				4150D5A82BCFD64E00CCDE6C /* ImgCell.swift */,
@@ -625,6 +643,7 @@
 				707AF3B22C0DDCF000508880 /* BidingStatusCell.xib */,
 				707AF3B52C0DDD4000508880 /* CurrentOrderCell.swift */,
 				707AF3B62C0DDD4000508880 /* CurrentOrderCell.xib */,
+				70DF98C72C0ED56D00AF563F /* DriverBidingDetailsVC.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -877,6 +896,17 @@
 			path = TrackLocation;
 			sourceTree = "<group>";
 		};
+		70DBE4982C11739900A1C09E /* HorigontalStackOptions */ = {
+			isa = PBXGroup;
+			children = (
+				70DBE4992C1173C500A1C09E /* DriverNotesVC.swift */,
+				70DBE49B2C1173D800A1C09E /* DriverSupportVC.swift */,
+				70DBE49F2C1173FA00A1C09E /* DriverEmergencyVC.swift */,
+				70DBE4A12C117CDC00A1C09E /* DriverupdateLocationVC.swift */,
+			);
+			path = HorigontalStackOptions;
+			sourceTree = "<group>";
+		};
 		70F2C9012BF35AE90074BBAF /* ClientModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -899,6 +929,8 @@
 				41E606B52BD26B760053E6EF /* OrderVC.swift */,
 				4123021C2BD67BB8000ED3C1 /* DiliverdVC.swift */,
 				41D650702BD7D9AF006F911A /* CurrentLocationOfOrderVC.swift */,
+				7044639B2C10657400B76954 /* GetOrderFromClientCell.swift */,
+				7044639C2C10657400B76954 /* GetOrderFromClientCell.xib */,
 			);
 			path = MakeAnOrder;
 			sourceTree = "<group>";
@@ -1044,6 +1076,7 @@
 				26DF91042C00955900A915E4 /* VicheleTypeTVC.xib in Resources */,
 				4117F2352BCE38AB0064304A /* LaunchScreen.storyboard in Resources */,
 				702EC2DD2C01EE5500502422 /* MyTransactionCell.xib in Resources */,
+				7044639E2C10657400B76954 /* GetOrderFromClientCell.xib in Resources */,
 				7034134C2BF1DB020079E66B /* ClientTitleBar.xib in Resources */,
 				4117F2322BCE38AB0064304A /* Assets.xcassets in Resources */,
 				702EC2C22C01C68B00502422 /* GoogleService-Info.plist in Resources */,
@@ -1226,6 +1259,7 @@
 				41C8972A2BCEABCA00525166 /* SignupVC.swift in Sources */,
 				703413382BF1D34C0079E66B /* ClientTabBarViewController.swift in Sources */,
 				7015AEEB2BECFCF0001BF1B4 /* VehicleDataAndUpdateVC.swift in Sources */,
+				70DBE4A42C11BB7800A1C09E /* DatePickerVC.swift in Sources */,
 				41677FD22BD8ECC50035EDAF /* TitleBar2.swift in Sources */,
 				4117F2622BCE39F80064304A /* WelcomeVC.swift in Sources */,
 				41E606C12BD26C1C0053E6EF /* ProfileVC.swift in Sources */,
@@ -1238,6 +1272,7 @@
 				41E606B62BD26B760053E6EF /* OrderVC.swift in Sources */,
 				7044860F2BE8ED6500CC9403 /* UpdareProfileModel.swift in Sources */,
 				702914CE2BE6538300C33E69 /* RegisterViewModel.swift in Sources */,
+				70DBE49A2C1173C500A1C09E /* DriverNotesVC.swift in Sources */,
 				4117F28B2BCE74F30064304A /* LoginVC.swift in Sources */,
 				4150D5A92BCFD64E00CCDE6C /* ImgCell.swift in Sources */,
 				70DF0CD72BF867D200662899 /* NotificationModel.swift in Sources */,
@@ -1247,6 +1282,7 @@
 				70A7C37C2C08A6F600730249 /* OngoingTVC.swift in Sources */,
 				70F0CAD62C0482F3008A16DC /* UITextField+Ext.swift in Sources */,
 				70FF588E2BF627870046BA18 /* ClientHomeViewModel.swift in Sources */,
+				70DBE49C2C1173D800A1C09E /* DriverSupportVC.swift in Sources */,
 				4150D5B32BCFEEC200CCDE6C /* MyTableViewCell.swift in Sources */,
 				26DF90FF2C00952D00A915E4 /* VicheleTypeVC.swift in Sources */,
 				703413422BF1D6C50079E66B /* ClientHomeVC.swift in Sources */,
@@ -1256,6 +1292,7 @@
 				70500F582BDFC3E600BC4BB5 /* SignUpModel.swift in Sources */,
 				4117F2262BCE38A90064304A /* AppDelegate.swift in Sources */,
 				70203ED32BE2179700AF81E9 /* VehicleDetailsModel.swift in Sources */,
+				70DF98C82C0ED56D00AF563F /* DriverBidingDetailsVC.swift in Sources */,
 				705AE8C92BE4B3B600EAA58D /* ProfileViewModel.swift in Sources */,
 				702EC2D82C01EE3D00502422 /* MywalletHistoryCell.swift in Sources */,
 				26DF90FB2C00501900A915E4 /* MapVC.swift in Sources */,
@@ -1276,9 +1313,12 @@
 				70317BF92BF4C73100CC41F7 /* GridCollectionCell.swift in Sources */,
 				70FF588C2BF624CB0046BA18 /* ClientHomeModel.swift in Sources */,
 				41D650712BD7D9AF006F911A /* CurrentLocationOfOrderVC.swift in Sources */,
+				70DBE4A02C1173FA00A1C09E /* DriverEmergencyVC.swift in Sources */,
 				700FC31F2BF725F40032FF2A /* DriverHomeModel.swift in Sources */,
 				70A7C3852C08AAC800730249 /* Terms&Conditions.swift in Sources */,
 				4150F9F12BDA5122009E20AF /* LanguageCell.swift in Sources */,
+				7044639D2C10657400B76954 /* GetOrderFromClientCell.swift in Sources */,
+				70DBE4A22C117CDC00A1C09E /* DriverupdateLocationVC.swift in Sources */,
 				703413522BF1EED50079E66B /* TopImgCell.swift in Sources */,
 				41E606CE2BD26C4A0053E6EF /* MoreVC.swift in Sources */,
 				701629F92BF22FC800D0E4DE /* PaymentMethodVC.swift in Sources */,

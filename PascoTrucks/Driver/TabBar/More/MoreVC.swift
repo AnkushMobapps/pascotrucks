@@ -9,27 +9,38 @@ import UIKit
 import SDWebImage
 
 class MoreVC: UIViewController {
-
     
     @IBOutlet weak var topBar: TitleBar!
     var approvalKey:String?
     var driverCountNotiModel:CountNotificationModel?
     var vehicleapproved:vehicleApprove?
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getProfileDataApi()
         self.topBar.notificationButton = {
             let vc = self.storyboard?.instantiateViewController(identifier: "NotificationVC") as! NotificationVC
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
-       checkapprovalStatusApiCall()
+        let Duty = UserDefaults.standard.integer(forKey: "Duty")
+        if Duty == 1{
+            topBar.switchCondition.setOn(true, animated: false)
+        }
+        else{
+            topBar.switchCondition.setOn(false, animated: false)
+        }
+        checkapprovalStatusApiCall()
     }
     
-
+    
+    @IBAction func logOutBtnClk(_ sender: UIButton) {
+        driverLogPutApi()
+    }
+    
     @IBAction func updateVehicleClk(_ sender: UIButton) {
         if self.approvalKey == "approve" {
             let vc1 = self.storyboard?.instantiateViewController(withIdentifier: "VehicleDataAndUpdateVC") as! VehicleDataAndUpdateVC
@@ -37,7 +48,7 @@ class MoreVC: UIViewController {
         }
         else
         {
-       CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Not approved yet !", view: self)
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Not approved yet !", view: self)
             
         }
         
@@ -52,21 +63,17 @@ class MoreVC: UIViewController {
         }
         else
         {
-       CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Not approved yet !", view: self)
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Not approved yet !", view: self)
             
         }
-     }
-    
-    
-    
-    
+    }
    
 }
 
 
 extension MoreVC{
     
-// Check Approval Status api ========
+    // Check Approval Status api ========
     func checkapprovalStatusApiCall(){
         let param = [String:Any]()
         print(param)
@@ -76,7 +83,7 @@ extension MoreVC{
             print(responseObject)
             self.approvalKey = self.vehicleapproved?.data?.approval_status
             if self.approvalKey == "approve" {
-                self.getProfileDataApi()
+                //self.getProfileDataApi()
                 self.driverCountNotiApiCall()
             }
             else
@@ -87,36 +94,51 @@ extension MoreVC{
         }
     }
     
-// Get profile Details ========
-        func getProfileDataApi(){
-            let param = [String:Any]()
-            ProfileViewModel.getProfileDetails(viewController: self, parameters: param as NSDictionary){responseObject in
-                print("Success")
-                print(responseObject)
-                self.topBar.driverName.text = responseObject.data?.full_name
-                let img = responseObject.data?.image ?? ""
-                if let url = URL(string: image_Url + img) {
-                    self.topBar.driverImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
-                    if  UserDefaults.standard.string(forKey: "driverCity") != nil {
-                        print("through login")
-                        self.topBar.address.text =  UserDefaults.standard.string(forKey: "driverCity")
-                    }
-                    else
-                    {
-                        print("through registration")
-                        self.topBar.address.text = responseObject.data?.current_city
-                    }
+    // Get profile Details ========
+    func getProfileDataApi(){
+        let param = [String:Any]()
+        ProfileViewModel.getProfileDetails(viewController: self, parameters: param as NSDictionary){responseObject in
+            print("Success")
+            print(responseObject)
+            self.topBar.driverName.text = responseObject.data?.full_name
+            let img = responseObject.data?.image ?? ""
+            if let url = URL(string: image_Url + img) {
+                self.topBar.driverImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
+                if  UserDefaults.standard.string(forKey: "driverCity") != nil {
+                    print("through login")
+                    self.topBar.address.text =  UserDefaults.standard.string(forKey: "driverCity")
+                }
+                else
+                {
+                    print("through registration")
+                    self.topBar.address.text = responseObject.data?.current_city
                 }
             }
         }
-        
-// Driver Notification Count ========
-        func driverCountNotiApiCall(){
-            let param = [String:Any]()
-            NotificationViewModel.countNotificationApi(viewController: self, parameters: param as NSDictionary ){(response) in
-                print("success")
-                self.driverCountNotiModel = response
-                self.topBar.countOfNotification.text = "\(self.driverCountNotiModel?.count ?? 0)"
-            }
+    }
+    
+    // Driver Notification Count ========
+    func driverCountNotiApiCall(){
+        let param = [String:Any]()
+        NotificationViewModel.countNotificationApi(viewController: self, parameters: param as NSDictionary ){(response) in
+            print("success")
+            self.driverCountNotiModel = response
+            self.topBar.countOfNotification.text = "\(self.driverCountNotiModel?.count ?? 0)"
         }
-     }
+    }
+    
+    // Driver Logout api ========
+    func driverLogPutApi(){
+        let refreshtoken = UserDefaults.standard.string(forKey: "refresh_tokkken")
+        let param = ["refresh": refreshtoken ?? ""] as [String:Any]
+        print(param)
+        LoginViewModel.driverLogOutApi(viewController: self, parameters: param as NSDictionary){
+            response in
+            print("success")
+            UserDefaults.standard.removeObject(forKey: "user_id")
+            let vc = self.storyboard?.instantiateViewController(identifier: "LoginVC") as! LoginVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+}

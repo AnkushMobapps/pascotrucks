@@ -105,6 +105,24 @@ struct DriverUpdateDeviceLoginModel:Codable{
    }
 }
 
+//driver logout
+
+struct DriverLogOutModel:Codable{
+   var Status:String?
+    var msg:String?
+  
+    enum CodingKeys:String,CodingKey{
+       case Status = "Status"
+        case msg = "msg"
+       
+    }
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.Status = try container.decodeIfPresent(String.self, forKey: .Status)
+        self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
+    }
+}
+
 
 //client checkLogin model
 struct CheckClientLoginModel:Codable{

@@ -15,13 +15,11 @@ class LoginViewModel{
     
     class func Validation(viewController:LoginVC, completion:@escaping()->Void){
         if viewController.phoneTF.text == Constant.BLANK {
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill the phone no", view: viewController)
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Please enter your Phone Number", view: viewController)
         }
-        else if viewController.phoneTF.text?.count ?? 0>10 || viewController.phoneTF.text?.count ?? 0<10{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "phone no digit should be 10", view: viewController)
-        }
+     
         else if viewController.countryCodeTxt.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill the country code", view: viewController)
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Please enter the country code", view: viewController)
         }
         else{
             completion()
@@ -43,7 +41,7 @@ class LoginViewModel{
                     completion(userData)
                 }
                 else {
-                    CommonMethods.showAlertMessage(title: Constant.TITLE, message: "something went wrong" , view: viewcontroller)
+                    CommonMethods.showAlertMessage(title: Constant.TITLE, message: userData.msg , view: viewcontroller)
                 }
             }
         }
@@ -81,7 +79,22 @@ class LoginViewModel{
             
         }
     }
-    
+     
+    class func driverLogOutApi(viewController:UIViewController,parameters:NSDictionary,completion:@escaping(DriverLogOutModel?)->Void){
+        DataManager.alamofireLogOutNewPostRequest(url: driver_logout_url, viewcontroller: viewController, parameters: parameters as? [String:AnyObject]){
+            (response, error) in
+            if let responseData = response{
+                let userData = try! JSONDecoder().decode(DriverLogOutModel.self, from: responseData)
+                print(userData)
+                if userData.Status == Constant.SUCCESS {
+                    completion(userData)
+                }
+                else{
+                    CommonMethods.showAlertMessage(title: Constant.TITLE, message: userData.msg, view: viewController)
+                }
+            }
+        }
+    }
     
    // MARK: - Client All api methods are here
     class func ClientLoginApi(viewcontroller:UIViewController,parameters: NSDictionary, completion: @escaping(ClientLoginModel?)->Void) {

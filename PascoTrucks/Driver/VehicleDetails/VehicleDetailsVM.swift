@@ -19,25 +19,27 @@ class VehicleDetailsVM{
 
     // MARK: - VehicleDetailsVC  textfileds validation
     class func Validation(viewController:VehicleDetailsVC, completion:@escaping()->Void){
-        if viewController.vehicleImg == nil{
+        
+        if viewController.transporterTxt.text == Constant.BLANK{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.shipmentTypeTxt, view: viewController)
+        }
+        else if viewController.vehicleTxt.text == Constant.BLANK{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.vehicleTypeTxt, view: viewController)
+        }
+        else  if viewController.vehicleImg == nil{
             CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.VehicleImg, view: viewController)
         }
         else if viewController.vehicleDoc == nil{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select driving license image", view: viewController)
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.drivinglicenseImg, view: viewController)
         }
         else if viewController.vehicleRC == nil{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select RC image", view: viewController)
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.drivingRCImg, view: viewController)
         }
         else if viewController.vehicleNoTxt.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill the vehicle no", view: viewController)
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.vehicleNumberTxt, view: viewController)
         }
-        else if viewController.transporterTxt.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select shipment type", view: viewController)
-        }
-        else if viewController.vehicleTxt.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select vehicle type", view: viewController)
-        }
-       else{
+       
+      else{
             completion()
         }
     }
@@ -53,27 +55,53 @@ class VehicleDetailsVM{
 
      */
     class func UpdateVehicleValidation(viewController:VehicleDataAndUpdateVC, completion:@escaping()->Void){
-        if viewController.vehicleImg == nil{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select vehicle image", view: viewController)
-        }
-        else if viewController.vehicleLicenseImage == nil {
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select driving license image", view: viewController)
-        }
-        else if viewController.vehicleRC == nil {
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select RC image", view: viewController)
-        }
-        else if viewController.vehicleNum.text == Constant.BLANK {
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill the vehicle no", view: viewController)
-        }
-        else if viewController.transporterTxt.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select shipment type", view: viewController)
+        
+        if viewController.transporterTxt.text == Constant.BLANK{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.shipmentTypeTxt, view: viewController)
         }
         else if viewController.vehicleTxt.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select vehicle type", view: viewController)
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.vehicleTypeTxt, view: viewController)
         }
+       else if viewController.vehicleImg == nil{
+           CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.VehicleImg, view: viewController)
+        }
+        else if viewController.vehicleLicenseImage == nil {
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.drivinglicenseImg, view: viewController)
+        }
+        else if viewController.vehicleRC == nil {
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.drivingRCImg, view: viewController)
+        }
+        else if viewController.vehicleNum.text == Constant.BLANK {
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.vehicleNumberTxt, view: viewController)
+        }
+     
        else {
             completion()
         }
+        /*
+         if viewController.transporterTxt.text == Constant.BLANK{
+             CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.shipmentTypeTxt, view: viewController)
+         }
+         else if viewController.vehicleTxt.text == Constant.BLANK{
+             CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.vehicleTypeTxt, view: viewController)
+         }
+         else  if viewController.vehicleImg == nil{
+             CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.VehicleImg, view: viewController)
+         }
+         else if viewController.vehicleDoc == nil{
+             CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.drivinglicenseImg, view: viewController)
+         }
+         else if viewController.vehicleRC == nil{
+             CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.drivingRCImg, view: viewController)
+         }
+         else if viewController.vehicleNoTxt.text == Constant.BLANK{
+             CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.vehicleNumberTxt, view: viewController)
+         }
+        
+       else{
+             completion()
+         }
+         */
     }
     
     class func TransporterListApi(viewcontroller:UIViewController,parameters: NSDictionary, completion: @escaping(TransporterModel?)->Void) {

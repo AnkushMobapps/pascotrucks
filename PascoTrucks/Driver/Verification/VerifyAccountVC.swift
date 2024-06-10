@@ -15,7 +15,8 @@ class VerifyAccountVC: UIViewController {
     @IBOutlet weak var txtOTP4: UITextField!
     @IBOutlet weak var txtOTP5: UITextField!
     @IBOutlet weak var txtOTP6: UITextField!
-    
+    @IBOutlet weak var phoneNo: UILabel!
+    var selectedCountryCode:String?
     var phoneNumber:String?
     var deviceID:String?
     var userId:String?
@@ -41,7 +42,7 @@ class VerifyAccountVC: UIViewController {
     
    override func viewDidLoad() {
         super.viewDidLoad()
-       
+       phoneNo.text = (selectedCountryCode ?? "") + (phoneNumber ?? "")
         print(city)
         txtOTP1.addTarget(self, action: #selector(self.textFieldDidChangeSelection), for: UIControl.Event.editingChanged)
         txtOTP2.addTarget(self, action: #selector(self.textFieldDidChangeSelection), for: UIControl.Event.editingChanged)
@@ -51,62 +52,54 @@ class VerifyAccountVC: UIViewController {
         txtOTP6.addTarget(self, action: #selector(self.textFieldDidChangeSelection), for: UIControl.Event.editingChanged)
         
         self.userId = UserDefaults.standard.string(forKey: "user_id")
-       
-       
-       
         
     }
-    
-    
-    
-    
     @IBAction func verifyBtn(_ sender: UIButton) {
         currentLatitude = UserDefaults.standard.string(forKey: "lat")
         print(currentLatitude ?? "")
-        currentLangitude = UserDefaults.standard.string(forKey: "long") 
+        currentLangitude = UserDefaults.standard.string(forKey: "long")
         print(currentLangitude ?? "")
         
         let all = "\(self.txtOTP1.text ?? "")"+"\(self.txtOTP2.text ?? "")"+"\(self.txtOTP3.text ?? "")"+"\(self.txtOTP4.text ?? "")"+"\(self.txtOTP5.text ?? "")"+"\(self.txtOTP6.text ?? "")"
         
-//        AuthManager.shared.varifyCode(smsCode: all) { [self] (success) in
-//            if success {
-                
-                if self.selectedType == .Register{
-                    
-                    if self.userType == "driver"{
-                       
-                       
-                            self.submitDriverRegApiMetnod()
-                        
-                    }
-                    else{
-                        // self.clientRegisterApi()
-                    }
-                    
-                }
+                AuthManager.shared.varifyCode(smsCode: all) { [self] (success) in
+                    if success {
         
-                else if self.selectedType == .login{
-                    
-                    if self.userType == "driver"{
-                        driverUpdateDeviceApi()
-                    }
-                    else{
-                        CommonMethods.showAlertMessage(title: Constant.TITLE, message: "this is for client update device", view: self)
-                    }
-                    
-                }
+        if self.selectedType == .Register{
+            
+            if self.userType == "driver"{
                 
-//            }
-//            else {
-//                CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Something Wrong", view: self)
-//            }
-//        }
+                
+                self.submitDriverRegApiMetnod()
+                
+            }
+            else{
+                // self.clientRegisterApi()
+            }
+            
+        }
+        
+        
+        else if self.selectedType == .login{
+            
+            if self.userType == "driver"{
+                driverUpdateDeviceApi()
+            }
+            else{
+                CommonMethods.showAlertMessage(title: Constant.TITLE, message: "this is for client update device", view: self)
+            }
+            
+        }
+        
+                    }
+        
+                    else {
+                        CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Something Wrong", view: self)
+                    }
+    }
     }
     
-    
-    
-    
-    // MARK: Move cursor from one textfield to another textfield automatically
+// MARK: Move cursor from one textfield to another textfield automatically
     @objc func textFieldDidChangeSelection(_ textField: UITextField) {
         let text = textField.text
         if text?.utf16.count == 1{
@@ -220,10 +213,7 @@ extension VerifyAccountVC{
      
      
  }
- 
- 
- 
- 
+
  // MARK: - Driver Login Api
  func loginApiMetnod(){
      let param = [ "phone_number":phoneNumber, "user_type" : userType ?? ""] as [String : Any]

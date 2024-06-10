@@ -11,51 +11,40 @@ class RegisterViewModel{
     let shareInstance = RegisterViewModel()
  
     
-    // MARK: - VerifyAccountVC OTP textfileds validation
+ // MARK: - VerifyAccountVC OTP textfileds validation
+    
     class func Validation(viewController:VerifyAccountVC, completion:@escaping()->Void){
-        if viewController.txtOTP1.text == Constant.BLANK {
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill empty OTP field", view: viewController)
+        if (viewController.txtOTP1.text == Constant.BLANK || viewController.txtOTP2.text == Constant.BLANK || viewController.txtOTP3.text == Constant.BLANK || viewController.txtOTP4.text == Constant.BLANK || viewController.txtOTP5.text == Constant.BLANK || viewController.txtOTP6.text == Constant.BLANK){
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Please enter empty OTP field", view: viewController)
         }
-        else if viewController.txtOTP2.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill empty OTP field", view: viewController)
-        }
-        else if viewController.txtOTP3.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill empty OTP field", view: viewController)
-        }
-        else if viewController.txtOTP4.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill empty OTP field", view: viewController)
-        }
-        else if viewController.txtOTP5.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill empty OTP field", view: viewController)
-        }
-        else if viewController.txtOTP5.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill empty OTP field", view: viewController)
-        }
+
         else{
             completion()
         }
     }
+    
     
     // MARK: - CompleteRegistrationVC textfileds validation
 
     class func Validation(viewController:CompleteRegistrationVC, completion:@escaping()->Void){
         if viewController.nameTxt.text == Constant.BLANK {
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill your name", view: viewController)
-        }
-        else if viewController.phoneNoTxt.text?.count ?? 0>10 || viewController.phoneNoTxt.text?.count ?? 0<10{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "phone no digit should be 10", view: viewController)
-        }
-        else if viewController.countryCode.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill the country code", view: viewController)
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.emptyNameTxt, view: viewController)
         }
         else if viewController.emailTxt.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill the email", view: viewController)
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.emptyEmailTxt, view: viewController)
         }
         else if viewController.emailTxt.text?.isValidEmail() == false{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill the correct email", view: viewController)
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.emailNotValid, view: viewController)
         }
+        else if viewController.countryCode.text == Constant.BLANK{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.CountryCode, view: viewController)
+        }
+        else if viewController.phoneNoTxt.text == Constant.BLANK {
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.phoneNumber, view: viewController)
+        }
+
         else if viewController.cityTxt.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select a city", view: viewController)
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.CityTEXTFIELD, view: viewController)
         }
         else{
             completion()
@@ -63,8 +52,24 @@ class RegisterViewModel{
     }
     
     
+  // MARK: - Select City on behalf of country code api
+    class func selectCityApi(viewController:UIViewController, parameters:NSDictionary,completion: @escaping (SelectCityModel?) -> Void) {
+        DataManager.alamofireNewPostRequest(url: selectCity_url, viewcontroller: viewController, parameters:parameters as? [String:AnyObject]){(response, error) in
+            print(response!)
+            if let userResponse = response{
+                let userData = try! JSONDecoder().decode(SelectCityModel.self, from: userResponse)
+                if userData.status == "True" {
+                    completion(userData)
+                }
+
+                else{
+                    CommonMethods.showAlertMessage(title: Constant.TITLE, message: userData.msg, view: viewController)
+                }
+            }
+       }
+    }
     
-    
+
     // MARK: - Register API
 
     class func chekRegNumberApi(viewController:UIViewController, parameters:NSDictionary,completion: @escaping (ChekRegisterNUmberModel?) -> Void) {
@@ -82,7 +87,8 @@ class RegisterViewModel{
             }
        }
     }
-  class func submitRegApi(viewController:UIViewController, parameters:NSDictionary,completion: @escaping (DriverRegisterModel?) -> Void) {
+    
+   class func submitRegApi(viewController:UIViewController, parameters:NSDictionary,completion: @escaping (DriverRegisterModel?) -> Void) {
         DataManager.alamofireNewPostRequest(url:driver_complete_registration_Url , viewcontroller: viewController, parameters: parameters as?  [String : AnyObject]){
             (response, error) in
             print(response!)

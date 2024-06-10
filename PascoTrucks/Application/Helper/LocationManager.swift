@@ -55,7 +55,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 if let dialingCode = self.phoneNumberKit.countryCode(for: isoCountryCode) {
                     print("City: \(city), Country: \(country), Country Code: \(isoCountryCode), Dialing Code: +\(dialingCode)")
                     self.dialingPhoneCode = "+\(dialingCode)"
-                } else {
+                } 
+                else {
                     print("City: \(city), Country: \(country), Country Code: \(isoCountryCode), Dialing Code: Unknown dialing code")
                 }
                 UserDefaults.standard.set(city, forKey: "cityName")

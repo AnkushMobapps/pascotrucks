@@ -19,6 +19,8 @@ var approvalKey:String?
 var driverCountNotiModel:CountNotificationModel?
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        getProfileDataApi()
         topBar.notificationButton = {
             let vc = self.storyboard?.instantiateViewController(identifier: "NotificationVC") as! NotificationVC
             self.navigationController?.pushViewController(vc, animated: true)
@@ -37,16 +39,25 @@ var driverCountNotiModel:CountNotificationModel?
         
     }
     override func viewWillAppear(_ animated: Bool) {
+        let Duty = UserDefaults.standard.integer(forKey: "Duty")
+        if Duty == 1{
+            topBar.switchCondition.setOn(true, animated: false)
+        }
+        else{
+            topBar.switchCondition.setOn(false, animated: false)
+        }
         checkapprovalStatusApiCall()
     }
     
     
     @IBAction func segmentBtnClk(_ sender: UISegmentedControl) {
         if segmentControl.selectedSegmentIndex == 0 {
-            <#code#>
+            print("biding table is ready to show")
+            tableView.reloadData()
         }
         else{
-            
+            print("order table is ready to show")
+            tableView.reloadData()
         }
         
     }
@@ -67,7 +78,7 @@ extension MyOrderVC{
             print(responseObject)
             self.approvalKey = self.vehicleapproved?.data?.approval_status
             if self.approvalKey == "approve" {
-                self.getProfileDataApi()
+                //self.getProfileDataApi()
                 self.driverCountNotiApiCall()
             }
             else

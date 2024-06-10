@@ -26,8 +26,7 @@ class VehicleDetailsVC: UIViewController, UIImagePickerControllerDelegate & UINa
     //textfields
     @IBOutlet weak var transporterTxt: UITextField!
     @IBOutlet weak var vehicleTxt: UITextField!
-    @IBOutlet weak var countryTxt: UITextField!
-    @IBOutlet weak var cityTxt: UITextField!
+  
     @IBOutlet weak var vehicleNoTxt: UITextField!
     
     var selectedProfile:UIImage?
@@ -62,8 +61,7 @@ class VehicleDetailsVC: UIViewController, UIImagePickerControllerDelegate & UINa
         vehicleRcView.addDotBorder(color: #colorLiteral(red: 0.3411764706, green: 0.3411764706, blue: 0.3411764706, alpha: 1), thickness: 2.0)
         vehicleRcView.layer.cornerRadius = 20
         print(currentCity ?? "")
-        cityTxt.text = currentCity
-        countryTxt.text = UserDefaults.standard.string(forKey: "countryName")
+       
         
     }
     

@@ -17,17 +17,16 @@ class BidingStatusCell: UITableViewCell {
     @IBOutlet weak var mainView: UIView!
    
     @IBOutlet weak var nextBtn: UIButton!
-   
     var nextButton:(()->())!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        mainView.layer.borderWidth = 0
+        mainView.layer.shadowColor = UIColor.black.cgColor
+        mainView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        mainView.layer.shadowRadius = 2
+        mainView.layer.shadowOpacity = 0.3
+        mainView.layer.masksToBounds = false
     }
-
  
-    
-    @IBAction func nextBtnClk(_ sender: UIButton) {
-        nextButton()
-    }
-    
 }

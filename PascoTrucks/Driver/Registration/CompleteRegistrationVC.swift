@@ -11,34 +11,37 @@ import CoreLocation
 
 class CompleteRegistrationVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate,CLLocationManagerDelegate, UITextFieldDelegate {
     
-   
     @IBOutlet weak var nameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var phoneNoTxt: UITextField!
     @IBOutlet weak var cityTxt: UITextField!
     @IBOutlet weak var countryCode: UITextField!
+    
     var device_Id:String?
     var userType:String?
+    // var userid:String?
+    
     var fullAddress:String?
     var lang:String?
     var lat:String?
     var currentCity:String?
     let geocoder = CLGeocoder()
+    
     var chekRegNumModel:ChekRegisterNUmberModel?
-    var countryCodee:String?
     var cityID:Int?
-    // var userid:String?
-    var index:Int?
-    var selectedImg:UIImage?
     var currentLat:String?
     var currentLong:String?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        deviceID()        
+        deviceID()  
+        
         countryCode.delegate = self
+        
+        //by default country code through location
         countryCode.text = UserDefaults.standard.value(forKey: "countryCode") as? String
+        
         //by defualt city and county on textfield
         print("city Name = ", UserDefaults.standard.string(forKey: "cityName") as Any)
         currentCity = UserDefaults.standard.string(forKey: "cityName")
@@ -96,13 +99,14 @@ class CompleteRegistrationVC: UIViewController, UIImagePickerControllerDelegate 
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         vc.listType = "City"
+        vc.countryCode = self.countryCode.text ?? ""
         vc.selectrowdelegate = self
         self.present(vc, animated: true, completion: nil)
         
     }
     
     @IBAction func submitRegBtnClk(_ sender: Any) {
-        selectedImg = UIImage(imageLiteralResourceName: "maskgroup")
+        
         RegisterViewModel.Validation(viewController: self){
             self.chekNumberApi()
         }
@@ -112,7 +116,11 @@ class CompleteRegistrationVC: UIViewController, UIImagePickerControllerDelegate 
         self.navigationController?.popViewController(animated: true)
     }
     
+ 
 }
+
+
+
 
 
 // MARK: - ************    API   ***************
@@ -132,38 +140,48 @@ extension CompleteRegistrationVC {
                 CommonMethods.showAlertMessage(title: Constant.TITLE, message: self.chekRegNumModel?.msg ?? Constant.BLANK, view: self)
             }
             else {
-                //let phoneNo = self.countryCode!+"\(self.phoneNoTxt.text ?? "")"
-//                AuthManager.shared.startAuth(phoneNumber: phoneNo) { (success) in
-//
-//                    if success {
-//                        let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
-//                        vc.selectedType = .Register
-//                        vc.phoneNumber = phoneNo
-//                        vc.deviceID = self.deviceNumber
-//                        vc.userType = self.selectedSegment
-//                        self.navigationController?.pushViewController(vc, animated: true)
-//                    }
-//                    else {
-//                        CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Something Wrong", view: self)
-//                    }
-//                }
+                let phoneNo = (self.countryCode.text ?? "")+"\(self.phoneNoTxt.text ?? "")"
+                AuthManager.shared.startAuth(phoneNumber: phoneNo) { (success) in
+
+                    if success {
+                        let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
+                        vc.selectedType = .Register
+                        vc.selectedCountryCode = self.countryCode.text ?? ""
+                        vc.phoneNumber = self.phoneNoTxt.text ?? ""
+                        vc.deviceID = self.device_Id
+                        vc.userType = self.userType
+                        vc.name = self.nameTxt.text ?? ""
+                        vc.email = self.emailTxt.text ?? ""
+                        vc.city = self.cityTxt.text ?? ""
+                        print(self.cityTxt.text ?? "")
+                        vc.currentLocation = self.fullAddress
+                        vc.currentLatitude = self.currentLat
+                        print(self.currentLat)
+                        vc.currentLangitude = self.currentLong
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                    else {
+                        CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Something Wrong", view: self)
+                    }
+                }
                 //without firebase
                 
-                let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
-                vc.selectedType = .Register
-                vc.phoneNumber = self.phoneNoTxt.text ?? ""
-                vc.deviceID = self.device_Id
-                vc.userType = self.userType
-                vc.name = self.nameTxt.text ?? ""
-                vc.email = self.emailTxt.text ?? ""
-                vc.city = self.cityTxt.text ?? ""
-                print(self.cityTxt.text ?? "")
-                vc.currentLocation = self.fullAddress
-                vc.currentLatitude = self.currentLat
-                print(self.currentLat)
-                vc.currentLangitude = self.currentLong
-                self.navigationController?.pushViewController(vc, animated: true)
-                print(self.currentLong)
+//                let vc = self.storyboard?.instantiateViewController(identifier:"VerifyAccountVC") as! VerifyAccountVC
+//                vc.selectedType = .Register
+//                vc.selectedCountryCode = self.countryCode.text ?? ""
+//                vc.phoneNumber = self.phoneNoTxt.text ?? ""
+//                vc.deviceID = self.device_Id
+//                vc.userType = self.userType
+//                vc.name = self.nameTxt.text ?? ""
+//                vc.email = self.emailTxt.text ?? ""
+//                vc.city = self.cityTxt.text ?? ""
+//                print(self.cityTxt.text ?? "")
+//                vc.currentLocation = self.fullAddress
+//                vc.currentLatitude = self.currentLat
+//                print(self.currentLat)
+//                vc.currentLangitude = self.currentLong
+//                self.navigationController?.pushViewController(vc, animated: true)
+//                print(self.currentLong)
             }
             
         }
@@ -194,46 +212,3 @@ extension CompleteRegistrationVC:selectList{
     }
 }
 
-
-/*
- import UIKit
- import CoreLocation
-
- class ViewController: UIViewController {
-
-     let geocoder = CLGeocoder()
-     
-     override func viewDidLoad() {
-         super.viewDidLoad()
-         
-         // Example city name
-         let cityName = "San Francisco"
-         
-         // Get coordinates for the selected city
-         getCoordinates(for: cityName) { (location, error) in
-             if let error = error {
-                 print("Error getting coordinates: \(error)")
-             } else if let location = location {
-                 print("Latitude: \(location.coordinate.latitude), Longitude: \(location.coordinate.longitude)")
-             }
-         }
-     }
-     
-     func getCoordinates(for city: String, completion: @escaping (CLLocation?, Error?) -> Void) {
-         geocoder.geocodeAddressString(city) { (placemarks, error) in
-             if let error = error {
-                 completion(nil, error)
-                 return
-             }
-             
-             guard let placemarks = placemarks, let location = placemarks.first?.location else {
-                 completion(nil, NSError(domain: "GeocodingError", code: 0, userInfo: [NSLocalizedDescriptionKey: "No location found"]))
-                 return
-             }
-             
-             completion(location, nil)
-         }
-     }
- }
-
- */

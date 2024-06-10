@@ -7,9 +7,12 @@
 
 import UIKit
 import CoreLocation
+import PhoneNumberKit
 
 class LoginVC: UIViewController, UITextFieldDelegate,CLLocationManagerDelegate{
-   var locationManager = CLLocationManager()
+//   var locationManager = CLLocationManager()
+//    private let phoneNumberKit = PhoneNumberKit()
+//    var dialingPhoneCode:String?
     var selecttypestr:String?
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var countryCodeTxt: UITextField!
@@ -24,76 +27,74 @@ class LoginVC: UIViewController, UITextFieldDelegate,CLLocationManagerDelegate{
     var clientCheckLogModel:CheckClientLoginModel?
     var clientLogModel:ClientLoginModel?
     
-    
     var newdeviceNumber:String?
     var verfiedId:String?
     var driverID:Int?
+    var loginCity:String?
     
-   override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         //        loginBtn.GradientColor(colorOne: #colorLiteral(red: 0.8352941176, green: 0.6549019608, blue: 0.3764705882, alpha: 1), colorTwo: #colorLiteral(red: 0.6117647059, green: 0.4705882353, blue: 0.231372549, alpha: 1))
-       
-         locationManager.delegate = self
-         locationManager.requestWhenInUseAuthorization()
-         requestCurrentLocation()
-         
-  
+        
+//        locationManager.delegate = self
+//        locationManager.requestWhenInUseAuthorization()
+//        requestCurrentLocation()
+      
         countryCodeTxt.delegate = self
         segmentedControl.selectedSegmentIndex = 0
         selectedSegment = "user"
         
         deviceID()
-      countryCodeTxt.text = UserDefaults.standard.value(forKey: "countryCode") as? String
-        print( countryCodeTxt.text ?? "countryCode")
-     }
+        
+        countryCodeTxt.text = UserDefaults.standard.string(forKey: "countryCode")
+        print( countryCodeTxt.text ?? "countrycode")
+        
+    }
     
     
     
-    //MARK: - location find out
-
-  private func requestCurrentLocation() {
-      locationManager.requestLocation()
-  }
-  
-  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-      guard let location = locations.last else { return }
-      let lat = location.coordinate.latitude
-      let long = location.coordinate.longitude
-      print("Latitude: \(lat), Longitude: \(long)")
-      
-      UserDefaults.standard.setValue(lat, forKey: "lat")
-      UserDefaults.standard.setValue(long, forKey: "long")
-      
-      // Reverse geocode to get the full address, city, country name, and country code
-      let geocoder = CLGeocoder()
-      geocoder.reverseGeocodeLocation(location) { [weak self] (placemarks, error) in
-          guard let self = self else { return }
-          
-          if let error = error {
-              print("Error in reverse geocoding: \(error.localizedDescription)")
-              return
-          }
-          
-          if let placemark = placemarks?.first {
-              let city = placemark.locality ?? "Unknown city"
-              let country = placemark.country ?? "Unknown country"
-              let isoCountryCode = placemark.isoCountryCode ?? "Unknown country code"
-              UserDefaults.standard.setValue(city, forKey: "driverCity")
-              UserDefaults.standard.setValue(country, forKey: "driverCountry")
-         }
-      }
-      
-      // Stop updating location after getting the current location
-      locationManager.stopUpdatingLocation()
-  }
-  
-  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-      print("Failed to find user's location: \(error.localizedDescription)")
-  }
-
-    
-    
+//    //MARK: - location find out
+//
+//  private func requestCurrentLocation() {
+//      locationManager.requestLocation()
+//  }
+//  
+//  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//      guard let location = locations.last else { return }
+//      let lat = location.coordinate.latitude
+//      let long = location.coordinate.longitude
+//      print("Latitude: \(lat), Longitude: \(long)")
+//      
+//      UserDefaults.standard.setValue(lat, forKey: "latitude")
+//      UserDefaults.standard.setValue(long, forKey: "longitude")
+//      
+//      // Reverse geocode to get the full address, city, country name, and country code
+//      let geocoder = CLGeocoder()
+//      geocoder.reverseGeocodeLocation(location) { [weak self] (placemarks, error) in
+//          guard let self = self else { return }
+//          
+//          if let error = error {
+//              print("Error in reverse geocoding: \(error.localizedDescription)")
+//              return
+//          }
+//          
+//          if let placemark = placemarks?.first {
+//              let city = placemark.locality ?? "Unknown city"
+//              let country = placemark.country ?? "Unknown country"
+//              let isoCountryCode = placemark.isoCountryCode ?? "Unknown country code"
+// 
+//              UserDefaults.standard.setValue(city, forKey: "driverCity")
+//         }
+//      }
+//      
+//      // Stop updating location after getting the current location
+//      locationManager.stopUpdatingLocation()
+//  }
+//  
+//  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+//      print("Failed to find user's location: \(error.localizedDescription)")
+//  }
     
     // MARK: - Example method to select segments
     
@@ -133,8 +134,7 @@ class LoginVC: UIViewController, UITextFieldDelegate,CLLocationManagerDelegate{
         newdeviceNumber = deviceId
         print(deviceId)
     }
-    
-    
+  
     
     @IBAction func loginBtnClick(_ sender: UIButton) {
        
@@ -174,7 +174,10 @@ extension LoginVC {
     
     func drivercheckLoginApi(){
         LoginViewModel.Validation(viewController: self){
-            let param = ["phone_number":self.phoneTF.text ?? "" ,"user_type":self.selectedSegment ?? "","phone_verify":self.newdeviceNumber]
+            
+            var param = [String:Any]()
+            
+            param = ["phone_number":self.phoneTF.text ?? "" ,"user_type":self.selectedSegment ?? "","phone_verify":self.newdeviceNumber ?? ""]
             print(param)
             LoginViewModel.checkLoginApi(viewController: self, parameters: param as NSDictionary){(response) in
                 print("success")
@@ -187,28 +190,28 @@ extension LoginVC {
                 }
                 
                 else{
-                    //CommonMethods.showAlertMessageWithOkAndCancel(title: Constant.TITLE, message: "Verify Your Account", view: self) {
+                    CommonMethods.showAlertMessageWithOkAndCancel(title: Constant.TITLE, message: "Verify Your Account", view: self) {
                     let phoneNo = (self.countryCodeTxt.text ?? "")+(self.phoneTF.text ?? "")
-                    // AuthManager.shared.startAuth(phoneNumber: phoneNo) { (success) in
-                    
-                    // if success {
+//                     AuthManager.shared.startAuth(phoneNumber: phoneNo) { (success) in
+//                     if success {
                     let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
                     vc.selectedType = .login
-                    vc.phoneNumber = self.phoneTF.text
+                    vc.selectedCountryCode = self.countryCodeTxt.text ?? ""
+                    vc.phoneNumber = self.phoneTF.text ?? ""
                     vc.deviceID = self.newdeviceNumber
                     vc.userType = self.selectedSegment
                     print(self.selectedSegment)
                     self.navigationController?.pushViewController(vc, animated: true)
+                     }
+//                     else {
+//                      CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Something Wrong",                   view: self)
+//                     }
+                     // }
                     // }
-                    // else {
-                    //  CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Something Wrong", view: self)
-                    // }
-                    //  }
-                    // }
-                }
-            }
+              }
+           }
         }
-    }
+   }
     
     // driverLogin api for different device
     func verifyDeviceLogin(){
@@ -230,6 +233,10 @@ extension LoginVC {
             print(self.driverID ?? "")
             let tokkken = self.driverloginModel?.token?.access
             UserDefaults.standard.setValue(tokkken, forKey: "token")
+           
+           let refresh_tokkken = self.driverloginModel?.token?.refresh
+           UserDefaults.standard.setValue(refresh_tokkken, forKey: "refresh_tokkken")
+           
             UserDefaults.standard.setValue(approvalKey, forKey: "approve")
             
             // approved from admin or not

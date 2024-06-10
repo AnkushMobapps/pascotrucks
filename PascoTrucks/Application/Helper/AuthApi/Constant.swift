@@ -28,8 +28,12 @@ var driverClearAllNotifiUrl = base_Url + "ClearAllNotification/"
 var addVehicleDetails_Url = base_Url+"approvalrequest/"
 var getapproval_Url = base_Url+"updateapprovalstatus/"
 var updatehicleDetails_Url = base_Url+"updateapprovalstatus/"
-
-
+var selectCity_url = base_Url+"addcity/"
+var onOffDuty_url = base_Url+"marked-duty-status/"
+var updateBidingDetails_url = base_Url+"updatebookingbid/"
+var confirmOrder_url = base_Url+"updatebookingbid/"
+var driver_logout_url = base_Url+"user-logout/"
+var driverUpdateLocation_url = base_Url+"location-update/"
 
 
 
@@ -54,19 +58,24 @@ struct Constant {
     static let CancelReservation = "Please enter cancel reservation reason"
 
     static let MESSAGE_NETWORK = "Please check network connection"
-    static let STATETEXTFIELD = "Please Enter State"
-    static let CityTEXTFIELD = "Please Enter Citiy Name"
-    static let streetnameTF = "Please Enter Street Name"
-    static let buildingnameTF = "Please Enter Building Name"
-    static let flatnumberTF = "Please Enter Flat Number"
-    static let HostingArea = "Please Select Hosting Area"
-    static let MediaValidation = "Please select Media Image"
-    static let OldPassword = "Please enter old password"
-    static let NewPassword = "Please enter new password"
-    static let confirmPassword = "Please enter confirm password"
-    static let TimeSlot = "Please Fill  Timeslots"
+//    static let STATETEXTFIELD = "Please Enter State"
+    //Pasco project
     static let TITLE = "Pasco"
-    static let VehicleImg = "please select vehicle image"
+    static let CityTEXTFIELD = "Please enter citiy name"
+    static let CountryCode = "Please enter your country code"
+    static let phoneNumber = "Please enter your phone number"
+    static let VehicleImg = "Please select vehicle image"
+    static let drivinglicenseImg = "Please select driving license image"
+    static let drivingRCImg = "Please select RC image"
+    static let vehicleNumberTxt = "Please fill the vehicle number"
+    static let emailNotValid = "Please enter correct email"
+    static let emptyEmailTxt = "please enter your email"
+    static let emptyNameTxt = "Please enter your name"
+    static let emptyImage = "Please select any image"
+    static let shipmentTypeTxt = "Please select shipment type"
+    static let vehicleTypeTxt = "Please select vehicle type"
+    
+    
     
     
     

@@ -18,6 +18,7 @@ import CoreLocation
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var locationManager: LocationManager?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         // Override point for customization after application launch.

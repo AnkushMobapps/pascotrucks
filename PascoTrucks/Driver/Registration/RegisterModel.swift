@@ -7,6 +7,44 @@
 
 import Foundation
 
+//select city on behalf of country code model
+
+struct SelectCityModel:Codable{
+    var status:String?
+    var msg:String?
+    var data:[SelectCityModel_data]?
+    
+    enum CodingKeys:String,CodingKey{
+        case status = "status"
+        case msg = "msg"
+        case data = "data"
+    }
+  
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.status = try container.decodeIfPresent(String.self, forKey: .status)
+        self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
+        self.data = try container.decode([SelectCityModel_data].self, forKey: .data)
+    }
+}
+struct SelectCityModel_data:Codable{
+    var countrycode:String?
+    var countryname:String?
+    var cityname:String?
+    
+    enum CodingKeys:String,CodingKey{
+        case countrycode = "countrycode"
+        case countryname = "countryname"
+        case cityname = "cityname"
+    }
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.countrycode = try container.decodeIfPresent(String.self, forKey: .countrycode)
+        self.countryname = try container.decodeIfPresent(String.self, forKey: .countryname)
+        self.cityname = try container.decodeIfPresent(String.self, forKey: .cityname)
+    }
+ }
+
 
 //chek no is register or not model
 struct ChekRegisterNUmberModel:Codable{

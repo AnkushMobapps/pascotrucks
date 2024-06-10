@@ -12,13 +12,16 @@ class UpdateProfileViewModel{
     // MARK: - Update ProfileVC validation
     class func Validation(viewController:ProfileVC, completion:@escaping()->Void){
         if viewController.selectedProfile == nil{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select any image", view: viewController)
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.emptyImage, view: viewController)
         }
         else if viewController.nameTxt.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill driver name", view: viewController)
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.emptyNameTxt, view: viewController)
         }
         else if viewController.emailTxt.text == Constant.BLANK{
-            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please fill driver email", view: viewController)
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.emptyEmailTxt, view: viewController)
+        }
+        else if viewController.emailTxt.text?.isValidEmail() == false{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: Constant.emailNotValid, view: viewController)
         }
       else{
             completion()

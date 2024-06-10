@@ -11,11 +11,72 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    /*
+     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+         var navigationController: UINavigationController? = (self.window?.rootViewController as? UINavigationController)
+         guard let windowScene = (scene as? UIWindowScene) else { return }
+         
+         /// 2. Create a new UIWindow using the windowScene constructor which takes in a window scene.
+         let window = UIWindow(windowScene: windowScene)
+         
+         /// 3. Create a view hierarchy programmatically
+         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+         let welcome = storyBoard.instantiateViewController(withIdentifier: "WelcomeNavigation") as! WelcomeNavigation
+         let customerHome = storyBoard.instantiateViewController(withIdentifier: "CustomerHomeNavigation") as! CustomerHomeNavigation
+         let hostHome = storyBoard.instantiateViewController(withIdentifier: "HostHomeNavigation") as! HostHomeNavigation
+         
+         print(UserDefaults.standard.string(forKey: "user_id") ?? "")
+         
+         if UserDefaults.standard.string(forKey: "user_id") != nil && UserDefaults.standard.integer(forKey: "user_id") != 0
+         {
+             if UserDefaults.standard.integer(forKey: "host_type") == 0{
+                 window.rootViewController = customerHome
+             }
+             else if UserDefaults.standard.integer(forKey: "host_type") == 1{
+                 window.rootViewController = hostHome
+             }
+         }
+         else
+         {
+             window.rootViewController = welcome
+         }
+         /// 5. Set the window and call makeKeyAndVisible()
+         self.window = window
+         window.makeKeyAndVisible()
+     }
+     */
+    
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+//        var navigationController: UINavigationController? = (self.window?.rootViewController as? UINavigationController)
+//        guard let windowScene = (scene as? UIWindowScene) else { return }
+//        
+//        /// 2. Create a new UIWindow using the windowScene constructor which takes in a window scene.
+//        let window = UIWindow(windowScene: windowScene)
+//        
+//        /// 3. Create a view hierarchy programmatically
+//        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//        let welcome = storyBoard.instantiateViewController(withIdentifier: "WelcomeVC") as! WelcomeVC
+//        let driverTabbar = storyBoard.instantiateViewController(withIdentifier: "MyTabBar") as! MyTabBar
+//       
+//        
+//        print(UserDefaults.standard.string(forKey: "user_id") ?? "")
+//        
+//        if UserDefaults.standard.string(forKey: "user_id") != nil && UserDefaults.standard.integer(forKey: "user_id") != 0
+//        {
+//            window.rootViewController = driverTabbar
+//        }
+//        else
+//        {
+//            window.rootViewController = welcome
+//        }
+//        /// 5. Set the window and call makeKeyAndVisible()
+//        self.window = window
+//        window.makeKeyAndVisible()
+
+        
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

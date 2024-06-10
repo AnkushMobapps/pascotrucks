@@ -18,7 +18,7 @@ class MyTableViewCell: UITableViewCell {
 @IBOutlet weak var dropPoint: UILabel!
 @IBOutlet weak var price: UILabel!
 @IBOutlet weak var clientOrderId: UILabel!
-    
+@IBOutlet weak var dateAndTime: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
     /*    cellView.layer.cornerRadius = 20

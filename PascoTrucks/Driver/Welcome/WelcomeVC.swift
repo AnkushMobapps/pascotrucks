@@ -31,6 +31,7 @@ class WelcomeVC: UIViewController {
      }
     
     @IBAction func nextBtnClick(_ sender: UIButton) {
+        
         if selectField.text?.isEmpty == false {
              let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
             self.navigationController?.pushViewController(vc, animated: true)
@@ -43,6 +44,7 @@ class WelcomeVC: UIViewController {
     }
 
 }
+
 extension WelcomeVC:selectList{
     func selcetrow(rowid: String, typeID: Int?) {
         selectField.text = rowid

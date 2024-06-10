@@ -66,6 +66,30 @@ class DataManager: NSObject {
                 }
             })
     }
+    
+    // driver logout , update driver location
+    class func alamofireLogOutNewPostRequest(url:String,viewcontroller : UIViewController!, parameters:[String:AnyObject]?, completionHandler: @escaping completion) {
+        print(parameters as Any)
+        
+        KRProgressHUD.show(withMessage: Constant.PROGRESS_TITLE)
+        AF.request(url, method: .post, parameters: parameters, headers: DataManager.headerParam()).responseData(completionHandler:{ response in
+                switch response.result {
+                case .success:
+                    print(response)
+                    if let data = response.data {
+                        print("JSON: \(data)")
+                        let jsonObject = JSON(data)
+                        print("JSON: \(jsonObject)")
+                        KRProgressHUD.dismiss()
+                        completionHandler(response.data, nil)
+                    }
+                    break
+                case .failure( _):
+                      KRProgressHUD.dismiss()
+                }
+            })
+    }
+    
 //    //for client registration cheklogin and login
 //    class func alamofireNewClientPostRequest(url:String,viewcontroller : UIViewController!, parameters:[String:AnyObject]?, completionHandler: @escaping completion) {
 //        print(parameters as Any)
@@ -186,40 +210,10 @@ class DataManager: NSObject {
               })
       }
     
-    
-    /*
-    class func alamofireNewGetRequest(url:String,viewcontroller : UIViewController!, parameters:[String:AnyObject]?, completionHandler: @escaping completion) {
-        print(parameters as Any)
-        
-        KRProgressHUD.show(withMessage: Constant.PROGRESS_TITLE)
-
-        let headers: HTTPHeaders = [
-                       "Accept": "application/json",
-                       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE1NTEzMDc5LCJpYXQiOjE3MTAzMjkwNzksImp0aSI6ImY4NGE1MGNjMDAxMzRjNDg5ODJlNzkzYWRmZDAwM2ZkIiwidXNlcl9pZCI6Mn0.tx49ITejH0T14HPTa0FBzfZKFLNi17QS5cYRZvyidqU",
-                   ]
-
-        AF.request(url, method: .get, parameters: parameters, headers: headers).responseData(completionHandler:{ response in
-                switch response.result {
-                case .success:
-                    print(response)
-                    if let data = response.data {
-                        print("JSON: \(data)")
-                        let jsonObject = JSON(data)
-                        print("JSON: \(jsonObject)")
-                        KRProgressHUD.dismiss()
-                        completionHandler(response.data, nil)
-                    }
-                    break
-                case .failure( _):
-                      KRProgressHUD.dismiss()
-                }
-            })
-    }
-    
-    */
+  
     
     //==========APi with token hadder get method ===========
-    //profile get data api , vehicle get data api , home order request from client , showNotification
+    //profile get data api , vehicle get data api , home order request from client , showNotification,UpdateBookingBids
     
     class func alamofirewithhadderNewGetRequest(url:String,viewcontroller : UIViewController!, parameters:[String:AnyObject]?, completionHandler: @escaping completion) {
         print(parameters as Any)
@@ -243,6 +237,29 @@ class DataManager: NSObject {
                 }
             })
     }
+    
+//    //==========APi with token hadder put method ===========
+//    class func alamofirewithhadderPutRequestApi(url:String,viewcontroller : UIViewController!, parameters:[String:AnyObject]?, completionHandler: @escaping completion) {
+//        print(parameters as Any)
+//        
+//        KRProgressHUD.show(withMessage: Constant.PROGRESS_TITLE)
+//         AF.request(url, method: .put, parameters: parameters, headers:DataManager.headerParam() ).responseData(completionHandler:{ response in
+//                switch response.result {
+//                case .success:
+//                    print(response)
+//                    if let data = response.data {
+//                        print("JSON: \(data)")
+//                        let jsonObject = JSON(data)
+//                        print("JSON: \(jsonObject)")
+//                        KRProgressHUD.dismiss()
+//                        completionHandler(response.data, nil)
+//                    }
+//                    break
+//                case .failure( _):
+//                      KRProgressHUD.dismiss()
+//                }
+//            })
+//    }
     
     //==========APi with token hadder get method ===========
     //client service data api
@@ -391,6 +408,8 @@ class DataManager: NSObject {
             CommonMethods.showAlertMessage(title: Constant.BLANK, message: Constant.MESSAGE_NETWORK, view: viewcontroller)
         }
     }
+    
+    
     
     //==============New Method made By pkram==================================
     
@@ -911,7 +930,7 @@ class DataManager: NSObject {
             }
         }
     
-    
+   //driver confirm order api
   class func alamofireNewPutwithHadderRequest(url:String,viewcontroller : UIViewController!, parameters:[String:AnyObject]?, completionHandler: @escaping completion) {
         print(parameters as Any)
         
@@ -933,8 +952,32 @@ class DataManager: NSObject {
                       KRProgressHUD.dismiss()
                 }
             })
-         
     }
+    
+    //on off duty
+    class func alamofirePutwithHadderRequest(url:String,view : UIView!, parameters:[String:AnyObject]?, completionHandler: @escaping completion) {
+          print(parameters as Any)
+          
+          KRProgressHUD.show(withMessage: Constant.PROGRESS_TITLE)
+
+          AF.request(url, method: .put, parameters: parameters, headers: DataManager.headerParam()).responseData(completionHandler:{ response in
+                  switch response.result {
+                  case .success:
+                      print(response)
+                      if let data = response.data {
+                          print("JSON: \(data)")
+                          let jsonObject = JSON(data)
+                          print("JSON: \(jsonObject)")
+                          KRProgressHUD.dismiss()
+                          completionHandler(response.data, nil)
+                      }
+                      break
+                  case .failure( _):
+                        KRProgressHUD.dismiss()
+                  }
+              })
+           
+      }
 
     
     //==============================================================

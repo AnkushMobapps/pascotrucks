@@ -53,6 +53,7 @@ class CommonMethods: NSObject {
         objAlert.addAction(nextAction)
         view.present(objAlert, animated: true, completion: nil)
     }
+   
     
     class func showAlertMessageWithHandler(title: String, message: String, view: UIViewController, completion: @escaping () -> Void) {
         let objAlert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)

@@ -94,84 +94,84 @@ struct VehicleModel_data:Codable{
     }
 }
 
-//country list model
-struct CountryListModel: Codable{
-    var status:String?
-    var msg:String?
-    var data:[CountryListModel_data]?
-    
-    enum CodingKeys:String,CodingKey{
-        case status = "status"
-        case msg = "msg"
-        case data = "data"
-  }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.status = try container.decodeIfPresent(String.self, forKey: .status)
-        self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
-        self.data = try container.decodeIfPresent([CountryListModel_data].self, forKey: .data)
-        
-}
-}
-
-
-struct CountryListModel_data:Codable{
-    var id:Int?
-    var countryname:String?
-    
-    enum CodingKeys:String,CodingKey
-    {
-        case id = "id"
-        case countryname = "countryname"
-    }
-   
-    init(from decoder: Decoder) throws
-    {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decodeIfPresent(Int.self, forKey: .id)
-        self.countryname = try container.decodeIfPresent(String.self, forKey: .countryname)
-   }
-    
-}
-
-//city list model
-struct CityListModel: Codable{
-   var status:String?
-    var msg:String?
-    var data:[CityListModel_data]?
-    
-    enum CodingKeys:String,CodingKey{
-        case status = "status"
-        case msg = "msg"
-        case data = "data"
-   }
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.status = try container.decodeIfPresent(String.self, forKey: .status)
-        self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
-        self.data = try container.decodeIfPresent([CityListModel_data].self, forKey: .data)
-    }
-}
-struct CityListModel_data:Codable{
-    var id:Int?
-    var countryname:String?
-    var cityname:String?
-    
-    enum CodingKeys:String,CodingKey{
-         case id = "id"
-        case countryname = "countryname"
-        case cityname = "cityname"
-      
- }
- init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decodeIfPresent(Int.self, forKey: .id)
-        self.countryname = try container.decodeIfPresent(String.self, forKey: .countryname)
-        self.cityname = try container.decodeIfPresent(String.self, forKey: .cityname)
-        
-}
-}
+//// MARK: - country list model
+//struct CountryListModel: Codable{
+//    var status:String?
+//    var msg:String?
+//    var data:[CountryListModel_data]?
+//    
+//    enum CodingKeys:String,CodingKey{
+//        case status = "status"
+//        case msg = "msg"
+//        case data = "data"
+//  }
+//    
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.status = try container.decodeIfPresent(String.self, forKey: .status)
+//        self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
+//        self.data = try container.decodeIfPresent([CountryListModel_data].self, forKey: .data)
+//        
+//}
+//}
+//
+//
+//struct CountryListModel_data:Codable{
+//    var id:Int?
+//    var countryname:String?
+//    
+//    enum CodingKeys:String,CodingKey
+//    {
+//        case id = "id"
+//        case countryname = "countryname"
+//    }
+//   
+//    init(from decoder: Decoder) throws
+//    {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.id = try container.decodeIfPresent(Int.self, forKey: .id)
+//        self.countryname = try container.decodeIfPresent(String.self, forKey: .countryname)
+//   }
+//    
+//}
+//
+////city list model
+//struct CityListModel: Codable{
+//   var status:String?
+//    var msg:String?
+//    var data:[CityListModel_data]?
+//    
+//    enum CodingKeys:String,CodingKey{
+//        case status = "status"
+//        case msg = "msg"
+//        case data = "data"
+//   }
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.status = try container.decodeIfPresent(String.self, forKey: .status)
+//        self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
+//        self.data = try container.decodeIfPresent([CityListModel_data].self, forKey: .data)
+//    }
+//}
+//struct CityListModel_data:Codable{
+//    var id:Int?
+//    var countryname:String?
+//    var cityname:String?
+//    
+//    enum CodingKeys:String,CodingKey{
+//         case id = "id"
+//        case countryname = "countryname"
+//        case cityname = "cityname"
+//      
+// }
+// init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.id = try container.decodeIfPresent(Int.self, forKey: .id)
+//        self.countryname = try container.decodeIfPresent(String.self, forKey: .countryname)
+//        self.cityname = try container.decodeIfPresent(String.self, forKey: .cityname)
+//        
+//}
+//}
 
 //Approval Model
 struct ApprovalModel:Codable{
@@ -253,7 +253,7 @@ struct GetVehicleDataModel:Codable{
     var document:String?
     var driving_license:String?
     var approval_status:String?
-    var comment:String?
+    //var comment:String?
     var cargo:Int?
     var shipmentid:Int?
     
@@ -271,7 +271,7 @@ struct GetVehicleDataModel:Codable{
         case  document = "document"
         case  driving_license = "driving_license"
         case  approval_status = "approval_status"
-        case  comment = "comment"
+       // case  comment = "comment"
         case cargo = "cargo"
         case shipmentid = "shipmentid"
     }
@@ -291,7 +291,7 @@ struct GetVehicleDataModel:Codable{
         self.approval_status = try container.decodeIfPresent(String.self, forKey: .approval_status)
         self.cargo = try container.decodeIfPresent(Int.self, forKey: .cargo)
         self.shipmentid = try container.decodeIfPresent(Int.self, forKey: .shipmentid)
-        self.comment = try container.decodeIfPresent(String.self, forKey: .comment)
+       // self.comment = try container.decodeIfPresent(String.self, forKey: .comment)
     }
     
 }

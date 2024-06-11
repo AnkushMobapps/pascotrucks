@@ -52,6 +52,7 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
     @IBOutlet weak var walletBtn: UIButton!
     @IBOutlet weak var visaBtn: UIButton!
     
+    @IBOutlet weak var updatePopUpView: UIView!
     @IBOutlet weak var cashRadioImg: UIImageView!
     
     @IBOutlet weak var additionalServiceTF: UITextField!
@@ -66,6 +67,7 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
     
    override func viewDidLoad() {
         super.viewDidLoad()
+       updatePopUpView.isHidden = true
         
         cashView.layer.borderWidth = 0
         cashView.layer.shadowColor = UIColor.lightGray.cgColor
@@ -181,6 +183,15 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
             cashRadioImg.image = UIImage(named: "radioUnfilled")
         }
     }
+    
+    @IBAction func cancelBtnTapped(_ sender: UIButton) {
+    }
+    @IBAction func yesBtnTapped(_ sender: UIButton) {
+    }
+    
+    
+    
+    
     @IBAction func dateOkBtnTapped(_ sender: UIButton) {
         if self.changeDate == ""{
             CurrentDateAndTimeGet()

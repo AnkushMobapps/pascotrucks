@@ -14,8 +14,8 @@
             filePath = "PascoTrucks/Driver/TabBar/Order/MyOrderVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "getProfileDataApi()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "PascoTrucks/Driver/TabBar/Order/MyOrderVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "getProfileDataApi()"
             landmarkType = "7">
          </BreakpointContent>
@@ -290,36 +290,6 @@
             endingLineNumber = "67"
             landmarkName = "confirmOrderApi(viewController:parameters:completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9F43002F-9460-489F-8E66-50502454BF2C - 126a810641a6bdf8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static PascoTrucks.DRiverHomeViewModel.confirmOrderApi(viewController: __C.UIViewController, parameters: __C.NSDictionary, completion: (Swift.Optional&lt;PascoTrucks.ConfirmOrderModel&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "PascoTrucks"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/TabBar/DriverHome/DriverHomeViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67">
-               </Location>
-               <Location
-                  uuid = "9F43002F-9460-489F-8E66-50502454BF2C - 126a810641a6bdf8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static PascoTrucks.DRiverHomeViewModel.confirmOrderApi(viewController: __C.UIViewController, parameters: __C.NSDictionary, completion: (Swift.Optional&lt;PascoTrucks.ConfirmOrderModel&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "PascoTrucks"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/TabBar/DriverHome/DriverHomeViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -357,20 +327,6 @@
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in static PascoTrucks.DRiverHomeViewModel.confirmOrderApi(viewController: __C.UIViewController, parameters: __C.NSDictionary, completion: (Swift.Optional&lt;PascoTrucks.ConfirmOrderModel&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "PascoTrucks"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/TabBar/DriverHome/DriverHomeViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70">
-               </Location>
-               <Location
-                  uuid = "6D14AD12-CCEB-4325-904F-C44A9A862803 - 126a810641a6bd15"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static PascoTrucks.DRiverHomeViewModel.confirmOrderApi(viewController: __C.UIViewController, parameters: __C.NSDictionary, completion: (Swift.Optional&lt;PascoTrucks.ConfirmOrderModel&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "PascoTrucks"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/TabBar/DriverHome/DriverHomeViewModel.swift"
@@ -457,20 +413,6 @@
                   startingLineNumber = "939"
                   endingLineNumber = "939">
                </Location>
-               <Location
-                  uuid = "3BF7A466-3A5C-4530-AB97-87BEB8796A0B - f18f002d54656fa0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in static PascoTrucks.DataManager.alamofireNewPutwithHadderRequest(url: Swift.String, viewcontroller: Swift.Optional&lt;__C.UIViewController&gt;, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;, completionHandler: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "PascoTrucks"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Application/Helper/AuthApi/DataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "939"
-                  endingLineNumber = "939">
-               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -488,36 +430,6 @@
             endingLineNumber = "942"
             landmarkName = "alamofireNewPutwithHadderRequest(url:viewcontroller:parameters:completionHandler:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "056976D2-E78A-41E2-91E0-5F9C0C443C17 - f18f002d54656f0f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in static PascoTrucks.DataManager.alamofireNewPutwithHadderRequest(url: Swift.String, viewcontroller: Swift.Optional&lt;__C.UIViewController&gt;, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;, completionHandler: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "PascoTrucks"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Application/Helper/AuthApi/DataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "942"
-                  endingLineNumber = "942">
-               </Location>
-               <Location
-                  uuid = "056976D2-E78A-41E2-91E0-5F9C0C443C17 - f18f002d54656f0f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in static PascoTrucks.DataManager.alamofireNewPutwithHadderRequest(url: Swift.String, viewcontroller: Swift.Optional&lt;__C.UIViewController&gt;, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;, completionHandler: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "PascoTrucks"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Application/Helper/AuthApi/DataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "942"
-                  endingLineNumber = "942">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -534,36 +446,6 @@
             endingLineNumber = "940"
             landmarkName = "alamofireNewPutwithHadderRequest(url:viewcontroller:parameters:completionHandler:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BAC6B1E8-72EB-4104-9CAD-637DE66042E9 - f18f002d54656f41"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in static PascoTrucks.DataManager.alamofireNewPutwithHadderRequest(url: Swift.String, viewcontroller: Swift.Optional&lt;__C.UIViewController&gt;, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;, completionHandler: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "PascoTrucks"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Application/Helper/AuthApi/DataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "940"
-                  endingLineNumber = "940">
-               </Location>
-               <Location
-                  uuid = "BAC6B1E8-72EB-4104-9CAD-637DE66042E9 - f18f002d54656f41"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in static PascoTrucks.DataManager.alamofireNewPutwithHadderRequest(url: Swift.String, viewcontroller: Swift.Optional&lt;__C.UIViewController&gt;, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;, completionHandler: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "PascoTrucks"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Application/Helper/AuthApi/DataManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "940"
-                  endingLineNumber = "940">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -576,8 +458,8 @@
             filePath = "PascoTrucks/Driver/TabBar/Order/MyOrderVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 import PhoneNumberKit
-
+//hdhgsdhjsd
 class LoginVC: UIViewController, UITextFieldDelegate,CLLocationManagerDelegate{
 //   var locationManager = CLLocationManager()
 //    private let phoneNumberKit = PhoneNumberKit()

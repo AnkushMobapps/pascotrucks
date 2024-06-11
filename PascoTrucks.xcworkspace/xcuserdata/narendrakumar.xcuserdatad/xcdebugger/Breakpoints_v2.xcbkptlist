@@ -7,64 +7,578 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C7D098B3-C932-4CC3-9A97-9F3B652A471D"
-            shouldBeEnabled = "Yes"
+            uuid = "D8EA390D-7A3F-4F69-A44C-E5F76C3B460C"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PascoTrucks/Driver/Registration/CompleteRegistrationVC.swift"
+            filePath = "PascoTrucks/Driver/TabBar/Order/MyOrderVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "chekNumberApi()"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "getProfileDataApi()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C305B310-4D86-4F36-AD05-1967EF1BCBD3"
-            shouldBeEnabled = "Yes"
+            uuid = "78BFA7B7-98E1-4201-9F33-28F5328EF192"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PascoTrucks/Driver/Registration/CompleteRegistrationVC.swift"
+            filePath = "PascoTrucks/Driver/TabBar/Order/MyOrderVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "chekNumberApi()"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "getProfileDataApi()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BD2972EC-5BBF-4F40-8C39-DA6B8D0E5B10"
-            shouldBeEnabled = "Yes"
+            uuid = "90189011-D237-4473-BB0F-D9E5A42F467A"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PascoTrucks/Driver/Registration/CompleteRegistrationVC.swift"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/MakeAnOrder/OrderVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "chekNumberApi()"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "02E41ED8-24DA-4546-9F0F-7031CABCC3FC"
+            uuid = "DFF13EE6-1A7D-490C-9E84-E263E796C61D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/MakeAnOrder/OrderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "convertSecondsToTimeComponents(seconds:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4D9645E5-E90D-47E5-9248-3B4BF17169CC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/MakeAnOrder/OrderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "bidingOrderDetailsApiCall()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F216DF60-4C92-4C07-82A2-B6B3DD93ED7C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/MakeAnOrder/OrderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "bidingOrderDetailsApiCall()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "356065F1-A103-4200-8619-B91B42941A14"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/MakeAnOrder/OrderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "bidingOrderDetailsApiCall()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D7DF9B0D-D707-4B72-AEEB-9D6B6F076D89"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/MakeAnOrder/OrderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "bidingOrderDetailsApiCall()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B21A5898-77E8-41DD-838D-62FDA8B5EE3E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/MakeAnOrder/OrderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "bidingOrderDetailsApiCall()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C5AD6D31-D770-4766-B468-1FFB1BC4C779"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/HorigontalStackOptions/DriverNotesVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "addDriverNoteapi()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5DE5CFEA-8868-4332-98DD-F2E9BC72C2E2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PascoTrucks/Driver/Registration/CompleteRegistrationVC.swift"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/HorigontalStackOptions/DriverNotesVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "chekNumberApi()"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "savebtnClk(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D8BB01B8-1DDC-403F-A381-14F786FAC09E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/HorigontalStackOptions/DriverNotesVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "addDriverNoteapi()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "768DC0A6-59E9-4783-8B1A-C6DCD71806F2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/HorigontalStackOptions/DriverNotesVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "addDriverNoteapi()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98BD2293-7AD1-4066-A5D3-0A9CC34BB81B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/HorigontalStackOptions/DriverNotesVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "addDriverNoteapi()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F5438C89-DF2A-4DF8-A2C7-6E3FB197215E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/MakeAnOrder/OrderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "confirmOrderapi()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0F1B2EAD-6FA6-485A-A1AD-0E5FABEC9C87"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/MakeAnOrder/OrderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "confirmOrdBtnPres(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "260A5DF0-1EBB-4310-B2C4-AE8F22642539"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/MakeAnOrder/OrderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "confirmOrderapi()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9F43002F-9460-489F-8E66-50502454BF2C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/DriverHomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "confirmOrderApi(viewController:parameters:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9F43002F-9460-489F-8E66-50502454BF2C - 126a810641a6bdf8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static PascoTrucks.DRiverHomeViewModel.confirmOrderApi(viewController: __C.UIViewController, parameters: __C.NSDictionary, completion: (Swift.Optional&lt;PascoTrucks.ConfirmOrderModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/TabBar/DriverHome/DriverHomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67">
+               </Location>
+               <Location
+                  uuid = "9F43002F-9460-489F-8E66-50502454BF2C - 126a810641a6bdf8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static PascoTrucks.DRiverHomeViewModel.confirmOrderApi(viewController: __C.UIViewController, parameters: __C.NSDictionary, completion: (Swift.Optional&lt;PascoTrucks.ConfirmOrderModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/TabBar/DriverHome/DriverHomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6D14AD12-CCEB-4325-904F-C44A9A862803"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/DriverHomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "confirmOrderApi(viewController:parameters:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6D14AD12-CCEB-4325-904F-C44A9A862803 - 126a810641a6bd15"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static PascoTrucks.DRiverHomeViewModel.confirmOrderApi(viewController: __C.UIViewController, parameters: __C.NSDictionary, completion: (Swift.Optional&lt;PascoTrucks.ConfirmOrderModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/TabBar/DriverHome/DriverHomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70">
+               </Location>
+               <Location
+                  uuid = "6D14AD12-CCEB-4325-904F-C44A9A862803 - e9e38a297d11db2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; () in static PascoTrucks.DRiverHomeViewModel.confirmOrderApi(viewController: __C.UIViewController, parameters: __C.NSDictionary, completion: (Swift.Optional&lt;PascoTrucks.ConfirmOrderModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/TabBar/DriverHome/DriverHomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70">
+               </Location>
+               <Location
+                  uuid = "6D14AD12-CCEB-4325-904F-C44A9A862803 - 126a810641a6bd15"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static PascoTrucks.DRiverHomeViewModel.confirmOrderApi(viewController: __C.UIViewController, parameters: __C.NSDictionary, completion: (Swift.Optional&lt;PascoTrucks.ConfirmOrderModel&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Driver/TabBar/DriverHome/DriverHomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F15020C3-FFCB-4269-9678-56DEA300ABB3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/MakeAnOrder/OrderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "confirmOrderapi()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1FF9D278-6F2F-4686-B9CC-70F0E7D09842"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/DriverHome/DriverHomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "confirmOrderApi(viewController:parameters:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3BF7A466-3A5C-4530-AB97-87BEB8796A0B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Application/Helper/AuthApi/DataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "939"
+            endingLineNumber = "939"
+            landmarkName = "alamofireNewPutwithHadderRequest(url:viewcontroller:parameters:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3BF7A466-3A5C-4530-AB97-87BEB8796A0B - 2ee5624db44ac8c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static PascoTrucks.DataManager.alamofireNewPutwithHadderRequest(url: Swift.String, viewcontroller: Swift.Optional&lt;__C.UIViewController&gt;, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;, completionHandler: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Application/Helper/AuthApi/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "939"
+                  endingLineNumber = "939">
+               </Location>
+               <Location
+                  uuid = "3BF7A466-3A5C-4530-AB97-87BEB8796A0B - f18f002d54656fa0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in static PascoTrucks.DataManager.alamofireNewPutwithHadderRequest(url: Swift.String, viewcontroller: Swift.Optional&lt;__C.UIViewController&gt;, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;, completionHandler: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Application/Helper/AuthApi/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "939"
+                  endingLineNumber = "939">
+               </Location>
+               <Location
+                  uuid = "3BF7A466-3A5C-4530-AB97-87BEB8796A0B - f18f002d54656fa0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in static PascoTrucks.DataManager.alamofireNewPutwithHadderRequest(url: Swift.String, viewcontroller: Swift.Optional&lt;__C.UIViewController&gt;, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;, completionHandler: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Application/Helper/AuthApi/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "939"
+                  endingLineNumber = "939">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "056976D2-E78A-41E2-91E0-5F9C0C443C17"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Application/Helper/AuthApi/DataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "942"
+            endingLineNumber = "942"
+            landmarkName = "alamofireNewPutwithHadderRequest(url:viewcontroller:parameters:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "056976D2-E78A-41E2-91E0-5F9C0C443C17 - f18f002d54656f0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in static PascoTrucks.DataManager.alamofireNewPutwithHadderRequest(url: Swift.String, viewcontroller: Swift.Optional&lt;__C.UIViewController&gt;, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;, completionHandler: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Application/Helper/AuthApi/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "942"
+                  endingLineNumber = "942">
+               </Location>
+               <Location
+                  uuid = "056976D2-E78A-41E2-91E0-5F9C0C443C17 - f18f002d54656f0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in static PascoTrucks.DataManager.alamofireNewPutwithHadderRequest(url: Swift.String, viewcontroller: Swift.Optional&lt;__C.UIViewController&gt;, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;, completionHandler: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Application/Helper/AuthApi/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "942"
+                  endingLineNumber = "942">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BAC6B1E8-72EB-4104-9CAD-637DE66042E9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Application/Helper/AuthApi/DataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "940"
+            endingLineNumber = "940"
+            landmarkName = "alamofireNewPutwithHadderRequest(url:viewcontroller:parameters:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BAC6B1E8-72EB-4104-9CAD-637DE66042E9 - f18f002d54656f41"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in static PascoTrucks.DataManager.alamofireNewPutwithHadderRequest(url: Swift.String, viewcontroller: Swift.Optional&lt;__C.UIViewController&gt;, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;, completionHandler: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Application/Helper/AuthApi/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "940"
+                  endingLineNumber = "940">
+               </Location>
+               <Location
+                  uuid = "BAC6B1E8-72EB-4104-9CAD-637DE66042E9 - f18f002d54656f41"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in static PascoTrucks.DataManager.alamofireNewPutwithHadderRequest(url: Swift.String, viewcontroller: Swift.Optional&lt;__C.UIViewController&gt;, parameters: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;, completionHandler: (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSDictionary&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PascoTrucks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/narendrakumar/Desktop/PascoTrucks/PascoTrucks/Application/Helper/AuthApi/DataManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "940"
+                  endingLineNumber = "940">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B5275540-1E4B-4816-84D7-5AA3E2E0702F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Driver/TabBar/Order/MyOrderVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

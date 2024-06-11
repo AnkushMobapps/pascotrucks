@@ -41,7 +41,7 @@ class DatePickerVC: UIViewController {
         let dateString = dateFormatter.string(from: selectedDate)
         
         let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "hh:mm a"     // "HH:mm"
+        timeFormatter.dateFormat = "hh:mm:ss"     // "HH:mm"
         let timeString = timeFormatter.string(from: selectedDate)
         
         self.changeDate = dateString
@@ -52,39 +52,10 @@ class DatePickerVC: UIViewController {
         
         self.selectedDateDelegate?.selDate(date: dateString, timeTxt: timeString )
     
-//        let selectedDate = sender.date
-//        print("Selected date: \(selectedDate)")
-//        
-//        // Format and display the date if needed
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateStyle = .medium
-//        let formattedDate = dateFormatter.string(from: selectedDate)
-//        print("Formatted date: \(formattedDate)")
-//        
-//        self.selectedDateDelegate?.selDate(date: selectedDate, timeTxt: "" )
+
      
     }
-    
-    /*
-     @objc func dateChanged(_ datePicker: UIDatePicker) {
-         let selectedDate = datePicker.date
-         let dateFormatter = DateFormatter()
-         dateFormatter.dateFormat = "yyyy-MM-dd"
-         let dateString = dateFormatter.string(from: selectedDate)
-         
-         let timeFormatter = DateFormatter()
-         timeFormatter.dateFormat = "HH:mm"
-         let timeString = timeFormatter.string(from: selectedDate)
-         
-         self.changeDate = dateString
-         self.changeTime = timeString
-         
- //        print("Selected Time: \(timeString)")
- //        print("Selected Date: \(dateString)")
-     }
-     */
-    
-
+  
 }
 
 

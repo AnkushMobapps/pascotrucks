@@ -27,6 +27,8 @@ class OrderVC: UIViewController{
     
  override func viewDidLoad() {
         super.viewDidLoad()
+     
+     
         print(myid ?? 0)
        
         receiptView.layer.borderWidth = 0
@@ -79,6 +81,7 @@ class OrderVC: UIViewController{
 
     @IBAction func confirmOrdBtnPres(_ sender: UIButton) {
         confirmOrderapi()
+        
      }
 }
 
@@ -88,6 +91,18 @@ extension OrderVC{
         DRiverHomeViewModel.updatebookingbid(viewController: self, parameters: param as NSDictionary){
             response in
             self.updateBookingBidsModel = response
+            
+            let duration = self.updateBookingBidsModel?.data?.duration ?? 0
+            let timeComponents = self.convertSecondsToTimeComponents(seconds: duration)
+            print("Hours: \(timeComponents.hours), Minutes: \(timeComponents.minutes), Seconds: \(timeComponents.seconds)")
+            let fullduration = "\(timeComponents.minutes) min, \(timeComponents.seconds) sec"
+            self.totalTime.text = fullduration
+            
+            
+             let distance = self.updateBookingBidsModel?.data?.total_distance ?? 0.0
+             let convertedDistance = self.convertDistanceToKilometersAndMeters(distanceInMeters: distance)
+            print("Distance: \(convertedDistance.kilometers) km \(convertedDistance.meters) m") // Output: "Distance: 0 km 245.0 m"
+            self.totalDistance.text = "\(convertedDistance.kilometers) km"
             
             self.startPoint.text = self.updateBookingBidsModel?.data?.pickup_location ?? ""
             print(self.startPoint.text ?? "")
@@ -116,9 +131,32 @@ extension OrderVC{
     }
   
 }
+
 extension OrderVC:selectedDate{
     func selDate(date: String?, timeTxt: String?) {
         self.driverAvailability.text = "\(date ?? "") \(timeTxt ?? "")"
     }
   
+}
+extension OrderVC{
+    
+  //  min hrs sec conversion
+    func convertSecondsToTimeComponents(seconds: Int) -> (hours: Int, minutes: Int, seconds: Int) {
+        let hours = seconds / 3600
+        let minutes = (seconds % 3600) / 60
+        let remainingSeconds = seconds % 60
+        return (hours, minutes, remainingSeconds)
+    }
+   // km conversion
+    
+    func convertDistanceToKilometersAndMeters(distanceInMeters: Double) -> (kilometers: Int, meters: Double) {
+        // Calculate the total kilometers
+        let kilometers = Int(distanceInMeters / 1000)
+        
+        // Calculate the remaining meters
+        let remainingMeters = distanceInMeters.truncatingRemainder(dividingBy: 1000)
+        
+        return (kilometers, remainingMeters)
+    }
+    
 }

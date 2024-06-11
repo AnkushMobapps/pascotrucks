@@ -56,6 +56,12 @@
 		7008F70F2BF5D49B00B0B809 /* AcceptBidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7008F70E2BF5D49A00B0B809 /* AcceptBidCell.swift */; };
 		7008F7112BF5DC0E00B0B809 /* AllBidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7008F7102BF5DC0E00B0B809 /* AllBidCell.swift */; };
 		7008F7132BF5E6D300B0B809 /* ClientOrderDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7008F7122BF5E6D300B0B809 /* ClientOrderDetailsVC.swift */; };
+		700E58FC2C16FC6800382224 /* OnlyDatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700E58FB2C16FC6800382224 /* OnlyDatePickerVC.swift */; };
+		700E58FE2C16FFAF00382224 /* OnlyTimePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700E58FD2C16FFAF00382224 /* OnlyTimePickerVC.swift */; };
+		700E59002C170DF900382224 /* StackOptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700E58FF2C170DF900382224 /* StackOptionModel.swift */; };
+		700E59022C170E1000382224 /* StackOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700E59012C170E1000382224 /* StackOptionViewModel.swift */; };
+		700E59042C1723E700382224 /* DriverOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700E59032C1723E700382224 /* DriverOrderModel.swift */; };
+		700E59062C1723F800382224 /* DriverOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700E59052C1723F800382224 /* DriverOrderViewModel.swift */; };
 		700FC31F2BF725F40032FF2A /* DriverHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC31E2BF725F40032FF2A /* DriverHomeModel.swift */; };
 		700FC3212BF7260C0032FF2A /* DriverHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC3202BF7260C0032FF2A /* DriverHomeViewModel.swift */; };
 		7015AEEB2BECFCF0001BF1B4 /* VehicleDataAndUpdateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7015AEEA2BECFCF0001BF1B4 /* VehicleDataAndUpdateVC.swift */; };
@@ -212,6 +218,12 @@
 		7008F70E2BF5D49A00B0B809 /* AcceptBidCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptBidCell.swift; sourceTree = "<group>"; };
 		7008F7102BF5DC0E00B0B809 /* AllBidCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBidCell.swift; sourceTree = "<group>"; };
 		7008F7122BF5E6D300B0B809 /* ClientOrderDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientOrderDetailsVC.swift; sourceTree = "<group>"; };
+		700E58FB2C16FC6800382224 /* OnlyDatePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyDatePickerVC.swift; sourceTree = "<group>"; };
+		700E58FD2C16FFAF00382224 /* OnlyTimePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyTimePickerVC.swift; sourceTree = "<group>"; };
+		700E58FF2C170DF900382224 /* StackOptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOptionModel.swift; sourceTree = "<group>"; };
+		700E59012C170E1000382224 /* StackOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOptionViewModel.swift; sourceTree = "<group>"; };
+		700E59032C1723E700382224 /* DriverOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverOrderModel.swift; sourceTree = "<group>"; };
+		700E59052C1723F800382224 /* DriverOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverOrderViewModel.swift; sourceTree = "<group>"; };
 		700FC31E2BF725F40032FF2A /* DriverHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverHomeModel.swift; sourceTree = "<group>"; };
 		700FC3202BF7260C0032FF2A /* DriverHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverHomeViewModel.swift; sourceTree = "<group>"; };
 		7015AEEA2BECFCF0001BF1B4 /* VehicleDataAndUpdateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDataAndUpdateVC.swift; sourceTree = "<group>"; };
@@ -544,6 +556,8 @@
 			children = (
 				4117F27E2BCE54780064304A /* New Group */,
 				70DBE4A32C11BB7800A1C09E /* DatePickerVC.swift */,
+				700E58FB2C16FC6800382224 /* OnlyDatePickerVC.swift */,
+				700E58FD2C16FFAF00382224 /* OnlyTimePickerVC.swift */,
 			);
 			path = CommonController;
 			sourceTree = "<group>";
@@ -644,6 +658,8 @@
 				707AF3B52C0DDD4000508880 /* CurrentOrderCell.swift */,
 				707AF3B62C0DDD4000508880 /* CurrentOrderCell.xib */,
 				70DF98C72C0ED56D00AF563F /* DriverBidingDetailsVC.swift */,
+				700E59032C1723E700382224 /* DriverOrderModel.swift */,
+				700E59052C1723F800382224 /* DriverOrderViewModel.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -903,6 +919,8 @@
 				70DBE49B2C1173D800A1C09E /* DriverSupportVC.swift */,
 				70DBE49F2C1173FA00A1C09E /* DriverEmergencyVC.swift */,
 				70DBE4A12C117CDC00A1C09E /* DriverupdateLocationVC.swift */,
+				700E58FF2C170DF900382224 /* StackOptionModel.swift */,
+				700E59012C170E1000382224 /* StackOptionViewModel.swift */,
 			);
 			path = HorigontalStackOptions;
 			sourceTree = "<group>";
@@ -1272,18 +1290,21 @@
 				41E606B62BD26B760053E6EF /* OrderVC.swift in Sources */,
 				7044860F2BE8ED6500CC9403 /* UpdareProfileModel.swift in Sources */,
 				702914CE2BE6538300C33E69 /* RegisterViewModel.swift in Sources */,
+				700E59002C170DF900382224 /* StackOptionModel.swift in Sources */,
 				70DBE49A2C1173C500A1C09E /* DriverNotesVC.swift in Sources */,
 				4117F28B2BCE74F30064304A /* LoginVC.swift in Sources */,
 				4150D5A92BCFD64E00CCDE6C /* ImgCell.swift in Sources */,
 				70DF0CD72BF867D200662899 /* NotificationModel.swift in Sources */,
 				70A7C3732C08A46500730249 /* ClientProfileVC.swift in Sources */,
 				703FCBB92C0985AE00C2861D /* AddNotesVC.swift in Sources */,
+				700E59042C1723E700382224 /* DriverOrderModel.swift in Sources */,
 				70A7C37F2C08A99000730249 /* ClientWalletVC.swift in Sources */,
 				70A7C37C2C08A6F600730249 /* OngoingTVC.swift in Sources */,
 				70F0CAD62C0482F3008A16DC /* UITextField+Ext.swift in Sources */,
 				70FF588E2BF627870046BA18 /* ClientHomeViewModel.swift in Sources */,
 				70DBE49C2C1173D800A1C09E /* DriverSupportVC.swift in Sources */,
 				4150D5B32BCFEEC200CCDE6C /* MyTableViewCell.swift in Sources */,
+				700E58FE2C16FFAF00382224 /* OnlyTimePickerVC.swift in Sources */,
 				26DF90FF2C00952D00A915E4 /* VicheleTypeVC.swift in Sources */,
 				703413422BF1D6C50079E66B /* ClientHomeVC.swift in Sources */,
 				70203ED12BE216BE00AF81E9 /* VehicleDetailsVM.swift in Sources */,
@@ -1313,6 +1334,8 @@
 				70317BF92BF4C73100CC41F7 /* GridCollectionCell.swift in Sources */,
 				70FF588C2BF624CB0046BA18 /* ClientHomeModel.swift in Sources */,
 				41D650712BD7D9AF006F911A /* CurrentLocationOfOrderVC.swift in Sources */,
+				700E59062C1723F800382224 /* DriverOrderViewModel.swift in Sources */,
+				700E58FC2C16FC6800382224 /* OnlyDatePickerVC.swift in Sources */,
 				70DBE4A02C1173FA00A1C09E /* DriverEmergencyVC.swift in Sources */,
 				700FC31F2BF725F40032FF2A /* DriverHomeModel.swift in Sources */,
 				70A7C3852C08AAC800730249 /* Terms&Conditions.swift in Sources */,
@@ -1334,6 +1357,7 @@
 				70500F542BDFB5B100BC4BB5 /* LoginModel.swift in Sources */,
 				4150FA072BDA8A87009E20AF /* DropDownListVC.swift in Sources */,
 				41E606A12BD2584B0053E6EF /* SplashVC.swift in Sources */,
+				700E59022C170E1000382224 /* StackOptionViewModel.swift in Sources */,
 				70A713DD2C01CD9A00DCDE54 /* AuthManager.swift in Sources */,
 				7008F70D2BF5C2AA00B0B809 /* OrderCell.swift in Sources */,
 				70500F562BDFB5BC00BC4BB5 /* LoginViewModel.swift in Sources */,

@@ -67,7 +67,7 @@ class MoreVC: UIViewController {
             
         }
     }
-   
+    
 }
 
 
@@ -102,18 +102,25 @@ extension MoreVC{
             print(responseObject)
             self.topBar.driverName.text = responseObject.data?.full_name
             let img = responseObject.data?.image ?? ""
-            if let url = URL(string: image_Url + img) {
-                self.topBar.driverImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
-                if  UserDefaults.standard.string(forKey: "driverCity") != nil {
-                    print("through login")
-                    self.topBar.address.text =  UserDefaults.standard.string(forKey: "driverCity")
-                }
-                else
-                {
-                    print("through registration")
-                    self.topBar.address.text = responseObject.data?.current_city
+            
+            if img != ""{
+                if let url = URL(string: image_Url + img) {
+                    self.topBar.driverImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
                 }
             }
+            else {
+                self.topBar.driverImg.image =  #imageLiteral(resourceName: "userImg")
+            }
+            if  UserDefaults.standard.string(forKey: "driverCity") != nil {
+                print("through login")
+                self.topBar.address.text =  UserDefaults.standard.string(forKey: "driverCity")
+            }
+            else
+            {
+                print("through registration")
+                self.topBar.address.text = responseObject.data?.current_city
+            }
+            //            }
         }
     }
     

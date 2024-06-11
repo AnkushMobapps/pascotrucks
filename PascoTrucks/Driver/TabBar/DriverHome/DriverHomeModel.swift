@@ -269,14 +269,6 @@ struct UpdateBookingBidsModel_data:Codable{
 }
 
 
-/*
- {
-put  http://69.49.235.253:8090/api/updatebookingbid/16/
-
-     "status": "True",
-     "msg": "Bid Request Status Updated"
- }
- */
 struct ConfirmOrderModel:Codable{
     var status:String?
     var msg:String?

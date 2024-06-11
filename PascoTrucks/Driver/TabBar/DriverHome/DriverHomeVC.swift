@@ -190,10 +190,18 @@ extension DriverHomeVC {
             print("Success")
             print(responseObject)
             self.topBarView.driverName.text = responseObject.data?.full_name
+            
             let img = responseObject.data?.image ?? ""
-            if let url = URL(string: image_Url + img) {
-                self.topBarView.driverImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
-                
+            
+            if img != ""{
+                if let url = URL(string: image_Url + img) {
+                    self.topBarView.driverImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
+                }
+            }
+            else{
+                self.topBarView.driverImg.image =  #imageLiteral(resourceName: "userImg")
+            }
+          
                 if  UserDefaults.standard.string(forKey: "cityName") != nil {
                     print("through login")
                     print(UserDefaults.standard.string(forKey: "cityName"))
@@ -212,7 +220,7 @@ extension DriverHomeVC {
                     print("through registration")
                     self.topBarView.address.text = responseObject.data?.current_city
                 }
-            }
+//            }
         }
     }
     

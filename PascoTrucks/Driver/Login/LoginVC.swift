@@ -35,20 +35,16 @@ class LoginVC: UIViewController, UITextFieldDelegate,CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        loginBtn.GradientColor(colorOne: #colorLiteral(red: 0.8352941176, green: 0.6549019608, blue: 0.3764705882, alpha: 1), colorTwo: #colorLiteral(red: 0.6117647059, green: 0.4705882353, blue: 0.231372549, alpha: 1))
+        countryCodeTxt.text = UserDefaults.standard.string(forKey: "countryCode")
+        print( countryCodeTxt.text)
         
-//        locationManager.delegate = self
-//        locationManager.requestWhenInUseAuthorization()
-//        requestCurrentLocation()
-      
         countryCodeTxt.delegate = self
         segmentedControl.selectedSegmentIndex = 0
         selectedSegment = "user"
         
         deviceID()
         
-        countryCodeTxt.text = UserDefaults.standard.string(forKey: "countryCode")
-        print( countryCodeTxt.text ?? "countrycode")
+       
         
     }
     
@@ -153,6 +149,7 @@ class LoginVC: UIViewController, UITextFieldDelegate,CLLocationManagerDelegate{
     @IBAction func goToSignUpBtn(_ sender: UIButton) {
         if segmentedControl.selectedSegmentIndex == 0{
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignupVC") as! SignupVC
+            vc.userType = self.selectedSegment
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else{
@@ -272,45 +269,63 @@ extension LoginVC {
             self.clientCheckLogModel = response
             let logindevice = self.clientCheckLogModel?.Login
             if logindevice == 0{
-                //                let phoneNo = "+91\(self.phoneTF.text ?? "")"
-                //                AuthManager.shared.startAuth(phoneNumber: phoneNo) { (success) in
-                //
-                //                    if success{
-                //                        let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
-                //                        vc.selectedSegment = self.selectedSegment
-                //                        vc.phoneNumber = self.phoneTF.text ?? ""
-                //                        vc.selectedType = .login
-                //                        self.navigationController?.pushViewController(vc, animated: true)
-                //                    }
-                //                    else{
-                //                        let alert = UIAlertController(title: "", message: "Something Wrong", preferredStyle: .alert)
-                //                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:
-                //                                                        nil))
-                //                        self.present(alert, animated: true, completion: nil)
-                //                    }
-                //
-                //                }
+                                let phoneNo = "+91\(self.phoneTF.text ?? "")"
+                                AuthManager.shared.startAuth(phoneNumber: phoneNo) { (success) in
                 
-                let vc = self.storyboard?.instantiateViewController(identifier: "ClientTabBarViewController") as! ClientTabBarViewController
-                self.navigationController?.pushViewController(vc, animated: true)
+                                    if success{
+                                        let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
+                                        vc.userType = self.selectedSegment
+                                        vc.phoneNumber = self.phoneTF.text ?? ""
+                                        vc.selectedType = .login
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                    }
+                                    else{
+                                        let alert = UIAlertController(title: "", message: "Something Wrong", preferredStyle: .alert)
+                                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:
+                                                                        nil))
+                                        self.present(alert, animated: true, completion: nil)
+                                    }
+                
+                                }
+//                
+//                let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
+//                vc.userType = se
+//                self.navigationController?.pushViewController(vc, animated: true)
             }
             
             else{
-                let vc = self.storyboard?.instantiateViewController(identifier: "ClientTabBarViewController") as! ClientTabBarViewController
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.clientLoginApiMetnod()
             }
             
-            //            if logindevice == 1{
-            ////                self.clientLoginApiMetnod()
-            //            }
-            //            else{
-            //                CommonMethods.showAlertMessageWithOkAndCancel(title: Constant.TITLE, message: "Verify Your Account", view: self) {
-            //                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVerifyNoVC") as! LoginVerifyNoVC
-            //                    self.navigationController?.pushViewController(vc, animated: true)
-            //                }
-            //            }
+             
         }
     }
+    
+    
+    
+    
+    // MARK: - Client Login Api
+    func clientLoginApiMetnod(){
+        let param = [ "phone_number":phoneTF ?? "", "user_type" : selectedSegment ?? ""] as [String : Any]
+        print(param)
+        LoginViewModel.ClientLoginApi(viewcontroller: self, parameters: param as NSDictionary){
+            (responseObject) in
+            print("Success")
+            self.clientLogModel = responseObject
+            
+            let userId = self.clientLogModel?.user_id
+            UserDefaults.standard.setValue(userId, forKey: "user_ID")
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabBarViewController") as! ClientTabBarViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+    }
+    
+    
+    
+    
+    
 }
 
 

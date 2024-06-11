@@ -30,13 +30,13 @@ class VerifyAccountVC: UIViewController {
     var currentLocation:String?
     var currentLatitude:String?
     var currentLangitude:String?
-  
+    var clientLogModel:ClientLoginModel?
     
     //var selectedSegment:String?
     
     var driverRegisterModel:DriverRegisterModel?
     
-   // var clientRegister:ClientRegisterModel?
+   var clientRegister:ClientRegisterModel?
    // var driverloginModel:LoginModel?
     var driverUpdateDeviceModel:DriverUpdateDeviceLoginModel?
     
@@ -74,7 +74,7 @@ class VerifyAccountVC: UIViewController {
                 
             }
             else{
-                // self.clientRegisterApi()
+                 self.clientRegisterApi()
             }
             
         }
@@ -86,15 +86,15 @@ class VerifyAccountVC: UIViewController {
                 driverUpdateDeviceApi()
             }
             else{
-                CommonMethods.showAlertMessage(title: Constant.TITLE, message: "this is for client update device", view: self)
+                clientLoginApiMetnod()
             }
             
         }
-        
+
                     }
         
                     else {
-                        CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Something Wrong", view: self)
+//                        CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Something Wrong", view: self)
                     }
     }
     }
@@ -156,7 +156,7 @@ class VerifyAccountVC: UIViewController {
     
 extension VerifyAccountVC{
     
-  // driver registration api
+    // driver registration api
     func submitDriverRegApiMetnod(){
         RegisterViewModel.Validation(viewController: self){
             
@@ -171,101 +171,66 @@ extension VerifyAccountVC{
                 let tokkken = self.driverRegisterModel?.token?.access
                 UserDefaults.standard.setValue(tokkken, forKey: "token")
                 UserDefaults.standard.removeObject(forKey: "driverCity")
-               let vc = self.storyboard?.instantiateViewController(withIdentifier: "VehicleDetailsVC") as! VehicleDetailsVC
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "VehicleDetailsVC") as! VehicleDetailsVC
                 vc.deviceId = self.deviceID
                 vc.currentCity = self.city
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
     }
-        
- //driver update device api call
-        func driverUpdateDeviceApi(){
-            let param = ["phone_number":phoneNumber ?? "","phone_verify":deviceID  ?? ""]
-            print(param)
-            LoginViewModel.driverUpdateDeviceApi(viewController: self, parameter: param as NSDictionary){response in
-                print(response!)
-                self.driverUpdateDeviceModel = response
-                CommonMethods.showAlertMessageWithOkAndCancel(title: Constant.TITLE, message: self.driverUpdateDeviceModel?.msg ?? Constant.BLANK, view: self) {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBar") as! MyTabBar
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
+    
+    //driver update device api call
+    func driverUpdateDeviceApi(){
+        let param = ["phone_number":phoneNumber ?? "","phone_verify":deviceID  ?? ""]
+        print(param)
+        LoginViewModel.driverUpdateDeviceApi(viewController: self, parameter: param as NSDictionary){response in
+            print(response!)
+            self.driverUpdateDeviceModel = response
+            CommonMethods.showAlertMessageWithOkAndCancel(title: Constant.TITLE, message: self.driverUpdateDeviceModel?.msg ?? Constant.BLANK, view: self) {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBar") as! MyTabBar
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
-}
- 
-/*
- // MARK: Client Register Api
- 
- func clientRegisterApi(){
-     let param = ["phone_number": phoneNumber ?? "", "user_type":userType ?? 0, "phone_verify":deviceID ?? ""] as [String : Any]
-     print(param)
-     RegisterViewModel.ClientRegApi(viewController: self, parameters: param as NSDictionary) {
-         response in
-         self.clientRegister = response
-         
-         let userId = self.clientRegister?.data?.user_id
-         UserDefaults.standard.setValue(userId, forKey: "user_ID")
-         
-         let vc = self.storyboard?.instantiateViewController(identifier: "ClientTabBarViewController") as! ClientTabBarViewController
-         self.navigationController?.pushViewController(vc, animated: true)
-     }
-     
-     
- }
-
- // MARK: - Driver Login Api
- func loginApiMetnod(){
-     let param = [ "phone_number":phoneNumber, "user_type" : userType ?? ""] as [String : Any]
-     print(param)
-     LoginViewModel.LoginApi(viewcontroller: self, parameters: param as NSDictionary){
-         (responseObject) in
-         print("Success")
-         self.driverloginModel = responseObject
-         let approvalKey = self.driverloginModel?.approved
-         let driverId = self.driverloginModel?.user_id
-         UserDefaults.standard.set(driverId, forKey: "user_id")
-         self.driverID = UserDefaults.standard.integer(forKey: "user_id")
-         print(self.driverID ?? "")
-         let tokkken = self.driverloginModel?.token?.access
-         UserDefaults.standard.setValue(tokkken, forKey: "token")
-         
-         
-         if approvalKey == 1{
-             let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBar") as! MyTabBar
-             self.navigationController?.pushViewController(vc, animated: true)
-         }
-         else if approvalKey == 2 {
-             CommonMethods.showAlertMessageWithHandler(title: Constant.TITLE, message: responseObject?.msg ?? Constant.BLANK, view: self) {
-                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "VehicleDetailsVC") as! VehicleDetailsVC
-                 vc.userID = self.driverloginModel?.user_id ?? 0
-                 self.navigationController?.pushViewController(vc, animated: true)
-             }
-         }
-         
-         else{
-             CommonMethods.showAlertMessage(title: Constant.TITLE, message: responseObject?.msg ?? Constant.BLANK, view: self)
-         }
-     }
- }
- 
- // MARK: - Client Login Api
- func clientLoginApiMetnod(){
-     let param = [ "phone_number":phoneNumber ?? "", "user_type" : selectedSegment ?? ""] as [String : Any]
+    }
+    
+    
+    
+    // MARK: Client Register Api
+    
+    func clientRegisterApi(){
+        let param = ["phone_number": phoneNumber ?? "", "user_type":userType ?? 0, "phone_verify":deviceID ?? ""] as [String : Any]
+        print(param)
+        RegisterViewModel.ClientRegApi(viewController: self, parameters: param as NSDictionary) {
+            response in
+            self.clientRegister = response
+            
+            let userId = self.clientRegister?.data?.user_id
+            UserDefaults.standard.setValue(userId, forKey: "user_ID")
+            
+            let vc = self.storyboard?.instantiateViewController(identifier: "ClientTabBarViewController") as! ClientTabBarViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        
+    }
+  
+     // MARK: - Client Login Api
+     func clientLoginApiMetnod(){
+     let param = [ "phone_number":phoneNumber ?? "", "user_type" : userType ?? 0] as [String : Any]
      print(param)
      LoginViewModel.ClientLoginApi(viewcontroller: self, parameters: param as NSDictionary){
-         (responseObject) in
-         print("Success")
-         self.clientLogModel = responseObject
-         
-         let userId = self.clientLogModel?.user_id
-         UserDefaults.standard.setValue(userId, forKey: "user_ID")
-         
-         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabBarViewController") as! ClientTabBarViewController
-         self.navigationController?.pushViewController(vc, animated: true)
-         
+     (responseObject) in
+     print("Success")
+     self.clientLogModel = responseObject
+     
+     let userId = self.clientLogModel?.user_id
+     UserDefaults.standard.setValue(userId, forKey: "user_ID")
+     
+     let vc = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabBarViewController") as! ClientTabBarViewController
+     self.navigationController?.pushViewController(vc, animated: true)
+     
      }
- }
- 
-}
- */
+     }
+     
+     }
+     

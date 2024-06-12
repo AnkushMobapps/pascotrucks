@@ -15,8 +15,8 @@ class DriverNotesVC: UIViewController {
     @IBOutlet weak var addTitle: UITextField!
     
     @IBOutlet weak var addDiscription: UITextView!
-    var addDriverNote:driverNoteModel?
-    
+    var addDriverNoteModel:DriverNoteModel?
+   
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -61,22 +61,22 @@ extension DriverNotesVC:selectedonlyDate,selectedOnlyTime{
         self.startDateTxt.text = date
     }
     
+  // All api
     func addDriverNoteapi(){
         let reminder = "\(self.startDateTxt.text ?? "") \(self.startTimeTxt.text ?? "")"
         var param = [String:Any]()
         param = [ "title":addTitle.text ?? "","description":addDiscription.text ?? "","reminderdate":reminder]
         print(param)
-        StackOptionViewModel.driverAddNoteApi(viewController: self, parameters: param as NSDictionary){response in
-            self.addDriverNote = response
+        DriverNotesViewModel.driverAddNoteApi(viewController: self, parameters: param as NSDictionary){response in
+            self.addDriverNoteModel = response
             print("success")
             CommonMethods.showAlertMessageWithHandler(title: Constant.TITLE, message: response?.msg ?? Constant.BLANK, view: self) {
-                self.navigationController?.popViewController(animated: true)
+                let vc = self.storyboard?.instantiateViewController(identifier: "GetAndDeleteDriverNoteVC") as! GetAndDeleteDriverNoteVC
+                self.navigationController?.pushViewController(vc, animated: true)
             }
             
         }
-        
-        
-    }
+  }
     
 }
 

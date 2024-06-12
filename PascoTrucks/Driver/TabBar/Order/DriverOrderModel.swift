@@ -64,39 +64,7 @@ struct DriverBidingStatusModel:Codable{
     }
     
 }
-/*
- "id": 262,
- "booking_number": "PASCO160103240610091456729",
- "user": "Sandeep Sharma",
- "driver": "Shireen",
- "user_image": "/media/media/Screenshot_2024-05-22-17-45-48-072_com.pasco.pascocustomer_i3Ql38W.jpg",
- "driver_image": null,
- "shipmentname": "Light Transport Delivery",
- "vehiclename": "Pickup Truck",
- "pickup_location": "6, Mahakali Caves Rd, Shanti Nagar, Andheri East, Mumbai, Maharashtra 400053, India",
- "pickup_latitude": 19.11778,
- "pickup_longitude": 72.86305,
- "drop_location": "4VP5+526, Squatters Colony Rd, Janta Nagar, Bandra Plot, Harijan Nagar Nagar, Jogeshwari East, Mumbai, Maharashtra 400060, India",
- "drop_latitude": 19.13542,
- "drop_longitude": 72.8575,
- "total_distance": 2.046304,
- "duration": 184,
- "customer_status": "pending",
- "payment_status": "unpaid",
- "booking_status": "pending",
- "pickup_datetime": "2024-06-12T16:43:00Z",
- "created_at": "2024-06-10T09:14:56.942779Z",
- "basicprice": 222.55,
- "message": "sdff",
- "payment_method": "Cash",
- 
- "upfront_payment": 20.0,
- "availability_datetime": "2024-06-28T05:33:00Z",
- "bid_price": 200.0,
- "availabledrop_datetime": "2024-06-28T05:36:04Z",
- "additionalservice_name": null,
- "additionalservice_amount": null
- */
+
 struct DriverBidingStatusModel_data:Codable{
     var id:Int?
     var booking_number:String?

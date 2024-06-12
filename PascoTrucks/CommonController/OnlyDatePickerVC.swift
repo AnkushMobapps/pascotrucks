@@ -27,7 +27,8 @@ class OnlyDatePickerVC: UIViewController {
     @IBAction func datePickerBtnClk(_ sender: UIDatePicker) {
         let selectedDate = datePicker.date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        //yyyy-MM-dd
+        dateFormatter.dateFormat = "dd-MM-yyyy"
         let dateString = dateFormatter.string(from: selectedDate)
         self.changeDate = dateString
         print("Selected Date: \(dateString)")

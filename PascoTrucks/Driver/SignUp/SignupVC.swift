@@ -15,7 +15,8 @@ enum selectScreenType {
 
 class SignupVC: UIViewController, UITextFieldDelegate{
 
-    // var signUpModel:SignUpModel?
+
+ 
    
     @IBOutlet weak var countryCodeTxt: UITextField!
     @IBOutlet weak var phoneNoTxt: UITextField!
@@ -27,13 +28,12 @@ class SignupVC: UIViewController, UITextFieldDelegate{
     var chekRegNumModel:ChekRegisterNUmberModel?
     var deviceNumber:String?
    // var countryCode:String?
-    
+  var userType:String?
     override func viewDidLoad() {
         super.viewDidLoad()
         countryCodeTxt.delegate = self
-        segmentedControl.selectedSegmentIndex = 0
-        selectedProfile = UIImage(imageLiteralResourceName: "maskgroup")
-        selectedSegment = "user"
+        self.countryCodeTxt.text = UserDefaults.standard.string(forKey: "countryCode")
+        print( self.countryCodeTxt.text)
         deviceID()
        
     }
@@ -61,67 +61,59 @@ class SignupVC: UIViewController, UITextFieldDelegate{
                print(deviceId)
     }
     
-    
-    @IBAction func segmentBtnClk(_ sender: UISegmentedControl) {
-        
-        if sender.selectedSegmentIndex == 0 {
-            selectedSegment = "user"
-        }
-        else if sender.selectedSegmentIndex == 1 {
-            selectedSegment = "driver"
-        }
-    }
-    
-    
 
     
     @IBAction func nextBtnClick(_ sender: UIButton) {
-     //chekNumberApi()
+     chekNumberApi()
    }
     
     @IBAction func goToLoginBtn(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
 
-}
 
-/*
-//  TextDemoVC.swift
-//  CustomAlert
-//
-//  Created by Nitin Chauhan on 27/05/24.
-//
 
-import UIKit
+// MARK: - Chek Number Api
 
-class TextDemoVC: UIViewController, UITextFieldDelegate {
-
-    @IBOutlet weak var textField: UITextField!
+func chekNumberApi(){
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Set the delegate of the text field
-        textField.delegate = self
-    }
+    let param = ["phone_number":phoneNoTxt.text ?? "","user_type":selectedSegment ?? ""]
+    print(param)
+    SignUpViewModel.chekRegNumberApi(viewController: self, parameters: param as NSDictionary){(response) in
+        print("success")
+        self.chekRegNumModel = response
     
-    // UITextFieldDelegate method
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        // Get the current text, and the proposed new text
-        let currentText = textField.text ?? ""
-        let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
         
-        // Check if this is the first character being added
-        if currentText.isEmpty && !string.isEmpty {
-            textField.text = "+" + string
-            return false // Return false because we've manually changed the text
+        let value = self.chekRegNumModel?.exists
+        if value == 1{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: self.chekRegNumModel?.msg ?? Constant.BLANK, view: self)
+        }
+        else {
+        let phoneNo = "+91\(self.phoneNoTxt.text ?? "")"
+            AuthManager.shared.startAuth(phoneNumber: phoneNo) { (success) in
+                
+                if success {
+                    let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
+                    vc.selectedType = .Register
+                    vc.phoneNumber = self.phoneNoTxt.text
+                    vc.deviceID = self.deviceNumber
+                    vc.userType = self.userType
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                else {
+                    CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Something Wrong", view: self)
+                }
+            }
         }
         
-        return true // Allow the text change
     }
 }
+}
 
+// MARK: - SelectCountryCode
 
-14:34
-
-*/
+extension SignupVC:SelectCountryCode{
+    func selectCCnCode(countryId: String){
+        countryCodeTxt.text = countryId
+    }
+}

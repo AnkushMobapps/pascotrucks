@@ -22,6 +22,7 @@ class OrderVC: UIViewController{
     @IBOutlet weak var bidPrice: UITextField!
     @IBOutlet weak var driverAvailability: UITextField!
     var myid:Int?
+    
     var updateBookingBidsModel:UpdateBookingBidsModel?
     var confirmOrderModel:ConfirmOrderModel?
     
@@ -100,8 +101,11 @@ extension OrderVC{
             
             
              let distance = self.updateBookingBidsModel?.data?.total_distance ?? 0.0
+//            let distance = 50000.00
              let convertedDistance = self.convertDistanceToKilometersAndMeters(distanceInMeters: distance)
             print("Distance: \(convertedDistance.kilometers) km \(convertedDistance.meters) m") // Output: "Distance: 0 km 245.0 m"
+            
+            
             self.totalDistance.text = "\(convertedDistance.kilometers) km"
             
             self.startPoint.text = self.updateBookingBidsModel?.data?.pickup_location ?? ""

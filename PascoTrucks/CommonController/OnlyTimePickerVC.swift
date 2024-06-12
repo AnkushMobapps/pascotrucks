@@ -31,7 +31,7 @@ class OnlyTimePickerVC: UIViewController {
     @IBAction func timePickerBtnClk(_ sender: UIDatePicker) {
         let selectedTime = timePicker.date
         let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "hh:mm:ss"     // "HH:mm:ss"
+        timeFormatter.dateFormat = "hh:mma"     // "HH:mm:ss"
         let timeString = timeFormatter.string(from: selectedTime)
         self.changeTime = timeString
         print("Selected Time: \(timeString)")

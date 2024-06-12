@@ -117,7 +117,7 @@ extension ProfileVC {
                 }
             }
             else{
-                self.userImg.image =  #imageLiteral(resourceName: "maskgroup")
+                self.userImg.image =  #imageLiteral(resourceName: "profile")
             }
           
         }

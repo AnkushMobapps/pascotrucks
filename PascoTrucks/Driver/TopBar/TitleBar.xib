@@ -39,7 +39,7 @@
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gnw-Xk-hBh">
                             <rect key="frame" x="15" y="8" width="44" height="44"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userImage" translatesAutoresizingMaskIntoConstraints="NO" id="8NY-Nx-RFt">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="8NY-Nx-RFt">
                                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                 </imageView>
                             </subviews>
@@ -169,7 +169,7 @@
     </objects>
     <resources>
         <image name="bell" width="21" height="21.5"/>
-        <image name="userImage" width="43.5" height="44"/>
+        <image name="user" width="19" height="19"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

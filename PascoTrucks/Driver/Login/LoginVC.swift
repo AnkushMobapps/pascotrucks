@@ -3,7 +3,7 @@
 //  PascoTrucks
 //
 //  Created by Deepanshu Sharma on 16/04/24.
-//
+// shireen code
 
 import UIKit
 import CoreLocation
@@ -217,7 +217,7 @@ extension LoginVC {
     
     // driverLogin api for same device
     func driverloginApiMetnod(){
-        let param = [ "phone_number":phoneTF.text ?? "", "user_type" : selectedSegment ?? ""] as [String : Any]
+        let param = [ "phone_number":phoneTF.text ?? "", "user_type" : selectedSegment ?? "","phone_token":"gdssdfdhdfgfg"] as [String : Any]
         print(param)
        LoginViewModel.LoginApi(viewcontroller: self, parameters: param as NSDictionary){
             (responseObject) in
@@ -226,6 +226,10 @@ extension LoginVC {
             let approvalKey = self.driverloginModel?.approved
             let driverId = self.driverloginModel?.user_id
             UserDefaults.standard.set(driverId, forKey: "user_id")
+           
+           let userType = self.driverloginModel?.user_type
+           UserDefaults.standard.set(userType, forKey: "user_type")
+           
             self.driverID = UserDefaults.standard.integer(forKey: "user_id")
             print(self.driverID ?? "")
             let tokkken = self.driverloginModel?.token?.access
@@ -306,7 +310,7 @@ extension LoginVC {
     
     // MARK: - Client Login Api
     func clientLoginApiMetnod(){
-        let param = [ "phone_number":phoneTF ?? "", "user_type" : selectedSegment ?? ""] as [String : Any]
+        let param = [ "phone_number":phoneTF ?? "", "user_type" : selectedSegment ?? "","phone_token":"gdssdfdhdfgfg"] as [String : Any]
         print(param)
         LoginViewModel.ClientLoginApi(viewcontroller: self, parameters: param as NSDictionary){
             (responseObject) in
@@ -315,6 +319,7 @@ extension LoginVC {
             
             let userId = self.clientLogModel?.user_id
             UserDefaults.standard.setValue(userId, forKey: "user_ID")
+            
             
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabBarViewController") as! ClientTabBarViewController
             self.navigationController?.pushViewController(vc, animated: true)

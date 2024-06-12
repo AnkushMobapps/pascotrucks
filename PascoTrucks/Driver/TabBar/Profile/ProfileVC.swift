@@ -109,10 +109,17 @@ extension ProfileVC {
             self.phoneNoTxt.text = self.profileDataModel?.data?.phone_number
             self.cityTxt.text = self.profileDataModel?.data?.current_city
             let img = self.profileDataModel?.data?.image ?? ""
-            if let url = URL(string: image_Url + img) {
-                self.userImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
-                
+            
+            if img != ""{
+                if let url = URL(string: image_Url + img) {
+                    self.userImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
+                    
+                }
             }
+            else{
+                self.userImg.image =  #imageLiteral(resourceName: "profile")
+            }
+          
         }
     }
     

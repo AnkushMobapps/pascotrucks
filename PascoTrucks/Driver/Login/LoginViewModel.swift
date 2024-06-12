@@ -86,7 +86,7 @@ class LoginViewModel{
             if let responseData = response{
                 let userData = try! JSONDecoder().decode(DriverLogOutModel.self, from: responseData)
                 print(userData)
-                if userData.Status == Constant.SUCCESS {
+                if userData.Status == "True" {
                     completion(userData)
                 }
                 else{

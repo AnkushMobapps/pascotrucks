@@ -159,10 +159,11 @@ extension VerifyAccountVC{
     // driver registration api
     func submitDriverRegApiMetnod(){
         RegisterViewModel.Validation(viewController: self){
-            
-            let param = [ "user_type": self.userType ?? "","phone_number":self.phoneNumber ?? "","full_name":self.name ,"email": self.email,"current_location":self.currentLocation, "phone_verify":self.deviceID ?? "", "current_city":self.city, "current_latitude":self.currentLatitude, "current_longitude":self.currentLangitude]
+            var param = [String:Any]()
+            param = [ "user_type": self.userType ?? "", "phone_number":self.phoneNumber ?? "", "full_name":self.name ?? "" ,"email": self.email ??
+                      "", "current_location":self.currentLocation ?? "", "phone_verify":self.deviceID ?? "", "current_city":self.city ?? "", "current_latitude":self.currentLatitude ?? "", "current_longitude":self.currentLangitude ?? "", "phone_token":"gdssdfdhdfgfg"]
             print(param)
-            
+        
             RegisterViewModel.submitRegApi(viewController: self, parameters: param as NSDictionary) { (response) in
                 print(response!)
                 print("Success")
@@ -198,7 +199,8 @@ extension VerifyAccountVC{
     // MARK: Client Register Api
     
     func clientRegisterApi(){
-        let param = ["phone_number": phoneNumber ?? "", "user_type":userType ?? 0, "phone_verify":deviceID ?? ""] as [String : Any]
+        var param = [String:Any]()
+        param = ["phone_number": phoneNumber ?? "", "user_type":userType ?? 0, "phone_verify":deviceID ?? "","phone_token":"gdssdfdhdfgfg"]
         print(param)
         RegisterViewModel.ClientRegApi(viewController: self, parameters: param as NSDictionary) {
             response in

@@ -18,7 +18,9 @@ class GetOrderFromClientCell: UITableViewCell {
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var clientOrderId: UILabel!
     @IBOutlet weak var dateAndTime: UILabel!
-    
+   
+    @IBOutlet weak var orderIdButton: UIButton!
+    var orderidBtn:(()->())!
     override func awakeFromNib() {
         super.awakeFromNib()
         mainView.layer.cornerRadius = 20
@@ -30,5 +32,8 @@ class GetOrderFromClientCell: UITableViewCell {
         mainView.layer.masksToBounds = false
     }
 
-   
+    @IBAction func orderIdBtnClk(_ sender: UIButton) {
+        orderidBtn()
+    }
+    
 }

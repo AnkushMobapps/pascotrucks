@@ -61,9 +61,6 @@ class SignupVC: UIViewController, UITextFieldDelegate{
                print(deviceId)
     }
     
-    
-
-    
 
     
     @IBAction func nextBtnClick(_ sender: UIButton) {

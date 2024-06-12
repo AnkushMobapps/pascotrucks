@@ -6,24 +6,36 @@
 //
 
 import UIKit
+protocol selectedOnlyTime: AnyObject {
+    func selOnlytime(time:String?)
+}
 
 class OnlyTimePickerVC: UIViewController {
-
+    var selOnlytimeDelegate:selectedOnlyTime?
+    
+    var changeTime:String?
+    @IBOutlet weak var timePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Set default date to today
+        timePicker.date = Date()
+       
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func tapGuestureBtnClick(_ sender: UITapGestureRecognizer) {
+        self.dismiss(animated: true)
     }
-    */
-
+    
+    @IBAction func timePickerBtnClk(_ sender: UIDatePicker) {
+        let selectedTime = timePicker.date
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "hh:mma"     // "HH:mm:ss"
+        let timeString = timeFormatter.string(from: selectedTime)
+        self.changeTime = timeString
+        print("Selected Time: \(timeString)")
+        self.selOnlytimeDelegate?.selOnlytime(time: timeString)
+     }
+    
 }

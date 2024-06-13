@@ -90,6 +90,46 @@ class LoginVC: UIViewController, UITextFieldDelegate,CLLocationManagerDelegate{
 //  
 //  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 //      print("Failed to find user's location: \(error.localizedDescription)")
+//  }//    //MARK: - location find out
+//
+//  private func requestCurrentLocation() {
+//      locationManager.requestLocation()
+//  }
+//  
+//  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//      guard let location = locations.last else { return }
+//      let lat = location.coordinate.latitude
+//      let long = location.coordinate.longitude
+//      print("Latitude: \(lat), Longitude: \(long)")
+//      
+//      UserDefaults.standard.setValue(lat, forKey: "latitude")
+//      UserDefaults.standard.setValue(long, forKey: "longitude")
+//      
+//      // Reverse geocode to get the full address, city, country name, and country code
+//      let geocoder = CLGeocoder()
+//      geocoder.reverseGeocodeLocation(location) { [weak self] (placemarks, error) in
+//          guard let self = self else { return }
+//          
+//          if let error = error {
+//              print("Error in reverse geocoding: \(error.localizedDescription)")
+//              return
+//          }
+//          
+//          if let placemark = placemarks?.first {
+//              let city = placemark.locality ?? "Unknown city"
+//              let country = placemark.country ?? "Unknown country"
+//              let isoCountryCode = placemark.isoCountryCode ?? "Unknown country code"
+// 
+//              UserDefaults.standard.setValue(city, forKey: "driverCity")
+//         }
+//      }
+//      
+//      // Stop updating location after getting the current location
+//      locationManager.stopUpdatingLocation()
+//  }
+//  
+//  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+//      print("Failed to find user's location: \(error.localizedDescription)")
 //  }
     
     // MARK: - Example method to select segments
@@ -280,10 +320,7 @@ extension LoginVC {
                                         self.navigationController?.pushViewController(vc, animated: true)
                                     }
                                     else{
-                                        let alert = UIAlertController(title: "", message: "Something Wrong", preferredStyle: .alert)
-                                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:
-                                                                        nil))
-                                        self.present(alert, animated: true, completion: nil)
+                                      print("Somthing Wrong")
                                     }
                 
                                 }
@@ -306,7 +343,7 @@ extension LoginVC {
     
     // MARK: - Client Login Api
     func clientLoginApiMetnod(){
-        let param = [ "phone_number":phoneTF ?? "", "user_type" : selectedSegment ?? ""] as [String : Any]
+        let param = [ "phone_number":phoneTF.text ?? "", "user_type" : selectedSegment ?? "", "phone_token":"gdssdfdhdfgfg"] as [String : Any]
         print(param)
         LoginViewModel.ClientLoginApi(viewcontroller: self, parameters: param as NSDictionary){
             (responseObject) in
@@ -315,6 +352,15 @@ extension LoginVC {
             
             let userId = self.clientLogModel?.user_id
             UserDefaults.standard.setValue(userId, forKey: "user_ID")
+            
+            let profileStatus = self.clientLogModel?.profile ?? 0
+            UserDefaults.standard.setValue(profileStatus, forKey: "profile")
+            
+            let tokkken = self.clientLogModel?.token?.access
+            UserDefaults.standard.setValue(tokkken, forKey: "token")
+            
+            let refresh_tokkken = self.clientLogModel?.token?.refresh ?? ""
+            UserDefaults.standard.setValue(refresh_tokkken, forKey: "refresh_token")
             
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabBarViewController") as! ClientTabBarViewController
             self.navigationController?.pushViewController(vc, animated: true)

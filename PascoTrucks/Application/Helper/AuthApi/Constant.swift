@@ -17,6 +17,7 @@ var driver_login_Url = base_Url+"user-login/"
 var driver_complete_registration_Url = base_Url+"user-registration/"
 var getDriverProfileData_Url = base_Url+"user-update-profile/"
 var updateddriverProfiledata_Url = base_Url+"user-update-profile/"
+
 var countryListUrl = base_Url+"countrydetail/"
 var cityListUrl = base_Url + "citydetail/"
 var transporterUrl = base_Url + "service-lists/"
@@ -40,7 +41,10 @@ var driverUpdateLocation_url = base_Url+"location-update/"
 // MARK: Client Side Api
 
  let cleintRegister_Url = base_Url+"client-registration/"
-  var chekRegNum_Url = base_Url+"check-number/"
+let chekRegNum_Url = base_Url+"check-number/"
+let clientUpdateProfile_Url = base_Url+"user-update-profile/"
+let getProfile_Url = base_Url+"user-update-profile/"
+let clientLogout_Url = base_Url+"user-logout/"
 
 
 

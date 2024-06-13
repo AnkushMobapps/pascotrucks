@@ -59,8 +59,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 else {
                     print("City: \(city), Country: \(country), Country Code: \(isoCountryCode), Dialing Code: Unknown dialing code")
                 }
-                UserDefaults.standard.set(city, forKey: "cityName")
-                UserDefaults.standard.set(country, forKey: "countryName")
+                UserDefaults.standard.setValue(city, forKey: "cityName")
+                UserDefaults.standard.setValue(country, forKey: "countryName")
                 UserDefaults.standard.set(dialingPhoneCode, forKey: "countryCode")
             }
         }

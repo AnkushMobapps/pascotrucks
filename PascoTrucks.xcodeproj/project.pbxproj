@@ -10,6 +10,10 @@
 		26A0AF4D2C00B14900896396 /* AddtionalServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A0AF4C2C00B14900896396 /* AddtionalServiceVC.swift */; };
 		26A0AF502C00B18B00896396 /* AddtionalServiceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A0AF4E2C00B18B00896396 /* AddtionalServiceTVC.swift */; };
 		26A0AF512C00B18B00896396 /* AddtionalServiceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26A0AF4F2C00B18B00896396 /* AddtionalServiceTVC.xib */; };
+		26CF70BB2C196D0E00F7D0C9 /* ClientProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF70BA2C196D0E00F7D0C9 /* ClientProfileModel.swift */; };
+		26CF70BD2C196E1800F7D0C9 /* ClientProfieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF70BC2C196E1800F7D0C9 /* ClientProfieViewModel.swift */; };
+		26CF70C02C1985D000F7D0C9 /* LogoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF70BF2C1985D000F7D0C9 /* LogoutModel.swift */; };
+		26CF70C22C1985E700F7D0C9 /* LogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF70C12C1985E700F7D0C9 /* LogoutViewModel.swift */; };
 		26DF90FB2C00501900A915E4 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF90FA2C00501900A915E4 /* MapVC.swift */; };
 		26DF90FF2C00952D00A915E4 /* VicheleTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF90FE2C00952D00A915E4 /* VicheleTypeVC.swift */; };
 		26DF91032C00955900A915E4 /* VicheleTypeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF91012C00955900A915E4 /* VicheleTypeTVC.swift */; };
@@ -151,6 +155,10 @@
 		26A0AF4C2C00B14900896396 /* AddtionalServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddtionalServiceVC.swift; sourceTree = "<group>"; };
 		26A0AF4E2C00B18B00896396 /* AddtionalServiceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddtionalServiceTVC.swift; sourceTree = "<group>"; };
 		26A0AF4F2C00B18B00896396 /* AddtionalServiceTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddtionalServiceTVC.xib; sourceTree = "<group>"; };
+		26CF70BA2C196D0E00F7D0C9 /* ClientProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientProfileModel.swift; sourceTree = "<group>"; };
+		26CF70BC2C196E1800F7D0C9 /* ClientProfieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientProfieViewModel.swift; sourceTree = "<group>"; };
+		26CF70BF2C1985D000F7D0C9 /* LogoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutModel.swift; sourceTree = "<group>"; };
+		26CF70C12C1985E700F7D0C9 /* LogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewModel.swift; sourceTree = "<group>"; };
 		26DF90FA2C00501900A915E4 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		26DF90FE2C00952D00A915E4 /* VicheleTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VicheleTypeVC.swift; sourceTree = "<group>"; };
 		26DF91012C00955900A915E4 /* VicheleTypeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VicheleTypeTVC.swift; sourceTree = "<group>"; };
@@ -351,6 +359,15 @@
 				26A0AF4F2C00B18B00896396 /* AddtionalServiceTVC.xib */,
 			);
 			path = AddtionalServiceTVC;
+			sourceTree = "<group>";
+		};
+		26CF70BE2C19856A00F7D0C9 /* Logout */ = {
+			isa = PBXGroup;
+			children = (
+				26CF70BF2C1985D000F7D0C9 /* LogoutModel.swift */,
+				26CF70C12C1985E700F7D0C9 /* LogoutViewModel.swift */,
+			);
+			path = Logout;
 			sourceTree = "<group>";
 		};
 		26DF90FC2C0068FA00A915E4 /* PaymentMethod */ = {
@@ -769,6 +786,7 @@
 		7034133C2BF1D6470079E66B /* ClientMore */ = {
 			isa = PBXGroup;
 			children = (
+				26CF70BE2C19856A00F7D0C9 /* Logout */,
 				70A7C36D2C08A36D00730249 /* ClientMoreVC.swift */,
 			);
 			path = ClientMore;
@@ -787,6 +805,8 @@
 			isa = PBXGroup;
 			children = (
 				70A7C3722C08A46500730249 /* ClientProfileVC.swift */,
+				26CF70BA2C196D0E00F7D0C9 /* ClientProfileModel.swift */,
+				26CF70BC2C196E1800F7D0C9 /* ClientProfieViewModel.swift */,
 			);
 			path = ClientProfile;
 			sourceTree = "<group>";
@@ -1273,9 +1293,11 @@
 				7044860F2BE8ED6500CC9403 /* UpdareProfileModel.swift in Sources */,
 				702914CE2BE6538300C33E69 /* RegisterViewModel.swift in Sources */,
 				70DBE49A2C1173C500A1C09E /* DriverNotesVC.swift in Sources */,
+				26CF70BD2C196E1800F7D0C9 /* ClientProfieViewModel.swift in Sources */,
 				4117F28B2BCE74F30064304A /* LoginVC.swift in Sources */,
 				4150D5A92BCFD64E00CCDE6C /* ImgCell.swift in Sources */,
 				70DF0CD72BF867D200662899 /* NotificationModel.swift in Sources */,
+				26CF70BB2C196D0E00F7D0C9 /* ClientProfileModel.swift in Sources */,
 				70A7C3732C08A46500730249 /* ClientProfileVC.swift in Sources */,
 				703FCBB92C0985AE00C2861D /* AddNotesVC.swift in Sources */,
 				70A7C37F2C08A99000730249 /* ClientWalletVC.swift in Sources */,
@@ -1313,11 +1335,13 @@
 				70317BF92BF4C73100CC41F7 /* GridCollectionCell.swift in Sources */,
 				70FF588C2BF624CB0046BA18 /* ClientHomeModel.swift in Sources */,
 				41D650712BD7D9AF006F911A /* CurrentLocationOfOrderVC.swift in Sources */,
+				26CF70C02C1985D000F7D0C9 /* LogoutModel.swift in Sources */,
 				70DBE4A02C1173FA00A1C09E /* DriverEmergencyVC.swift in Sources */,
 				700FC31F2BF725F40032FF2A /* DriverHomeModel.swift in Sources */,
 				70A7C3852C08AAC800730249 /* Terms&Conditions.swift in Sources */,
 				4150F9F12BDA5122009E20AF /* LanguageCell.swift in Sources */,
 				7044639D2C10657400B76954 /* GetOrderFromClientCell.swift in Sources */,
+				26CF70C22C1985E700F7D0C9 /* LogoutViewModel.swift in Sources */,
 				70DBE4A22C117CDC00A1C09E /* DriverupdateLocationVC.swift in Sources */,
 				703413522BF1EED50079E66B /* TopImgCell.swift in Sources */,
 				41E606CE2BD26C4A0053E6EF /* MoreVC.swift in Sources */,

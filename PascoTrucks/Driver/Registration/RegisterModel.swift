@@ -155,12 +155,14 @@ struct ClientRegisterModel : Codable{
     var msg:String?
     var data:ClientRegisterModel_data?
     var token:ClientTokenDict?
+    var profile:Int?
     
     enum CodingKeys:String,CodingKey{
         case status = "status"
         case msg = "msg"
         case data = "data"
         case token = "token"
+        case profile = "profile"
     }
     
     init(from decoder: Decoder) throws {
@@ -169,6 +171,7 @@ struct ClientRegisterModel : Codable{
         self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
         self.token = try container.decodeIfPresent(ClientTokenDict.self, forKey: .token)
         self.data = try container.decodeIfPresent(ClientRegisterModel_data.self, forKey: .data)
+        self.profile = try container.decodeIfPresent(Int.self, forKey: .profile)
     }
 }
 

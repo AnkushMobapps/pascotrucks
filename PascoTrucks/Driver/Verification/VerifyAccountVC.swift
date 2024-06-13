@@ -198,7 +198,7 @@ extension VerifyAccountVC{
     // MARK: Client Register Api
     
     func clientRegisterApi(){
-        let param = ["phone_number": phoneNumber ?? "", "user_type":userType ?? 0, "phone_verify":deviceID ?? ""] as [String : Any]
+        let param = ["phone_number": phoneNumber ?? "", "user_type":userType ?? 0, "phone_verify":deviceID ?? "", "phone_token":"gdssdfdhdfgfg"] as [String : Any]
         print(param)
         RegisterViewModel.ClientRegApi(viewController: self, parameters: param as NSDictionary) {
             response in
@@ -206,6 +206,13 @@ extension VerifyAccountVC{
             
             let userId = self.clientRegister?.data?.user_id
             UserDefaults.standard.setValue(userId, forKey: "user_ID")
+            
+            let profileStatus = self.clientRegister?.profile ?? 0
+            UserDefaults.standard.setValue(profileStatus, forKey: "profile")
+            
+            let tokkken = self.clientRegister?.token?.access
+            UserDefaults.standard.setValue(tokkken, forKey: "token")
+            
             
             let vc = self.storyboard?.instantiateViewController(identifier: "ClientTabBarViewController") as! ClientTabBarViewController
             self.navigationController?.pushViewController(vc, animated: true)
@@ -216,7 +223,7 @@ extension VerifyAccountVC{
   
      // MARK: - Client Login Api
      func clientLoginApiMetnod(){
-     let param = [ "phone_number":phoneNumber ?? "", "user_type" : userType ?? 0] as [String : Any]
+     let param = [ "phone_number":phoneNumber ?? "", "user_type" : userType ?? 0, "phone_token":"gdssdfdhdfgfg"] as [String : Any]
      print(param)
      LoginViewModel.ClientLoginApi(viewcontroller: self, parameters: param as NSDictionary){
      (responseObject) in
@@ -225,6 +232,13 @@ extension VerifyAccountVC{
      
      let userId = self.clientLogModel?.user_id
      UserDefaults.standard.setValue(userId, forKey: "user_ID")
+         
+         let profileStatus = self.clientLogModel?.profile ?? 0
+         UserDefaults.standard.setValue(profileStatus, forKey: "profile")
+         
+         let tokkken = self.clientLogModel?.token?.access
+         UserDefaults.standard.setValue(tokkken, forKey: "token")
+         
      
      let vc = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabBarViewController") as! ClientTabBarViewController
      self.navigationController?.pushViewController(vc, animated: true)

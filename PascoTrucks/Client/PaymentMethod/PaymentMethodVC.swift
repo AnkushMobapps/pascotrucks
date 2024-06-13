@@ -10,7 +10,7 @@ import GoogleMaps
 import GooglePlaces
 import CoreLocation
 
-
+public var checkYesstr : String!
 
 class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelegate, UITextViewDelegate,getVichleType,getAdditionalService {
     func serviceList(service: String?) {
@@ -64,6 +64,7 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
     var time:String?
     var changeTime:String = ""
     var changeDate:String = ""
+    var profileStatus:Int?
     
    override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,6 +110,20 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
        timePicker.addTarget(self, action: #selector(timeChanged), for: .valueChanged)
        datePicker.addTarget(self, action: #selector(dateeChanged), for: .valueChanged)
        
+      
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.profileStatus = UserDefaults.standard.integer(forKey: "profile")
+        print(profileStatus)
+        
+        if profileStatus != 0{
+            updatePopUpView.isHidden = true
+        }
+        else{
+            updatePopUpView.isHidden = false
+        }
     }
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -185,8 +200,13 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
     }
     
     @IBAction func cancelBtnTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     @IBAction func yesBtnTapped(_ sender: UIButton) {
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabBarViewController") as! ClientTabBarViewController
+//        checkYesstr = "1"
+//        self.navigationController?.pushViewController(vc, animated: true)
+       self.tabBarController?.selectedIndex = 4
     }
     
     

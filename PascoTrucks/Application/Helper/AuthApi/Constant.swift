@@ -35,6 +35,11 @@ var updateBidingDetails_url = base_Url+"updatebookingbid/"
 var confirmOrder_url = base_Url+"updatebookingbid/"
 var driver_logout_url = base_Url+"user-logout/"
 var driverUpdateLocation_url = base_Url+"location-update/"
+var driverAddNote_url = base_Url+"add-reminder/"
+var driverGetNote_url = base_Url+"add-reminder/"
+var driverBidingstatus_url = base_Url+"bookingdriverbiddetail/"
+var drivercompleteOrder_url = base_Url+"bookclient-completed/"
+var drivercancelOrder_url = base_Url+"bookclient-cancelled/"
 
 
 
@@ -71,7 +76,7 @@ struct Constant {
     static let VehicleImg = "Please select vehicle image"
     static let drivinglicenseImg = "Please select driving license image"
     static let drivingRCImg = "Please select RC image"
-    static let vehicleNumberTxt = "Please fill the vehicle number"
+    static let vehicleNumberTxt = "Please enter the vehicle number"
     static let emailNotValid = "Please enter correct email"
     static let emptyEmailTxt = "please enter your email"
     static let emptyNameTxt = "Please enter your name"

@@ -17,7 +17,7 @@ class MoreVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getProfileDataApi()
+        
         self.topBar.notificationButton = {
             let vc = self.storyboard?.instantiateViewController(identifier: "NotificationVC") as! NotificationVC
             self.navigationController?.pushViewController(vc, animated: true)
@@ -26,6 +26,7 @@ class MoreVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getProfileDataApi()
         let Duty = UserDefaults.standard.integer(forKey: "Duty")
         if Duty == 1{
             topBar.switchCondition.setOn(true, animated: false)
@@ -38,7 +39,13 @@ class MoreVC: UIViewController {
     
     
     @IBAction func logOutBtnClk(_ sender: UIButton) {
-        driverLogPutApi()
+        //        driverLogPutApi()
+        CommonMethods.showAlertMessageWithOkAndCancel(title: Constant.TITLE, message: "Do you want to logout?", view: self) {
+            UserDefaults.standard.removeObject(forKey: "user_id")
+            UserDefaults.standard.removeObject(forKey: "user_type")
+            let vc = self.storyboard?.instantiateViewController(identifier: "LoginVC") as! LoginVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func updateVehicleClk(_ sender: UIButton) {
@@ -67,7 +74,7 @@ class MoreVC: UIViewController {
             
         }
     }
-   
+    
 }
 
 
@@ -102,18 +109,25 @@ extension MoreVC{
             print(responseObject)
             self.topBar.driverName.text = responseObject.data?.full_name
             let img = responseObject.data?.image ?? ""
-            if let url = URL(string: image_Url + img) {
-                self.topBar.driverImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
-                if  UserDefaults.standard.string(forKey: "driverCity") != nil {
-                    print("through login")
-                    self.topBar.address.text =  UserDefaults.standard.string(forKey: "driverCity")
-                }
-                else
-                {
-                    print("through registration")
-                    self.topBar.address.text = responseObject.data?.current_city
+            
+            if img != ""{
+                if let url = URL(string: image_Url + img) {
+                    self.topBar.driverImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
                 }
             }
+            else {
+                self.topBar.driverImg.image =  #imageLiteral(resourceName: "profile")
+            }
+            if  UserDefaults.standard.string(forKey: "driverCity") != nil {
+                print("through login")
+                self.topBar.address.text =  UserDefaults.standard.string(forKey: "driverCity")
+            }
+            else
+            {
+                print("through registration")
+                self.topBar.address.text = responseObject.data?.current_city
+            }
+            //            }
         }
     }
     
@@ -129,13 +143,19 @@ extension MoreVC{
     
     // Driver Logout api ========
     func driverLogPutApi(){
+        // UserDefaults.standard.setValue(tokkken, forKey: "token")
+        // UserDefaults.standard.setValue(refresh_tokkken, forKey: "refresh_tokkken")
         let refreshtoken = UserDefaults.standard.string(forKey: "refresh_tokkken")
-        let param = ["refresh": refreshtoken ?? ""] as [String:Any]
+        print(refreshtoken)
+        print( UserDefaults.standard.string(forKey: "token") ?? "")
+        var param = [String:Any]()
+        param = ["refresh": refreshtoken ?? ""]
         print(param)
         LoginViewModel.driverLogOutApi(viewController: self, parameters: param as NSDictionary){
             response in
             print("success")
             UserDefaults.standard.removeObject(forKey: "user_id")
+            UserDefaults.standard.removeObject(forKey: "user_type")
             let vc = self.storyboard?.instantiateViewController(identifier: "LoginVC") as! LoginVC
             self.navigationController?.pushViewController(vc, animated: true)
         }

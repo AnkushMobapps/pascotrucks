@@ -35,9 +35,7 @@ class DriverHomeVC : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-     
-        
+    
         let nib1 = UINib(nibName: "GetOrderFromClientCell", bundle: nil)
         myTableView.register(nib1, forCellReuseIdentifier: "getOrderFromClientCell")
         
@@ -46,10 +44,11 @@ class DriverHomeVC : UIViewController {
             let vc = self.storyboard?.instantiateViewController(identifier: "NotificationVC") as! NotificationVC
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.getProfileDataApi()
+        checkapprovalStatusApiCall()
         let Duty = UserDefaults.standard.integer(forKey: "Duty")
         if Duty == 1{
             topBarView.switchCondition.setOn(true, animated: false)
@@ -57,8 +56,8 @@ class DriverHomeVC : UIViewController {
         else{
             topBarView.switchCondition.setOn(false, animated: false)
         }
-        self.getProfileDataApi()
-        checkapprovalStatusApiCall()
+       
+        
     }
     
     // MARK: - all button on horigontal stack view
@@ -139,6 +138,9 @@ extension DriverHomeVC:UITableViewDelegate,UITableViewDataSource{
         
         tabCell.clientOrderId.text = self.getOrdReqModel?.data?[indexPath.row].booking_number ?? ""
         
+        tabCell.orderidBtn = {
+            CommonMethods.showAlertMessage(title: "Order Id", message: tabCell.clientOrderId.text, view: self)
+        }
         tabCell.dateAndTime.text = self.getOrdReqModel?.data?[indexPath.row].created_at
         return tabCell
         
@@ -190,10 +192,18 @@ extension DriverHomeVC {
             print("Success")
             print(responseObject)
             self.topBarView.driverName.text = responseObject.data?.full_name
+            
             let img = responseObject.data?.image ?? ""
-            if let url = URL(string: image_Url + img) {
-                self.topBarView.driverImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
-                
+            
+            if img != ""{
+                if let url = URL(string: image_Url + img) {
+                    self.topBarView.driverImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
+                }
+            }
+            else{
+                self.topBarView.driverImg.image =  #imageLiteral(resourceName: "profile")
+            }
+          
                 if  UserDefaults.standard.string(forKey: "cityName") != nil {
                     print("through login")
                     print(UserDefaults.standard.string(forKey: "cityName"))
@@ -212,7 +222,7 @@ extension DriverHomeVC {
                     print("through registration")
                     self.topBarView.address.text = responseObject.data?.current_city
                 }
-            }
+//            }
         }
     }
     

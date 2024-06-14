@@ -653,7 +653,7 @@ class DataManager: NSObject {
                         else if statusCode == 401 {
                             KRProgressHUD.dismiss()
                             let result = responseObject.value! as! [String : Any]
-                            CommonMethods.showAlertMessage(title: Constant.TITLE, message: result["message"] as! String, view: viewcontroller)
+                            CommonMethods.showAlertMessage(title: Constant.TITLE, message: result["message"] as? String, view: viewcontroller)
                         }
                         else if statusCode == 422 {
                             KRProgressHUD.dismiss()

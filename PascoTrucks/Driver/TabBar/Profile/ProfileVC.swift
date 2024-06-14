@@ -35,6 +35,8 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         
         viewOverImage.layer.borderWidth = 2
         viewOverImage.layer.borderColor = UIColor.white.cgColor
+        
+       
         getProfileDataApi()
   }
     

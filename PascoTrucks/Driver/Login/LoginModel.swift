@@ -151,12 +151,16 @@ struct ClientLoginModel:Codable{
     var msg:String?
     var user_id:Int?
     var phone_number:String?
+    var profile:Int?
+    var token:ClientToken?
     
     enum CodingKeys:String,CodingKey{
         case status = "status"
         case msg = "msg"
         case user_id = "user_id"
         case phone_number = "phone_number"
+        case profile = "profile"
+        case token = "token"
     }
     
     init(from decoder: Decoder) throws {
@@ -165,9 +169,32 @@ struct ClientLoginModel:Codable{
         self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
         self.user_id = try container.decodeIfPresent(Int.self, forKey: .user_id)
         self.phone_number = try container.decodeIfPresent(String.self, forKey: .phone_number)
+        self.profile = try container.decodeIfPresent(Int.self, forKey: .profile)
+        self.token = try container.decodeIfPresent(ClientToken.self, forKey: .token)
      }
     
 }
+
+struct ClientToken : Codable{
+    var refresh:String?
+    var access:String?
+    enum CodingKeys: CodingKey {
+        case refresh
+        case access
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.refresh = try container.decodeIfPresent(String.self, forKey: .refresh)
+        self.access = try container.decodeIfPresent(String.self, forKey: .access)
+    }
+}
+
+
+
+
+
+
  //client other device login model
 struct ClientUpdateDeviceLoginModel:Codable{
 

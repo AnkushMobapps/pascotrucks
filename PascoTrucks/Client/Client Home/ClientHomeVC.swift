@@ -13,7 +13,7 @@ class ClientHomeVC: UIViewController {
     @IBOutlet weak var myColView: UICollectionView!
     @IBOutlet weak var gridCollectionView: UICollectionView!
     @IBOutlet weak var myPageing: UIPageControl!
-    
+    var value:String?
     @IBOutlet weak var coupanView: UIView!
     @IBOutlet weak var bonusView: UIView!
     @IBOutlet weak var helpView: UIView!
@@ -68,6 +68,8 @@ class ClientHomeVC: UIViewController {
         
         myPageing.currentPage = 0
         myPageing.numberOfPages = topImgArray.count
+        
+        
     }
     
     

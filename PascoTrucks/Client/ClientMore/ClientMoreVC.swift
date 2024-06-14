@@ -10,9 +10,12 @@ import UIKit
 class ClientMoreVC: UIViewController {
 
     @IBOutlet weak var clientTopBar: TitleBar!
+    var refeshToken:String?
+    var logout:LogoutModel?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        refeshToken = UserDefaults.standard.string(forKey: "refresh_token")
+        print(refeshToken)
        
     }
     
@@ -48,6 +51,26 @@ class ClientMoreVC: UIViewController {
     @IBAction func languageBtnTapped(_ sender: UIButton) {
     }
     @IBAction func logoutBtnTapped(_ sender: UIButton) {
+        
+        let param = ["refresh":refeshToken ?? ""]
+        print(param)
+        LogoutViewModel.LogoutApi(viewController: self, parameters: param as NSDictionary){
+            response in
+            self.logout = response
+            print("Success")
+            UserDefaults.standard.removeObject(forKey: "profile")
+            UserDefaults.standard.removeObject(forKey: "user_ID")
+            UserDefaults.standard.removeObject(forKey: "refresh_token")
+            
+            CommonMethods.showAlertMessageWithHandler(title: Constant.BLANK, message: self.logout?.msg ?? "", view: self){
+                let vc = self.storyboard?.instantiateViewController(identifier: "LoginVC") as! LoginVC
+                self.navigationController?.pushViewController(vc, animated: true)
+                
+            }
+        }
+        
+        
+        
     }
     
 }

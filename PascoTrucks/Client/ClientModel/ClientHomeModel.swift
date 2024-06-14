@@ -24,20 +24,20 @@ struct ClientServiceModel:Codable{
 }
 
 struct ClientServiceModel_data:Codable{
-    var id:Int?
+    var shipmentid:Int?
     var shipmentname:String?
     var shipmentimage:String?
     var shipmentdescription:String?
    
     enum CodingKeys:String,CodingKey{
-        case id = "id"
+        case shipmentid = "shipmentid"
         case shipmentname = "shipmentname"
         case shipmentimage = "shipmentimage"
         case shipmentdescription = "shipmentdescription"
     }
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decodeIfPresent(Int.self, forKey: .id)
+        self.shipmentid = try container.decodeIfPresent(Int.self, forKey: .shipmentid)
         self.shipmentname = try container.decodeIfPresent(String.self, forKey: .shipmentname)
         self.shipmentimage = try container.decodeIfPresent(String.self, forKey: .shipmentimage)
         self.shipmentdescription = try container.decodeIfPresent(String.self, forKey: .shipmentdescription)

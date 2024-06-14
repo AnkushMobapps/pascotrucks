@@ -45,6 +45,11 @@ let chekRegNum_Url = base_Url+"check-number/"
 let clientUpdateProfile_Url = base_Url+"user-update-profile/"
 let getProfile_Url = base_Url+"user-update-profile/"
 let clientLogout_Url = base_Url+"user-logout/"
+let vehicleType_Url = base_Url+"cargo-lists/"
+let addtionalService_Url = base_Url+"additional-service/"
+let paymentMethod_url =  base_Url+"ride-booking/"
+let cargoQty_Url = base_Url+"checkavailability/"
+let chekCharges_Url = base_Url+"checkcharges/"
 
 
 

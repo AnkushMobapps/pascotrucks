@@ -96,17 +96,16 @@ class ClientProfileVC: UIViewController, UIImagePickerControllerDelegate & UINav
                 
                 self.getProfileApi()
                 CommonMethods.showAlertMessageWithHandler(title: Constant.BLANK, message: self.updateProfilrModel?.msg ?? "", view: self){
+                    self.navigationController?.popViewController(animated: true)
+//                    // Navigation - AddHostVC
+//                    let controllers = self.navigationController?.viewControllers
+//                    for vc in controllers! {
+////                        if vc is MyPlacesVC {
+////                            _ = self.navigationController?.popToViewController(vc as! MyPlacesVC, animated: true)
+////                        }
+//                    }
                     
-                    // Navigation - AddHostVC
-                    let controllers = self.navigationController?.viewControllers
-                    for vc in controllers! {
-//                        if vc is MyPlacesVC {
-//                            _ = self.navigationController?.popToViewController(vc as! MyPlacesVC, animated: true)
-//                        }
-                    }
-                    
-//                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabBarViewController") as! ClientTabBarViewController
-//                    self.navigationController?.pushViewController(vc, animated: true)
+
                 }
                 
             }

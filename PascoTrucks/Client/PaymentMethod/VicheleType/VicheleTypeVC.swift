@@ -7,7 +7,7 @@
 
 import UIKit
 protocol getVichleType: AnyObject {
-    func vichleTypeList(type:String?)
+    func vichleTypeList(type:String?,typeId:Int)
      
 }
 
@@ -16,12 +16,14 @@ class VicheleTypeVC: UIViewController {
     @IBOutlet weak var setView: UIView!
     @IBOutlet weak var myTableView: UITableView!
     weak var delegate:getVichleType?
+    var vehicleid:Int?
     var value = ["1","2","3","4","5"]
+    var vehicleType:VehichleTypeModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "VicheleTypeTVC", bundle: nil)
         myTableView.register(nib, forCellReuseIdentifier: "cell")
-       
+        vehicleTypeApi()
     }
     
     @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
@@ -34,23 +36,36 @@ class VicheleTypeVC: UIViewController {
 
 extension VicheleTypeVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return value.count
+        return vehicleType?.data?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = myTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! VicheleTypeTVC
-        cell.nameLbl.text = value[indexPath.row]
+        cell.nameLbl.text = self.vehicleType?.data?[indexPath.row].vehiclename ?? ""
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = myTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! VicheleTypeTVC
-        let demo = value[indexPath.row]
-        delegate?.vichleTypeList(type: demo)
+        let demo = self.vehicleType?.data?[indexPath.row].vehiclename ?? ""
+        let id = self.vehicleType?.data?[indexPath.row].id ?? 0
+        delegate?.vichleTypeList(type: demo, typeId: id)
         
         self.dismiss(animated: true)
         
+    }
+    // MARK: vichleTypeApi
+    
+    func vehicleTypeApi(){
+        let param = ["shipment_type":vehicleid ?? 0]
+        print(param)
+        VehicleTypeViewModel.vehicleTypeApi(viewcontroller: self, parameters: param as NSDictionary){
+            response in
+            self.vehicleType = response
+            print("Success")
+            self.myTableView.reloadData()
+        }
     }
     
     

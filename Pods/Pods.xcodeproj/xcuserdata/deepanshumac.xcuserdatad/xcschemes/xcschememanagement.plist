@@ -224,12 +224,12 @@
 		<key>PhoneNumberKit-PhoneNumberKitPrivacy.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>44</integer>
+			<integer>43</integer>
 		</dict>
 		<key>PhoneNumberKit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>43</integer>
+			<integer>44</integer>
 		</dict>
 		<key>Pods-PascoTrucks-PascoTrucksUITests.xcscheme</key>
 		<dict>

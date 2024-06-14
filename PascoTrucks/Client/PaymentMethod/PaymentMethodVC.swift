@@ -10,24 +10,36 @@ import GoogleMaps
 import GooglePlaces
 import CoreLocation
 
-public var checkYesstr : String!
 
 class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelegate, UITextViewDelegate,getVichleType,getAdditionalService {
+    func vichleTypeList(type: String?, typeId: Int) {
+        self.vichleTypeTF.text = type
+        self.cargoValue = typeId
+        self.cargoQtyApi()
+        
+       
+    }
+    
+    
+    
     func serviceList(service: String?) {
         self.additionalServiceTF.text  = service
     }
     
-    func vichleTypeList(type: String?) {
-        self.vichleTypeTF.text = type
-    }
+    
     
     func addressWithLatLong(address: String?, latLong: CLLocationCoordinate2D?) {
         if value == "Pick"{
             self.pickTF.text = address
             print(address ?? "")
+            
+//            self.pickAddress = address
+            getCityFromAddress(address ?? "")
         }
         else{
             self.endTF.text = address
+//            self.endAddress = address
+            getCityFromAddress(address ?? "")
         }
     }
     
@@ -51,6 +63,18 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
     @IBOutlet weak var cashBtn: UIButton!
     @IBOutlet weak var walletBtn: UIButton!
     @IBOutlet weak var visaBtn: UIButton!
+    @IBOutlet weak var numberQtyTF: UITextField!
+    @IBOutlet weak var numberView: UIView!
+    
+    @IBOutlet weak var qtyTF: UITextField!
+    
+    @IBOutlet weak var plusBtn: UIButton!
+    @IBOutlet weak var minusBtn: UIButton!
+    @IBOutlet weak var setView: UIView!
+    @IBOutlet weak var setViewHeightContraint: NSLayoutConstraint!
+    @IBOutlet weak var messageTextView: UITextView!
+    
+    
     
     @IBOutlet weak var updatePopUpView: UIView!
     @IBOutlet weak var cashRadioImg: UIImageView!
@@ -65,6 +89,28 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
     var changeTime:String = ""
     var changeDate:String = ""
     var profileStatus:Int?
+    var cargoQtyValue:Int?
+    var cargoValue:Int?
+    var cargoQty:CargoQtyModel?
+    
+    var currentValue: Int = 0
+       var maxValue: Int = 0
+    
+    var pickAddress:String?
+    var endAddress:String?
+    
+    var cityy:String = ""
+    var cityy1:String?
+    
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
+    
+    var droplatitude: Double = 0.0
+    var droplongitude: Double = 0.0
+    
+    var dateTime:String?
+    var paymentMethod:String?
+    
     
    override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,7 +156,8 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
        timePicker.addTarget(self, action: #selector(timeChanged), for: .valueChanged)
        datePicker.addTarget(self, action: #selector(dateeChanged), for: .valueChanged)
        
-      
+       setViewHeightContraint.constant = 230
+       numberView.isHidden = true
        
     }
     
@@ -124,7 +171,94 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
         else{
             updatePopUpView.isHidden = false
         }
+    
     }
+    
+//    func getCityFromAddress(_ address: String) {
+//           let geocoder = CLGeocoder()
+//           geocoder.geocodeAddressString(address) { (placemarks, error) in
+//               if let error = error {
+//                   print("Error: \(error.localizedDescription)")
+//                   return
+//               }
+//               
+//               guard let placemark = placemarks?.first else {
+//                   print("No placemark found")
+//                   return
+//               }
+//               
+//               if let city = placemark.locality {
+//                   if self.cityy == ""{
+//                       self.cityy = city
+//                       print("City: \(self.cityy)")
+//                   }
+//                   else{
+//                       self.cityy1 = city
+//                       print("City1: \(self.cityy1)")
+//                   }
+//                  
+//                   // City name is now stored in the variable 'city'
+//               } else {
+//                   print("City not found in the address components")
+//               }
+//           }
+//       }
+    
+    
+    
+    
+    func getCityFromAddress(_ address: String) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(address) { (placemarks, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let placemark = placemarks?.first else {
+                print("No placemark found")
+                return
+            }
+            
+            if let city = placemark.locality {
+                if self.cityy == "" {
+                    self.cityy = city
+                    print("City: \(self.cityy)")
+                } else {
+                    self.cityy1 = city
+                    print("City1: \(self.cityy1)")
+                }
+                
+                if let location = placemark.location {
+                    let latitude = location.coordinate.latitude
+                    let longitude = location.coordinate.longitude
+                    print("Latitude: \(latitude), Longitude: \(longitude)")
+                    
+                    // Store latitude and longitude in your variables if needed
+                    
+                    if self.latitude == 0.0{
+                        self.latitude = latitude
+                        self.longitude = longitude
+                    }
+                    else {
+                        self.droplatitude = latitude
+                        self.droplongitude = longitude
+                    }
+                    
+                    
+                } else {
+                    print("Location not found in the placemark")
+                }
+            } else {
+                print("City not found in the address components")
+            }
+        }
+    }
+
+    
+    
+    
+    
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -135,9 +269,10 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
         @objc func timeChanged(_ datePicker: UIDatePicker) {
             let selectedDate = timePicker.date
             let timeFormatter = DateFormatter()
-            timeFormatter.dateFormat = "h:mm a"
+            timeFormatter.dateFormat = "h:mma"
             let timeString = timeFormatter.string(from: selectedDate)
             self.changeTime = timeString
+        
             print("Selected Time: \(timeString)")
             self.timeTF.text = self.changeTime
             
@@ -154,7 +289,7 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
            
            // Extract date components
            let dateFormatter = DateFormatter()
-           dateFormatter.dateFormat = "yyyy-MM-dd"
+           dateFormatter.dateFormat = "dd-MM-yyyy"
            let currentDate = dateFormatter.string(from: currentDateAndTime)
            print("Current Date: \(currentDate)")
            self.changeDate = currentDate
@@ -168,7 +303,7 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
         @objc func dateeChanged(_ datePicker: UIDatePicker) {
             let selectedDate = datePicker.date
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.dateFormat = "dd-MM-yyyy"
             let dateString = dateFormatter.string(from: selectedDate)
             self.changeDate = dateString
             self.dateTF.text =   self.changeDate
@@ -178,7 +313,21 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
     
     
     
+    @IBAction func plusBtnTapped(_ sender: UIButton) {
+        if currentValue < maxValue {
+                    currentValue += 1
+                    qtyTF.text = "\(currentValue)"
+                }
+    }
     
+    @IBAction func minusBtnTapped(_ sender: UIButton) {
+        
+        if currentValue > 0 {
+            currentValue -= 1
+            qtyTF.text = "\(currentValue)"
+        }
+
+    }
     
     
     
@@ -187,16 +336,12 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
     
     @IBAction func cashBtnClk(_ sender: UIButton) {
         
-        if cashBtn.isSelected == false {
-            cashBtn.isSelected = true
+        self.paymentMethod = "wallet"
             cashRadioImg.image = UIImage(named: "filledRadio")
             walletRadioImg.image = UIImage(named: "radioUnfilled")
             visaRadioImg.image = UIImage(named: "radioUnfilled")
-        }
-        else {
-            cashBtn.isSelected = false
-            cashRadioImg.image = UIImage(named: "radioUnfilled")
-        }
+       
+        
     }
     
     @IBAction func cancelBtnTapped(_ sender: UIButton) {
@@ -245,19 +390,15 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
     
     
     @IBAction func walletBtnClk(_ sender: UIButton) {
-        if walletBtn.isSelected == false
-        {
-            walletBtn.isSelected = true
+      
+        self.paymentMethod = "wallet"
             walletRadioImg.image = UIImage(named: "filledRadio")
             cashRadioImg.image = UIImage(named: "radioUnfilled")
             visaRadioImg.image = UIImage(named: "radioUnfilled")
-        }
-        else
-        {
-            walletBtn.isSelected = false
-            walletRadioImg.image = UIImage(named: "radioUnfilled")
-        }
-        
+           
+       
+//
+//        
     }
     
     
@@ -266,27 +407,19 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
     
     
     @IBAction func visaBtnClk(_ sender: UIButton) {
-        
-        if visaBtn.isSelected == false 
-        {
-            visaBtn.isSelected = true
+          self.paymentMethod = "wallet"
             visaRadioImg.image = UIImage(named: "filledRadio")
             cashRadioImg.image = UIImage(named: "radioUnfilled")
             walletRadioImg.image = UIImage(named: "radioUnfilled")
-        }
-        
-        else
-        {
-            visaBtn.isSelected = false
-            visaRadioImg.image = UIImage(named: "radioUnfilled")
-        }
-    }
+           }
     
     @IBAction func vichcleTypeBtnTapped(_ sender: UIButton) {
         
         let targetVC = self.storyboard?.instantiateViewController(withIdentifier: "VicheleTypeVC") as! VicheleTypeVC
                         targetVC.modalPresentationStyle = .overFullScreen
                         targetVC.modalTransitionStyle = .crossDissolve
+        targetVC.vehicleid = serviceVehicleId ?? 0
+        print(serviceVehicleId)
                         
         targetVC.delegate = self
                         self.present(targetVC, animated: true, completion: nil)
@@ -300,6 +433,26 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
         vc.modalTransitionStyle = .crossDissolve
        // vc.listType = "Language"
        // vc.selectrowdelegate = self
+        vc.serviceVehicleId = self.serviceVehicleId ?? 0
+        vc.pickUpLocation = self.pickTF.text ?? ""
+        vc.dropLocation = self.endTF.text ?? ""
+        vc.pickUpCity = self.cityy
+        vc.dropCity = self.cityy1 ?? ""
+        vc.latitude = self.latitude
+        vc.longnitude = self.longitude
+        vc.droplatitude = self.droplatitude
+        vc.droplongnitude = self.droplongitude
+        vc.paymentMethod = self.paymentMethod
+        self.dateTime =  "\(changeDate) \(changeTime)"
+        vc.additionalId = cargoValue
+        vc.startDate = changeDate
+        vc.timee = changeTime
+        
+        vc.dateTime = dateTime
+        vc.message = self.messageTextView.text ?? ""
+        vc.numberQty = self.qtyTF.text ?? ""
+        
+        
         self.present(vc, animated: true, completion: nil)
         
     }
@@ -329,5 +482,43 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
+    
+    
+    // MARK: CargoQty Api
+    func cargoQtyApi() {
+            var param = [String: Any]()
+            param = [
+                "cargo": cargoValue ?? 0,
+                "pickup_location": pickTF.text ?? "",
+                "pickup_city": cityy,
+                "drop_location": endTF.text ?? "",
+                "drop_city": cityy1
+            ]
+            print(param)
+        PaymentMethodViewModel.CargoQtyApi(viewcontroller: self, parameters: param as NSDictionary) { [self]
+            response in
+            self.cargoQty = response
+            print("Success")
+            self.numberQtyTF.text = "\(self.cargoQty?.available_driver ?? 0)"
+            let value = self.cargoQty?.available_driver ?? 0
+            
+           maxValue  = value
+//                    qtyTF.text = "\(currentValue)"
+            
+            if self.numberQtyTF.text != ""{
+                self.numberView.isHidden = false
+                setViewHeightContraint.constant = 290
+            }
+
+            else{
+                numberView.isHidden = true
+                setViewHeightContraint.constant = 230
+            }
+        }
+    }
+    
+    
+   
+    
     
 }

@@ -129,7 +129,8 @@ extension ClientHomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICo
         
         if collectionView == gridCollectionView{
             let vc = self.storyboard?.instantiateViewController(identifier: "PaymentMethodVC") as! PaymentMethodVC
-            let id = self.clientServiceModel?.data?[indexPath.row].id
+            let id = self.clientServiceModel?.data?[indexPath.row].shipmentid
+            vc.serviceVehicleId = self.clientServiceModel?.data?[indexPath.row].shipmentid
            
             self.navigationController?.pushViewController(vc, animated: true)
         }

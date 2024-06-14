@@ -20,11 +20,14 @@ class AddtionalServiceVC: UIViewController {
     
     var value = ["Coustem"]
     weak var delegate:getAdditionalService?
+    var addtionalService:AddtioalServiceModel?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let nib = UINib(nibName: "AddtionalServiceTVC", bundle: nil)
         myTableView.register(nib, forCellReuseIdentifier: "cell")
+        
+        addtionalServiceApi()
     }
     
     @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
@@ -38,24 +41,37 @@ class AddtionalServiceVC: UIViewController {
 
 extension AddtionalServiceVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return value.count
+        return addtionalService?.data?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = myTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AddtionalServiceTVC
-        cell.serviceNameLbl.text = value[indexPath.row]
+        cell.serviceNameLbl.text = addtionalService?.data?[indexPath.row].additional_type ?? ""
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = myTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AddtionalServiceTVC
-        let demo = value[indexPath.row]
+        let demo = addtionalService?.data?[indexPath.row].additional_type ?? ""
         delegate?.serviceList(service:demo)
         
         self.dismiss(animated: true)
         
     }
+    // MARK: - AdditionalServiceApi
+    func addtionalServiceApi(){
+        let param = [String:Any]()
+        AddtionalServiceViewModel.addtionalServiceApi(viewController: self, parameters: param as NSDictionary) {
+            response in
+            self.addtionalService = response
+            print("succeess")
+            self.myTableView.reloadData()
+        }
+    }
+ 
+
+    
     
     
 }

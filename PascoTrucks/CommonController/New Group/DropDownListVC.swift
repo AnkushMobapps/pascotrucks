@@ -53,7 +53,7 @@ class DropDownListVC: UIViewController,UISearchBarDelegate {
             self.searchbar.isHidden = true
             self.listTop.constant = 0
            vehicleListApiMetnod()
-        } 
+        }
         else if listType == "City"{
             self.searchbar.isHidden = false
             self.listTop.constant = 50
@@ -197,16 +197,16 @@ extension DropDownListVC {
 //    func countryListApiMetnod(){
 //       var param = [String: Any]()
 //        param = [:]
-//        
+//
 //        VehicleDetailsVM.CountryListApi(viewcontroller: self, parameters: param as NSDictionary){
 //            (responseObject) in
-//            
+//
 //            self.countryListModel = responseObject
-//            
+//
 //            self.myListTable.reloadData()
-//            
+//
 //            print("success")
-//            
+//
 //        }
 //    }
     

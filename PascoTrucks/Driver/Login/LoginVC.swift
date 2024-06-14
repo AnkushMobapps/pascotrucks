@@ -264,71 +264,76 @@ extension LoginVC {
     }
     
     //MARK: - Client All Login Api
-    //checkLogin
-    func clientCheckLoginApi(){
-        let param = ["phone_number":phoneTF.text ?? "","user_type":selectedSegment ?? "","phone_verify":newdeviceNumber]
-        print(param)
-        LoginViewModel.ClientcheckLoginApi(viewController: self, parameters: param as NSDictionary){(response) in
-            print("success")
-            self.clientCheckLogModel = response
-            let logindevice = self.clientCheckLogModel?.Login
-            if logindevice == 0{
-                                let phoneNo = "+91\(self.phoneTF.text ?? "")"
-                                AuthManager.shared.startAuth(phoneNumber: phoneNo) { (success) in
+       //checkLogin
+       func clientCheckLoginApi(){
+           let param = ["phone_number":phoneTF.text ?? "","user_type":selectedSegment ?? "","phone_verify":newdeviceNumber]
+           print(param)
+           LoginViewModel.ClientcheckLoginApi(viewController: self, parameters: param as NSDictionary){(response) in
+               print("success")
+               self.clientCheckLogModel = response
+               let logindevice = self.clientCheckLogModel?.Login
+               if logindevice == 0{
+                                   let phoneNo = "+91\(self.phoneTF.text ?? "")"
+                                   AuthManager.shared.startAuth(phoneNumber: phoneNo) { (success) in
+                   
+                                       if success{
+                                           let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
+                                           vc.userType = self.selectedSegment
+                                           vc.phoneNumber = self.phoneTF.text ?? ""
+                                           vc.selectedType = .login
+                                           self.navigationController?.pushViewController(vc, animated: true)
+                                       }
+                                       else{
+                                         print("Somthing Wrong")
+                                       }
+                   
+                                   }
+   //
+   //                let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
+   //                vc.userType = se
+   //                self.navigationController?.pushViewController(vc, animated: true)
+               }
+               
+               else{
+                   self.clientLoginApiMetnod()
+               }
+               
                 
-                                    if success{
-                                        let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
-                                        vc.userType = self.selectedSegment
-                                        vc.phoneNumber = self.phoneTF.text ?? ""
-                                        vc.selectedType = .login
-                                        self.navigationController?.pushViewController(vc, animated: true)
-                                    }
-                                    else{
-                                        let alert = UIAlertController(title: "", message: "Something Wrong", preferredStyle: .alert)
-                                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:
-                                                                        nil))
-                                        self.present(alert, animated: true, completion: nil)
-                                    }
-                
-                                }
-//
-//                let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
-//                vc.userType = se
-//                self.navigationController?.pushViewController(vc, animated: true)
-            }
-            
-            else{
-                self.clientLoginApiMetnod()
-            }
-            
-             
-        }
-    }
-    
-    
-    
-    
-    // MARK: - Client Login Api
-    func clientLoginApiMetnod(){
-        let param = [ "phone_number":phoneTF ?? "", "user_type" : selectedSegment ?? "","phone_token":"gdssdfdhdfgfg"] as [String : Any]
-        print(param)
-        LoginViewModel.ClientLoginApi(viewcontroller: self, parameters: param as NSDictionary){
-            (responseObject) in
-            print("Success")
-            self.clientLogModel = responseObject
-            
-            let userId = self.clientLogModel?.user_id
-            UserDefaults.standard.setValue(userId, forKey: "user_ID")
-            
-            
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabBarViewController") as! ClientTabBarViewController
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-        }
-    }
-    
-    
-    
-    
-    
-}
+           }
+       }
+       
+       
+       
+       
+       // MARK: - Client Login Api
+       func clientLoginApiMetnod(){
+           let param = [ "phone_number":phoneTF.text ?? "", "user_type" : selectedSegment ?? "", "phone_token":"gdssdfdhdfgfg"] as [String : Any]
+           print(param)
+           LoginViewModel.ClientLoginApi(viewcontroller: self, parameters: param as NSDictionary){
+               (responseObject) in
+               print("Success")
+               self.clientLogModel = responseObject
+               
+               let userId = self.clientLogModel?.user_id
+               UserDefaults.standard.setValue(userId, forKey: "user_ID")
+               
+               let profileStatus = self.clientLogModel?.profile ?? 0
+               UserDefaults.standard.setValue(profileStatus, forKey: "profile")
+               
+               let tokkken = self.clientLogModel?.token?.access
+               UserDefaults.standard.setValue(tokkken, forKey: "token")
+               
+               let refresh_tokkken = self.clientLogModel?.token?.refresh ?? ""
+               UserDefaults.standard.setValue(refresh_tokkken, forKey: "refresh_token")
+               
+               let vc = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabBarViewController") as! ClientTabBarViewController
+               self.navigationController?.pushViewController(vc, animated: true)
+               
+           }
+       }
+       
+       
+       
+       
+       
+   }

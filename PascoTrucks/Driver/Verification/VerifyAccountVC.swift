@@ -208,6 +208,15 @@ extension VerifyAccountVC{
             
             let userId = self.clientRegister?.data?.user_id
             UserDefaults.standard.setValue(userId, forKey: "user_ID")
+                       
+                       let profileStatus = self.clientRegister?.profile ?? 0
+                       UserDefaults.standard.setValue(profileStatus, forKey: "profile")
+                       
+                       let tokkken = self.clientRegister?.token?.access
+                       UserDefaults.standard.setValue(tokkken, forKey: "token")
+            
+            
+            
             
             let vc = self.storyboard?.instantiateViewController(identifier: "ClientTabBarViewController") as! ClientTabBarViewController
             self.navigationController?.pushViewController(vc, animated: true)
@@ -225,8 +234,18 @@ extension VerifyAccountVC{
      print("Success")
      self.clientLogModel = responseObject
      
-     let userId = self.clientLogModel?.user_id
-     UserDefaults.standard.setValue(userId, forKey: "user_ID")
+         let userId = self.clientLogModel?.user_id
+         UserDefaults.standard.setValue(userId, forKey: "user_ID")
+         
+         
+         let profileStatus = self.clientLogModel?.profile ?? 0
+         UserDefaults.standard.setValue(profileStatus, forKey: "profile")
+                    
+         let tokkken = self.clientLogModel?.token?.access
+         UserDefaults.standard.setValue(tokkken, forKey: "token")
+                    
+         let refresh_tokkken = self.clientLogModel?.token?.refresh ?? ""
+         UserDefaults.standard.setValue(refresh_tokkken, forKey: "refresh_token")
      
      let vc = self.storyboard?.instantiateViewController(withIdentifier: "ClientTabBarViewController") as! ClientTabBarViewController
      self.navigationController?.pushViewController(vc, animated: true)

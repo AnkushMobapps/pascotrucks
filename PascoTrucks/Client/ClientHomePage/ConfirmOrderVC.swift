@@ -97,7 +97,7 @@ class ConfirmOrderVC: UIViewController {
         }
     @IBAction func cancelBtnTapped(_ sender: UIButton) {
         self.dismiss(animated: true)
-    }
+    }	
     
     @IBAction func proceedBtnTapped(_ sender: UIButton) {
     }

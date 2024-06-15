@@ -109,7 +109,7 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
     var droplongitude: Double = 0.0
     
     var dateTime:String?
-    var paymentMethod:String?
+    var paymentMethod:String? = ""
     
     
    override func viewDidLoad() {
@@ -428,32 +428,85 @@ class PaymentMethodVC: UIViewController,getAddressWithLatLong, UITextFieldDelega
     }
     
     @IBAction func confirmOrderBtnClk(_ sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "ConfirmOrderVC") as! ConfirmOrderVC
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .crossDissolve
-       // vc.listType = "Language"
-       // vc.selectrowdelegate = self
-        vc.serviceVehicleId = self.serviceVehicleId ?? 0
-        vc.pickUpLocation = self.pickTF.text ?? ""
-        vc.dropLocation = self.endTF.text ?? ""
-        vc.pickUpCity = self.cityy
-        vc.dropCity = self.cityy1 ?? ""
-        vc.latitude = self.latitude
-        vc.longnitude = self.longitude
-        vc.droplatitude = self.droplatitude
-        vc.droplongnitude = self.droplongitude
-        vc.paymentMethod = self.paymentMethod
-        self.dateTime =  "\(changeDate) \(changeTime)"
-        vc.additionalId = cargoValue
-        vc.startDate = changeDate
-        vc.timee = changeTime
         
-        vc.dateTime = dateTime
-        vc.message = self.messageTextView.text ?? ""
-        vc.numberQty = self.qtyTF.text ?? ""
+        if pickTF.text == ""{
+            let alert = UIAlertController(title: "Alert", message: "Please Enter Pickup Locaton", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else if endTF.text == ""{
+            let alert = UIAlertController(title: "Alert", message: "Please Enter Drop Locaton", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else if qtyTF.text == ""{
+            let alert = UIAlertController(title: "Alert", message: "Please Enter Quantity", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        else if dateTF.text == ""{
+            let alert = UIAlertController(title: "Alert", message: "Please Enter Date", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else if timeTF.text == ""{
+            let alert = UIAlertController(title: "Alert", message: "Please Enter Time", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        else if additionalServiceTF.text == ""{
+            let alert = UIAlertController(title: "Alert", message: "Please Add Additional Service", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
         
         
-        self.present(vc, animated: true, completion: nil)
+        else if paymentMethod == ""{
+            let alert = UIAlertController(title: "Alert", message: "Please Select Payment Method", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else{
+           
+            let vc = self.storyboard?.instantiateViewController(identifier: "ConfirmOrderVC") as! ConfirmOrderVC
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .crossDissolve
+           // vc.listType = "Language"
+           // vc.selectrowdelegate = self
+            vc.serviceVehicleId = self.serviceVehicleId ?? 0
+            vc.pickUpLocation = self.pickTF.text ?? ""
+            vc.dropLocation = self.endTF.text ?? ""
+            vc.pickUpCity = self.cityy
+            vc.dropCity = self.cityy1 ?? ""
+            vc.latitude = self.latitude
+            vc.longnitude = self.longitude
+            vc.droplatitude = self.droplatitude
+            vc.droplongnitude = self.droplongitude
+            print(self.droplatitude)
+            print(self.droplongitude)
+            vc.paymentMethod = self.paymentMethod
+            self.dateTime =  "\(changeDate) \(changeTime)"
+            vc.additionalId = cargoValue
+            vc.startDate = changeDate
+            vc.timee = changeTime
+            
+            vc.dateTime = dateTime
+            vc.message = self.messageTextView.text ?? ""
+            vc.numberQty = self.qtyTF.text ?? ""
+            
+            
+            self.present(vc, animated: true, completion: nil)
+            
+            
+        }
+        
+        
+        
+        
+        
+      
         
     }
     @IBAction func timeBtnTapped(_ sender: UIButton) {

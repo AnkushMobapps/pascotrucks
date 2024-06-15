@@ -215,7 +215,8 @@ extension VerifyAccountVC{
                        let tokkken = self.clientRegister?.token?.access
                        UserDefaults.standard.setValue(tokkken, forKey: "token")
             
-            
+            let refresh_tokkken = self.clientRegister?.token?.refresh ?? ""
+            UserDefaults.standard.setValue(refresh_tokkken, forKey: "refresh_token")
             
             
             let vc = self.storyboard?.instantiateViewController(identifier: "ClientTabBarViewController") as! ClientTabBarViewController
@@ -227,7 +228,7 @@ extension VerifyAccountVC{
   
      // MARK: - Client Login Api
      func clientLoginApiMetnod(){
-     let param = [ "phone_number":phoneNumber ?? "", "user_type" : userType ?? 0] as [String : Any]
+     let param = [ "phone_number":phoneNumber ?? "", "user_type" : userType ?? 0,"phone_token":"gdssdfdhdfgfg"] as [String : Any]
      print(param)
      LoginViewModel.ClientLoginApi(viewcontroller: self, parameters: param as NSDictionary){
      (responseObject) in

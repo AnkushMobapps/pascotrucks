@@ -21,6 +21,8 @@ class ClientHomeVC: UIViewController {
     var topImgArray = [#imageLiteral(resourceName: "pnggg"),#imageLiteral(resourceName: "maskgroup"),#imageLiteral(resourceName: "maskgroup"),]
     var gridImg = [#imageLiteral(resourceName: "heavyTransport"),#imageLiteral(resourceName: "heavyTransport"),#imageLiteral(resourceName: "heavyTransport"),#imageLiteral(resourceName: "heavyTransport"),#imageLiteral(resourceName: "heavyTransport"),#imageLiteral(resourceName: "heavyTransport"),#imageLiteral(resourceName: "heavyTransport"),#imageLiteral(resourceName: "heavyTransport"),#imageLiteral(resourceName: "heavyTransport"),#imageLiteral(resourceName: "heavyTransport"),#imageLiteral(resourceName: "heavyTransport")]
     var clientServiceModel:ClientServiceModel?
+    var userType:String?
+    var homePageing:HomePageingModel?
     
     var timer:Timer?
     var currentcellIndex = 0
@@ -60,6 +62,7 @@ class ClientHomeVC: UIViewController {
         emergencyView.layer.shadowRadius = 2
         emergencyView.layer.shadowOpacity = 0.3
         emergencyView.layer.masksToBounds = false
+        self.userType = "user"
         
         getClentserviceApi()
         
@@ -69,7 +72,7 @@ class ClientHomeVC: UIViewController {
         myPageing.currentPage = 0
         myPageing.numberOfPages = topImgArray.count
         
-        
+        homePageingApi()
     }
     
     
@@ -100,7 +103,7 @@ class ClientHomeVC: UIViewController {
 extension ClientHomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if  collectionView == myColView {
-            return topImgArray.count
+            return homePageing?.data?.count ?? 0
         }
         else{
             return clientServiceModel?.data?.count ?? 0
@@ -112,7 +115,12 @@ extension ClientHomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICo
             let cell = myColView.dequeueReusableCell(withReuseIdentifier: "topIngCell", for: indexPath) as! TopImgCell
            
             cell.backgroundColor = .none
-            cell.topImg.image = topImgArray[indexPath.row]
+//            cell.topImg.image = topImgArray[indexPath.row]
+            
+            let img = self.homePageing?.data?[indexPath.row].slideimage ?? ""
+            if let url = URL(string: image_Url + img){
+                cell.topImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
+            }
             return cell
         }
         else {
@@ -135,27 +143,43 @@ extension ClientHomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICo
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        
+//        if collectionView == myColView {
+//            let widht = myColView.bounds.width
+//            return CGSize(width: widht, height: 174)
+//        }
+//        
+//        else {
+//            let padding: CGFloat = 20
+//            let collectionViewSize = gridCollectionView.frame.size.width - padding
+//            return CGSize(width: collectionViewSize / 2, height: collectionViewSize / 2)
+//        }
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        if collectionView == gridCollectionView{
+//            return 20
+//        }
+//        return 10
+//    }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        if collectionView == myColView {
-            let widht = myColView.bounds.width
-            return CGSize(width: widht, height: 174)
-        }
-        
-        else {
-            let padding: CGFloat = 20
-            let collectionViewSize = gridCollectionView.frame.size.width - padding
-            return CGSize(width: collectionViewSize / 2, height: collectionViewSize / 2)
+    
+    
+    
+    // MARK: Home Pageing Api
+    func homePageingApi(){
+        let param = ["user_type":userType]
+        ClientHomeViewModel.homePageingApi(viewcontroller: self, parameters: param as NSDictionary){
+            response in
+            self.homePageing = response
+            print("success")
+            self.myColView.reloadData()
+            
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        if collectionView == gridCollectionView{
-            return 20
-        }
-        return 10
-    }
 }
 
 

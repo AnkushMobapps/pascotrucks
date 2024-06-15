@@ -96,7 +96,8 @@ class ClientProfileVC: UIViewController, UIImagePickerControllerDelegate & UINav
                 
                 self.getProfileApi()
                 CommonMethods.showAlertMessageWithHandler(title: Constant.BLANK, message: self.updateProfilrModel?.msg ?? "", view: self){
-                    self.navigationController?.popViewController(animated: true)
+                    let vc = self.storyboard?.instantiateViewController(identifier: "ClientTabBarViewController") as! ClientTabBarViewController
+                    self.navigationController?.pushViewController(vc, animated: true)
 //                    // Navigation - AddHostVC
 //                    let controllers = self.navigationController?.viewControllers
 //                    for vc in controllers! {
@@ -129,8 +130,8 @@ class ClientProfileVC: UIViewController, UIImagePickerControllerDelegate & UINav
           
             let img = self.getProfile?.data?.image ?? ""
             if img != ""{
-                if let url = URL(string: image_Url + img) {
-                    self.userImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
+                    if let url = URL(string: image_Url + img) {
+                        self.userImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
             }
                 else{
                     self.userImg.image = #imageLiteral(resourceName: "user1")

@@ -109,27 +109,26 @@ class ConfirmOrderVC: UIViewController {
     // MARK: Ride Booking Api
     
     func rideBookingApi(){
-        let param = ["cargo": serviceVehicleId ?? 0 , "cargo_quantity": numberQty ?? "", "pickup_location": pickUpLocation ?? "","pickup_city": pickUpCity ?? "","drop_location": dropLocation ?? "","drop_city": dropCity ?? "", "pickup_latitude":latitude,"pickup_longitude":longnitude,"drop_latitude":droplatitude,"drop_longitude":droplongnitude,"pickup_datetime":dateTime ?? "","payment_method":paymentMethod ?? "", "message":message, "additional_service":additionalId] as [String : Any]
+        let param = ["cargo": serviceVehicleId ?? 0 , "cargo_quantity": numberQty ?? "", "pickup_location": pickUpLocation ?? "","pickup_city": pickUpCity ?? "","drop_location": dropLocation ?? "","drop_city": dropCity ?? "", "pickup_latitude":latitude,"pickup_longitude":longnitude,"drop_latitude":droplatitude,"drop_longitude":droplongnitude,"pickup_datetime":dateTime ?? "","payment_method":paymentMethod ?? "", "message":message ?? "", "additional_service":additionalId ?? 0] as [String : Any]
         print(param)
         PaymentMethodViewModel.bookRideApi(viewcontroller: self, parameters: param as NSDictionary) {
             response in
             self.bookRide = response
             print("Success")
             CommonMethods.showAlertMessageWithHandler(title: Constant.BLANK, message: self.bookRide?.msg ?? "", view: self){
-                self.dismiss(animated: true)
-                self.navigationController?.popViewController(animated: true)
-                //                self.dismiss(animated: true) {
-                //                            // After dismissing the popup, push the tab bar controller
-                //                            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                //                               let sceneDelegate = windowScene.delegate as? SceneDelegate {
-                //                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                //                                if let tabBarController = storyboard.instantiateViewController(withIdentifier: "ClientTabBarViewController") as? ClientTabBarViewController {
-                //                                    sceneDelegate.window?.rootViewController = tabBarController
-                //                                    sceneDelegate.window?.makeKeyAndVisible()
-                //                                }
-                //                            }
-                //                        }
-                //                        delegate?.didDismissPopup()
+               
+                                self.dismiss(animated: true) {
+                                            // After dismissing the popup, push the tab bar controller
+                                            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                                               let sceneDelegate = windowScene.delegate as? SceneDelegate {
+                                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                                if let tabBarController = storyboard.instantiateViewController(withIdentifier: "ClientTabBarViewController") as? ClientTabBarViewController {
+                                                    sceneDelegate.window?.rootViewController = tabBarController
+                                                    sceneDelegate.window?.makeKeyAndVisible()
+                                                }
+                                            }
+                                        }
+//                                        delegate?.didDismissPopup()
             }
         }
     }
@@ -139,6 +138,7 @@ class ConfirmOrderVC: UIViewController {
     func chekChargesApi(){
         
         let param = ["cargo": serviceVehicleId ?? 0,"pickup_location": pickUpLocation ?? "","drop_location": dropLocation ?? "","pickup_latitude":latitude,"pickup_longitude":longnitude,"drop_latitude":droplatitude,"drop_longitude":droplongnitude] as [String : Any]
+        print(param)
         
         PaymentMethodViewModel.chekChargesApi(viewcontroller: self, parameters: param as NSDictionary) {
             response in
@@ -148,20 +148,30 @@ class ConfirmOrderVC: UIViewController {
             let img = self.chekCharge?.cargoimage ?? ""
             if let url = URL(string: image_Url + img) {
                 self.vehicleImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
+            }
                 
                 self.vehicleNameLbl.text = self.chekCharge?.cargoname ?? ""
-              
-              
+            
+             
+                
+                
                 let distance = Double(self.chekCharge?.distance ?? 0.0)
-                self.vehicleNameLbl.text = self.chekCharge?.cargoname ?? ""
-                self.totalAmountLbl.text = "$\(self.chekCharge?.price ?? 0).00"
-                
-                
                 let formattedDistance = self.formatToSingleDecimalPlace(distance)
                          print(formattedDistance)  // Output: 3.1
                          
-                         self.kmLbl.text = "\(formattedDistance)km"
+                        self.kmLbl.text = "\(formattedDistance)km"
                          print(self.kmLbl.text ?? "")
+                
+                
+                let Price = (self.chekCharge?.price ?? 0.0)
+                 
+                  let foormattedDistance = self.formatToSingleDecimalPlace(Price)
+                           print(foormattedDistance)  // Output: 3.1
+                           
+                          self.totalAmountLbl.text = "$\(foormattedDistance).00"
+                           print(self.totalAmountLbl.text ?? "")
+                
+                
                 
                 let minut = self.chekCharge?.duration?.minutes ?? 0
                 let hours = self.chekCharge?.duration?.hours ?? 0
@@ -171,7 +181,7 @@ class ConfirmOrderVC: UIViewController {
                 self.timeeLbl.text  = total
                 
                 
-            }
+            
         }
         
         
@@ -187,6 +197,14 @@ class ConfirmOrderVC: UIViewController {
            return formatter.string(from: NSNumber(value: value)) ?? "\(value)"
        }
     
+    //round to single digit after decimal
+       func foormatToSingleDecimalPlace(_ value: Double) -> String {
+           let formatter = NumberFormatter()
+           formatter.maximumFractionDigits = 1
+           formatter.minimumFractionDigits = 1
+           formatter.roundingMode = .halfUp
+           return formatter.string(from: NSNumber(value: value)) ?? "\(value)"
+       }
     
     
 }

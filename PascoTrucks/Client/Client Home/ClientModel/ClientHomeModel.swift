@@ -46,3 +46,44 @@ struct ClientServiceModel_data:Codable{
 }
     
 
+
+
+// MARK: Home Pageing Model
+
+struct HomePageingModel:Codable{
+    var status:String?
+    var msg:String?
+    var data:[HomePageingDataModel]?
+    enum CodingKeys:String,CodingKey{
+        case status = "status"
+        case msg = "msg"
+        case data = "data"
+    }
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.status = try container.decodeIfPresent(String.self, forKey: .status)
+        self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
+        self.data = try container.decodeIfPresent([HomePageingDataModel].self, forKey: .data)
+    }
+}
+
+struct HomePageingDataModel:Codable{
+    var id:Int?
+    var slideimage:String?
+  
+   
+   
+    enum CodingKeys:String,CodingKey{
+        case id = "id"
+        case slideimage = "slideimage"
+        
+    }
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decodeIfPresent(Int.self, forKey: .id)
+        self.slideimage = try container.decodeIfPresent(String.self, forKey: .slideimage)
+        
+       
+    }
+}
+    

@@ -59,6 +59,7 @@ let addtionalService_Url = base_Url+"additional-service/"
 let paymentMethod_url =  base_Url+"ride-booking/"
 let cargoQty_Url = base_Url+"checkavailability/"
 let chekCharges_Url = base_Url+"checkcharges/"
+let homePegeingApi = base_Url+"slideshow-detail/"
 
 
 

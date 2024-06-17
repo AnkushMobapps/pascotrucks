@@ -383,6 +383,8 @@
 		269AE8952BFF1E1E005E1601 /* Client Home */ = {
 			isa = PBXGroup;
 			children = (
+				70F2C9012BF35AE90074BBAF /* ClientModel */,
+				70F2C9022BF35AF70074BBAF /* ClientViewModel */,
 				703413412BF1D6C50079E66B /* ClientHomeVC.swift */,
 				70317BF82BF4C73000CC41F7 /* GridCollectionCell.swift */,
 			);
@@ -555,8 +557,6 @@
 				7034133C2BF1D6470079E66B /* ClientMore */,
 				7034133B2BF1D63A0079E66B /* ClientOrderPage */,
 				7034133A2BF1D6270079E66B /* ClientHomePage */,
-				70F2C9022BF35AF70074BBAF /* ClientViewModel */,
-				70F2C9012BF35AE90074BBAF /* ClientModel */,
 				703413392BF1D60E0079E66B /* ClientTabBar */,
 				70500F3E2BDF76ED00BC4BB5 /* Demo */,
 			);

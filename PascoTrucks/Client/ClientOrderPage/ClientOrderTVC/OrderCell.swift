@@ -10,15 +10,15 @@ import UIKit
 class OrderCell: UITableViewCell {
 
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var orderId: UILabel!
+    @IBOutlet weak var priceLbl: UILabel!
+    @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var timeLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        mainView.layer.borderWidth = 0
-//        mainView.layer.shadowColor = UIColor.black.cgColor
-//        mainView.layer.shadowOffset = CGSize(width: 0, height: 0)
-//        mainView.layer.shadowRadius = 2
-//        mainView.layer.shadowOpacity = 0.3
-//        mainView.layer.masksToBounds = false
+//
     }
 
    

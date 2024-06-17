@@ -20,6 +20,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         requestCurrentLocation()
+        locationManager.startUpdatingLocation()
     }
     
     private func requestCurrentLocation() {

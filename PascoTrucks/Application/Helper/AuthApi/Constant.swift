@@ -60,6 +60,9 @@ let paymentMethod_url =  base_Url+"ride-booking/"
 let cargoQty_Url = base_Url+"checkavailability/"
 let chekCharges_Url = base_Url+"checkcharges/"
 let homePegeingApi = base_Url+"slideshow-detail/"
+let orderRequestApi = base_Url+"request-send/"
+let allBids_Url = base_Url+"afterbidlist/"
+let acceptOrder_Url = base_Url+"acceptedbooking/"
 
 
 

@@ -30,6 +30,7 @@ class VerifyAccountVC: UIViewController {
     var currentLocation:String?
     var currentLatitude:String?
     var currentLangitude:String?
+    var driverloginModel:LoginModel?
     var clientLogModel:ClientLoginModel?
     
     //var selectedSegment:String?
@@ -37,8 +38,7 @@ class VerifyAccountVC: UIViewController {
     var driverRegisterModel:DriverRegisterModel?
     
    var clientRegister:ClientRegisterModel?
-   // var driverloginModel:LoginModel?
-    var driverUpdateDeviceModel:DriverUpdateDeviceLoginModel?
+   var driverUpdateDeviceModel:DriverUpdateDeviceLoginModel?
     
    override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +54,20 @@ class VerifyAccountVC: UIViewController {
         self.userId = UserDefaults.standard.string(forKey: "user_id")
         
     }
+    
+    
+    @IBAction func backBtnClk(_ sender: UIButton) {
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func resendOTPBtnClk(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+    
+    
     @IBAction func verifyBtn(_ sender: UIButton) {
         currentLatitude = UserDefaults.standard.string(forKey: "lat")
         print(currentLatitude ?? "")
@@ -180,21 +194,69 @@ extension VerifyAccountVC{
         }
     }
     
-    //driver update device api call
+    
+    // MARK: driver update device api call
+   
     func driverUpdateDeviceApi(){
         let param = ["phone_number":phoneNumber ?? "","phone_verify":deviceID  ?? ""]
         print(param)
         LoginViewModel.driverUpdateDeviceApi(viewController: self, parameter: param as NSDictionary){response in
             print(response!)
             self.driverUpdateDeviceModel = response
-            CommonMethods.showAlertMessageWithOkAndCancel(title: Constant.TITLE, message: self.driverUpdateDeviceModel?.msg ?? Constant.BLANK, view: self) {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBar") as! MyTabBar
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
+            self.driverloginApiMetnod()
+//            CommonMethods.showAlertMessageWithOkAndCancel(title: Constant.TITLE, message: self.driverUpdateDeviceModel?.msg ?? Constant.BLANK, view: self) {
+//                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBar") as! MyTabBar
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            }
         }
     }
     
-    
+    // MARK: Driver Login api Api
+    func driverloginApiMetnod(){
+        let param = [ "phone_number":phoneNumber ?? "", "user_type" : userType ?? "","phone_token":"gdssdfdhdfgfg"] as [String : Any]
+        print(param)
+       LoginViewModel.LoginApi(viewcontroller: self, parameters: param as NSDictionary){
+            (responseObject) in
+            print("Success")
+            self.driverloginModel = responseObject
+            let approvalKey = self.driverloginModel?.approved
+            let driverId = self.driverloginModel?.user_id
+            UserDefaults.standard.set(driverId, forKey: "user_id")
+           
+           let userType = self.driverloginModel?.user_type
+           UserDefaults.standard.set(userType, forKey: "user_type")
+           
+            self.driverID = UserDefaults.standard.integer(forKey: "user_id")
+            print(self.driverID ?? "")
+            let tokkken = self.driverloginModel?.token?.access
+            UserDefaults.standard.setValue(tokkken, forKey: "token")
+           
+           let refresh_tokkken = self.driverloginModel?.token?.refresh
+           UserDefaults.standard.setValue(refresh_tokkken, forKey: "refresh_tokkken")
+           
+            UserDefaults.standard.setValue(approvalKey, forKey: "approve")
+            
+            // approved from admin or not
+            if approvalKey == 0 {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBar") as! MyTabBar
+                 self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else if approvalKey == 1 {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBar") as! MyTabBar
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+            else{
+                CommonMethods.showAlertMessageWithHandler(title: Constant.TITLE, message: responseObject?.msg ?? Constant.BLANK, view: self) {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "VehicleDetailsVC") as! VehicleDetailsVC
+                    //add vehicle details for login user_id
+                    vc.userID = self.driverloginModel?.user_id ?? 0
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+            
+        }
+    }
     
     // MARK: Client Register Api
     

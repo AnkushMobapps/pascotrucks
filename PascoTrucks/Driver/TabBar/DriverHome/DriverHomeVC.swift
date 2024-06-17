@@ -56,8 +56,6 @@ class DriverHomeVC : UIViewController {
         else{
             topBarView.switchCondition.setOn(false, animated: false)
         }
-       
-        
     }
     
     // MARK: - all button on horigontal stack view
@@ -113,6 +111,8 @@ extension DriverHomeVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.getOrdReqModel?.data?.count ?? 0
     }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tabCell = myTableView.dequeueReusableCell(withIdentifier: "getOrderFromClientCell") as! GetOrderFromClientCell

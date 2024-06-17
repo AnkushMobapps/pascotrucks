@@ -100,6 +100,8 @@
 		7034134C2BF1DB020079E66B /* ClientTitleBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7034134B2BF1DB020079E66B /* ClientTitleBar.xib */; };
 		7034134E2BF1DB4A0079E66B /* ClientTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7034134D2BF1DB4A0079E66B /* ClientTitleBar.swift */; };
 		703413522BF1EED50079E66B /* TopImgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703413512BF1EED50079E66B /* TopImgCell.swift */; };
+		70363D8D2C1D61AB00A7494F /* BidingStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70363D8B2C1D61AB00A7494F /* BidingStatusCell.swift */; };
+		70363D8E2C1D61AB00A7494F /* BidingStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70363D8C2C1D61AB00A7494F /* BidingStatusCell.xib */; };
 		703FCBB92C0985AE00C2861D /* AddNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FCBB82C0985AE00C2861D /* AddNotesVC.swift */; };
 		7044639D2C10657400B76954 /* GetOrderFromClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044639B2C10657400B76954 /* GetOrderFromClientCell.swift */; };
 		7044639E2C10657400B76954 /* GetOrderFromClientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7044639C2C10657400B76954 /* GetOrderFromClientCell.xib */; };
@@ -113,8 +115,6 @@
 		70500F5A2BDFC40800BC4BB5 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70500F592BDFC40800BC4BB5 /* SignUpViewModel.swift */; };
 		7058992C2BEE05D300D05D12 /* LoginVerifyNoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7058992B2BEE05D300D05D12 /* LoginVerifyNoVC.swift */; };
 		705AE8C92BE4B3B600EAA58D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705AE8C82BE4B3B600EAA58D /* ProfileViewModel.swift */; };
-		707AF3B32C0DDCF000508880 /* BidingStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707AF3B12C0DDCF000508880 /* BidingStatusCell.swift */; };
-		707AF3B42C0DDCF000508880 /* BidingStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 707AF3B22C0DDCF000508880 /* BidingStatusCell.xib */; };
 		707AF3B72C0DDD4000508880 /* CurrentOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707AF3B52C0DDD4000508880 /* CurrentOrderCell.swift */; };
 		707AF3B82C0DDD4000508880 /* CurrentOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 707AF3B62C0DDD4000508880 /* CurrentOrderCell.xib */; };
 		709341872C181B6600725EA3 /* DMSans-Bold-BF64376d32191f2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 709341802C181B6600725EA3 /* DMSans-Bold-BF64376d32191f2.ttf */; };
@@ -280,6 +280,8 @@
 		7034134B2BF1DB020079E66B /* ClientTitleBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClientTitleBar.xib; sourceTree = "<group>"; };
 		7034134D2BF1DB4A0079E66B /* ClientTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTitleBar.swift; sourceTree = "<group>"; };
 		703413512BF1EED50079E66B /* TopImgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopImgCell.swift; sourceTree = "<group>"; };
+		70363D8B2C1D61AB00A7494F /* BidingStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidingStatusCell.swift; sourceTree = "<group>"; };
+		70363D8C2C1D61AB00A7494F /* BidingStatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BidingStatusCell.xib; sourceTree = "<group>"; };
 		703FCBB82C0985AE00C2861D /* AddNotesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotesVC.swift; sourceTree = "<group>"; };
 		7044639B2C10657400B76954 /* GetOrderFromClientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrderFromClientCell.swift; sourceTree = "<group>"; };
 		7044639C2C10657400B76954 /* GetOrderFromClientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetOrderFromClientCell.xib; sourceTree = "<group>"; };
@@ -293,8 +295,6 @@
 		70500F592BDFC40800BC4BB5 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		7058992B2BEE05D300D05D12 /* LoginVerifyNoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerifyNoVC.swift; sourceTree = "<group>"; };
 		705AE8C82BE4B3B600EAA58D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		707AF3B12C0DDCF000508880 /* BidingStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidingStatusCell.swift; sourceTree = "<group>"; };
-		707AF3B22C0DDCF000508880 /* BidingStatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BidingStatusCell.xib; sourceTree = "<group>"; };
 		707AF3B52C0DDD4000508880 /* CurrentOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentOrderCell.swift; sourceTree = "<group>"; };
 		707AF3B62C0DDD4000508880 /* CurrentOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentOrderCell.xib; sourceTree = "<group>"; };
 		709341802C181B6600725EA3 /* DMSans-Bold-BF64376d32191f2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold-BF64376d32191f2.ttf"; sourceTree = "<group>"; };
@@ -720,13 +720,13 @@
 			isa = PBXGroup;
 			children = (
 				70FD48692BFB097B00CF0B31 /* MyOrderVC.swift */,
-				707AF3B12C0DDCF000508880 /* BidingStatusCell.swift */,
-				707AF3B22C0DDCF000508880 /* BidingStatusCell.xib */,
 				707AF3B52C0DDD4000508880 /* CurrentOrderCell.swift */,
 				707AF3B62C0DDD4000508880 /* CurrentOrderCell.xib */,
 				70DF98C72C0ED56D00AF563F /* DriverBidingDetailsVC.swift */,
 				700E59032C1723E700382224 /* DriverOrderModel.swift */,
 				700E59052C1723F800382224 /* DriverOrderViewModel.swift */,
+				70363D8B2C1D61AB00A7494F /* BidingStatusCell.swift */,
+				70363D8C2C1D61AB00A7494F /* BidingStatusCell.xib */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -1193,12 +1193,12 @@
 				702EC2DD2C01EE5500502422 /* MyTransactionCell.xib in Resources */,
 				709341872C181B6600725EA3 /* DMSans-Bold-BF64376d32191f2.ttf in Resources */,
 				70DF92E92C197C1300D1232B /* DriverCompletedOrderCell.xib in Resources */,
+				70363D8E2C1D61AB00A7494F /* BidingStatusCell.xib in Resources */,
 				709341892C181B6600725EA3 /* DMSans-Italic-BF64376d3243377.ttf in Resources */,
 				7044639E2C10657400B76954 /* GetOrderFromClientCell.xib in Resources */,
 				7034134C2BF1DB020079E66B /* ClientTitleBar.xib in Resources */,
 				4117F2322BCE38AB0064304A /* Assets.xcassets in Resources */,
 				702EC2C22C01C68B00502422 /* GoogleService-Info.plist in Resources */,
-				707AF3B42C0DDCF000508880 /* BidingStatusCell.xib in Resources */,
 				7093418C2C181B6600725EA3 /* DMSans-Regular-BF64376d323f095.ttf in Resources */,
 				4117F22D2BCE38A90064304A /* Main.storyboard in Resources */,
 			);
@@ -1372,6 +1372,7 @@
 				702EC2D02C01DD8600502422 /* MyWalletVC.swift in Sources */,
 				412302102BD62560000ED3C1 /* TitleBar.swift in Sources */,
 				41677FEB2BD915F90035EDAF /* NotificationCell.swift in Sources */,
+				70363D8D2C1D61AB00A7494F /* BidingStatusCell.swift in Sources */,
 				4150D5982BCF92B600CCDE6C /* VehicleDetailsVC.swift in Sources */,
 				7008F7132BF5E6D300B0B809 /* ClientOrderDetailsVC.swift in Sources */,
 				70203ECF2BE209DF00AF81E9 /* CountryCodeVC.swift in Sources */,
@@ -1443,12 +1444,9 @@
 				70317BF92BF4C73100CC41F7 /* GridCollectionCell.swift in Sources */,
 				70FF588C2BF624CB0046BA18 /* ClientHomeModel.swift in Sources */,
 				41D650712BD7D9AF006F911A /* CurrentLocationOfOrderVC.swift in Sources */,
-
 				26CF70C02C1985D000F7D0C9 /* LogoutModel.swift in Sources */,
-
 				700E59062C1723F800382224 /* DriverOrderViewModel.swift in Sources */,
 				700E58FC2C16FC6800382224 /* OnlyDatePickerVC.swift in Sources */,
-
 				70DBE4A02C1173FA00A1C09E /* DriverEmergencyVC.swift in Sources */,
 				700FC31F2BF725F40032FF2A /* DriverHomeModel.swift in Sources */,
 				70A7C3852C08AAC800730249 /* Terms&Conditions.swift in Sources */,
@@ -1467,7 +1465,6 @@
 				70A7C37A2C08A6D900730249 /* CompletedTVC.swift in Sources */,
 				4117F2282BCE38A90064304A /* SceneDelegate.swift in Sources */,
 				41300C132BCF84BF00A9C2AA /* VerifyAccountVC.swift in Sources */,
-				707AF3B32C0DDCF000508880 /* BidingStatusCell.swift in Sources */,
 				702914C72BE6423D00C33E69 /* ProfileDataModel.swift in Sources */,
 				700FC3212BF7260C0032FF2A /* DriverHomeViewModel.swift in Sources */,
 				41677FFC2BD920850035EDAF /* HistoryVC.swift in Sources */,

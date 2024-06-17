@@ -12,10 +12,14 @@ import SDWebImage
 class MyOrderVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    
+    
     @IBOutlet weak var topBar: TitleBar!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     //var sagementcontrolStr:String?
     var getBidingStatus:DriverBidingStatusModel?
+    var driverOngoingLM:DriverOngoingListModel?
     var vehicleapproved:vehicleApprove?
     var approvalKey:String?
     var driverCountNotiModel:CountNotificationModel?
@@ -29,18 +33,19 @@ class MyOrderVC: UIViewController {
         segmentControl.selectedSegmentIndex = 0
         
        let nib1 = UINib(nibName: "BidingStatusCell", bundle: nil)
-        tableView.register(nib1, forCellReuseIdentifier: "bidingOrderCell")
+        tableView.register(nib1, forCellReuseIdentifier: "bidingStatusCell")
         
         let nib2 = UINib(nibName: "CurrentOrderCell", bundle: nil)
         tableView.register(nib2, forCellReuseIdentifier: "currentOrdCell")
         
-        getDriverBidingstatusApi()
+        
         
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         getProfileDataApi()
+        checkapprovalStatusApiCall()
         let Duty = UserDefaults.standard.integer(forKey: "Duty")
         if Duty == 1{
             topBar.switchCondition.setOn(true, animated: false)
@@ -48,18 +53,20 @@ class MyOrderVC: UIViewController {
         else{
             topBar.switchCondition.setOn(false, animated: false)
         }
-        checkapprovalStatusApiCall()
+       getDriverBidingstatusApi()
     }
     
     
     @IBAction func segmentBtnClk(_ sender: UISegmentedControl) {
         if segmentControl.selectedSegmentIndex == 0 {
             print("biding table is ready to show")
-            tableView.reloadData()
+             getDriverBidingstatusApi()
+//             tableView.reloadData()
         }
         else{
             print("order table is ready to show")
-            tableView.reloadData()
+            driverOngoinBidingListMethod()
+//            tableView.reloadData()
         }
         
     }
@@ -132,31 +139,36 @@ extension MyOrderVC{
         }
     }
 }
+
+
 extension MyOrderVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if segmentControl.selectedSegmentIndex == 0{
-            return self.getBidingStatus?.data.count ?? 0
+         return self.getBidingStatus?.data.count ?? 0
+            
         }
         else{
-            return 20
+            return self.driverOngoingLM?.data?.count ?? 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if segmentControl.selectedSegmentIndex == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "bidingOrderCell", for: indexPath) as! BidingStatusCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "bidingStatusCell", for: indexPath) as! BidingStatusCell
             cell.selectionStyle = .none
             cell.backgroundColor = .none
+            cell.objId = self.getBidingStatus?.data[indexPath.row].id ?? 0
+            print(self.getBidingStatus?.data[indexPath.row].id ?? 0)
             cell.price.text = "\(self.getBidingStatus?.data[indexPath.row].bid_price ?? 0.0)"
             cell.lblName.text = self.getBidingStatus?.data[indexPath.row].user ?? ""
             cell.dateAndTime.text = self.getBidingStatus?.data[indexPath.row].pickup_datetime ?? ""
             
             cell.status.text = self.getBidingStatus?.data[indexPath.row].customer_status ?? ""
             if cell.status.text == "pending" {
-                cell.status.backgroundColor = .red
+                cell.statusView.backgroundColor = #colorLiteral(red: 0.7925434709, green: 0.2431896925, blue: 0.02422194555, alpha: 1)
             }
             else{
-                cell.status.backgroundColor = .green
+                cell.statusView.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
             }
             
             cell.orderId.text = self.getBidingStatus?.data[indexPath.row].booking_number ?? ""
@@ -167,8 +179,40 @@ extension MyOrderVC:UITableViewDelegate,UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "currentOrdCell", for: indexPath) as! CurrentOrderCell
             cell.selectionStyle = .none
             cell.backgroundColor = .none
+            cell.lblName.text = self.driverOngoingLM?.data?[indexPath.row].user ?? ""
+            cell.status.text = self.driverOngoingLM?.data?[indexPath.row].booking_status ?? ""
+            print(cell.status.text ?? "")
+            cell.statusView.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.737254902, blue: 0.2352941176, alpha: 1)
+            cell.orderId.text = self.driverOngoingLM?.data?[indexPath.row].booking_number ?? ""
+            cell.dateAndTime.text = self.driverOngoingLM?.data?[indexPath.row].created_at ?? ""
+            cell.price.text = "\(self.driverOngoingLM?.data?[indexPath.row].bid_price ?? 0.0)"
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if segmentControl.selectedSegmentIndex == 0 {
+            if self.getBidingStatus?.data[indexPath.row].customer_status == "pending" {
+                let vc = self.storyboard?.instantiateViewController(identifier: "DriverBidingDetailsVC") as! DriverBidingDetailsVC
+                vc.id = self.getBidingStatus?.data[indexPath.row].id ?? 0
+                print(self.getBidingStatus?.data[indexPath.row].id ?? 0)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else{
+                let vc = self.storyboard?.instantiateViewController(identifier: "CurrentLocationOfOrderVC") as! CurrentLocationOfOrderVC
+                vc.id = self.getBidingStatus?.data[indexPath.row].id ?? 0
+                print(self.getBidingStatus?.data[indexPath.row].id ?? 0)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        
+        else{
+            let vc = self.storyboard?.instantiateViewController(identifier: "DriverHomeVC") as! DriverHomeVC
+           self.navigationController?.pushViewController(vc, animated: true)
+        }
+       
+        
+        
     }
     
     
@@ -184,4 +228,16 @@ extension MyOrderVC{
             
         }
     }
+
+    func driverOngoinBidingListMethod(){
+        var param = [String:Any]()
+        print(param)
+        DriverOrderViewModel.driverOngoingBidListApi(viewController: self, parameters: param as NSDictionary){ response in
+            self.driverOngoingLM = response
+            print("ongoing api is successful")
+            self.tableView.reloadData()
+            
+        }
+    }
+    
 }

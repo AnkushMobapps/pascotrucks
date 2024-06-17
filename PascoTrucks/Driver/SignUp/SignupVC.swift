@@ -110,10 +110,4 @@ func chekNumberApi(){
 }
 }
 
-// MARK: - SelectCountryCode
 
-extension SignupVC:SelectCountryCode{
-    func selectCCnCode(countryId: String){
-        countryCodeTxt.text = countryId
-    }
-}

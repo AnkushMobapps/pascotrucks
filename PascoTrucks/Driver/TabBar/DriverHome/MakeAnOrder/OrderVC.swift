@@ -101,14 +101,18 @@ extension OrderVC{
             
             
              let distance = self.updateBookingBidsModel?.data?.total_distance ?? 0.0
-//            let distance = 50000.00
-             let convertedDistance = self.convertDistanceToKilometersAndMeters(distanceInMeters: distance)
-            print("Distance: \(convertedDistance.kilometers) km \(convertedDistance.meters) m") // Output: "Distance: 0 km 245.0 m"
+////            let distance = 50000.00
+//             let convertedDistance = self.convertDistanceToKilometersAndMeters(distanceInMeters: distance)
+//            print("Distance: \(convertedDistance.kilometers) km \(convertedDistance.meters) m") // Output: "Distance: 0 km 245.0 m"
             
+            // round to single digit example
+                   
+          let formattedDistance = self.formatToSingleDecimalPlace(distance)
+          print(formattedDistance)  // Output: 3.1
+          self.totalDistance.text = "\(formattedDistance)km"
+          print(self.totalDistance.text ?? "")
             
-            self.totalDistance.text = "\(convertedDistance.kilometers) km"
-            
-            self.startPoint.text = self.updateBookingBidsModel?.data?.pickup_location ?? ""
+         self.startPoint.text = self.updateBookingBidsModel?.data?.pickup_location ?? ""
             print(self.startPoint.text ?? "")
             
             self.endPoint.text = self.updateBookingBidsModel?.data?.drop_location ?? ""
@@ -151,16 +155,25 @@ extension OrderVC{
         let remainingSeconds = seconds % 60
         return (hours, minutes, remainingSeconds)
     }
-   // km conversion
+//   // km conversion
+//    
+//    func convertDistanceToKilometersAndMeters(distanceInMeters: Double) -> (kilometers: Int, meters: Double) {
+//        // Calculate the total kilometers
+//        let kilometers = Int(distanceInMeters / 1000)
+//        
+//        // Calculate the remaining meters
+//        let remainingMeters = distanceInMeters.truncatingRemainder(dividingBy: 1000)
+//        
+//        return (kilometers, remainingMeters)
+//    }
+//   
     
-    func convertDistanceToKilometersAndMeters(distanceInMeters: Double) -> (kilometers: Int, meters: Double) {
-        // Calculate the total kilometers
-        let kilometers = Int(distanceInMeters / 1000)
-        
-        // Calculate the remaining meters
-        let remainingMeters = distanceInMeters.truncatingRemainder(dividingBy: 1000)
-        
-        return (kilometers, remainingMeters)
-    }
-    
+    //round to single digit after decimal
+       func formatToSingleDecimalPlace(_ value: Double) -> String {
+           let formatter = NumberFormatter()
+           formatter.maximumFractionDigits = 1
+           formatter.minimumFractionDigits = 1
+           formatter.roundingMode = .halfUp
+           return formatter.string(from: NSNumber(value: value)) ?? "\(value)"
+       }
 }

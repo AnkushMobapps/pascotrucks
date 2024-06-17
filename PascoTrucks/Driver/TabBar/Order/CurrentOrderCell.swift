@@ -8,6 +8,8 @@
 import UIKit
 
 class CurrentOrderCell: UITableViewCell {
+    
+    @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var dateAndTime: UILabel!

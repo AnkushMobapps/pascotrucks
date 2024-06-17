@@ -100,6 +100,8 @@
 		7034134C2BF1DB020079E66B /* ClientTitleBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7034134B2BF1DB020079E66B /* ClientTitleBar.xib */; };
 		7034134E2BF1DB4A0079E66B /* ClientTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7034134D2BF1DB4A0079E66B /* ClientTitleBar.swift */; };
 		703413522BF1EED50079E66B /* TopImgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703413512BF1EED50079E66B /* TopImgCell.swift */; };
+		70363D8D2C1D61AB00A7494F /* BidingStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70363D8B2C1D61AB00A7494F /* BidingStatusCell.swift */; };
+		70363D8E2C1D61AB00A7494F /* BidingStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70363D8C2C1D61AB00A7494F /* BidingStatusCell.xib */; };
 		703FCBB92C0985AE00C2861D /* AddNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FCBB82C0985AE00C2861D /* AddNotesVC.swift */; };
 		7044639D2C10657400B76954 /* GetOrderFromClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044639B2C10657400B76954 /* GetOrderFromClientCell.swift */; };
 		7044639E2C10657400B76954 /* GetOrderFromClientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7044639C2C10657400B76954 /* GetOrderFromClientCell.xib */; };
@@ -278,6 +280,8 @@
 		7034134B2BF1DB020079E66B /* ClientTitleBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClientTitleBar.xib; sourceTree = "<group>"; };
 		7034134D2BF1DB4A0079E66B /* ClientTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTitleBar.swift; sourceTree = "<group>"; };
 		703413512BF1EED50079E66B /* TopImgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopImgCell.swift; sourceTree = "<group>"; };
+		70363D8B2C1D61AB00A7494F /* BidingStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidingStatusCell.swift; sourceTree = "<group>"; };
+		70363D8C2C1D61AB00A7494F /* BidingStatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BidingStatusCell.xib; sourceTree = "<group>"; };
 		703FCBB82C0985AE00C2861D /* AddNotesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotesVC.swift; sourceTree = "<group>"; };
 		7044639B2C10657400B76954 /* GetOrderFromClientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOrderFromClientCell.swift; sourceTree = "<group>"; };
 		7044639C2C10657400B76954 /* GetOrderFromClientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetOrderFromClientCell.xib; sourceTree = "<group>"; };
@@ -721,6 +725,8 @@
 				70DF98C72C0ED56D00AF563F /* DriverBidingDetailsVC.swift */,
 				700E59032C1723E700382224 /* DriverOrderModel.swift */,
 				700E59052C1723F800382224 /* DriverOrderViewModel.swift */,
+				70363D8B2C1D61AB00A7494F /* BidingStatusCell.swift */,
+				70363D8C2C1D61AB00A7494F /* BidingStatusCell.xib */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -1187,6 +1193,7 @@
 				702EC2DD2C01EE5500502422 /* MyTransactionCell.xib in Resources */,
 				709341872C181B6600725EA3 /* DMSans-Bold-BF64376d32191f2.ttf in Resources */,
 				70DF92E92C197C1300D1232B /* DriverCompletedOrderCell.xib in Resources */,
+				70363D8E2C1D61AB00A7494F /* BidingStatusCell.xib in Resources */,
 				709341892C181B6600725EA3 /* DMSans-Italic-BF64376d3243377.ttf in Resources */,
 				7044639E2C10657400B76954 /* GetOrderFromClientCell.xib in Resources */,
 				7034134C2BF1DB020079E66B /* ClientTitleBar.xib in Resources */,
@@ -1365,6 +1372,7 @@
 				702EC2D02C01DD8600502422 /* MyWalletVC.swift in Sources */,
 				412302102BD62560000ED3C1 /* TitleBar.swift in Sources */,
 				41677FEB2BD915F90035EDAF /* NotificationCell.swift in Sources */,
+				70363D8D2C1D61AB00A7494F /* BidingStatusCell.swift in Sources */,
 				4150D5982BCF92B600CCDE6C /* VehicleDetailsVC.swift in Sources */,
 				7008F7132BF5E6D300B0B809 /* ClientOrderDetailsVC.swift in Sources */,
 				70203ECF2BE209DF00AF81E9 /* CountryCodeVC.swift in Sources */,

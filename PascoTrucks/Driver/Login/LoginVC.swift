@@ -9,6 +9,9 @@ import UIKit
 import CoreLocation
 import PhoneNumberKit
 //hdhgsdhjsd
+
+
+
 class LoginVC: UIViewController, UITextFieldDelegate,CLLocationManagerDelegate{
 //   var locationManager = CLLocationManager()
 //    private let phoneNumberKit = PhoneNumberKit()
@@ -32,9 +35,9 @@ class LoginVC: UIViewController, UITextFieldDelegate,CLLocationManagerDelegate{
     var driverID:Int?
     var loginCity:String?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         countryCodeTxt.text = UserDefaults.standard.string(forKey: "countryCode")
         print( countryCodeTxt.text)
         
@@ -43,12 +46,9 @@ class LoginVC: UIViewController, UITextFieldDelegate,CLLocationManagerDelegate{
         selectedSegment = "user"
         
         deviceID()
-        
-       
-        
+   
     }
-    
-    
+   
     
 //    //MARK: - location find out
 //
@@ -189,8 +189,8 @@ extension LoginVC {
                 else{
                     CommonMethods.showAlertMessageWithOkAndCancel(title: Constant.TITLE, message: "Verify Your Account", view: self) {
                     let phoneNo = (self.countryCodeTxt.text ?? "")+(self.phoneTF.text ?? "")
-//                     AuthManager.shared.startAuth(phoneNumber: phoneNo) { (success) in
-//                     if success {
+                     AuthManager.shared.startAuth(phoneNumber: phoneNo) { (success) in
+                     if success {
                     let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
                     vc.selectedType = .login
                     vc.selectedCountryCode = self.countryCodeTxt.text ?? ""
@@ -200,11 +200,11 @@ extension LoginVC {
                     print(self.selectedSegment)
                     self.navigationController?.pushViewController(vc, animated: true)
                      }
-//                     else {
-//                      CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Something Wrong",                   view: self)
-//                     }
-                     // }
-                    // }
+                     else {
+                      CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Something Wrong",view: self)
+                     }
+                      }
+                     }
               }
            }
         }

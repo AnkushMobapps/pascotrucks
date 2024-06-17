@@ -59,7 +59,21 @@ class DRiverHomeViewModel{
             
         }
     }
-    
+  
+    // MARK: - confirm order validation
+    class func COValidation(viewController:OrderVC, completion:@escaping()->Void){
+        
+        if viewController.bidPrice.text == Constant.BLANK{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Please enter bid price", view: viewController)
+        }
+        else if viewController.driverAvailability.text == Constant.BLANK{
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: "please select date and time", view: viewController)
+         }
+       
+      else{
+            completion()
+        }
+    }
     
     //confirm order api
     class func confirmOrderApi(viewController:UIViewController,parameters:NSDictionary,completion:@escaping(ConfirmOrderModel?)->Void){

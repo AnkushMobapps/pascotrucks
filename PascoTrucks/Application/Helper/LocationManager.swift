@@ -10,6 +10,7 @@ import CoreLocation
 import PhoneNumberKit
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
+    
     private let locationManager = CLLocationManager()
     private let phoneNumberKit = PhoneNumberKit()
     private var fullAddress: String?
@@ -20,6 +21,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         requestCurrentLocation()
+        locationManager.startUpdatingLocation()
+        
     }
     
     private func requestCurrentLocation() {
@@ -55,7 +58,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                 if let dialingCode = self.phoneNumberKit.countryCode(for: isoCountryCode) {
                     print("City: \(city), Country: \(country), Country Code: \(isoCountryCode), Dialing Code: +\(dialingCode)")
                     self.dialingPhoneCode = "+\(dialingCode)"
-                } 
+                    
+                    print("jai ho .....\(self.dialingPhoneCode ?? "")")
+                }
                 else {
                     print("City: \(city), Country: \(country), Country Code: \(isoCountryCode), Dialing Code: Unknown dialing code")
                 }

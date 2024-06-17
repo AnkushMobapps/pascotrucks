@@ -22,7 +22,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         requestCurrentLocation()
         locationManager.startUpdatingLocation()
-        
+
     }
     
     private func requestCurrentLocation() {

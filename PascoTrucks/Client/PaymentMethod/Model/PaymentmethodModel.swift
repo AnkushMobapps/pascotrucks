@@ -66,7 +66,7 @@ struct ChekChargesModel:Codable {
     var cargoname:String?
     var cargoimage:String?
     var distance:Double?
-    var price:Int?
+    var price:Double?
     var pickup_location:String?
     var drop_location:String?
     var duration:ChekChargesDataModel?
@@ -94,7 +94,7 @@ struct ChekChargesModel:Codable {
         self.cargoname = try container.decodeIfPresent(String.self, forKey: .cargoname)
         self.cargoimage = try container.decodeIfPresent(String.self, forKey: .cargoimage)
         self.distance = try container.decodeIfPresent(Double.self, forKey: .distance)
-        self.price = try container.decodeIfPresent(Int.self, forKey: .price)
+        self.price = try container.decodeIfPresent(Double.self, forKey: .price)
         self.pickup_location = try container.decodeIfPresent(String.self, forKey: .pickup_location)
         self.drop_location = try container.decodeIfPresent(String.self, forKey: .drop_location)
         self.duration = try container.decodeIfPresent(ChekChargesDataModel.self, forKey: .duration)

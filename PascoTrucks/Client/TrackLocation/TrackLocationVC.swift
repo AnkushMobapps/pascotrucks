@@ -38,33 +38,32 @@ class TrackLocationVC: UIViewController,GMSAutocompleteViewControllerDelegate, G
     var longitude:String?
     var uploadImg:UIImage?
     var currentLoc:Float?
- 
+    var titleValue:String?
     var editHostCreate:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchLocationView.isHidden = true
-//        locationManager = CLLocationManager()
-//        locationManager.delegate = self
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.requestAlwaysAuthorization()
-////        setUpMap(lattitude: 28.6061, longitude: 77.3694)
-//        if CLLocationManager.locationServicesEnabled(){
-//            locationManager.startUpdatingLocation()
-//        }
+        
+        geetCurrentLocation()
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+//        setUpMap(lattitude: 28.6061, longitude: 77.3694)
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.startUpdatingLocation()
+        }
        
        searchLocationTF.addTarget(self, action: #selector(configurePlaces(_:)), for: .editingDidBegin)
        
-        geetCurrentLocation()
+       
         
     }
     
     @IBAction func saveAndCloseBtnAction(_ sender: UIButton) {
       
         
-    }
-    @IBAction func backBtnTapped(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
     }
     
   
@@ -80,6 +79,9 @@ class TrackLocationVC: UIViewController,GMSAutocompleteViewControllerDelegate, G
     @IBAction func addressBtnTapped(_ sender: UIButton) {
     }
     
+    @IBAction func backBtnTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
    
     
@@ -179,7 +181,7 @@ class TrackLocationVC: UIViewController,GMSAutocompleteViewControllerDelegate, G
                 return
             }
             print(lines)
-//            self.addressTF.text = lines.joined(separator: "\n") //--------Location Search TextField-----//
+            self.searchLocationTF.text = lines.joined(separator: "\n") //--------Location Search TextField-----//
             //                self.pickupAddress = self.pickupLocationTF.text
             print(lines.joined(separator: "\n"))
             self.pickupCoordinate = position.target
@@ -198,7 +200,7 @@ class TrackLocationVC: UIViewController,GMSAutocompleteViewControllerDelegate, G
                 return
             }
             print(lines)
-//            self.addressTF.text = lines.joined(separator: "\n")
+            self.searchLocationTF.text = lines.joined(separator: "\n")
             print(lines.joined(separator: "\n"))
             self.pickupCoordinate = marker.position
             UIView.animate(withDuration: 0.25) {
@@ -233,7 +235,7 @@ class TrackLocationVC: UIViewController,GMSAutocompleteViewControllerDelegate, G
                 return
             }
             print(lines)
-//            self.addressTF.text = lines.joined(separator: "\n")
+            self.searchLocationTF.text = lines.joined(separator: "\n")
             //                self.pickupAddress = lines.joined(separator: "\n")
             print(lines.joined(separator: "\n"))
             self.pickupCoordinate = marker.position
@@ -242,87 +244,35 @@ class TrackLocationVC: UIViewController,GMSAutocompleteViewControllerDelegate, G
             }
         }
     }
-    
+}
+extension TrackLocationVC {
     func geetCurrentLocation() {
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = kCLDistanceFilterNone
-        locationManager.delegate = self
-        locationManager.startUpdatingLocation()
-       
-        //print(locationManager.location)
+        locationManager.requestWhenInUseAuthorization()
         var currentLoc: CLLocation!
-        /*
-        if(locationManager.authorizationStatus == .authorizedWhenInUse ||
-            locationManager.authorizationStatus == .authorizedAlways) {
+        if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() == .authorizedAlways) {
             currentLoc = locationManager.location
             if currentLoc != nil {
-                print(currentLoc.coordinate.latitude)
-                print(currentLoc.coordinate.longitude)
+                let geocoder = GMSGeocoder()
+                geocoder.reverseGeocodeCoordinate(currentLoc.coordinate) { response, error in
+                    guard let address = response?.firstResult(), let lines = address.lines else {
+                        return
+                    }
+                    print(lines)
+                    self.searchLocationTF.text = lines.joined(separator: "\n")
+                    print(lines.joined(separator: "\n"))
+                    self.coordinate = currentLoc.coordinate
+                    print( self.coordinate!)
+                    self.setUpMap(lattitude: currentLoc.coordinate.latitude, longitude: currentLoc.coordinate.longitude)
+                }
                 
-                UserDefaults.standard.setValue(currentLoc.coordinate.latitude, forKey: "latitude")
-                UserDefaults.standard.setValue(currentLoc.coordinate.longitude, forKey: "longitude")
-                
-         
             }
             else {
-                //
+                setUpMap(lattitude: 28.6061, longitude: 77.3694)
             }
         }
-        */
-        if CLLocationManager.locationServicesEnabled() {
-                   if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse
-                       || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways {
-                       locationManager.requestLocation()
-//                       let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
-//                        print("locations = \(locValue.latitude) \(locValue.longitude)")
-                       
-                    currentLoc = locationManager.location
-                    if currentLoc != nil {
-                        print(currentLoc.coordinate.latitude)
-                        print(currentLoc.coordinate.longitude)
-                        
-                        UserDefaults.standard.setValue(currentLoc.coordinate.latitude, forKey: "latitude")
-                        UserDefaults.standard.setValue(currentLoc.coordinate.longitude, forKey: "longitude")
-                        
-                 
-                    }
-                    else {
-                        //
-                    }
-
-                   }
-                   else{
-                       locationManager.requestWhenInUseAuthorization()
-                   }
-               }
-               else{
-                   //Alert user to open location service, bra bra bra here...
-               }
-     
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-            print("error:: \(error)")
-        }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-           print("Did update location called")
-      let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-       print("locations = \(locValue.latitude) \(locValue.longitude)")
-
-        UserDefaults.standard.setValue(locValue.latitude, forKey: "latitude")
-        UserDefaults.standard.setValue(locValue.longitude, forKey: "longitude")
-
-           if locations.first != nil {
-               print("location:: (location)")
-           }
-
-       }
-
-    
-}
-extension PinaddressVC {
-   
    
     
     

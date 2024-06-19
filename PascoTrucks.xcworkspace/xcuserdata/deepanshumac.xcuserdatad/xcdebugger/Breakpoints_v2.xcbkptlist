@@ -7,80 +7,112 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1AC0D685-5C56-4FDA-871E-F5BAA2AE9854"
+            uuid = "50F83952-5B7D-4CAD-A6C4-2B031AC7A2B9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PascoTrucks/Client/PaymentMethod/PaymentMethodVC.swift"
+            filePath = "PascoTrucks/Driver/Verification/VerifyAccountVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "vichleTypeList(type:typeId:)"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "verifyBtn(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F587B745-DAE8-45CC-A54F-DA3ED8BEDC20"
+            uuid = "E31EA9CA-21AA-49C3-BEED-A69E0A5AF31A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PascoTrucks/Client/PaymentMethod/PaymentMethodVC.swift"
+            filePath = "PascoTrucks/Driver/Verification/VerifyAccountVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "vichleTypeList(type:typeId:)"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "verifyBtn(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E99A5F44-B14F-4D97-B0DE-8EF51E4D1641"
+            uuid = "5A8DE126-218A-4830-86A0-2F4988CE7DCF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PascoTrucks/Client/PaymentMethod/PaymentMethodVC.swift"
+            filePath = "PascoTrucks/Driver/Verification/VerifyAccountVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "vichleTypeList(type:typeId:)"
+            startingLineNumber = "295"
+            endingLineNumber = "295"
+            landmarkName = "clientLoginApiMetnod()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BE3C69D0-5B6C-40E8-901A-A29B549AC0BA"
+            uuid = "F09DEB80-F905-4A58-95E8-2B5049EDC9A3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PascoTrucks/Client/ClientOrderPage/ClientOrderVC.swift"
+            filePath = "PascoTrucks/Driver/Verification/VerifyAccountVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
+            landmarkName = "clientLoginApiMetnod()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9ABD8343-BDE2-4D14-BDCE-341B21FFC06E"
+            uuid = "7E627F2B-AB05-48A1-9E0A-A7C30CC0EA24"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PascoTrucks/Client/ClientOrderPage/ClientOrderVC.swift"
+            filePath = "PascoTrucks/Driver/Verification/VerifyAccountVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
+            landmarkName = "clientLoginApiMetnod()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2CA2E231-B4FC-47EA-91DE-3B9ADEC9154E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Application/Helper/LocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F6912FBD-6055-4BED-AA78-6009C36F9632"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PascoTrucks/Application/Helper/LocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -279,7 +279,8 @@ extension LoginVC {
                                        if success{
                                            let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
                                            vc.userType = self.selectedSegment
-                                           vc.phoneNumber = self.phoneTF.text ?? ""
+                                           vc.phoneNumber = "\(self.countryCodeTxt.text ?? "")  \(self.phoneTF.text ?? "")"
+                                           vc.mobNumber = self.phoneTF.text ?? ""
                                            vc.selectedType = .login
                                            self.navigationController?.pushViewController(vc, animated: true)
                                        }
@@ -288,10 +289,7 @@ extension LoginVC {
                                        }
                    
                                    }
-   //
-   //                let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
-   //                vc.userType = se
-   //                self.navigationController?.pushViewController(vc, animated: true)
+  
                }
                
                else{

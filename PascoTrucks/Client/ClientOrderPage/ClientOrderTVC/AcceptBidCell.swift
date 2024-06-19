@@ -17,6 +17,7 @@ class AcceptBidCell: UITableViewCell {
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var NextBtn: UIButton!
+    @IBOutlet weak var statusLbl: UILabel!
     var nextButton:(()->()) = {}
     
     

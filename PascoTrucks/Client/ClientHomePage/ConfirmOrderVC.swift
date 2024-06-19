@@ -21,6 +21,8 @@ class ConfirmOrderVC: UIViewController {
     @IBOutlet weak var totalAmountLbl: UILabel!
     @IBOutlet weak var timeeLbl: UILabel!
     @IBOutlet weak var vehicleImg: UIImageView!
+    @IBOutlet weak var proceedView: UIView!
+    @IBOutlet weak var cancelView: UIView!
     
     
     @IBOutlet weak var dateTF: UITextField!
@@ -51,6 +53,9 @@ class ConfirmOrderVC: UIViewController {
     var bookRide:PaymentMethodModel?
     var chekCharge:ChekChargesModel?
     var additionalId:Int?
+    var firstColor:UIColor?
+    var secondColor:UIColor?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +76,11 @@ class ConfirmOrderVC: UIViewController {
         self.timeTF.text = timee ?? ""
         
         chekChargesApi()
+        
+        firstColor = #colorLiteral(red: 0.8352941176, green: 0.6588235294, blue: 0.3882352941, alpha: 1)
+        secondColor = #colorLiteral(red: 0.6235294118, green: 0.4784313725, blue: 0.2392156863, alpha: 1)
+        self.proceedView.GradiiientColor(colorOne: firstColor!, colorTwo: secondColor!)
+        self.cancelView.GradiiientColor(colorOne: firstColor!, colorTwo: secondColor!)
         
     }
     
@@ -168,7 +178,7 @@ class ConfirmOrderVC: UIViewController {
                   let foormattedDistance = self.formatToSingleDecimalPlace(Price)
                            print(foormattedDistance)  // Output: 3.1
                            
-                          self.totalAmountLbl.text = "$\(foormattedDistance).00"
+                          self.totalAmountLbl.text = "$\(foormattedDistance)"
                            print(self.totalAmountLbl.text ?? "")
                 
                 
@@ -235,4 +245,19 @@ extension ConfirmOrderVC: UIGestureRecognizerDelegate {
         return touch.view == gestureRecognizer.view
     }
 }
+
+
+//--------------Gradient Color View-----------------//
+extension UIView {
+    func GradiiientColor(colorOne: UIColor, colorTwo: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorOne.cgColor, colorTwo.cgColor]
+        gradientLayer.cornerRadius = layer.cornerRadius
+        gradientLayer.startPoint = CGPoint(x: 0.4, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0)
+        gradientLayer.frame = bounds
+        layer.insertSublayer(gradientLayer, at: 0)
+    }
+}
+
 

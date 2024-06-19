@@ -17,6 +17,7 @@ class VerifyAccountVC: UIViewController {
     @IBOutlet weak var txtOTP6: UITextField!
     @IBOutlet weak var phoneNo: UILabel!
     var selectedCountryCode:String?
+    var mobNumber:String?
     var phoneNumber:String?
     var deviceID:String?
     var userId:String?
@@ -108,7 +109,7 @@ class VerifyAccountVC: UIViewController {
                     }
         
                     else {
-//                        CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Something Wrong", view: self)
+                        CommonMethods.showAlertMessage(title: Constant.TITLE, message: "Incorrect otp", view: self)
                     }
     }
     }
@@ -134,7 +135,7 @@ class VerifyAccountVC: UIViewController {
                 txtOTP6.becomeFirstResponder()
                 break
             case txtOTP6:
-                txtOTP6.resignFirstResponder()
+//                txtOTP6.resignFirstResponder()
                 break
             default:
                 break
@@ -262,7 +263,7 @@ extension VerifyAccountVC{
     
     func clientRegisterApi(){
         var param = [String:Any]()
-        param = ["phone_number": phoneNumber ?? "", "user_type":userType ?? 0, "phone_verify":deviceID ?? "","phone_token":"gdssdfdhdfgfg"]
+        param = ["phone_number": mobNumber ?? "", "user_type":userType ?? 0, "phone_verify":deviceID ?? "","phone_token":"gdssdfdhdfgfg"]
         print(param)
         RegisterViewModel.ClientRegApi(viewController: self, parameters: param as NSDictionary) {
             response in
@@ -290,7 +291,7 @@ extension VerifyAccountVC{
   
      // MARK: - Client Login Api
      func clientLoginApiMetnod(){
-     let param = [ "phone_number":phoneNumber ?? "", "user_type" : userType ?? 0,"phone_token":"gdssdfdhdfgfg"] as [String : Any]
+     let param = [ "phone_number":mobNumber ?? "", "user_type" : userType ?? 0,"phone_token":"gdssdfdhdfgfg"] as [String : Any]
      print(param)
      LoginViewModel.ClientLoginApi(viewcontroller: self, parameters: param as NSDictionary){
      (responseObject) in

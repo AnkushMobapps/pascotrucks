@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		266A5E6A2C200227007F87AB /* requestOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266A5E692C200227007F87AB /* requestOrderModel.swift */; };
 		266A5E6E2C2006E6007F87AB /* reqeustOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266A5E6D2C2006E6007F87AB /* reqeustOrderViewModel.swift */; };
+		26924EE42C216FB0009B54A4 /* OrderDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26924EE32C216FB0009B54A4 /* OrderDetailsModel.swift */; };
+		26924EE72C216FE3009B54A4 /* OrderDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26924EE62C216FE3009B54A4 /* OrderDetailsViewModel.swift */; };
 		26A0AF4D2C00B14900896396 /* AddtionalServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A0AF4C2C00B14900896396 /* AddtionalServiceVC.swift */; };
 		26A0AF502C00B18B00896396 /* AddtionalServiceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A0AF4E2C00B18B00896396 /* AddtionalServiceTVC.swift */; };
 		26A0AF512C00B18B00896396 /* AddtionalServiceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26A0AF4F2C00B18B00896396 /* AddtionalServiceTVC.xib */; };
@@ -18,6 +20,7 @@
 		26AB6F002C1AE8090083B420 /* AddtionalServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AB6EFF2C1AE8090083B420 /* AddtionalServiceViewModel.swift */; };
 		26AB6F042C1AF44C0083B420 /* PaymentmethodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AB6F032C1AF44C0083B420 /* PaymentmethodModel.swift */; };
 		26AB6F062C1AF4F60083B420 /* PaymentMethodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AB6F052C1AF4F60083B420 /* PaymentMethodViewModel.swift */; };
+		26AC61FC2C2068FF00F82F62 /* bidsDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC61FB2C2068FF00F82F62 /* bidsDetailsTVC.swift */; };
 		26CF70BB2C196D0E00F7D0C9 /* ClientProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF70BA2C196D0E00F7D0C9 /* ClientProfileModel.swift */; };
 		26CF70BD2C196E1800F7D0C9 /* ClientProfieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF70BC2C196E1800F7D0C9 /* ClientProfieViewModel.swift */; };
 		26CF70C02C1985D000F7D0C9 /* LogoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF70BF2C1985D000F7D0C9 /* LogoutModel.swift */; };
@@ -182,6 +185,8 @@
 /* Begin PBXFileReference section */
 		266A5E692C200227007F87AB /* requestOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestOrderModel.swift; sourceTree = "<group>"; };
 		266A5E6D2C2006E6007F87AB /* reqeustOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reqeustOrderViewModel.swift; sourceTree = "<group>"; };
+		26924EE32C216FB0009B54A4 /* OrderDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsModel.swift; sourceTree = "<group>"; };
+		26924EE62C216FE3009B54A4 /* OrderDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewModel.swift; sourceTree = "<group>"; };
 		26A0AF4C2C00B14900896396 /* AddtionalServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddtionalServiceVC.swift; sourceTree = "<group>"; };
 		26A0AF4E2C00B18B00896396 /* AddtionalServiceTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddtionalServiceTVC.swift; sourceTree = "<group>"; };
 		26A0AF4F2C00B18B00896396 /* AddtionalServiceTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddtionalServiceTVC.xib; sourceTree = "<group>"; };
@@ -191,6 +196,7 @@
 		26AB6EFF2C1AE8090083B420 /* AddtionalServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddtionalServiceViewModel.swift; sourceTree = "<group>"; };
 		26AB6F032C1AF44C0083B420 /* PaymentmethodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentmethodModel.swift; sourceTree = "<group>"; };
 		26AB6F052C1AF4F60083B420 /* PaymentMethodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodViewModel.swift; sourceTree = "<group>"; };
+		26AC61FB2C2068FF00F82F62 /* bidsDetailsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bidsDetailsTVC.swift; sourceTree = "<group>"; };
 		26CF70BA2C196D0E00F7D0C9 /* ClientProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientProfileModel.swift; sourceTree = "<group>"; };
 		26CF70BC2C196E1800F7D0C9 /* ClientProfieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientProfieViewModel.swift; sourceTree = "<group>"; };
 		26CF70BF2C1985D000F7D0C9 /* LogoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutModel.swift; sourceTree = "<group>"; };
@@ -400,6 +406,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		26924EE22C216F8E009B54A4 /* OrderDetailsModel */ = {
+			isa = PBXGroup;
+			children = (
+				26924EE32C216FB0009B54A4 /* OrderDetailsModel.swift */,
+			);
+			path = OrderDetailsModel;
+			sourceTree = "<group>";
+		};
+		26924EE52C216FB7009B54A4 /* orderDetailsViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				26924EE62C216FE3009B54A4 /* OrderDetailsViewModel.swift */,
+			);
+			path = orderDetailsViewModel;
+			sourceTree = "<group>";
+		};
 		269AE8952BFF1E1E005E1601 /* Client Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,6 +467,14 @@
 				26AB6F052C1AF4F60083B420 /* PaymentMethodViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		26AC61FA2C20681E00F82F62 /* OrderdetailsTVC */ = {
+			isa = PBXGroup;
+			children = (
+				26AC61FB2C2068FF00F82F62 /* bidsDetailsTVC.swift */,
+			);
+			path = OrderdetailsTVC;
 			sourceTree = "<group>";
 		};
 		26CF70BE2C19856A00F7D0C9 /* Logout */ = {
@@ -966,6 +996,9 @@
 		70A7C36C2C08A25200730249 /* ClientOrderDetails */ = {
 			isa = PBXGroup;
 			children = (
+				26924EE52C216FB7009B54A4 /* orderDetailsViewModel */,
+				26924EE22C216F8E009B54A4 /* OrderDetailsModel */,
+				26AC61FA2C20681E00F82F62 /* OrderdetailsTVC */,
 				7008F7122BF5E6D300B0B809 /* ClientOrderDetailsVC.swift */,
 			);
 			path = ClientOrderDetails;
@@ -1403,6 +1436,7 @@
 				7017B1132C181E2F00638791 /* GetAndDeleteDriverNoteVC.swift in Sources */,
 				7015AEEB2BECFCF0001BF1B4 /* VehicleDataAndUpdateVC.swift in Sources */,
 				70DBE4A42C11BB7800A1C09E /* DatePickerVC.swift in Sources */,
+				26AC61FC2C2068FF00F82F62 /* bidsDetailsTVC.swift in Sources */,
 				41677FD22BD8ECC50035EDAF /* TitleBar2.swift in Sources */,
 				26AB6F062C1AF4F60083B420 /* PaymentMethodViewModel.swift in Sources */,
 				4117F2622BCE39F80064304A /* WelcomeVC.swift in Sources */,
@@ -1420,6 +1454,7 @@
 				26CF70BD2C196E1800F7D0C9 /* ClientProfieViewModel.swift in Sources */,
 				4117F28B2BCE74F30064304A /* LoginVC.swift in Sources */,
 				4150D5A92BCFD64E00CCDE6C /* ImgCell.swift in Sources */,
+				26924EE42C216FB0009B54A4 /* OrderDetailsModel.swift in Sources */,
 				70DF0CD72BF867D200662899 /* NotificationModel.swift in Sources */,
 				26CF70BB2C196D0E00F7D0C9 /* ClientProfileModel.swift in Sources */,
 				70A7C3732C08A46500730249 /* ClientProfileVC.swift in Sources */,
@@ -1468,6 +1503,7 @@
 				41D650712BD7D9AF006F911A /* CurrentLocationOfOrderVC.swift in Sources */,
 				26CF70C02C1985D000F7D0C9 /* LogoutModel.swift in Sources */,
 				700E59062C1723F800382224 /* DriverOrderViewModel.swift in Sources */,
+				26924EE72C216FE3009B54A4 /* OrderDetailsViewModel.swift in Sources */,
 				700E58FC2C16FC6800382224 /* OnlyDatePickerVC.swift in Sources */,
 				70DBE4A02C1173FA00A1C09E /* DriverEmergencyVC.swift in Sources */,
 				700FC31F2BF725F40032FF2A /* DriverHomeModel.swift in Sources */,

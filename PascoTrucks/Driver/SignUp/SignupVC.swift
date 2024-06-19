@@ -95,9 +95,10 @@ func chekNumberApi(){
                 if success {
                     let vc = self.storyboard?.instantiateViewController(identifier: "VerifyAccountVC") as! VerifyAccountVC
                     vc.selectedType = .Register
-                    vc.phoneNumber = self.phoneNoTxt.text
+                    vc.phoneNumber = "\(self.countryCodeTxt.text ?? "")  \(self.phoneNoTxt.text ?? "")"
                     vc.deviceID = self.deviceNumber
                     vc.userType = self.userType
+                    vc.mobNumber = self.phoneNoTxt.text ?? ""
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
                 else {

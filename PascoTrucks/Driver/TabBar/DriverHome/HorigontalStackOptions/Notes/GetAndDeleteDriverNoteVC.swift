@@ -10,25 +10,29 @@ import UIKit
 class GetAndDeleteDriverNoteVC: UIViewController {
     
     @IBOutlet weak var noteAndReminderTable: UITableView!
-    @IBOutlet weak var clearAllNoteAndReminder: UIButton!
  
-  @IBOutlet weak var emptyNotes: UIView!
+    
+    @IBOutlet weak var emptyNotes: UIView!
     
     var boxImgArray = [#imageLiteral(resourceName: "ticksquare"),#imageLiteral(resourceName: "ticksquare"),#imageLiteral(resourceName: "ticksquare"),#imageLiteral(resourceName: "ticksquare"),#imageLiteral(resourceName: "ticksquare"),#imageLiteral(resourceName: "ticksquare")]
     var getDriverNotesModel:DriverGetNotesModel?
     override func viewDidLoad() {
         super.viewDidLoad()
-        getDriverNotesApi()
+      
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        getDriverNotesApi()
+    }
     
-    @IBAction func clearAllNotesBtnClk(_ sender: UIButton) {
-        
+    @IBAction func addNotesBtnClk(_ sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "DriverNotesVC") as! DriverNotesVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func backBtnAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-
+    
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -42,21 +46,34 @@ extension GetAndDeleteDriverNoteVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = noteAndReminderTable.dequeueReusableCell(withIdentifier: "addNotesCell") as! DriverNoteCell
         cell.noteimage.image = #imageLiteral(resourceName: "ticksquare")
+        
+        //        cell.notiFiId = self.getDriverNotesModel?.data?[indexPath.row].id ?? 0
+        print(cell.notiFiId ?? 0)
+        
         cell.title.text = self.getDriverNotesModel?.data?[indexPath.row].title ?? ""
+        
         cell.noteDescription.text = self.getDriverNotesModel?.data?[indexPath.row].description ?? ""
+        
         cell.dateTime.text = self.getDriverNotesModel?.data?[indexPath.row].reminderdate ?? ""
+        
+        cell.deleteButton = {
+            let notificationId = self.getDriverNotesModel?.data?[indexPath.row].id ?? 0
+            print(notificationId)
+            self.deleteNotes(deleteId: notificationId)
+        }
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//       
-//    }
+    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //
+    //    }
     
     // api
     func getDriverNotesApi(){
         var param = [String:Any]()
         DriverNotesViewModel.driverGetNotesApi(viewController: self, parameters: param as NSDictionary){
             response in
+            print(UserDefaults.standard.string(forKey: "token") ?? "")
             self.getDriverNotesModel = response
             print("success")
             let count = self.getDriverNotesModel?.data?.count ?? 0
@@ -71,4 +88,15 @@ extension GetAndDeleteDriverNoteVC: UITableViewDelegate, UITableViewDataSource{
         }
         
     }
+    
+    
+    func deleteNotes(deleteId:Int?){
+        var param = ["Id":deleteId ?? 0]
+        DriverNotesViewModel.driverDeleteNotesApi(viewController: self, parameters: param as NSDictionary){responseObject in
+            print("Success")
+            
+            self.getDriverNotesApi()
+        }
+    }
+    
 }

@@ -287,13 +287,146 @@ struct ConfirmOrderModel:Codable{
     
 }
 
+
+//same model for update location
+struct UpdateDriverLocationModel:Codable{
+    var status:String?
+    var msg:String?
+    var data:[UpdateDriverLocationModel_data]?
+    
+    enum CodingKeys:String,CodingKey{
+        case status = "status"
+        case msg = "msg"
+        case data = "data"
+    }
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.status = try container.decodeIfPresent(String.self, forKey: .status)
+        self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
+        self.data = try container.decodeIfPresent([UpdateDriverLocationModel_data].self, forKey:.data)
+    }
+    
+}
+struct UpdateDriverLocationModel_data:Codable{
+    /*
+     "data": [
+             {
+                 "id": 1,
+                 "poiimage": "/media/training/cargodriver2.jpg",
+                 "poitype": "HOTEL",
+     
+                 "poiname": "TAJ",
+                 "couponcode": "TAJ89",
+                 "startdate": "2024-06-19T00:00:00Z",
+     
+                 "enddate": "2024-06-30T00:00:00Z",
+                 "couponpercent": 25.0,
+                 "limit": 10,
+     
+                 "poiaddress": "2nd Floor, A-3, A Block, Sector 59, Noida, Uttar Pradesh 201301",
+                 "poicity": "Noida",
+                 "poilatitude": 28.6078,
+     
+                 "poilongitude": 77.3631,
+                 "description": "coupon at your service",
+                 "created_at": "2024-06-19T07:38:18.197035Z"
+             }
+         ]
+     }
+     */
+    var id:Int?
+    var poiimage:String?
+    var poitype:String?
+    
+    var poiname:String?
+    var couponcode:String?
+    var startdate:String?
+    
+    var enddate:String?
+    var couponpercent:Double?
+    var limit:Int?
+    
+    var poiaddress:String?
+    var poicity:String?
+    var poilatitude:Double?
+    
+    var poilongitude:Double?
+    var description:String?
+    var created_at:String?
+   
+    
+    enum CodingKeys:String,CodingKey{
+        case id = "id"
+        case poiimage = "poiimage"
+        case poitype = "poitype"
+        
+        case poiname = "poiname"
+        case couponcode = "couponcode"
+        case startdate = "startdate"
+        
+        case enddate = "enddate"
+        case couponpercent = "couponpercent"
+        case limit = "limit"
+        
+        case poiaddress = "poiaddress"
+        case poicity = "poicity"
+        case poilatitude = "poilatitude"
+        
+        case poilongitude = "poilongitude"
+        case description = "description"
+        case created_at = "created_at"
+        
+    }
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decodeIfPresent(Int.self, forKey: .id)
+        self.poiimage = try container.decodeIfPresent(String.self, forKey: .poiimage)
+        self.poitype = try container.decodeIfPresent(String.self, forKey: .poitype)
+        self.poiname = try container.decodeIfPresent(String.self, forKey: .poiname)
+        self.couponcode = try container.decodeIfPresent(String.self, forKey: .couponcode)
+        self.startdate = try container.decodeIfPresent(String.self, forKey: .startdate)
+        self.enddate = try container.decodeIfPresent(String.self, forKey: .enddate)
+        self.couponpercent = try container.decodeIfPresent(Double.self, forKey: .couponpercent)
+        self.limit = try container.decodeIfPresent(Int.self, forKey: .limit)
+        self.poiaddress = try container.decodeIfPresent(String.self, forKey: .poiaddress)
+        self.poicity = try container.decodeIfPresent(String.self, forKey: .poicity)
+        self.poilatitude = try container.decodeIfPresent(Double.self, forKey: .poilatitude)
+        self.poilongitude = try container.decodeIfPresent(Double.self, forKey: .poilongitude)
+        self.description = try container.decodeIfPresent(String.self, forKey: .description)
+        self.created_at = try container.decodeIfPresent(String.self, forKey: .created_at)
+    }
+    
+}
+
+
+//start trip
+
 /*
  {
      "status": "True",
-     "msg": "Location updated successfully.."
+     "msg": "Trip Start by Driver"
  }
  */
-struct UpdateDriverLocationModel:Codable{
+
+struct driverStartTripModel:Codable{
+    var status:String?
+    var msg:String?
+   
+    
+    enum CodingKeys:String,CodingKey{
+        case status = "status"
+        case msg = "msg"
+    }
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.status = try container.decodeIfPresent(String.self, forKey: .status)
+        self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
+    }
+}
+
+
+//driver complete Booking model
+struct driverCompleteBookingModel:Codable{
     var status:String?
     var msg:String?
    

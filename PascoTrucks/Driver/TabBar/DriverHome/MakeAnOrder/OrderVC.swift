@@ -13,7 +13,7 @@ import CoreLocation
 
 class OrderVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate{
     @IBOutlet weak var vieww: UIView!
-    var map = GMSMapView()
+    
     @IBOutlet weak var receiptView: UIView!
     @IBOutlet weak var topBarView: TitleBar!
     
@@ -27,6 +27,8 @@ class OrderVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate{
     @IBOutlet weak var bidPrice: UITextField!
     @IBOutlet weak var driverAvailability: UITextField!
     var myid:Int?
+    
+    var map = GMSMapView()
     var pickupCoordinate: CLLocationCoordinate2D?
 
     var destinationCoordinate: CLLocationCoordinate2D?
@@ -69,6 +71,7 @@ class OrderVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate{
   
         
     }
+    
     func setUpMap(lattitude: Double, longitude: Double) {
         let camera = GMSCameraPosition.camera(withLatitude: lattitude, longitude: longitude, zoom: 15)
         map = GMSMapView.map(withFrame: vieww.bounds, camera: camera)
@@ -332,6 +335,7 @@ extension OrderVC {
         })
         task.resume()
     }
+    
     func drawPath(from polyStr: String)
     {
     
@@ -380,8 +384,5 @@ extension OrderVC {
             }
         }
     }
-    
-   
-    
     
 }

@@ -205,7 +205,10 @@ extension MyOrderVC:UITableViewDelegate,UITableViewDataSource{
         }
         
         else{
-            let vc = self.storyboard?.instantiateViewController(identifier: "DriverHomeVC") as! DriverHomeVC
+            let vc = self.storyboard?.instantiateViewController(identifier: "CurrentLocationOfOrderVC") as! CurrentLocationOfOrderVC
+            vc.id = self.driverOngoingLM?.data?[indexPath.row].id ?? 0
+            print(self.driverOngoingLM?.data?[indexPath.row].id ?? 0)
+            print(self.driverOngoingLM?.data?[indexPath.row].booking_status ?? "")
            self.navigationController?.pushViewController(vc, animated: true)
         }
        
@@ -240,65 +243,7 @@ extension MyOrderVC{
     
 }
 
-//extension MyOrderVC:UITableViewDelegate,UITableViewDataSource{
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if segmentControl.selectedSegmentIndex == 0{
-//            return self.getBidingStatus?.data.count ?? 0
-//        }
-//        else{
-//            return 20
-//        }
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-////        if segmentControl.selectedSegmentIndex == 0{
-////            //////            let cell = tableView.dequeueReusableCell(withIdentifier: "bidingOrderCell", for: indexPath) as! BidingStatusCell
-////            //////            cell.selectionStyle = .none
-////            //////            cell.backgroundColor = .none
-////            //////            cell.price.text = "\(self.getBidingStatus?.data[indexPath.row].bid_price ?? 0.0)"
-////            //////            cell.lblName.text = self.getBidingStatus?.data[indexPath.row].user ?? ""
-////            //////            cell.dateAndTime.text = self.getBidingStatus?.data[indexPath.row].pickup_datetime ?? ""
-////            //////
-////            //////            cell.status.text = self.getBidingStatus?.data[indexPath.row].customer_status ?? ""
-////            //////            if cell.status.text == "pending" {
-////            //////                cell.status.backgroundColor = .red
-////            //////            }
-////            //////            else{
-////            //////                cell.status.backgroundColor = .green
-////            //////            }
-////            ////
-////            ////            cell.orderId.text = self.getBidingStatus?.data[indexPath.row].booking_number ?? ""
-////            ////            return cell
-////            //        }
-////            //
-////            //        else{
-////            //            let cell = tableView.dequeueReusableCell(withIdentifier: "currentOrdCell", for: indexPath) as! CurrentOrderCell
-////            //            cell.selectionStyle = .none
-////            //            cell.backgroundColor = .none
-////            //            return cell
-////            //
-////          
-////        
-////        
-////        
-////        }
-//        
-//        
-//       
-//        
-//    }
-//}
-    extension MyOrderVC{
-        func getDriverBidingstatusApi(){
-            var param = [String:Any]()
-            print(param)
-            DriverOrderViewModel.getDriverBidingStatusApi(viewController: self, parameters: param as NSDictionary){ response in
-                self.getBidingStatus = response
-                print("success")
-                self.tableView.reloadData()
-                
-            }
-        }
-    }
+
+    
 
 

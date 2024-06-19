@@ -8,6 +8,7 @@
 import UIKit
 
 class DriverNoteCell: UITableViewCell {
+    
     @IBOutlet weak var mainView: UIView!
      @IBOutlet weak var viewOverImg: UIView!
     @IBOutlet weak var title: UILabel!

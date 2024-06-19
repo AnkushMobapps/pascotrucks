@@ -62,6 +62,11 @@ class MoreVC: UIViewController {
     }
     
     
+    @IBAction func notesAndReminderBtnClk(_ sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "GetAndDeleteDriverNoteVC") as! GetAndDeleteDriverNoteVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
     
     @IBAction func myWalletClk(_ sender: UIButton) {
         if self.approvalKey == "approve" {

@@ -12,18 +12,27 @@ class NeedHelpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+      
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func backBtnClk(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+        
     }
-    */
-
+    
+    
+    
+    @IBAction func driverhelpBtnClk(_ sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "DriverEmergencyVC") as! DriverEmergencyVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    @IBAction func emergencyCallBtnClk(_ sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "EmergencyContactsVC") as! EmergencyContactsVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
 }

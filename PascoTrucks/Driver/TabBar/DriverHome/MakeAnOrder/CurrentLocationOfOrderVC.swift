@@ -13,6 +13,10 @@ import GooglePlaces
 import CoreLocation
 
 class CurrentLocationOfOrderVC: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
+   // vc.driverStatusText = self.driverOngoingLM?.data?[indexPath.row].driver_status  ?? ""
+   // vc.driverStatusID = self.driverOngoingLM?.data?[indexPath.row].driver_status_id
+
+
 
     
     @IBOutlet weak var mapView: UIView!
@@ -35,6 +39,8 @@ class CurrentLocationOfOrderVC: UIViewController, GMSMapViewDelegate, CLLocation
     let endLatitude: CLLocationDegrees? = nil
     let endLongitude: CLLocationDegrees? = nil
     
+    var driverStatusText:String?
+    var driverStatusID:Int?
     
     @IBOutlet weak var backBtnView: UIView!
     @IBOutlet weak var cursorView: UIView!
@@ -57,8 +63,15 @@ class CurrentLocationOfOrderVC: UIViewController, GMSMapViewDelegate, CLLocation
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.driverStatusTxt.text = driverStatusText
+        self.lat = UserDefaults.standard.string(forKey: "lat")
+        print(self.lat ?? "")
+        self.long = UserDefaults.standard.string(forKey: "long")
+        
         // this id will pass as a parameter into get details
         print(id ?? 0)
+       
         cursorView.layer.borderWidth = 0
         cursorView.layer.shadowColor = UIColor.black.cgColor
         cursorView.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -78,8 +91,8 @@ class CurrentLocationOfOrderVC: UIViewController, GMSMapViewDelegate, CLLocation
 
 }
     override func viewWillAppear(_ animated: Bool) {
-//        updateDriverLocationApiCall()
-        getCurrentLocation()
+     
+          getCurrentLocation()
     }
     
     @IBAction func backBtnPress(_ sender: UIButton) {
@@ -98,31 +111,21 @@ class CurrentLocationOfOrderVC: UIViewController, GMSMapViewDelegate, CLLocation
         vc.listType = "driverStatus"
         vc.selectListTypeDelegate = self
         self.present(vc, animated: true, completion: nil)
-        
-       
-   }
+      }
 }
 
 extension CurrentLocationOfOrderVC:SelectListType{
     
     func selectListType(dataName: String, dataId: Int) {
+      
         self.driverStatusTxt.text = dataName
-        let statusId = "\(dataId)"
-        print(statusId)
-        self.driverStartTripMethod(driverStatus:statusId)   // api call
         
-        if self.driverStatusTxt.text == dataName{
-          print("driver status is filled")
-            self.pickupCoordinate = CLLocationCoordinate2DMake(Double("\(26.850000)") ?? 0.0, Double("\(80.949997)") ?? 0.0)
-            
-            self.destinationCoordinate = CLLocationCoordinate2DMake(Double("\(self.driverConfirmBDM?.data?.drop_latitude ?? 0.0)") ?? 0.0, Double("\(self.driverConfirmBDM?.data?.drop_longitude ?? 0.0)") ?? 0.0)
-         }
-       //====== route draw ======
+        self.driverStartTripMethod(driverStatus:"\(dataId)") //  api call Update Status For client
         
-        self.getRouteSteps(from: self.pickupCoordinate!, to: self.destinationCoordinate!)
+
     }
     
-    //  min hrs sec conversion
+    //  =======min hrs sec conversion=====
       func convertSecondsToTimeComponents(seconds: Int) -> (hours: Int, minutes: Int, seconds: Int) {
           let hours = seconds / 3600
           let minutes = (seconds % 3600) / 60
@@ -130,9 +133,9 @@ extension CurrentLocationOfOrderVC:SelectListType{
           return (hours, minutes, remainingSeconds)
       }
     
-    // MARK: - All Api
+    // MARK: - =========== All Api
     
-    func driverConfirmBidingDetailMethod(){
+    func driverConfirmBidingDetailMethod(){      //TODO:  Pickup & Drop location get
         var param = [String:Any]()
         print(param)
         DriverOrderViewModel.driverConfirmBisDetailsApi(viewController: self, parameters: param as NSDictionary){ response in
@@ -154,46 +157,26 @@ extension CurrentLocationOfOrderVC:SelectListType{
             print(self.lat ?? "")
             print(self.long ?? "")
             
-            self.pickupCoordinate = CLLocationCoordinate2DMake(Double("\(self.driverConfirmBDM?.data?.pickup_latitude ?? 0.0)") ?? 0.0, Double("\(self.driverConfirmBDM?.data?.pickup_longitude ?? 0.0)") ?? 0.0)
-                
-            self.destinationCoordinate = CLLocationCoordinate2DMake(Double("\(self.driverConfirmBDM?.data?.drop_latitude ?? 0.0)") ?? 0.0, Double("\(self.driverConfirmBDM?.data?.drop_longitude ?? 0.0)") ?? 0.0)
-            
-           //====== route draw ======
-            
-            self.getRouteSteps(from: self.pickupCoordinate!, to: self.destinationCoordinate!)
+            if self.driverStatusID == nil{
+                print(self.driverStatusID ?? 0)
+                  self.pickupCoordinate = CLLocationCoordinate2DMake(Double("\(self.lat ?? "")") ?? 0.0, Double("\(self.long ?? "")") ?? 0.0)
+                  
+                  self.destinationCoordinate = CLLocationCoordinate2DMake(Double("\(self.driverConfirmBDM?.data?.pickup_latitude ?? 0.0)") ?? 0.0, Double("\(self.driverConfirmBDM?.data?.pickup_longitude ?? 0.0)") ?? 0.0)
+                  
+                  //====== route draw ======
+                  
+                  self.getRouteSteps(from: self.pickupCoordinate!, to: self.destinationCoordinate!)
+              }
+              else {
+                  print(self.driverStatusID ?? 0)
+                  self.driverStartTripMethod(driverStatus:"\(self.driverStatusID ?? 0)") //  api call Update Status For client
+              }
          }
-    }
+     }
     
-   //get current location by google map
-    func getCurrentLocation() {
-        locationManager.requestWhenInUseAuthorization()
-        var currentLoc: CLLocation!
-        if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
-            CLLocationManager.authorizationStatus() == .authorizedAlways) {
-            currentLoc = locationManager.location
-            if currentLoc != nil {
-                let geocoder = GMSGeocoder()
-                geocoder.reverseGeocodeCoordinate(currentLoc.coordinate) { response, error in
-                    guard let address = response?.firstResult(), let lines = address.lines else {
-                        return
-                    }
-                    print(lines)
-                    //self.addressTF.text = lines.joined(separator: "\n")
-                    print(lines.joined(separator: "\n"))
-                    //self.coordinate = currentLoc.coordinate
-                    //print( self.coordinate!)
-                    self.setUpMap(lattitude: currentLoc.coordinate.latitude, longitude: currentLoc.coordinate.longitude)
-                }
-                
-            }
-            else {
-                setUpMap(lattitude: 28.6061, longitude: 77.3694)
-            }
-        }
-    }
+
     
-    
-    //  =====update driver locat api=====
+    //  ===== update driver locat api =====
         func updateDriverLocationApiCall(){
             
             self.city = UserDefaults.standard.string(forKey: "cityName")
@@ -202,19 +185,20 @@ extension CurrentLocationOfOrderVC:SelectListType{
             self.long = UserDefaults.standard.string(forKey: "long")
             print(self.long ?? "")
             self.currentLocation = self.city
+            
             var param = [String:Any]()
             param = ["current_city":city ?? "", "current_location":currentLocation ?? "", "current_latitude":lat ?? "", "current_longitude":long ?? ""]
             print(param)
             DRiverHomeViewModel.updateDriverLocationApi(viewController: self, parameters: param as NSDictionary){ response in
                 CommonMethods.showAlertMessage(title: Constant.TITLE, message: response?.msg, view: self)
                 self.updateLocationModel = response
-                
             }
         }
     
     // =========driver start trip api======
     
     func driverStartTripMethod(driverStatus:String){
+        self.updateDriverLocationApiCall()
         var param = [String:Any]()
         param = ["driver_status":driverStatus]
         print(param)
@@ -222,24 +206,58 @@ extension CurrentLocationOfOrderVC:SelectListType{
             response in
             print("strat trip api is successful")
             self.driverStartTripM = response
-            self.updateDriverLocationApiCall()
+            
+            self.pickupCoordinate = CLLocationCoordinate2DMake(Double("\(25.9875)") ?? 0.0, Double("\(79.4489)") ?? 0.0)
+                
+            self.destinationCoordinate = CLLocationCoordinate2DMake(Double("\(self.driverConfirmBDM?.data?.drop_latitude ?? 0.0)") ?? 0.0, Double("\(self.driverConfirmBDM?.data?.drop_longitude ?? 0.0)") ?? 0.0)
+            
+           // ====== route draw ======
+            
+            self.getRouteSteps(from: self.pickupCoordinate!, to: self.destinationCoordinate!)
+            
         }
     }
     
       // ========driver completeBooking api=======
-        func driverCompleteBookingMethod(){
-            let param = [String:Any]()
-            DRiverHomeViewModel.driverCompleteBookingApi(viewController: self, parameters: param as NSDictionary){ response in
-                self.driverCBM = response
-                print(self.driverCBM?.msg ?? "")
-                
-            }
+    func driverCompleteBookingMethod(){
+        let param = [String:Any]()
+        DRiverHomeViewModel.driverCompleteBookingApi(viewController: self, parameters: param as NSDictionary){ response in
+            self.driverCBM = response
+            print(self.driverCBM?.msg ?? "")
+            
         }
-
+    }
 }
 
 extension CurrentLocationOfOrderVC{
-    
+    //=========get current location by google map=======
+     func getCurrentLocation() {
+         locationManager.requestWhenInUseAuthorization()
+         var currentLoc: CLLocation!
+         if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+             CLLocationManager.authorizationStatus() == .authorizedAlways) {
+             currentLoc = locationManager.location
+             if currentLoc != nil {
+                 let geocoder = GMSGeocoder()
+                 geocoder.reverseGeocodeCoordinate(currentLoc.coordinate) { response, error in
+                     guard let address = response?.firstResult(), let lines = address.lines else {
+                         return
+                     }
+                     print(lines)
+                     //self.addressTF.text = lines.joined(separator: "\n")
+                     print(lines.joined(separator: "\n"))
+                     //self.coordinate = currentLoc.coordinate
+                     //print( self.coordinate!)
+                     self.setUpMap(lattitude: currentLoc.coordinate.latitude, longitude: currentLoc.coordinate.longitude)
+                 }
+                 
+             }
+             else {
+                 setUpMap(lattitude: 28.6061, longitude: 77.3694)
+             }
+         }
+     }
+     
     func getRouteSteps(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
         print(source)
         print(destination)
@@ -331,7 +349,7 @@ extension CurrentLocationOfOrderVC{
                     marker1.map = self.map
                     
                     let marker2 = GMSMarker()
-                    marker2.icon = UIImage(named: "pin")
+                    marker2.icon = UIImage(named: "pin 1")
                     marker2.position = CLLocationCoordinate2DMake(destination.latitude, destination.longitude)
                     
                     let geocoder2 = GMSGeocoder()
@@ -363,11 +381,10 @@ extension CurrentLocationOfOrderVC{
         polyline.map = map // Google MapView
         polyline.map?.isTrafficEnabled = true
         polyline.strokeColor = .red//UIColor(red: 255/255, green: 213/255, blue: 30/255, alpha: 1.0)
-        
-        
-//        let cameraUpdate = GMSCameraUpdate.fit(GMSCoordinateBounds(coordinate: pickupCoordinate!, coordinate: destinationCoordinate!))
+       
+  //        let cameraUpdate = GMSCameraUpdate.fit(GMSCoordinateBounds(coordinate: pickupCoordinate!, coordinate: destinationCoordinate!))
 //        map.moveCamera(cameraUpdate)
-       let currentZoom = map.camera.zoom
+        let currentZoom = map.camera.zoom
         map.animate(toZoom: currentZoom + 0.4)//
    }
     
@@ -383,9 +400,7 @@ extension CurrentLocationOfOrderVC{
         driverConfirmBidingDetailMethod()
         
     }
-
-    
-}
+  }
 
 
 /*

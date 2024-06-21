@@ -79,6 +79,8 @@
 		700FC31F2BF725F40032FF2A /* DriverHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC31E2BF725F40032FF2A /* DriverHomeModel.swift */; };
 		700FC3212BF7260C0032FF2A /* DriverHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700FC3202BF7260C0032FF2A /* DriverHomeViewModel.swift */; };
 		7015AEEB2BECFCF0001BF1B4 /* VehicleDataAndUpdateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7015AEEA2BECFCF0001BF1B4 /* VehicleDataAndUpdateVC.swift */; };
+		7016257D2C245CAC00C4ED91 /* EmergencyContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7016257C2C245CAC00C4ED91 /* EmergencyContactsVC.swift */; };
+		7016257F2C245CDD00C4ED91 /* EmergencyContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7016257E2C245CDD00C4ED91 /* EmergencyContactsCell.swift */; };
 		701629F52BF2104B00D0E4DE /* MianTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701629F42BF2104B00D0E4DE /* MianTableCell.swift */; };
 		701629F72BF21EB500D0E4DE /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701629F62BF21EB500D0E4DE /* CollectionCell.swift */; };
 		701629F92BF22FC800D0E4DE /* PaymentMethodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701629F82BF22FC800D0E4DE /* PaymentMethodVC.swift */; };
@@ -94,6 +96,7 @@
 		702914CA2BE6534100C33E69 /* CompleteRegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702914C92BE6534100C33E69 /* CompleteRegistrationVC.swift */; };
 		702914CC2BE6536E00C33E69 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702914CB2BE6536E00C33E69 /* RegisterModel.swift */; };
 		702914CE2BE6538300C33E69 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702914CD2BE6538300C33E69 /* RegisterViewModel.swift */; };
+		7029B34C2C25407200F007EA /* NeedHelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7029B34B2C25407200F007EA /* NeedHelpVC.swift */; };
 		702EC2C22C01C68B00502422 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 702EC2C12C01C68B00502422 /* GoogleService-Info.plist */; };
 		702EC2CA2C01CA8600502422 /* PinaddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702EC2C92C01CA8600502422 /* PinaddressVC.swift */; };
 		702EC2D02C01DD8600502422 /* MyWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702EC2CF2C01DD8600502422 /* MyWalletVC.swift */; };
@@ -102,6 +105,8 @@
 		702EC2DC2C01EE5500502422 /* MyTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702EC2DA2C01EE5500502422 /* MyTransactionCell.swift */; };
 		702EC2DD2C01EE5500502422 /* MyTransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 702EC2DB2C01EE5500502422 /* MyTransactionCell.xib */; };
 		70317BF92BF4C73100CC41F7 /* GridCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70317BF82BF4C73000CC41F7 /* GridCollectionCell.swift */; };
+		7033F1CB2C216D100086E7F7 /* DriverEmergencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7033F1CA2C216D100086E7F7 /* DriverEmergencyCell.swift */; };
+		7033F1CD2C2171350086E7F7 /* DriverEmergencyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7033F1CC2C2171350086E7F7 /* DriverEmergencyVC.swift */; };
 		703413382BF1D34C0079E66B /* ClientTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703413372BF1D34C0079E66B /* ClientTabBarViewController.swift */; };
 		703413422BF1D6C50079E66B /* ClientHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703413412BF1D6C50079E66B /* ClientHomeVC.swift */; };
 		7034134C2BF1DB020079E66B /* ClientTitleBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7034134B2BF1DB020079E66B /* ClientTitleBar.xib */; };
@@ -146,7 +151,6 @@
 		70A7C3902C08AC7A00730249 /* TrackLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7C38F2C08AC7A00730249 /* TrackLocationVC.swift */; };
 		70DBE49A2C1173C500A1C09E /* DriverNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DBE4992C1173C500A1C09E /* DriverNotesVC.swift */; };
 		70DBE49C2C1173D800A1C09E /* DriverSupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DBE49B2C1173D800A1C09E /* DriverSupportVC.swift */; };
-		70DBE4A02C1173FA00A1C09E /* DriverEmergencyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DBE49F2C1173FA00A1C09E /* DriverEmergencyVC.swift */; };
 		70DBE4A22C117CDC00A1C09E /* DriverupdateLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DBE4A12C117CDC00A1C09E /* DriverupdateLocationVC.swift */; };
 		70DBE4A42C11BB7800A1C09E /* DatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DBE4A32C11BB7800A1C09E /* DatePickerVC.swift */; };
 		70DF0CD72BF867D200662899 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DF0CD62BF867D200662899 /* NotificationModel.swift */; };
@@ -266,6 +270,8 @@
 		700FC31E2BF725F40032FF2A /* DriverHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverHomeModel.swift; sourceTree = "<group>"; };
 		700FC3202BF7260C0032FF2A /* DriverHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverHomeViewModel.swift; sourceTree = "<group>"; };
 		7015AEEA2BECFCF0001BF1B4 /* VehicleDataAndUpdateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDataAndUpdateVC.swift; sourceTree = "<group>"; };
+		7016257C2C245CAC00C4ED91 /* EmergencyContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactsVC.swift; sourceTree = "<group>"; };
+		7016257E2C245CDD00C4ED91 /* EmergencyContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContactsCell.swift; sourceTree = "<group>"; };
 		701629F42BF2104B00D0E4DE /* MianTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MianTableCell.swift; sourceTree = "<group>"; };
 		701629F62BF21EB500D0E4DE /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		701629F82BF22FC800D0E4DE /* PaymentMethodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodVC.swift; sourceTree = "<group>"; };
@@ -281,6 +287,7 @@
 		702914C92BE6534100C33E69 /* CompleteRegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteRegistrationVC.swift; sourceTree = "<group>"; };
 		702914CB2BE6536E00C33E69 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		702914CD2BE6538300C33E69 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		7029B34B2C25407200F007EA /* NeedHelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedHelpVC.swift; sourceTree = "<group>"; };
 		702EC2C12C01C68B00502422 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		702EC2C92C01CA8600502422 /* PinaddressVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinaddressVC.swift; sourceTree = "<group>"; };
 		702EC2CF2C01DD8600502422 /* MyWalletVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWalletVC.swift; sourceTree = "<group>"; };
@@ -289,6 +296,8 @@
 		702EC2DA2C01EE5500502422 /* MyTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTransactionCell.swift; sourceTree = "<group>"; };
 		702EC2DB2C01EE5500502422 /* MyTransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTransactionCell.xib; sourceTree = "<group>"; };
 		70317BF82BF4C73000CC41F7 /* GridCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionCell.swift; sourceTree = "<group>"; };
+		7033F1CA2C216D100086E7F7 /* DriverEmergencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverEmergencyCell.swift; sourceTree = "<group>"; };
+		7033F1CC2C2171350086E7F7 /* DriverEmergencyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverEmergencyVC.swift; sourceTree = "<group>"; };
 		703413372BF1D34C0079E66B /* ClientTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTabBarViewController.swift; sourceTree = "<group>"; };
 		703413412BF1D6C50079E66B /* ClientHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHomeVC.swift; sourceTree = "<group>"; };
 		7034134B2BF1DB020079E66B /* ClientTitleBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClientTitleBar.xib; sourceTree = "<group>"; };
@@ -333,7 +342,6 @@
 		70A7C38F2C08AC7A00730249 /* TrackLocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackLocationVC.swift; sourceTree = "<group>"; };
 		70DBE4992C1173C500A1C09E /* DriverNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverNotesVC.swift; sourceTree = "<group>"; };
 		70DBE49B2C1173D800A1C09E /* DriverSupportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSupportVC.swift; sourceTree = "<group>"; };
-		70DBE49F2C1173FA00A1C09E /* DriverEmergencyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverEmergencyVC.swift; sourceTree = "<group>"; };
 		70DBE4A12C117CDC00A1C09E /* DriverupdateLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverupdateLocationVC.swift; sourceTree = "<group>"; };
 		70DBE4A32C11BB7800A1C09E /* DatePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerVC.swift; sourceTree = "<group>"; };
 		70DF0CD62BF867D200662899 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
@@ -899,6 +907,18 @@
 			path = MyWallet;
 			sourceTree = "<group>";
 		};
+		7033F1C92C216CF00086E7F7 /* Emergency */ = {
+			isa = PBXGroup;
+			children = (
+				7033F1CA2C216D100086E7F7 /* DriverEmergencyCell.swift */,
+				7033F1CC2C2171350086E7F7 /* DriverEmergencyVC.swift */,
+				7016257C2C245CAC00C4ED91 /* EmergencyContactsVC.swift */,
+				7016257E2C245CDD00C4ED91 /* EmergencyContactsCell.swift */,
+				7029B34B2C25407200F007EA /* NeedHelpVC.swift */,
+			);
+			path = Emergency;
+			sourceTree = "<group>";
+		};
 		703413392BF1D60E0079E66B /* ClientTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1087,9 +1107,9 @@
 		70DBE4982C11739900A1C09E /* HorigontalStackOptions */ = {
 			isa = PBXGroup;
 			children = (
+				7033F1C92C216CF00086E7F7 /* Emergency */,
 				7017B1162C18431000638791 /* Notes */,
 				70DBE49B2C1173D800A1C09E /* DriverSupportVC.swift */,
-				70DBE49F2C1173FA00A1C09E /* DriverEmergencyVC.swift */,
 				70DBE4A12C117CDC00A1C09E /* DriverupdateLocationVC.swift */,
 			);
 			path = HorigontalStackOptions;
@@ -1471,13 +1491,19 @@
 				70500F512BDFA36200BC4BB5 /* Constant.swift in Sources */,
 				7008F7112BF5DC0E00B0B809 /* AllBidCell.swift in Sources */,
 				41E606B62BD26B760053E6EF /* OrderVC.swift in Sources */,
+				7016257F2C245CDD00C4ED91 /* EmergencyContactsCell.swift in Sources */,
 				7044860F2BE8ED6500CC9403 /* UpdareProfileModel.swift in Sources */,
 				702914CE2BE6538300C33E69 /* RegisterViewModel.swift in Sources */,
 				70DBE49A2C1173C500A1C09E /* DriverNotesVC.swift in Sources */,
 				26CF70BD2C196E1800F7D0C9 /* ClientProfieViewModel.swift in Sources */,
 				4117F28B2BCE74F30064304A /* LoginVC.swift in Sources */,
+				7033F1CD2C2171350086E7F7 /* DriverEmergencyVC.swift in Sources */,
 				4150D5A92BCFD64E00CCDE6C /* ImgCell.swift in Sources */,
+
 				26924EE42C216FB0009B54A4 /* OrderDetailsModel.swift in Sources */,
+
+				7033F1CB2C216D100086E7F7 /* DriverEmergencyCell.swift in Sources */,
+
 				70DF0CD72BF867D200662899 /* NotificationModel.swift in Sources */,
 				26CF70BB2C196D0E00F7D0C9 /* ClientProfileModel.swift in Sources */,
 				70A7C3732C08A46500730249 /* ClientProfileVC.swift in Sources */,
@@ -1529,7 +1555,6 @@
 				700E59062C1723F800382224 /* DriverOrderViewModel.swift in Sources */,
 				26924EE72C216FE3009B54A4 /* OrderDetailsViewModel.swift in Sources */,
 				700E58FC2C16FC6800382224 /* OnlyDatePickerVC.swift in Sources */,
-				70DBE4A02C1173FA00A1C09E /* DriverEmergencyVC.swift in Sources */,
 				700FC31F2BF725F40032FF2A /* DriverHomeModel.swift in Sources */,
 				70A7C3852C08AAC800730249 /* Terms&Conditions.swift in Sources */,
 				7017B1182C18436300638791 /* DriverNotesModel.swift in Sources */,
@@ -1545,11 +1570,13 @@
 				707AF3B72C0DDD4000508880 /* CurrentOrderCell.swift in Sources */,
 				4150D5A12BCFC96300CCDE6C /* DriverHomeVC.swift in Sources */,
 				70A7C37A2C08A6D900730249 /* CompletedTVC.swift in Sources */,
+				7029B34C2C25407200F007EA /* NeedHelpVC.swift in Sources */,
 				4117F2282BCE38A90064304A /* SceneDelegate.swift in Sources */,
 				266A5E6E2C2006E6007F87AB /* reqeustOrderViewModel.swift in Sources */,
 				41300C132BCF84BF00A9C2AA /* VerifyAccountVC.swift in Sources */,
 				702914C72BE6423D00C33E69 /* ProfileDataModel.swift in Sources */,
 				700FC3212BF7260C0032FF2A /* DriverHomeViewModel.swift in Sources */,
+				7016257D2C245CAC00C4ED91 /* EmergencyContactsVC.swift in Sources */,
 				41677FFC2BD920850035EDAF /* HistoryVC.swift in Sources */,
 				70500F542BDFB5B100BC4BB5 /* LoginModel.swift in Sources */,
 				4150FA072BDA8A87009E20AF /* DropDownListVC.swift in Sources */,

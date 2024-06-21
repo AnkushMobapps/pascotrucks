@@ -24,7 +24,7 @@ struct DriverNoteModel:Codable{
     }
  }
 
-//get Reminder model
+//get Note model
 struct DriverGetNotesModel:Codable{
     var status:String?
     var msg:String?
@@ -46,6 +46,7 @@ struct DriverGetNotesModel:Codable{
  }
 
 struct driverGetNotesModel_data:Codable{
+    var id:Int?
     var user:String?
     var title:String?
     var description:String?
@@ -53,6 +54,7 @@ struct driverGetNotesModel_data:Codable{
   
     
     enum CodingKeys:String,CodingKey{
+        case id = "id"
         case user = "user"
         case title = "title"
         case description = "description"
@@ -60,6 +62,7 @@ struct driverGetNotesModel_data:Codable{
    }
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decodeIfPresent(Int.self, forKey: .id)
         self.user = try container.decodeIfPresent(String.self, forKey: .user)
         self.title = try container.decodeIfPresent(String.self, forKey: .title)
         self.description = try container.decodeIfPresent(String.self, forKey: .description)
@@ -67,4 +70,28 @@ struct driverGetNotesModel_data:Codable{
     }
   
     
+ }
+
+//delet note model
+/*
+ {
+     "status": "True",
+     "message": "Note delete successfully!.."
+ }
+ */
+
+struct driverDeleteNoteModel:Codable{
+    var status:String?
+    var message:String?
+   
+    
+    enum CodingKeys:String,CodingKey{
+        case status = "status"
+        case message = "message"
+    }
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.status = try container.decodeIfPresent(String.self, forKey: .status)
+        self.message = try container.decodeIfPresent(String.self, forKey: .message)
+    }
  }

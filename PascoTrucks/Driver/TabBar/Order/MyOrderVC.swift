@@ -139,6 +139,8 @@ extension MyOrderVC{
         }
     }
 }
+
+
 extension MyOrderVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if segmentControl.selectedSegmentIndex == 0{
@@ -184,6 +186,8 @@ extension MyOrderVC:UITableViewDelegate,UITableViewDataSource{
             cell.orderId.text = self.driverOngoingLM?.data?[indexPath.row].booking_number ?? ""
             cell.dateAndTime.text = self.driverOngoingLM?.data?[indexPath.row].created_at ?? ""
             cell.price.text = "\(self.driverOngoingLM?.data?[indexPath.row].bid_price ?? 0.0)"
+            
+          
             return cell
         }
     }
@@ -204,16 +208,20 @@ extension MyOrderVC:UITableViewDelegate,UITableViewDataSource{
             }
         }
         
-        else{
-            let vc = self.storyboard?.instantiateViewController(identifier: "DriverHomeVC") as! DriverHomeVC
-           self.navigationController?.pushViewController(vc, animated: true)
+        else {
+            let vc = self.storyboard?.instantiateViewController(identifier: "CurrentLocationOfOrderVC") as! CurrentLocationOfOrderVC
+            vc.id = self.driverOngoingLM?.data?[indexPath.row].id ?? 0
+            vc.driverStatusText = self.driverOngoingLM?.data?[indexPath.row].driver_status  ?? ""
+            vc.driverStatusID = self.driverOngoingLM?.data?[indexPath.row].driver_status_id
+            
+            print(self.driverOngoingLM?.data?[indexPath.row].id ?? 0)
+            print(self.driverOngoingLM?.data?[indexPath.row].booking_status ?? "")
+            print("ID = ", self.driverOngoingLM?.data?[indexPath.row].id ?? 0 )
+            self.navigationController?.pushViewController(vc, animated: true)
         }
-       
-        
-        
+     
     }
-    
-    
+ 
 }
 extension MyOrderVC{
     func getDriverBidingstatusApi(){

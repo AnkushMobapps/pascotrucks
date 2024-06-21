@@ -35,8 +35,13 @@ var updateBidingDetails_url = base_Url+"updatebookingbid/"
 var confirmOrder_url = base_Url+"updatebookingbid/"
 var driver_logout_url = base_Url+"user-logout/"
 var driverUpdateLocation_url = base_Url+"location-update/"
+var nearBtDriverList_url = base_Url+"NearbyVehicle/"
+var perDriEmrHelp_url = base_Url+"send-emergency-help/"
+var driverStartTrip_url = base_Url+"start_trip/"
+var driverCompleteBooking_url = base_Url+"DriverCompleteBooking/"
 var driverAddNote_url = base_Url+"add-reminder/"
 var driverGetNote_url = base_Url+"add-reminder/"
+var driverDeleteNote_url = base_Url+"delete-note/"
 var driverBidingstatus_url = base_Url+"bookingdriverbiddetail/"
 var driverPendingBidDetails_url = base_Url+"bookingdriverdata/"
 var driverConfirmBidDetails_url = base_Url+"afterstarttrip/"
@@ -44,7 +49,7 @@ var driverStatusList_url = base_Url+"driver_status_list/"
 var driverOngoingBidList_url = base_Url+"bookdriver-ongoing/"
 var drivercompleteOrder_url = base_Url+"bookclient-completed/"
 var drivercancelOrder_url = base_Url+"bookclient-cancelled/"
-
+var driverEmergContactList_url = base_Url+"show-emergencydetail/"
 
 
 // MARK: Client Side Api

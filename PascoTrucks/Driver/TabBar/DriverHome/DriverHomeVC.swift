@@ -61,9 +61,8 @@ class DriverHomeVC : UIViewController {
     // MARK: - all button on horigontal stack view
     
     
-    @IBAction func notesBtnClk(_ sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "DriverNotesVC") as! DriverNotesVC
-        self.navigationController?.pushViewController(vc, animated: true)
+    @IBAction func shareLocationBtnClk(_ sender: UIButton) {
+       
     }
     
     
@@ -81,7 +80,7 @@ class DriverHomeVC : UIViewController {
     
     
     @IBAction func emergencyBtnClk(_ sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "DriverEmergencyVC") as! DriverEmergencyVC
+        let vc = self.storyboard?.instantiateViewController(identifier: "NeedHelpVC") as! NeedHelpVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
  
@@ -268,6 +267,7 @@ extension DriverHomeVC {
         print(param)
         DRiverHomeViewModel.updateDriverLocationApi(viewController: self, parameters: param as NSDictionary){ response in
             print("Success")
+            CommonMethods.showAlertMessage(title: Constant.TITLE, message: response?.msg, view: self)
             self.updateLocationModel = response
         }
     }

@@ -1,23 +1,19 @@
 //
-//  DriverEmergencyCell.swift
+//  EmergencyContactsCell.swift
 //  PascoTrucks
 //
-//  Created by Narendra Kumar on 18/06/24.
+//  Created by Narendra Kumar on 20/06/24.
 //
 
 import UIKit
 
-class DriverEmergencyCell: UITableViewCell {
-
+class EmergencyContactsCell: UITableViewCell {
     @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var driverName: UILabel!
-    @IBOutlet weak var checkImage: UIImageView!
-    var driverId:Int?
-
-    
+    @IBOutlet weak var countryName: UILabel!
+    @IBOutlet weak var emergencyNumber: UILabel!
     override func awakeFromNib() {
+        
         super.awakeFromNib()
-        checkImage.image = #imageLiteral(resourceName: "sqaure")
         mainView.layer.borderWidth = 0
         mainView.layer.shadowColor = UIColor.black.cgColor
         mainView.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -25,5 +21,6 @@ class DriverEmergencyCell: UITableViewCell {
         mainView.layer.shadowOpacity = 0.3
         mainView.layer.masksToBounds = false
     }
-    
+
+  
 }

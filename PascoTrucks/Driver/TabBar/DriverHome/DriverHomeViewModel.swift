@@ -165,22 +165,59 @@ class DRiverHomeViewModel{
         }
     }
     
+    // MARK: - Near By Driver List Api
+ //NearbyVehicle/
+    class func nearByDriverListApi(viewController:UIViewController,parameters:NSDictionary,completion:@escaping(NearByDriverModel?)->Void){
+       
+        DataManager.alamofireNewPostwithHadderRequest(url: nearBtDriverList_url, viewcontroller: viewController, parameters: parameters as? [String:AnyObject]) {(response , error) in
+            print("success")
+            if let responseData = response{
+                let userData = try! JSONDecoder().decode(NearByDriverModel.self, from: responseData)
+                if userData.status == "True" {
+                    completion(userData)
+                }
+                else{
+                    CommonMethods.showAlertMessage(title: Constant.TITLE, message:userData.msg, view: viewController)
+                }
+            }
+        }
+    }
+   
+ // MARK: - Help Request to perticular driver
+ //NearbyVehicle/
+    class func helpReqToPerticularDriverApi(viewController:UIViewController,parameters:NSDictionary,completion:@escaping(PerticularDriverHelpReqModel?)->Void){
+        let id = parameters["driver_id"] as? Int
+        print(id ?? 0)
+        let myId = String(id ?? 0)+"/"
+        print(myId)
+        DataManager.alamofireNewPostwithHadderRequest(url: perDriEmrHelp_url+myId, viewcontroller: viewController, parameters: parameters as? [String:AnyObject]) {(response , error) in
+            print("success")
+            if let responseData = response{
+                let userData = try! JSONDecoder().decode(PerticularDriverHelpReqModel.self, from: responseData)
+                if userData.status == "True" {
+                    completion(userData)
+                }
+                else{
+                    CommonMethods.showAlertMessage(title: Constant.TITLE, message:userData.msg, view: viewController)
+                }
+            }
+        }
+    }
     
-    
-    
+// MARK: - emergency Contact List
+    class func EmergencyContactListApi(viewController:UIViewController,parameters:NSDictionary,completion:@escaping(EmergencyContactListModel?)->Void){
+       
+        DataManager.alamofirewithhadderNewGetRequest(url: driverEmergContactList_url, viewcontroller: viewController, parameters: parameters as? [String:AnyObject]){(response , error) in
+            print("success")
+            if let responseData = response{
+                let userData = try! JSONDecoder().decode(EmergencyContactListModel.self, from: responseData)
+                if userData.status == "True" {
+                    completion(userData)
+                }
+                else{
+                    CommonMethods.showAlertMessage(title: Constant.TITLE, message:userData.msg, view: viewController)
+                }
+            }
+        }
+    }
 }
-/*
- {(response , error) in
-     print("success")
-     if let responseData = response{
-         let userData = try! JSONDecoder().decode(driverCompleteBookingModel.self, from: responseData)
-         if userData.status == "True" {
-             completion(userData)
-         }
-         else{
-             CommonMethods.showAlertMessage(title: Constant.TITLE, message:userData.msg, view: viewController)
-         }
-     }
- }
- */
-//driverCompleteBooking_url+myId

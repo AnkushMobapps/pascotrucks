@@ -707,6 +707,9 @@ struct DriverOngoingListModel_data:Codable{
     var additionalservice_name:String?//
     var additionalservice_amount:Double?//
     
+    var driver_status:String?
+    var driver_status_id:Int?
+    
 enum CodingKeys:String,CodingKey{
         case id = "id"
         case booking_number = "booking_number"
@@ -740,6 +743,9 @@ enum CodingKeys:String,CodingKey{
         
         case additionalservice_name = "additionalservice_name"
         case additionalservice_amount = "additionalservice_amount"
+    
+        case driver_status = "driver_status"
+        case driver_status_id = "driver_status_id"
    }
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -775,6 +781,9 @@ enum CodingKeys:String,CodingKey{
         
         self.additionalservice_name = try container.decodeIfPresent(String.self, forKey: .additionalservice_name)
         self.additionalservice_amount = try container.decodeIfPresent(Double.self, forKey: .additionalservice_amount)
+        
+        self.driver_status = try container.decodeIfPresent(String.self, forKey: .driver_status)
+        self.driver_status_id = try container.decodeIfPresent(Int.self, forKey: .driver_status_id)
     }
     
 

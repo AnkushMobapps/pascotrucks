@@ -399,15 +399,7 @@ struct UpdateDriverLocationModel_data:Codable{
 }
 
 
-//start trip
-
-/*
- {
-     "status": "True",
-     "msg": "Trip Start by Driver"
- }
- */
-
+//===start trip model=====
 struct driverStartTripModel:Codable{
     var status:String?
     var msg:String?
@@ -441,3 +433,118 @@ struct driverCompleteBookingModel:Codable{
         self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
     }
 }
+ 
+// =======emergency near by driver list model======
+/*
+ {
+     "status": "True",
+     "msg": "NearBy Drivers List",
+     "data": [
+         {
+             "driverid": 18,
+             "user": "driver1"
+         },
+         {
+             "driverid": 19,
+             "user": "driver1"
+         },
+    
+     ]
+ }
+ */
+struct NearByDriverModel:Codable{
+    var status:String?
+    var msg:String?
+    var data:[NearByDriverModel_data]?
+    
+    enum CodingKeys:String,CodingKey{
+        case status = "status"
+        case msg = "msg"
+        case data = "data"
+    }
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.status = try container.decodeIfPresent(String.self, forKey: .status)
+        self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
+        self.data = try container.decodeIfPresent([NearByDriverModel_data].self, forKey: .data)
+    }
+}
+struct NearByDriverModel_data:Codable{
+    var driverid:Int?
+    var user:String?
+   
+    
+    enum CodingKeys:String,CodingKey{
+        case driverid = "driverid"
+        case user = "user"
+       
+    }
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.driverid = try container.decodeIfPresent(Int.self, forKey: .driverid)
+        self.user = try container.decodeIfPresent(String.self, forKey: .user)
+       
+    }
+}
+
+
+// ==== req help for perticular driver====
+
+struct PerticularDriverHelpReqModel:Codable{
+    var status:String?
+    var msg:String?
+
+   enum CodingKeys:String,CodingKey{
+        case status = "status"
+        case msg = "msg"
+      
+    }
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.status = try container.decodeIfPresent(String.self, forKey: .status)
+        self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
+       
+    }
+}
+
+
+// =======emergency list model=======
+
+struct EmergencyContactListModel:Codable{
+    var status:String?
+    var msg:String?
+    var data:[EmergencyContactListModel_data]?
+   enum CodingKeys:String,CodingKey{
+        case status = "status"
+        case msg = "msg"
+        case data = "data"
+    }
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.status = try container.decodeIfPresent(String.self, forKey: .status)
+        self.msg = try container.decodeIfPresent(String.self, forKey: .msg)
+        self.data = try container.decodeIfPresent([EmergencyContactListModel_data].self, forKey: .data)
+       
+    }
+}
+struct EmergencyContactListModel_data:Codable{
+    var id:Int?
+    var country:String?
+    var emergencynum:String?
+
+   enum CodingKeys:String,CodingKey{
+        case id = "id"
+        case country = "country"
+        case emergencynum = "emergencynum"
+      
+    }
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decodeIfPresent(Int.self, forKey: .id)
+        self.country = try container.decodeIfPresent(String.self, forKey: .country)
+        self.emergencynum = try container.decodeIfPresent(String.self, forKey: .emergencynum)
+       
+    }
+}
+
+

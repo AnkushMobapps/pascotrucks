@@ -10,15 +10,13 @@ import UIKit
 class GetAndDeleteDriverNoteVC: UIViewController {
     
     @IBOutlet weak var noteAndReminderTable: UITableView!
- 
-    
     @IBOutlet weak var emptyNotes: UIView!
-    
+ 
     var boxImgArray = [#imageLiteral(resourceName: "ticksquare"),#imageLiteral(resourceName: "ticksquare"),#imageLiteral(resourceName: "ticksquare"),#imageLiteral(resourceName: "ticksquare"),#imageLiteral(resourceName: "ticksquare"),#imageLiteral(resourceName: "ticksquare")]
     var getDriverNotesModel:DriverGetNotesModel?
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         
     }
     override func viewWillAppear(_ animated: Bool) {

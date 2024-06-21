@@ -65,6 +65,7 @@ let allBids_Url = base_Url+"afterbidlist/"
 let acceptOrder_Url = base_Url+"acceptedbooking/"
 let orderDetails_Url = base_Url+"bookingbiddetail/"
 let assignBooking_Url = base_Url+"assign_Booking/"
+let trackLocation_Url = base_Url+"show-location/"
 
 
 

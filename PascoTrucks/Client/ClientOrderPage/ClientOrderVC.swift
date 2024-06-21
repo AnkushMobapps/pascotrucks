@@ -319,6 +319,7 @@ extension ClientOrderVC:UITableViewDelegate,UITableViewDataSource{
         else if tableView == acceptBidTBView {
             
             let vc = self.storyboard?.instantiateViewController(identifier: "TrackLocationVC") as! TrackLocationVC
+            vc.bookedid = self.accepetOrder?.data?[indexPath.row].id ?? 0
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

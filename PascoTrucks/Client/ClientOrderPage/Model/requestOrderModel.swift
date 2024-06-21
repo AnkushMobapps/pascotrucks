@@ -76,6 +76,9 @@ struct AllBidsDataModel:Codable{
     var basicprice:Double?
     var pickup_datetime:String?
     var user:String?
+    var total_distance:Double?
+    var pickup_location:String?
+    var drop_location:String?
    
    
     enum CodingKeys:String,CodingKey{
@@ -84,6 +87,9 @@ struct AllBidsDataModel:Codable{
         case basicprice = "basicprice"
         case pickup_datetime = "pickup_datetime"
         case user = "user"
+        case total_distance = "total_distance"
+        case pickup_location = "pickup_location"
+        case drop_location = "drop_location"
         
     }
     init(from decoder: Decoder) throws {
@@ -93,6 +99,9 @@ struct AllBidsDataModel:Codable{
         self.basicprice = try container.decodeIfPresent(Double.self, forKey: .basicprice)
         self.pickup_datetime = try container.decodeIfPresent(String.self, forKey: .pickup_datetime)
         self.user = try container.decodeIfPresent(String.self, forKey: .user)
+        self.total_distance = try container.decodeIfPresent(Double.self, forKey: .total_distance)
+        self.pickup_location = try container.decodeIfPresent(String.self, forKey: .pickup_location)
+        self.drop_location = try container.decodeIfPresent(String.self, forKey: .drop_location)
     }
 }
 
@@ -122,7 +131,8 @@ struct ActiveOrdeDataModel:Codable{
     var basicprice:Double?
     var pickup_datetime:String?
     var user:String?
-   
+    var booking_status:String?
+
    
     enum CodingKeys:String,CodingKey{
         case id = "id"
@@ -130,6 +140,7 @@ struct ActiveOrdeDataModel:Codable{
         case basicprice = "basicprice"
         case pickup_datetime = "pickup_datetime"
         case user = "user"
+        case  booking_status = "booking_status"
         
     }
     init(from decoder: Decoder) throws {
@@ -139,5 +150,6 @@ struct ActiveOrdeDataModel:Codable{
         self.basicprice = try container.decodeIfPresent(Double.self, forKey: .basicprice)
         self.pickup_datetime = try container.decodeIfPresent(String.self, forKey: .pickup_datetime)
         self.user = try container.decodeIfPresent(String.self, forKey: .user)
+        self.booking_status = try container.decodeIfPresent(String.self, forKey: .booking_status)
     }
 }

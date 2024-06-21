@@ -23,7 +23,8 @@ class PinaddressVC: UIViewController,GMSAutocompleteViewControllerDelegate, GMSM
     @IBOutlet weak var addressBtn: UIButton!
     @IBOutlet weak var confirmLocationBtn: UIButton!
     @IBOutlet weak var addressTF: UITextView!
-  
+   
+    @IBOutlet weak var titleLbl: UILabel!
     
     var pickupCoordinate: CLLocationCoordinate2D?
     var coordinate: CLLocationCoordinate2D?
@@ -37,17 +38,24 @@ class PinaddressVC: UIViewController,GMSAutocompleteViewControllerDelegate, GMSM
     var longitude:String?
     var uploadImg:UIImage?
     var currentLoc:Float?
- 
+    var titleValue:String?
     var editHostCreate:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if titleValue == "Pick"{
+            self.titleLbl.text = "Pick Start Point"
+        }
+        else{
+            self.titleLbl.text = "Pick Destination Point"
+        }
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
-        setUpMap(lattitude: 28.6061, longitude: 77.3694)
+//        setUpMap(lattitude: 28.6061, longitude: 77.3694)
         if CLLocationManager.locationServicesEnabled(){
             locationManager.startUpdatingLocation()
         }

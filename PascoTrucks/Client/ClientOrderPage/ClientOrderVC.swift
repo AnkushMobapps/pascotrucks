@@ -17,7 +17,9 @@ class ClientOrderVC: UIViewController {
     @IBOutlet weak var acceptBidTBView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    
+    var totalPrice:String?
+    var dateTime:String?
+    var tootalDistance:String?
     var requestOrder:resqustOrderModel?
     var allBids:AllBidsModel?
     var accepetOrder:ActiveOrderModel?
@@ -40,16 +42,19 @@ class ClientOrderVC: UIViewController {
             tbView1.isHidden = false
             tbView2.isHidden = true
             tbView3.isHidden = true
+            requestOrderApi()
         }
         else if sender.selectedSegmentIndex == 1{
             tbView1.isHidden = true
             tbView2.isHidden = false
             tbView3.isHidden = true
+            allBidsApi()
         }
         else{
             tbView1.isHidden = true
             tbView2.isHidden = true
             tbView3.isHidden = false
+            accepetOrderApi()
         }
     }
     
@@ -146,6 +151,7 @@ extension ClientOrderVC:UITableViewDelegate,UITableViewDataSource{
             print(outputDateString)  // Output: 2024-06-21 05:14 PM
             
             cell.dateLbl.text = outputDateString
+            self.dateTime =   cell.dateLbl.text
              
             
             
@@ -158,6 +164,20 @@ extension ClientOrderVC:UITableViewDelegate,UITableViewDataSource{
                        print(foormattedDistance)  // Output: 3.1
                        
             cell.pricelbl.text = "$\(foormattedDistance)"
+            
+//            totalPrice =  cell.pricelbl.text
+            
+            
+//            let distance = Double(allBids?.data?[indexPath.row].total_distance ?? 0.0)
+//             
+//              let formattedDistance = self.totalDistance(distance)
+//                       print(formattedDistance)  // Output: 3.1
+//                       
+//            self.tootalDistance = "$\(foormattedDistance)"
+          
+            
+           
+            
                     
             
             cell.selectionStyle = .none
@@ -169,7 +189,8 @@ extension ClientOrderVC:UITableViewDelegate,UITableViewDataSource{
             let cell = acceptBidTBView.dequeueReusableCell(withIdentifier: "acceptBidCell", for: indexPath) as! AcceptBidCell
             cell.nameLbl.text = self.accepetOrder?.data?[indexPath.row].user ?? ""
             cell.orderIdLbl.text = self.accepetOrder?.data?[indexPath.row].booking_number ?? ""
-       
+            cell.statusLbl.text = self.accepetOrder?.data?[indexPath.row].booking_status ?? ""
+    
         
             
             let inputDateString = self.accepetOrder?.data?[indexPath.row].pickup_datetime ?? ""
@@ -203,7 +224,7 @@ extension ClientOrderVC:UITableViewDelegate,UITableViewDataSource{
                        print(foormattedDistance)  // Output: 3.1
                        
             cell.estimatePrizeLbl.text = "$\(foormattedDistance)"
-            
+       
             
             
             
@@ -226,6 +247,81 @@ extension ClientOrderVC:UITableViewDelegate,UITableViewDataSource{
         //round to single digit after decimal
            
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == allBidTBView{
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ClientOrderDetailsVC") as! ClientOrderDetailsVC
+            
+            vc.name  = self.allBids?.data?[indexPath.row].user ?? ""
+            vc.orderId = self.allBids?.data?[indexPath.row].booking_number ?? ""
+         
+           
+         
+         
+         
+          
+            vc.picckupLocation = self.allBids?.data?[indexPath.row].pickup_location ?? ""
+            vc.dropLocation = self.allBids?.data?[indexPath.row].drop_location ?? ""
+            vc.id = self.allBids?.data?[indexPath.row].id ?? 0
+            
+            
+            
+            let Price = Double(allBids?.data?[indexPath.row].basicprice ?? 0.0)
+             
+              let foormattedDistance = self.fmatToSingleDecimalPlace(Price)
+                       print(foormattedDistance)  // Output: 3.1
+                       
+            totalPrice = "$\(foormattedDistance)"
+            
+            vc.totalPrice =  self.totalPrice
+           
+            
+            
+            let distance = Double(allBids?.data?[indexPath.row].total_distance ?? 0.0)
+             
+              let formattedDistance = self.totalDistance(distance)
+                       print(formattedDistance)  // Output: 3.1
+                       
+            self.tootalDistance = "\(formattedDistance)km"
+            vc.distance = tootalDistance
+         
+            
+            
+            
+            let inputDateString = self.allBids?.data?[indexPath.row].pickup_datetime ?? ""
+
+            // Step 1: Convert the input string to a Date object
+            let inputDateFormatter = ISO8601DateFormatter()
+            guard let date = inputDateFormatter.date(from: inputDateString) else {
+                fatalError("Unable to parse date string")
+            }
+            
+            // Step 2: Convert the Date object to the desired string format
+            let outputDateFormatter = DateFormatter()
+            outputDateFormatter.dateFormat = "yyyy-MM-dd hh:mm a"
+            outputDateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            outputDateFormatter.amSymbol = "AM"
+            outputDateFormatter.pmSymbol = "PM"
+
+            let outputDateString = outputDateFormatter.string(from: date)
+            print(outputDateString)  // Output: 2024-06-21 05:14 PM
+            
+            self.dateTime = outputDateString
+            vc.dateTime = dateTime
+            
+            
+            
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        else if tableView == acceptBidTBView {
+            
+            let vc = self.storyboard?.instantiateViewController(identifier: "TrackLocationVC") as! TrackLocationVC
+            vc.bookedid = self.accepetOrder?.data?[indexPath.row].id ?? 0
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     
@@ -291,6 +387,14 @@ extension ClientOrderVC:UITableViewDelegate,UITableViewDataSource{
     
     
     func fmtToSingleDecimalPlace(_ value: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 1
+        formatter.minimumFractionDigits = 1
+        formatter.roundingMode = .halfUp
+        return formatter.string(from: NSNumber(value: value)) ?? "\(value)"
+    }
+    
+    func totalDistance(_ value: Double) -> String {
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 1
         formatter.minimumFractionDigits = 1

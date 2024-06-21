@@ -117,6 +117,7 @@ extension ClientHomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICo
             cell.backgroundColor = .none
 //            cell.topImg.image = topImgArray[indexPath.row]
             
+            
             let img = self.homePageing?.data?[indexPath.row].slideimage ?? ""
             if let url = URL(string: image_Url + img){
                 cell.topImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
@@ -128,6 +129,7 @@ extension ClientHomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICo
             let img = self.clientServiceModel?.data?[indexPath.row].shipmentimage ?? ""
             if let url = URL(string: image_Url + img){
                 cell.cellImg.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0))
+                cell.imgName.text = self.clientServiceModel?.data?[indexPath.row].shipmentname  ?? ""
             }
             return cell
         }
@@ -139,6 +141,7 @@ extension ClientHomeVC: UICollectionViewDelegate,UICollectionViewDataSource,UICo
             let vc = self.storyboard?.instantiateViewController(identifier: "PaymentMethodVC") as! PaymentMethodVC
             let id = self.clientServiceModel?.data?[indexPath.row].shipmentid
             vc.serviceVehicleId = self.clientServiceModel?.data?[indexPath.row].shipmentid
+            vc.shipmeentType = self.clientServiceModel?.data?[indexPath.row].shipmentname  ?? ""
            
             self.navigationController?.pushViewController(vc, animated: true)
         }
